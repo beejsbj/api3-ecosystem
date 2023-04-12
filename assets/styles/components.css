@@ -3,17 +3,41 @@
 @import "forms.css";
 
 .texture {
-	background-image: var(--texture);
+  background-image: var(--texture);
 }
 
 .checkers {
-	background-image: var(--checkers);
+  background-image: var(--checkers);
 }
 
 .diagnol {
-	background-image: var(--diagnol);
+  background-image: var(--diagnol);
 }
 
 .points {
-	background-image: var(--points);
+  background-image: var(--points);
+}
+
+div.actions {
+  display: flex;
+  gap: 1rem;
+}
+
+a {
+  color: var(--color);
+}
+
+.button {
+  padding: 5px 15px;
+  background-color: var(--color);
+  color: var(--paper);
+  cursor: pointer;
+}
+
+.button:hover {
+  filter: brightness(1.5);
+  transition: 0.2s;
+}
+
+a.button {
 }

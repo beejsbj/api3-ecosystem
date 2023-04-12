@@ -1,4 +1,18 @@
-
 form {
-	
+  display: grid;
+  gap: 1.5rem;
+}
+
+form form-field {
+  display: grid;
+  gap: 1rem;
+}
+
+form-field input {
+  padding: 0.5rem;
+}
+
+.radio-group {
+  display: grid;
+  gap: 1rem;
 }
