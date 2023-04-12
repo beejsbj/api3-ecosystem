@@ -1,0 +1,97 @@
+/* Should we pull in @fonts here? */
+/* don't think you can... might have to be higher up (the top of) the food chain! */
+
+html {
+	--font1: serif;
+	--font2: sans-serif;
+}
+
+.booming-voice {
+	font-family: var(--font1);
+	font-size: 40px;
+	font-weight: 700;
+}
+
+.loud-voice {
+	font-family: var(--font2);
+	font-size: clamp(2.25rem, calc(1.66rem + 2.93vw), 3.75rem);
+}
+
+@media (min-width: 600px) {
+	.booming-voice {
+		font-weight: 700;
+		font-size: clamp(4rem, calc(3.61rem + 1.95vw), 5rem);
+		/* or variable font */
+	}
+	.loud-voice {
+		font-weight: 100;
+	}
+}
+
+.attention-voice {
+	font-family: var(--font2);
+	font-size: clamp(1.5rem, calc(1.3rem + 0.98vw), 2rem);
+}
+
+.notice-voice {
+	font-family: var(--font2);
+	font-size: 1.1rem;
+	line-height: 1.4;
+}
+@media (min-width: 700px) {
+	.notice-voice {
+		font-size: 1.3rem;
+	}
+}
+
+.firm-voice {
+	font-size: 22px;
+}
+
+.calm-voice,
+p,
+li {
+	font-family: var(--font2);
+	font-size: 1rem;
+	line-height: 1.4;
+}
+
+em {
+	font-style: italic;
+}
+
+strong {
+	font-weight: 700;
+}
+
+.whisper-voice {
+	font-size: 14px;
+	opacity: 0.8;
+	/*	font-weight: 300;*/
+}
+
+.solid-voice {
+	font-size: 14px;
+	font-weight: 900;
+}
+
+.micro-voice {
+	font-size: 10px;
+}
+
+/* these would be scoped to section or to an article element */
+/* this is just a loose setting for now */
+/* or smaller group of article-like styles such as a <text-content> custom element */
+p + p {
+	margin-top: 1em;
+}
+
+h2 + p {
+	margin-top: 20px;
+}
+
+code {
+	font-family: monospace;
+	font-size: 1.1em;
+	color: green;
+}
