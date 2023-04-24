@@ -1,15 +1,16 @@
 <script setup>
-const props = defineProps(["dapp"]);
+const ecosystem = useEcosystemStore();
+const { currentDapp: dapp } = storeToRefs(ecosystem);
 </script>
 
 <template>
-  <Teleport v-if="dapp" to="header .teleport-target">
-    <SectionColumn class="banner" innerClass="none">
-      <picture>
-        <img :src="dapp.images.banner" alt="" />
-      </picture>
-    </SectionColumn>
-  </Teleport>
+  <!-- <Teleport v-if="dapp" to="header .teleport-target"> -->
+  <SectionColumn v-if="dapp" class="banner" innerClass="none">
+    <picture>
+      <img :src="dapp.images.banner" alt="" />
+    </picture>
+  </SectionColumn>
+  <!-- </Teleport> -->
 </template>
 
 <style lang="scss" scoped>

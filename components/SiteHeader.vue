@@ -8,7 +8,9 @@
         <SiteNav />
       </mast-head>
     </SectionColumn>
-    <div class="teleport-target"></div>
+    <!-- <div class="teleport-target"></div>
+	 -->
+    <DetailBanner />
   </header>
 </template>
 
