@@ -5,6 +5,7 @@ const { currentDapp: dapp } = storeToRefs(ecosystem);
 
 <template>
   <article v-if="dapp">
+    <DetailBanner :dapp="dapp" />
     <SectionColumn class="detail-header">
       <detail-banner>
         <h1 class="loud-voice">{{ dapp.name }}</h1>
