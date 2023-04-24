@@ -1,3 +1,8 @@
+<script setup>
+import slug from "slug";
+const props = defineProps(["dapp"]);
+</script>
+
 <template>
   <dapp-card>
     <header>
@@ -5,24 +10,28 @@
         <img src="@/assets/images/square.jpg" alt="" />
       </picture>
 
-      <p class="status">Live</p>
+      <p class="status">
+        {{ dapp.status }}
+      </p>
     </header>
     <text-content>
-      <h2 class="attention-voice">Dapp Name</h2>
-      <p class="whisper-voice">This will be a short description</p>
+      <h2 class="attention-voice">{{ dapp.name }}</h2>
+      <p class="whisper-voice">{{ dapp.tagline }}</p>
     </text-content>
     <footer>
       <ul class="category-list">
-        <li class="solid-voice">DeFi</li>
-        <li class="solid-voice">NFT</li>
-        <li class="solid-voice">Blockchain</li>
+        <li class="solid-voice" v-for="category in dapp.category">
+          {{ category }}
+        </li>
       </ul>
       <ul class="product-list">
-        <li class="solid-voice">Data Feeds</li>
-        <li class="solid-voice">VRF</li>
-        <li class="solid-voice">Node</li>
+        <li class="solid-voice" v-for="product in dapp.product">
+          {{ product }}
+        </li>
       </ul>
-      <NuxtLink to="/ecosystem/1" class="button">View Dapp</NuxtLink>
+      <NuxtLink :to="`/ecosystem/${slug(dapp.name)}`" class="button"
+        >View Dapp</NuxtLink
+      >
     </footer>
   </dapp-card>
 </template>
@@ -52,6 +61,12 @@ footer {
 }
 
 footer ul {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.category-list,
+.product-list {
   display: flex;
   gap: 0.5rem;
 }

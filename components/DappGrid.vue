@@ -1,10 +1,12 @@
 <script setup>
-const dapps = reactive([1, 2, 3, 4, 5, 6]);
+import { useEcosystemStore } from "~/stores/ecosystem";
+
+const ecosystem = useEcosystemStore();
 </script>
 
 <template>
   <dapp-grid>
-    <DappCard v-for="dapp in dapps" :key="dapp" />
+    <DappCard v-for="dapp in ecosystem.list" :dapp="dapp" />
   </dapp-grid>
 </template>
 
