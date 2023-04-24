@@ -11,5 +11,18 @@ export default defineNuxtConfig({
 			//every tag with '-' is a custom element
 			isCustomElement: (tag) => tag.includes("-"),
 		},
-	}
+	},
+
+	modules: [
+		[
+			'@pinia/nuxt',
+		{
+			autoImports: ['defineStore', 'storeToRefs'],
+		},
+		]
+	 ],
+
+	 imports: {
+		dirs: ['stores'],
+	 },
 })
