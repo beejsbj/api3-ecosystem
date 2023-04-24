@@ -1,24 +1,24 @@
 <template>
   <header>
-    <SectionColumn>
-      <div class="bar">
+    <SectionColumn class="mast-head">
+      <mast-head>
         <picture class="logo">
           <img src="@/assets/images/logo.webp" alt="" />
         </picture>
         <SiteNav />
-      </div>
+      </mast-head>
     </SectionColumn>
+    <div class="teleport-target"></div>
   </header>
 </template>
 
-<style scoped>
-header .bar {
+<style lang="scss" scoped>
+mast-head {
   display: grid;
   grid-template-columns: 0.5fr 1fr;
   justify-content: space-between;
-}
-
-header picture {
-  width: 100px;
+  .logo {
+    width: 100px;
+  }
 }
 </style>
