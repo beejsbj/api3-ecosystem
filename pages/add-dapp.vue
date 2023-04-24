@@ -27,7 +27,7 @@ const handleSubmit = () => {
 
 <template>
   <SectionColumn>
-    <h1 class="loud-voice">Add</h1>
+    <h1 class="booming-voice">Add</h1>
   </SectionColumn>
 
   <SectionColumn>

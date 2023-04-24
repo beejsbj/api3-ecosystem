@@ -1,6 +1,6 @@
 <template>
   <SectionColumn>
-    <h1 class="loud-voice">Ecosystem</h1>
+    <h1 class="booming-voice">Ecosystem</h1>
   </SectionColumn>
 
   <SectionColumn>
