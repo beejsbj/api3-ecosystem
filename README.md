@@ -1,6 +1,6 @@
 # API3 Ecosystem with Nuxt3
 
-https://nuxt-api3-ecosystem.netlify.app/
+https://api3-ecosystem.netlify.app/
 
 
 
