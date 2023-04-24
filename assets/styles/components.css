@@ -32,12 +32,5 @@ a {
   background-color: var(--color);
   color: var(--paper);
   cursor: pointer;
-}
-
-.button:hover {
-  filter: brightness(1.5);
-  transition: 0.2s;
-}
-
-a.button {
+  text-align: center;
 }

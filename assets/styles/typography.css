@@ -1,42 +1,49 @@
 /* Should we pull in @fonts here? */
 /* don't think you can... might have to be higher up (the top of) the food chain! */
 
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
 html {
-  --font1: serif;
-  --font2: sans-serif;
+  --font: Inter, sans-serif;
 }
 
 .booming-voice {
-  font-family: var(--font1);
-  font-size: 40px;
+  font-family: var(--font);
+
+  font-size: clamp(2rem, calc(0.68rem + 6.59vw), 5.63rem);
   font-weight: 700;
+  line-height: 2.875rem;
 }
 
 .loud-voice {
-  font-family: var(--font2);
+  font-family: var(--font);
   font-size: clamp(2.25rem, calc(1.66rem + 2.93vw), 3.75rem);
 }
 
 @media (min-width: 600px) {
-  .booming-voice {
-    font-weight: 700;
-    font-size: clamp(4rem, calc(3.61rem + 1.95vw), 5rem);
-    /* or variable font */
-  }
   .loud-voice {
     font-weight: 100;
   }
 }
 
 .attention-voice {
-  font-family: var(--font2);
+  font-family: var(--font);
   font-size: clamp(1.5rem, calc(1.3rem + 0.98vw), 2rem);
 }
 
 .notice-voice {
-  font-family: var(--font2);
+  font-family: var(--font);
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  font-weight: 200;
+  color: var(--gray);
+}
+
+.teaser-voice {
+  font-family: var(--font);
   font-size: 1.1rem;
   line-height: 1.4;
+  color: var(--color);
 }
 @media (min-width: 700px) {
   .notice-voice {
@@ -52,7 +59,7 @@ html {
 p,
 a,
 li {
-  font-family: var(--font2);
+  font-family: var(--font);
   font-size: 1rem;
   line-height: 1.4;
 }
@@ -84,11 +91,11 @@ strong {
 /* this is just a loose setting for now */
 /* or smaller group of article-like styles such as a <text-content> custom element */
 p + p {
-  margin-top: 1em;
+  /* margin-top: 1em; */
 }
 
 h2 + p {
-  margin-top: 20px;
+  margin-top: 4px;
 }
 
 code {
