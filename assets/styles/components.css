@@ -34,3 +34,9 @@ a {
   cursor: pointer;
   text-align: center;
 }
+
+picture.logo {
+  border-radius: 50%;
+  max-width: 100px;
+  justify-self: center;
+}

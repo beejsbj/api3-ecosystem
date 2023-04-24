@@ -6,8 +6,8 @@ const props = defineProps(["dapp"]);
 <template>
   <dapp-card>
     <header>
-      <picture>
-        <img src="@/assets/images/square.jpg" alt="" />
+      <picture class="logo">
+        <img :src="dapp.images.logo" alt="" />
       </picture>
 
       <p class="status">

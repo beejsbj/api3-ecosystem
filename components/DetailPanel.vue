@@ -58,12 +58,6 @@ const props = defineProps(["dapp"]);
   </aside>
 </template>
 <style lang="scss" scoped>
-picture.logo {
-  border-radius: 50%;
-  max-width: 100px;
-  justify-self: center;
-}
-
 aside {
   display: grid;
   grid-column: 1 / 1;

@@ -2,7 +2,7 @@
   <header>
     <SectionColumn class="mast-head">
       <mast-head>
-        <picture class="logo">
+        <picture class="site-logo">
           <img src="@/assets/images/logo.webp" alt="" />
         </picture>
         <SiteNav />
@@ -19,7 +19,7 @@ mast-head {
   display: grid;
   grid-template-columns: 0.5fr 1fr;
   justify-content: space-between;
-  .logo {
+  .site-logo {
     width: 100px;
   }
 }

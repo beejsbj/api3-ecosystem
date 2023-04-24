@@ -56,26 +56,35 @@
       "This the dappp description, this is the second paragraph. lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
     ],
     "images": {
-      "logo": "https://dapp.com/images/logo.png",
-      "cover": "https://dapp.com/images/cover.png",
-      "banner": "https://dapp.com/images/banner.png",
+      "logo": "@/assets/images/square.jpg",
+      "cover": "@/assets/images/landscape.jpg",
+      "banner": "@/assets/images/landscape.jpg",
       "screenshots": [
-        "https://dapp.com/images/screenshot1.png",
-        "https://dapp.com/images/screenshot2.png",
-        "https://dapp.com/images/screenshot3.png"
+        "@/assets/images/landscape.jpg",
+        "@/assets/images/landscape.jpg",
+        "@/assets/images/landscape.jpg"
       ]
     },
     "links": {
-      "dapp": "https://dapp.com/",
-      "website": "https://dapp.com/",
-      "twitter": "https://twitter.com/dapp",
-      "telegram": "https://t.me/dapp",
-      "discord": "https://discord.gg/dapp",
-      "reddit": "https://www.reddit.com/r/dapp/",
-      "youtube": "https://www.youtube.com/channel/dapp",
-      "docs": "https://docs.dapp.com/",
-      "explorer": "https://etherscan.io/token/dapp",
-      "blog": "https://dapp.medium.com/"
+      "dapp": "https://app.aavegotchi.com/",
+      "website": "https://aavegotchi.com/",
+      "docs": "https://docs.aavegotchi.com/",
+      "explorer": "https://etherscan.io/token/0x86935f11c86623de8a25696e1c19a8659cbf95d1",
+      "socials": [
+        { "label": "Reddit", "url": "https://www.reddit.com/r/Aavegotchi/" },
+        { "label": "Twitter", "url": "https://twitter.com/aavegotchi" },
+        { "label": "Telegram", "url": "https://t.me/aavegotchi" },
+        { "label": "Blog", "url": "https://aavegotchi.medium.com/" },
+        {
+          "label": "Facebook Group",
+          "url": "https://www.facebook.com/groups/1010087115890588"
+        },
+        {
+          "label": "YouTube",
+          "url": "https://www.youtube.com/channel/UCZ5Z1XW9XZ7Z7LX5QXGx6jw"
+        },
+        { "label": "Discord", "url": "https://discord.gg/8YQXzZ8" }
+      ]
     }
   },
   {
@@ -91,26 +100,35 @@
       "This the dappp description, this is the second paragraph. lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
     ],
     "images": {
-      "logo": "https://dapp.com/images/logo.png",
-      "cover": "https://dapp.com/images/cover.png",
-      "banner": "https://dapp.com/images/banner.png",
+      "logo": "@/assets/images/square.jpg",
+      "cover": "@/assets/images/landscape.jpg",
+      "banner": "@/assets/images/landscape.jpg",
       "screenshots": [
-        "https://dapp.com/images/screenshot1.png",
-        "https://dapp.com/images/screenshot2.png",
-        "https://dapp.com/images/screenshot3.png"
+        "@/assets/images/landscape.jpg",
+        "@/assets/images/landscape.jpg",
+        "@/assets/images/landscape.jpg"
       ]
     },
     "links": {
-      "dapp": "https://dapp.com/",
-      "website": "https://dapp.com/",
-      "twitter": "https://twitter.com/dapp",
-      "telegram": "https://t.me/dapp",
-      "discord": "https://discord.gg/dapp",
-      "reddit": "https://www.reddit.com/r/dapp/",
-      "youtube": "https://www.youtube.com/channel/dapp",
-      "docs": "https://docs.dapp.com/",
-      "explorer": "https://etherscan.io/token/dapp",
-      "blog": "https://dapp.medium.com/"
+      "dapp": "https://app.aavegotchi.com/",
+      "website": "https://aavegotchi.com/",
+      "docs": "https://docs.aavegotchi.com/",
+      "explorer": "https://etherscan.io/token/0x86935f11c86623de8a25696e1c19a8659cbf95d1",
+      "socials": [
+        { "label": "Reddit", "url": "https://www.reddit.com/r/Aavegotchi/" },
+        { "label": "Twitter", "url": "https://twitter.com/aavegotchi" },
+        { "label": "Telegram", "url": "https://t.me/aavegotchi" },
+        { "label": "Blog", "url": "https://aavegotchi.medium.com/" },
+        {
+          "label": "Facebook Group",
+          "url": "https://www.facebook.com/groups/1010087115890588"
+        },
+        {
+          "label": "YouTube",
+          "url": "https://www.youtube.com/channel/UCZ5Z1XW9XZ7Z7LX5QXGx6jw"
+        },
+        { "label": "Discord", "url": "https://discord.gg/8YQXzZ8" }
+      ]
     }
   }
 ]
