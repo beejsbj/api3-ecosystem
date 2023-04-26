@@ -1,8 +1,11 @@
 <script setup>
 import { useStorage } from "@vueuse/core";
+const ecosystem = useEcosystemStore();
 definePageMeta({
   title: "Add Dapp",
 });
+
+//
 const dappForm = useStorage("dapp-form", {});
 
 const router = useRouter();
@@ -22,6 +25,7 @@ const handleSubmit = () => {
     return;
   }
   console.log(dappForm.value);
+  ecosystem.addDapp(dappForm.value);
 };
 </script>
 
@@ -45,6 +49,4 @@ const handleSubmit = () => {
       </div>
     </form>
   </SectionColumn>
-
-  <SectionColumn> </SectionColumn>
 </template>
