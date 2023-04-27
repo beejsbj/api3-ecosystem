@@ -3,9 +3,9 @@
     "name": "Aavegotchi",
     "tagline": "Ultimate gamified DeFi experience!",
     "status": "live",
-    "chain": "Ethereum",
-    "category": ["DeFi"],
-    "product": ["VRF"],
+    "chains": ["Ethereum"],
+    "categories": ["DeFi"],
+    "integrations": ["VRF"],
     "year": 2020,
 
     "about": [
@@ -47,22 +47,22 @@
     "name": "Dapp Name",
     "tagline": "Dapp Tagline",
     "status": "live or intent",
-    "chain": "Dapp Chain",
-    "category": ["Dapp Category", "Dapp Category2", "Dapp Category3"],
-    "product": ["Dapp Product", "Dapp Product2", "Dapp Product3"],
+    "chains": ["Dapp Chain"],
+    "categories": ["Dapp Category", "Dapp Category2", "Dapp Category3"],
+    "integrations": ["Dapp Product", "Dapp Product2", "Dapp Product3"],
     "year": 2023,
     "about": [
       "This the dappp description, this is the first paragraph. lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       "This the dappp description, this is the second paragraph. lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
     ],
     "images": {
-      "logo": "@/assets/images/square.jpg",
-      "cover": "@/assets/images/landscape.jpg",
-      "banner": "@/assets/images/landscape.jpg",
+      "logo": "/images/square.jpg",
+      "cover": "/images/landscape.jpg",
+      "banner": "/images/landscape.jpg",
       "screenshots": [
-        "@/assets/images/landscape.jpg",
-        "@/assets/images/landscape.jpg",
-        "@/assets/images/landscape.jpg"
+        "/images/landscape.jpg",
+        "/images/landscape.jpg",
+        "/images/landscape.jpg"
       ]
     },
     "links": {
@@ -91,22 +91,22 @@
     "name": "Dapp Name",
     "tagline": "Dapp Tagline",
     "status": "live or intent",
-    "chain": "Dapp Chain",
-    "category": ["Dapp Category", "Dapp Category2", "Dapp Category3"],
-    "product": ["Dapp Product", "Dapp Product2", "Dapp Product3"],
+    "chains": ["Dapp Chain"],
+    "categories": ["Dapp Category", "Dapp Category2", "Dapp Category3"],
+    "integrations": ["Dapp Product", "Dapp Product2", "Dapp Product3"],
     "year": 2023,
     "about": [
       "This the dappp description, this is the first paragraph. lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       "This the dappp description, this is the second paragraph. lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
     ],
     "images": {
-      "logo": "@/assets/images/square.jpg",
-      "cover": "@/assets/images/landscape.jpg",
-      "banner": "@/assets/images/landscape.jpg",
+      "logo": "/images/square.jpg",
+      "cover": "/images/landscape.jpg",
+      "banner": "/images/landscape.jpg",
       "screenshots": [
-        "@/assets/images/landscape.jpg",
-        "@/assets/images/landscape.jpg",
-        "@/assets/images/landscape.jpg"
+        "/images/landscape.jpg",
+        "/images/landscape.jpg",
+        "/images/landscape.jpg"
       ]
     },
     "links": {
