@@ -1,4 +1,5 @@
 <script setup>
+import { useEcosystemStore } from "~/stores/ecosystem";
 const ecosystem = useEcosystemStore();
 const { currentDapp: dapp } = storeToRefs(ecosystem);
 </script>
@@ -7,7 +8,11 @@ const { currentDapp: dapp } = storeToRefs(ecosystem);
   <!-- <Teleport v-if="dapp" to="header .teleport-target"> -->
   <SectionColumn v-if="dapp" class="banner" innerClass="none">
     <picture>
-      <img :src="dapp.images.banner" alt="" />
+      <img
+        :src="dapp?.images?.banner"
+        src="@/assets/images/landscape.jpg"
+        alt=""
+      />
     </picture>
   </SectionColumn>
   <!-- </Teleport> -->

@@ -3,7 +3,7 @@
     <NuxtLink to="/">Home</NuxtLink>
     <NuxtLink to="/ecosystem">Ecosystem</NuxtLink>
     <NuxtLink to="/contact">Contact</NuxtLink>
-    <NuxtLink to="/add-dapp/1">Add</NuxtLink>
+    <NuxtLink to="/add-dapp">Add</NuxtLink>
   </nav>
 </template>
 

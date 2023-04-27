@@ -1,5 +1,6 @@
 <script setup>
 import slug from "slug";
+
 const props = defineProps(["dapp"]);
 </script>
 
@@ -7,31 +8,37 @@ const props = defineProps(["dapp"]);
   <dapp-card>
     <header>
       <picture class="logo">
-        <img :src="dapp?.images?.logo ?? '@/assets/images/square.jpg'" alt="" />
+        <img
+          :src="dapp?.images?.logo"
+          src="@/assets/images/square.jpg"
+          alt=""
+        />
       </picture>
 
       <p class="status">
         {{ dapp.status }}
       </p>
     </header>
+
     <text-content>
       <h2 class="attention-voice">{{ dapp.name }}</h2>
       <p class="whisper-voice">{{ dapp.tagline }}</p>
     </text-content>
+
     <footer>
-      <ul class="category-list">
-        <li class="solid-voice" v-for="category in dapp.category">
+      <ul class="categories-list">
+        <li class="solid-voice" v-for="category in dapp.categories">
           {{ category }}
         </li>
       </ul>
-      <ul class="product-list">
-        <li class="solid-voice" v-for="product in dapp.product">
-          {{ product }}
+      <ul class="integrations-list">
+        <li class="solid-voice" v-for="integration in dapp.integrations">
+          {{ integration }}
         </li>
       </ul>
-      <NuxtLink :to="`/ecosystem/${slug(dapp.name)}`" class="button"
-        >View Dapp</NuxtLink
-      >
+      <NuxtLink :to="`/ecosystem/${slug(dapp.name)}`" class="button">
+        View Dapp
+      </NuxtLink>
     </footer>
   </dapp-card>
 </template>
@@ -51,8 +58,6 @@ header {
 }
 header picture {
   width: 50px;
-
-  /* border-radius: 50%; */
 }
 
 footer {
@@ -65,8 +70,8 @@ footer ul {
   gap: 0.5rem;
 }
 
-.category-list,
-.product-list {
+.categories-list,
+.integrations-list {
   display: flex;
   gap: 0.5rem;
 }

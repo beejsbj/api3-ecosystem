@@ -1,12 +1,18 @@
 <script setup>
 const props = defineProps(["dapp"]);
+
+const upvotes = ref(0);
 </script>
 
 <template>
   <aside class="panel">
     <header class="panel-header">
       <picture class="logo">
-        <img :src="dapp.images.logo" alt="" />
+        <img
+          :src="dapp?.images?.logo"
+          src="@/assets/images/square.jpg"
+          alt=""
+        />
       </picture>
       <h2 class="teaser-voice">
         {{ dapp.tagline }}
@@ -17,30 +23,39 @@ const props = defineProps(["dapp"]);
         <p>Status</p>
         <p>{{ dapp.status }}</p>
       </div>
+
       <div class="row chain">
         <p>Chain</p>
-        <p>{{ dapp.chain }}</p>
+        <ul>
+          <li v-for="chain in dapp.chains" :key="chain">
+            {{ chain }}
+          </li>
+        </ul>
       </div>
+
       <div class="year row">
         <p>Year</p>
         <p>{{ dapp.year }}</p>
       </div>
+
       <div class="row category-list">
         <p>Category</p>
         <ul>
-          <li v-for="category in dapp.category" :key="category">
+          <li v-for="category in dapp.categories" :key="category">
             {{ category }}
           </li>
         </ul>
       </div>
+
       <div class="row product-list">
-        <p>Product</p>
+        <p>integrations</p>
         <ul>
-          <li v-for="product in dapp.product" :key="product">
-            {{ product }}
+          <li v-for="integration in dapp.integrations" :key="integration">
+            {{ integration }}
           </li>
         </ul>
       </div>
+
       <div class="row socials">
         <p>Socials</p>
         <ul>
@@ -52,11 +67,23 @@ const props = defineProps(["dapp"]);
         </ul>
       </div>
     </article>
+
     <div class="actions">
-      <NuxtLink :to="dapp.links.website" class="button"> Website </NuxtLink>
+      <NuxtLink
+        :to="dapp.links.website"
+        :target="`${dapp.name}-website`"
+        class="button"
+      >
+        Website
+      </NuxtLink>
       <!-- Launch dapp -->
-      <NuxtLink :to="dapp.links.dapp" class="button">Launch</NuxtLink>
-      <button class="button">Upvote</button>
+      <NuxtLink
+        :to="dapp.links.dapp"
+        :target="`${dapp.name}-app`"
+        class="button"
+        >Launch</NuxtLink
+      >
+      <button class="button" @click="upvotes++">Upvote ({{ upvotes }})</button>
       <button class="button">Share</button>
     </div>
   </aside>
