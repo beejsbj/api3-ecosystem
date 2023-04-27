@@ -1,6 +1,12 @@
 <script setup>
 import { useStorage } from "@vueuse/core";
+
+//
 const ecosystem = useEcosystemStore();
+const router = useRouter();
+const route = useRoute();
+
+//
 definePageMeta({
   title: "Add Dapp",
 });
@@ -8,18 +14,34 @@ definePageMeta({
 //
 const dappForm = useStorage("dapp-form", {});
 
-const router = useRouter();
-const route = useRoute();
-const step = computed(() => route.path[route.path.length - 1]);
+const orderedSteps = [
+  null,
+  "OwnerStep",
+  "ContentStep",
+  "ImageStep",
+  "LinksStep",
+  "TagStep",
+  "StatusStep",
+];
 
+const step = computed(() => {
+  //  if fullpath is /add-dapp return 0 else check index
+  console.log(route.name);
+  if (route.name === "add-dapp") return 1;
+  return orderedSteps.indexOf(route.name.split("-").pop());
+});
+
+//
 const nextStep = () => {
-  router.push(`/add-dapp/${Number(step.value) + 1}`);
+  console.log(orderedSteps[step.value++]);
+  router.push(`/add-dapp/${orderedSteps[step.value + 1]}`);
 };
 const prevStep = () => {
-  router.push(`/add-dapp/${Number(step.value) - 1}`);
+  router.push(`/add-dapp/${orderedSteps[step.value - 1]}`);
 };
 
 const handleSubmit = () => {
+  console.log(step.value, route.matched[0].children.length);
   if (step.value < route.matched[0].children.length) {
     nextStep();
     return;
@@ -39,9 +61,10 @@ const handleSubmit = () => {
       <NuxtPage :dappForm="dappForm" />
 
       <div class="actions">
-        <button class="button" @click="prevStep()" v-if="step > 1">
-          Previus
+        <button class="button" @click.prevent="prevStep()" v-if="step > 1">
+          Previous
         </button>
+
         <button class="button">
           <span v-if="step < $route.matched[0].children.length">Next</span>
           <span v-else>Submit</span>
