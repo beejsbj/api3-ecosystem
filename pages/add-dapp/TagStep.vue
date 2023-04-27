@@ -1,58 +1,19 @@
 <script setup>
+definePageMeta({
+  params: [3],
+});
+
 import Multiselect from "@vueform/multiselect";
 import "@vueform/multiselect/themes/default.css";
 
+const ecosystem = useEcosystemStore();
+
 const props = defineProps(["dappForm"]);
-
-const categories = ref([
-  "DeFi",
-  "NFT",
-  "Gaming",
-  "Blockchain",
-  "Data Provider",
-  "Node Operator",
-  "DEX",
-  "Play to Earn",
-  "Protocol",
-  "Grants",
-  "Infrastructure",
-  "Launchpad",
-  "BUILD Program",
-  "Layer 2",
-  "DAO",
-]);
-
-const chains = [
-  "Ethereum",
-  "Polygon",
-  "BNB Chain",
-  "Avalanche",
-  "Solana",
-  "Fantom",
-  "Arbitrum",
-  "Optimism",
-  "Harmony",
-  "Moon River",
-  "HECO Chain",
-  "Gnosis Chain",
-  "Polkadot",
-  "Cardano",
-  "Bitcoin",
-];
-
-const integrations = [
-  "VRF",
-  "Automation",
-  "Proof of Reserve",
-  "Functions",
-  "CCIP",
-  "Fair Sequencing Services",
-  "Custom Solution",
-];
 </script>
 
 <template>
   <h2 class="attention-voice">Step 3</h2>
+  <h3 class="notice-voice">tag the dapp</h3>
 
   <form-field>
     <label class="attention-voice" for="categories"> Category </label>
@@ -63,7 +24,7 @@ const integrations = [
       :close-on-select="false"
       :searchable="true"
       :create-option="false"
-      :options="categories"
+      :options="ecosystem.categories"
     />
   </form-field>
 
@@ -76,7 +37,7 @@ const integrations = [
       :close-on-select="false"
       :searchable="true"
       :create-option="false"
-      :options="chains"
+      :options="ecosystem.chains"
     />
   </form-field>
 
@@ -89,7 +50,7 @@ const integrations = [
       :close-on-select="false"
       :searchable="true"
       :create-option="false"
-      :options="integrations"
+      :options="ecosystem.integrations"
     />
   </form-field>
 </template>

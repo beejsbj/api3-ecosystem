@@ -1,4 +1,7 @@
 <script setup>
+definePageMeta({
+  params: [5],
+});
 const props = defineProps(["dappForm"]);
 </script>
 
