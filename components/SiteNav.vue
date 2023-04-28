@@ -1,5 +1,10 @@
+<script setup>
+import { useInterfaceStore } from "~/stores/interface";
+const ui = useInterfaceStore();
+</script>
+
 <template>
-  <nav>
+  <nav v-if="!ui.isMobile">
     <NuxtLink to="/">Home</NuxtLink>
     <NuxtLink to="/ecosystem">Ecosystem</NuxtLink>
     <NuxtLink to="/contact">Contact</NuxtLink>
