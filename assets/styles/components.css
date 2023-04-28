@@ -40,9 +40,3 @@ picture.logo {
   max-width: 100px;
   justify-self: center;
 }
-
-.formkit-wrapper,
-.formkit-inner,
-.formkit-outer {
-  display: contents;
-}

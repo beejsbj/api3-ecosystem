@@ -1,12 +1,51 @@
 form {
+  --multistep-radius: var(--corners);
+  --multistep-color-success: var(--color);
+  fill: black !important;
+
+  /* vueform/multistep */
+
+  --ms-bg: var(--paper);
+  --ms-border-color: var(--ink);
+  --ms-radius: var(--corners);
+
+  --ms-tag-bg: var(--color);
+  --ms-tag-color: var(--paper);
+  --ms-tag-radius: var(--corners);
+
+  --ms-dropdown-bg: var(--paper);
+  --ms-dropdown-border-color: var(--ink);
+  --ms-dropdown-color: var(--ink);
+  --ms-dropdown-radius: var(--corners);
+}
+
+form,
+.formkit-step-inner {
   display: grid;
   gap: 1.5rem;
 }
 
-form form-field {
+form form-field,
+.formkit-wrapper {
   display: grid;
   gap: 1rem;
 }
+
+/* 
+.formkit-inner,
+.formkit-outer {
+  display: contents;
+}
+
+form form-field .formkit-outer {
+  display: grid;
+  gap: 0.1rem;
+}
+
+form-field .formkit-messages {
+  color: red;
+} 
+*/
 
 form-field input {
   padding: 0.5rem;
@@ -15,4 +54,10 @@ form-field input {
 .radio-group {
   display: grid;
   gap: 1rem;
+}
+
+input.multiselect-tags-search {
+  color: var(--ink);
+  background-color: var(--paper);
+  border-radius: var(--corners);
 }

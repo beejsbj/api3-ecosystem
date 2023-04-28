@@ -104,3 +104,11 @@ code {
   color: green;
   border: unset;
 }
+
+form-field {
+  --fk-font-family: var(--font);
+  --fk-font-size: 1rem;
+  --fk-font-weight: 400;
+  --fk-line-height: 1.4;
+  --fk-color-input: var(--ink);
+}
