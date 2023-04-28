@@ -1,8 +1,4 @@
 <script setup>
-definePageMeta({
-  params: [2],
-});
-
 const props = defineProps(["dappForm"]);
 props.dappForm.images = props.dappForm.images ?? {};
 
@@ -17,12 +13,13 @@ function setBanner(file) {
 </script>
 
 <template>
-  <h2 class="attention-voice">Step 2</h2>
-  <h3 class="notice-voice">images of the dapp</h3>
+  <FormKit type="step" name="images">
+    <h3 class="notice-voice">images of the dapp</h3>
 
-  <ImageUpload @setImage="setLogo" :image="dappForm.images.logo" />
+    <ImageUpload @setImage="setLogo" :image="dappForm.images.logo" />
 
-  <ImageUpload @setImage="setBanner" :image="dappForm.images.banner" />
+    <ImageUpload @setImage="setBanner" :image="dappForm.images.banner" />
 
-  {{ dappForm.images.logo }}
+    {{ dappForm.images.logo }}
+  </FormKit>
 </template>
