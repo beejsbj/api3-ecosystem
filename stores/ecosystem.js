@@ -1,12 +1,11 @@
 import { defineStore } from "pinia";
-import { useStorage } from "@vueuse/core";
 import data from "./data.json";
 import slug from "slug";
 
 export const useEcosystemStore = defineStore("ecosystem", () => {
   const route = useRoute();
 
-  const list = useStorage("ecosystem-data", data);
+  const list = useLocalStorage("ecosystem-data", data);
 
   const categories = [
     "DeFi",
