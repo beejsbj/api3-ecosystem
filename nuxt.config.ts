@@ -18,7 +18,7 @@ export default defineNuxtConfig({
     },
   },
 
-  css: ["@/assets/styles/site.css"],
+  css: ["@/assets/styles/site.css", "@formkit/themes/genesis"],
 
   vue: {
     compilerOptions: {
@@ -37,6 +37,14 @@ export default defineNuxtConfig({
       },
     ],
   ],
+
+
+  components: [
+	{
+	  path: '~/components', 
+	  pathPrefix: false,
+	},
+ ],
 
   imports: {
     dirs: ["stores"],
