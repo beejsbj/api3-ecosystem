@@ -8,6 +8,7 @@ props.dappForm.owner = props.dappForm.owner ?? {};
       <FormKit
         type="text"
         label="Name"
+        label-class="$reset notice-voice"
         name="name"
         placeholder="John Doe"
         validation="required"
@@ -20,6 +21,7 @@ props.dappForm.owner = props.dappForm.owner ?? {};
       <FormKit
         type="email"
         label="Email"
+        label-class="$reset notice-voice"
         name="email"
         placeholder="email@domain.com"
         validation="required|email"
@@ -32,6 +34,7 @@ props.dappForm.owner = props.dappForm.owner ?? {};
       <FormKit
         type="text"
         label="Company"
+        label-class="$reset notice-voice"
         name="company"
         placeholder="Company inc."
         validation="required"

@@ -1,4 +1,5 @@
 <script setup>
+import { useEcosystemStore } from "~/stores/ecosystem";
 import Multiselect from "@vueform/multiselect";
 import "@vueform/multiselect/themes/default.css";
 
@@ -9,11 +10,8 @@ const props = defineProps(["dappForm"]);
 
 <template>
   <FormKit type="step" name="tags">
-    <h2 class="attention-voice">Step 3</h2>
-    <h3 class="notice-voice">tag the dapp</h3>
-
     <form-field>
-      <label class="attention-voice" for="categories"> Category </label>
+      <label class="notice-voice" for="categories"> Category </label>
       <Multiselect
         id="categories"
         v-model="dappForm.categories"
@@ -26,7 +24,7 @@ const props = defineProps(["dappForm"]);
     </form-field>
 
     <form-field>
-      <label class="attention-voice" for="chains"> Chain </label>
+      <label class="notice-voice" for="chains"> Chain </label>
       <Multiselect
         id="chains"
         v-model="dappForm.chains"
@@ -39,7 +37,7 @@ const props = defineProps(["dappForm"]);
     </form-field>
 
     <form-field>
-      <label class="attention-voice" for="integrations"> Integration </label>
+      <label class="notice-voice" for="integrations"> Integration </label>
       <Multiselect
         id="integrations"
         v-model="dappForm.integrations"

@@ -35,9 +35,7 @@ const submitHandler = () => {
         <FormKit
           type="multi-step"
           tab-style="progress"
-          :hide-progress-labels="false"
-          label-class="$reset only-my-class"
-          validStepIcon="email"
+          :hide-progress-labels="true"
         >
           <OwnerStep :dappForm="dappForm" />
           <ContentStep :dappForm="dappForm" />

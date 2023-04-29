@@ -61,3 +61,7 @@ input.multiselect-tags-search {
   background-color: var(--paper);
   border-radius: var(--corners);
 }
+
+input {
+  background: var(--gray-dark) !important;
+}

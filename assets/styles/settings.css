@@ -5,16 +5,21 @@ html {
   --gray: hsla(0, 0%, 53%, 1);
   --gray-light: hsla(0, 0%, 80%, 1);
   --gray-lighter: hsla(0, 0%, 98%, 1);
-  --gray-dark: hsla(0, 0%, 27%, 1);
+  --gray-dark: hsla(166, 40%, 5%, 1);
 
   --color: hsla(166, 65%, 69%, 1);
   --highlight: hsla(232, 19%, 55%, 1);
 
   --shadow: rgba(0, 0, 0, 0.8);
 
-  --corners: 10px; /* or whatevers */
+  --corners: 0.2em; /* or whatevers */
 
   --paper: hsla(90, 0%, 2%, 1);
+  --dark-background: linear-gradient(
+    45deg,
+    hsla(0, 0%, 0%, 1),
+    hsla(166, 40%, 5%, 1)
+  );
   --ink: hsla(180, 0%, 95%, 1);
 
   /* Backgrounds */
@@ -36,7 +41,7 @@ html {
 
     --shadow: rgba(0, 0, 0, 0.8);
 
-    --corners: 10px; /* or whatevers */
+    --corners: 0px; /* or whatevers */
 
     --paper: hsla(217, 8%, 13%, 1);
     --paper2: hsla(217, 6%, 17%, 1); /*bunker*/

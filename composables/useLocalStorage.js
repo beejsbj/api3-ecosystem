@@ -7,7 +7,7 @@ export default function useLocalStorage(key, defaultValue) {
   onMounted(() => {
     const stored = localStorage.getItem(key);
     if (stored) {
-      console.log(stored, "if passed");
+      // console.log(stored, "if passed");
       storedValue.value = JSON.parse(stored);
     } else {
       console.log("else passed");

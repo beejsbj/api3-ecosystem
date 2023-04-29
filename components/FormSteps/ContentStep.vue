@@ -8,6 +8,7 @@ props.dappForm.date = new Date().toISOString().slice(0, 10);
       <FormKit
         type="text"
         label="Dapp Name"
+        label-class="$reset notice-voice"
         name="dappName"
         placeholder="Dapp Name"
         validation="required"
@@ -20,6 +21,7 @@ props.dappForm.date = new Date().toISOString().slice(0, 10);
       <FormKit
         type="text"
         label="One Line Integration"
+        label-class="$reset notice-voice"
         name="oneLineIntegration"
         placeholder="One Line Integration"
         validation="required"
@@ -33,6 +35,7 @@ props.dappForm.date = new Date().toISOString().slice(0, 10);
       <FormKit
         type="text"
         label="Short Description"
+        label-class="$reset notice-voice"
         name="shortDescription"
         placeholder="Short Description"
         validation="required"
@@ -46,6 +49,7 @@ props.dappForm.date = new Date().toISOString().slice(0, 10);
       <FormKit
         type="text"
         label="Long Description"
+        label-class="$reset notice-voice"
         name="longDescription"
         placeholder="Long Description"
         validation="required"
@@ -59,6 +63,7 @@ props.dappForm.date = new Date().toISOString().slice(0, 10);
       <FormKit
         type="date"
         label="Published Date"
+        label-class="$reset notice-voice"
         name="publishedDate"
         placeholder="Published Date"
         validation="required"

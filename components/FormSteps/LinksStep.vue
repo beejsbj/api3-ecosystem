@@ -8,7 +8,6 @@ props.dappForm.links.socials = props.dappForm.links.socials ?? {};
 <template>
   <FormKit type="step" name="links">
     <h2 class="attention-voice">Links</h2>
-    <h3 class="notice-voice">link to the website and app</h3>
 
     <form-field>
       <FormKit
@@ -16,6 +15,7 @@ props.dappForm.links.socials = props.dappForm.links.socials ?? {};
         id="website"
         v-model="dappForm.links.website"
         label="Website"
+        label-class="$reset notice-voice"
         required
         validation="url"
       />
@@ -28,13 +28,13 @@ props.dappForm.links.socials = props.dappForm.links.socials ?? {};
         id="dapp"
         v-model="dappForm.links.dapp"
         label="App"
+        label-class="$reset notice-voice"
         required
       />
     </form-field>
 
     <section class="form-socials">
       <h2 class="attention-voice">Socials</h2>
-      <h3 class="notice-voice">what are your socials?</h3>
       <form-field>
         <FormKit
           type="url"
@@ -42,6 +42,7 @@ props.dappForm.links.socials = props.dappForm.links.socials ?? {};
           id="twitter"
           v-model="dappForm.links.socials.twitter"
           label="Twitter"
+          label-class="$reset notice-voice"
         />
       </form-field>
 
@@ -52,6 +53,7 @@ props.dappForm.links.socials = props.dappForm.links.socials ?? {};
           id="discord"
           v-model="dappForm.links.socials.discord"
           label="Discord"
+          label-class="$reset notice-voice"
         />
       </form-field>
 
@@ -62,6 +64,7 @@ props.dappForm.links.socials = props.dappForm.links.socials ?? {};
           id="github"
           v-model="dappForm.links.socials.github"
           label="Github"
+          label-class="$reset notice-voice"
         />
       </form-field>
 
@@ -72,6 +75,7 @@ props.dappForm.links.socials = props.dappForm.links.socials ?? {};
           id="reddit"
           v-model="dappForm.links.socials.reddit"
           label="Reddit"
+          label-class="$reset notice-voice"
         />
       </form-field>
 
@@ -82,6 +86,7 @@ props.dappForm.links.socials = props.dappForm.links.socials ?? {};
           id="telegram"
           v-model="dappForm.links.socials.telegram"
           label="Telegram"
+          label-class="$reset notice-voice"
         />
       </form-field>
 
@@ -92,6 +97,7 @@ props.dappForm.links.socials = props.dappForm.links.socials ?? {};
           id="facebook"
           v-model="dappForm.links.socials.facebook"
           label="Facebook"
+          label-class="$reset notice-voice"
         />
       </form-field>
 
@@ -102,6 +108,7 @@ props.dappForm.links.socials = props.dappForm.links.socials ?? {};
           id="instagram"
           v-model="dappForm.links.socials.instagram"
           label="Instagram"
+          label-class="$reset notice-voice"
         />
       </form-field>
 
@@ -112,6 +119,7 @@ props.dappForm.links.socials = props.dappForm.links.socials ?? {};
           id="youtube"
           v-model="dappForm.links.socials.youtube"
           label="Youtube"
+          label-class="$reset notice-voice"
         />
       </form-field>
 
@@ -122,6 +130,7 @@ props.dappForm.links.socials = props.dappForm.links.socials ?? {};
           id="blog"
           v-model="dappForm.links.socials.blog"
           label="Blog"
+          label-class="$reset notice-voice"
         />
       </form-field>
     </section>

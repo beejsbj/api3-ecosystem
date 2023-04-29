@@ -36,9 +36,9 @@ function previewImage(file) {
 
 <template>
   <file-upload>
-    <input-field class="upload">
+    <form-field class="upload">
       <label for="imageupload"> Upload Image </label>
-      <div class="buttons">
+      <div class="actions">
         <button class="button" type="button" @click.prevent="open()">
           Choose files
         </button>
@@ -59,7 +59,7 @@ function previewImage(file) {
           {{ file.name }}
         </li>
       </template>
-    </input-field>
+    </form-field>
     <picture class="preview">
       <img :src="previewedImage" />
     </picture>
@@ -72,17 +72,19 @@ file-upload .preview {
   max-height: 220px;
 }
 
-file-upload :is(input, input-field) {
+file-upload :is(input, form-field) {
   padding: 0;
 }
 
 file-upload {
   display: grid;
   // grid-template-rows: 0.3fr 1fr;
+  background: var(--dark-background);
+  border: 1px solid var(--ink);
+  border-radius: var(--corners);
   gap: 10px;
   min-height: 300px;
-  background-color: white;
-  padding: 10px;
+  padding: 1rem;
   align-items: start;
 }
 </style>
