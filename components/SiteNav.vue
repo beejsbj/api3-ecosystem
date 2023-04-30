@@ -7,7 +7,9 @@ const ui = useInterfaceStore();
   <nav v-if="!ui.isMobile">
     <NuxtLink to="/">Home</NuxtLink>
     <NuxtLink to="/ecosystem">Ecosystem</NuxtLink>
+    <!-- <NuxtLink to="/learn">Learn</NuxtLink> -->
     <NuxtLink to="/contact">Contact</NuxtLink>
+    <!-- <NuxtLink to="/about">About</NuxtLink> -->
     <NuxtLink to="/add-dapp">Add</NuxtLink>
   </nav>
 </template>
