@@ -29,6 +29,7 @@ html {
 .attention-voice {
   font-family: var(--font);
   font-size: clamp(1.5rem, calc(1.3rem + 0.98vw), 2rem);
+  font-weight: 700;
 }
 
 .notice-voice {
@@ -75,7 +76,7 @@ strong {
 .whisper-voice {
   font-size: 14px;
   opacity: 0.8;
-  /*	font-weight: 300;*/
+  font-weight: 500;
 }
 
 .solid-voice {

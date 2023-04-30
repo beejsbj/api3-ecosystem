@@ -62,6 +62,7 @@ input.multiselect-tags-search {
   border-radius: var(--corners);
 }
 
-input {
+input,
+textarea {
   background: var(--gray-dark) !important;
 }
