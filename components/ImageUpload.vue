@@ -2,42 +2,40 @@
 import { useFileDialog } from "@vueuse/core";
 
 const emit = defineEmits(["setImage"]);
-const props = defineProps(["image"]);
-
-const previewedImage = ref(props.image ?? null);
+const props = defineProps(["image", "multiple"]);
 
 const { files, open, reset } = useFileDialog({
   accept: ".jpg, .jpeg, .png",
-  multiple: false,
+  multiple: props.multiple ?? false,
 });
 
 watch(files, () => {
-  if (files.value?.item(0)) {
-    previewImage(files.value?.item(0));
+  if (multiple) {
+    emit("setImage", files.value);
+  } else {
+    emit("setImage", files.value[0]);
   }
 });
 
 function resetImage() {
   reset();
-  previewedImage.value = null;
 }
 
 function previewImage(file) {
-  if (file.size > 1000000) {
+  if (file.size > 100000) {
     alert("File size is too large. Please upload a file less than 1MB.");
     reset();
-    previewedImage.value = null;
     return;
   }
-  emit("setImage", file);
-  previewedImage.value = URL.createObjectURL(file);
+  //   emit("setImage", file);
+  return URL.createObjectURL(file);
 }
 </script>
 
 <template>
   <file-upload>
     <form-field class="upload">
-      <label for="imageupload"> Upload Image </label>
+      <label class="solid-voice" for="imageupload"> Upload Image </label>
       <div class="actions">
         <button class="button" type="button" @click.prevent="open()">
           Choose files
@@ -55,14 +53,15 @@ function previewImage(file) {
         <p>
           You have selected: <b>{{ files.length }} files</b>
         </p>
-        <li v-for="file of files" :key="file.name">
-          {{ file.name }}
-        </li>
+        <ul class="preview-images">
+          <li v-for="file of files" :key="file.name">
+            <picture class="preview">
+              <img :src="previewImage(file)" />
+            </picture>
+          </li>
+        </ul>
       </template>
     </form-field>
-    <picture class="preview">
-      <img :src="previewedImage" />
-    </picture>
   </file-upload>
 </template>
 
@@ -86,5 +85,14 @@ file-upload {
   min-height: 300px;
   padding: 1rem;
   align-items: start;
+}
+
+ul.preview-images {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 10px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 </style>
