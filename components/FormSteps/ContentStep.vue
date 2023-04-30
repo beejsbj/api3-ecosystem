@@ -47,7 +47,8 @@ props.dappForm.date = new Date().toISOString().slice(0, 10);
     <!-- long description -->
     <form-field>
       <FormKit
-        type="text"
+        type="textarea"
+        rows="5"
         label="Long Description"
         label-class="$reset notice-voice"
         name="longDescription"
