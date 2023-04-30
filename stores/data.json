@@ -2,7 +2,7 @@
   {
     "name": "Aavegotchi",
     "tagline": "Ultimate gamified DeFi experience!",
-    "status": "live",
+    "status": "Live",
     "chains": ["Ethereum"],
     "categories": ["DeFi"],
     "integrations": ["VRF"],
@@ -10,7 +10,7 @@
 
     "about": [
       "Aavegotchi are DeFi-powered crypto collectibles from another realm. Summon your own Aavegotchis to collect, compete, and combine them for the ultimate gamified DeFi experience!",
-      "Aavegotchi has a vibrant community centered around gamified DAO governance layered on top of Web3. The entire Aavegotchi experience is powered by GHST, the eco-governance token of Aavegotchi. Use GHST to purchase various digital assets within the Aavegotchi universe, such as Aavegotchi portals & wearables. Hold GHST so your Aavegotchi can participate in DAO governance, and earn GHST by excelling at Aavegotchi rarity farming."
+      "Aavegotchi has a vibrant community centered around gamified DAO governance layered on top of Web3. The entire Aavegotchi experience is powered by GHST, the eco-governance token of Aavegotchi. Use GHST to purchase various digital assets within the Aavegotchi universe, such as Aavegotchi portals & wearables. Hold GHST so your Aavegotchi can Cat in DAO governance, and earn GHST by excelling at Aavegotchi rarity farming."
     ],
 
     "images": {
@@ -45,11 +45,11 @@
   },
   {
     "name": "Dapp Name",
-    "tagline": "Dapp Tagline",
-    "status": "live or intent",
+    "tagline": "Decentralized protocol for depositing & borrowing crypto assets at variable & fixed interest rates.",
+    "status": "Intent",
     "chains": ["Dapp Chain"],
-    "categories": ["Dapp Category", "Dapp Category2", "Dapp Category3"],
-    "integrations": ["Dapp Product", "Dapp Product2", "Dapp Product3"],
+    "categories": ["Category", "Category2", "Category3"],
+    "integrations": ["Product", "Product2", "Product3"],
     "year": 2023,
     "about": [
       "This the dappp description, this is the first paragraph. lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
@@ -90,10 +90,10 @@
   {
     "name": "Dapp Name",
     "tagline": "Dapp Tagline",
-    "status": "live or intent",
+    "status": "Live",
     "chains": ["Dapp Chain"],
-    "categories": ["Dapp Category", "Dapp Category2", "Dapp Category3"],
-    "integrations": ["Dapp Product", "Dapp Product2", "Dapp Product3"],
+    "categories": ["Category", "Category2", "Category3"],
+    "integrations": ["Product", "Product2", "Product3"],
     "year": 2023,
     "about": [
       "This the dappp description, this is the first paragraph. lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
