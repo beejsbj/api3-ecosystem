@@ -2,6 +2,19 @@
 import slug from "slug";
 
 const props = defineProps(["dapp"]);
+
+const logo = props.dapp.images.logo ?? "@/assets/images/square.jpg";
+const background = new URL(
+  `../assets/images/chains/${props.dapp.chains[0].toLowerCase()}.svg` ?? false,
+  import.meta.url
+);
+
+function resolveChain(chain) {
+  return new URL(
+    `../assets/images/chains/${chain.toLowerCase()}.svg` ?? false,
+    import.meta.url
+  );
+}
 </script>
 
 <template>
@@ -9,13 +22,19 @@ const props = defineProps(["dapp"]);
     <header>
       <h2 class="attention-voice">{{ dapp.name }}</h2>
       <picture class="logo">
-        <img
-          :src="dapp?.images?.logo"
-          src="@/assets/images/square.jpg"
-          alt=""
-        />
+        <img :src="logo" alt="" />
       </picture>
-      <div class="chain">eth</div>
+      <div class="chains">
+        <ul>
+          <li v-for="chain in dapp.chains" :key="chain">
+            <picture v-if="resolveChain(chain)">
+              <img :src="resolveChain(chain)" alt="" />
+            </picture>
+
+            <!-- <ChainIcon :chain="chain" /> -->
+          </li>
+        </ul>
+      </div>
     </header>
 
     <text-content>
@@ -43,12 +62,17 @@ const props = defineProps(["dapp"]);
         View Dapp
       </NuxtLink> -->
     </footer>
+    <div class="background-wrapper">
+      <picture class="card-background" v-if="resolveChain(dapp.chains[0])">
+        <img :src="resolveChain(dapp.chains[0])" alt="" />
+      </picture>
+    </div>
   </dapp-card>
 </template>
 
 <style lang="scss" scoped>
 dapp-card {
-  padding: 2.5rem 1.25rem;
+  padding: 2.5rem 1.875rem;
   display: grid;
   grid-template-rows: 0.5fr 1fr 0.5fr;
   gap: 1rem;
@@ -84,6 +108,20 @@ dapp-card {
   .whisper-voice {
     font-size: 0.75rem;
   }
+
+  div.background-wrapper {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+  }
+
+  .card-background {
+    position: absolute;
+    opacity: 0.3;
+    right: -20%;
+    transform: rotate(-10deg) scale(0.7);
+    transform-origin: top;
+  }
 }
 header {
   display: grid;
@@ -93,11 +131,21 @@ header {
   picture {
     width: 50px;
     justify-self: end;
+    z-index: 1;
   }
-  .chain {
+  .chains {
     background-image: url("@/assets/images/chain.svg");
     background-size: cover;
-    //  background-position: 0 center;
+    background-position-x: 50%;
+
+    ul {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    picture {
+      max-width: 30px;
+    }
   }
 }
 
@@ -116,6 +164,7 @@ footer {
     font-size: 0.75rem;
     text-align: right;
     font-weight: 700;
+    z-index: 1;
   }
   .status.Live {
     color: var(--success);
