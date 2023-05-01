@@ -26,16 +26,15 @@ const submitHandler = () => {
 
 <template>
   <SectionColumn>
-    <h1 class="booming-voice">Add</h1>
-  </SectionColumn>
-
-  <SectionColumn>
     <ClientOnly>
       <FormKit type="form" :actions="false" @submit="submitHandler">
         <FormKit
           type="multi-step"
           tab-style="progress"
           :hide-progress-labels="true"
+          stepNext-class="$reset button"
+          stepPrevious-class="$reset button"
+          button-class="$reset button"
         >
           <OwnerStep :dappForm="dappForm" />
           <ContentStep :dappForm="dappForm" />

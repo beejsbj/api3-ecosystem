@@ -4,17 +4,6 @@ import slug from "slug";
 const props = defineProps(["dapp"]);
 
 const logo = props.dapp.images.logo ?? "@/assets/images/square.jpg";
-const background = new URL(
-  `../assets/images/chains/${props.dapp.chains[0].toLowerCase()}.svg` ?? false,
-  import.meta.url
-);
-
-function resolveChain(chain) {
-  return new URL(
-    `../assets/images/chains/${chain.toLowerCase()}.svg` ?? false,
-    import.meta.url
-  );
-}
 </script>
 
 <template>
@@ -27,8 +16,8 @@ function resolveChain(chain) {
       <div class="chains">
         <ul>
           <li v-for="chain in dapp.chains" :key="chain">
-            <picture v-if="resolveChain(chain)">
-              <img :src="resolveChain(chain)" alt="" />
+            <picture v-if="`/images/chains/${chain.toLowerCase()}.svg`">
+              <img :src="`/images/chains/${chain.toLowerCase()}.svg`" alt="" />
             </picture>
 
             <!-- <ChainIcon :chain="chain" /> -->
@@ -63,8 +52,14 @@ function resolveChain(chain) {
       </NuxtLink> -->
     </footer>
     <div class="background-wrapper">
-      <picture class="card-background" v-if="resolveChain(dapp.chains[0])">
-        <img :src="resolveChain(dapp.chains[0])" alt="" />
+      <picture
+        class="card-background"
+        v-if="`/images/chains/${dapp.chains[0].toLowerCase()}.svg`"
+      >
+        <img
+          :src="`/images/chains/${dapp.chains[0].toLowerCase()}.svg`"
+          alt=""
+        />
       </picture>
     </div>
   </dapp-card>
