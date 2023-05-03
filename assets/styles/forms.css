@@ -66,3 +66,7 @@ input,
 textarea {
   background: var(--gray-dark) !important;
 }
+
+label {
+  cursor: pointer;
+}

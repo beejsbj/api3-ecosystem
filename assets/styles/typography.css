@@ -53,7 +53,11 @@ html {
 }
 
 .firm-voice {
-  font-size: 22px;
+  font-family: var(--font);
+
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  font-weight: 700;
 }
 
 .calm-voice,
@@ -80,8 +84,9 @@ strong {
 }
 
 .solid-voice {
+  font-family: var(--font);
   font-size: 14px;
-  font-weight: 900;
+  font-weight: 700;
 }
 
 .micro-voice {
@@ -106,7 +111,7 @@ code {
   border: unset;
 }
 
-form-field {
+html * {
   --fk-font-family: var(--font);
   --fk-font-size: 1rem;
   --fk-font-weight: 400;

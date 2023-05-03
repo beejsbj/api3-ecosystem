@@ -8,7 +8,8 @@ html {
   --gray-dark: hsla(166, 40%, 5%, 1);
 
   --color: hsla(166, 65%, 69%, 1);
-  --color-shade: hsla(166, 65%, 10%, 1);
+  --color-shade: hsla(166, 28%, 27%, 1);
+  --color-dark: hsla(166, 65%, 10%, 1);
 
   --highlight: hsla(232, 35%, 55%, 1);
 
@@ -20,7 +21,7 @@ html {
   --corners: 0.2em; /* or whatevers */
 
   --paper: var(--black);
-  --dark-background: linear-gradient(45deg, black, var(--color-shade));
+  --dark-background: linear-gradient(45deg, black, var(--color-dark));
   --ink: hsla(180, 0%, 95%, 1);
 
   /* Backgrounds */
