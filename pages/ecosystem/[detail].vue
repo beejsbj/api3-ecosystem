@@ -1,4 +1,5 @@
 <script setup>
+import { useEcosystemStore } from "~/stores/ecosystem";
 const ecosystem = useEcosystemStore();
 const { currentDapp: dapp } = storeToRefs(ecosystem);
 </script>
