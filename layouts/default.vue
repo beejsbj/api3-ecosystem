@@ -1,6 +1,10 @@
+<script setup>
+const route = useRoute();
+</script>
+
 <template>
   <SiteHeader />
-  <main>
+  <main :class="route.name">
     <slot />
   </main>
   <SiteFooter />
