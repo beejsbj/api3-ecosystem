@@ -14,15 +14,13 @@ const logo = props.dapp.images.logo ?? "@/assets/images/square.jpg";
         <img :src="logo" alt="" />
       </picture>
       <div class="chains">
-        <ul>
+        <!-- <ul>
           <li v-for="chain in dapp.chains" :key="chain">
             <picture v-if="`/images/chains/${chain.toLowerCase()}.svg`">
               <img :src="`/images/chains/${chain.toLowerCase()}.svg`" alt="" />
             </picture>
-
-            <!-- <ChainIcon :chain="chain" /> -->
           </li>
-        </ul>
+        </ul> -->
       </div>
     </header>
 
@@ -47,9 +45,8 @@ const logo = props.dapp.images.logo ?? "@/assets/images/square.jpg";
       <p class="status" :class="dapp.status">
         {{ dapp.status }}
       </p>
-      <!-- <NuxtLink :to="`/ecosystem/${slug(dapp.name)}`" class="button">
-        View Dapp
-      </NuxtLink> -->
+      <NuxtLink :to="`/ecosystem/${slug(dapp.name)}`" class="card-link">
+      </NuxtLink>
     </footer>
     <div class="background-wrapper">
       <picture
@@ -108,6 +105,7 @@ dapp-card {
     position: absolute;
     inset: 0;
     overflow: hidden;
+    z-index: 0;
   }
 
   .card-background {
@@ -116,6 +114,15 @@ dapp-card {
     right: -20%;
     transform: rotate(-10deg) scale(0.7);
     transform-origin: top;
+  }
+
+  & :is(header, text-content, .lists, .status) {
+    z-index: 2;
+  }
+  .card-link {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
   }
 }
 header {
@@ -159,7 +166,6 @@ footer {
     font-size: 0.75rem;
     text-align: right;
     font-weight: 700;
-    z-index: 1;
   }
   .status.Live {
     color: var(--success);
