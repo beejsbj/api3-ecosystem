@@ -44,6 +44,138 @@
     }
   },
   {
+    "name": "Aavegotchi",
+    "tagline": "Ultimate gamified DeFi experience!",
+    "status": "Live",
+    "chains": ["Ethereum", "Polygon", "Solana"],
+    "categories": ["DeFi"],
+    "integrations": ["VRF"],
+    "year": 2020,
+
+    "about": [
+      "Aavegotchi are DeFi-powered crypto collectibles from another realm. Summon your own Aavegotchis to collect, compete, and combine them for the ultimate gamified DeFi experience!",
+      "Aavegotchi has a vibrant community centered around gamified DAO governance layered on top of Web3. The entire Aavegotchi experience is powered by GHST, the eco-governance token of Aavegotchi. Use GHST to purchase various digital assets within the Aavegotchi universe, such as Aavegotchi portals & wearables. Hold GHST so your Aavegotchi can Cat in DAO governance, and earn GHST by excelling at Aavegotchi rarity farming."
+    ],
+
+    "images": {
+      "logo": "https://global-uploads.webflow.com/61f7ce2e0e6cea2cab6c1739/63e58fdabbe9c8423fc935f6_ok_zZaK3XlGdkEKlyFtjBhSTzWP0J_SuoFO_PNlYNjw.jpeg",
+      "cover": "https://aavegotchi.com/images/cover.png",
+      "banner": "https://global-uploads.webflow.com/61f7ce2e0e6cea2cab6c1739/63e58fdabbe9c8239ec935f7_UbCIPEyXy_ekHtdwdjns8VNqK9ei8ob8gWoOqT8SxnA.png",
+
+      "screenshots": ["", "", ""]
+    },
+
+    "links": {
+      "dapp": "https://app.aavegotchi.com/",
+      "website": "https://aavegotchi.com/",
+      "docs": "https://docs.aavegotchi.com/",
+      "explorer": "https://etherscan.io/token/0x86935f11c86623de8a25696e1c19a8659cbf95d1",
+      "socials": [
+        { "label": "Reddit", "url": "https://www.reddit.com/r/Aavegotchi/" },
+        { "label": "Twitter", "url": "https://twitter.com/aavegotchi" },
+        { "label": "Telegram", "url": "https://t.me/aavegotchi" },
+        { "label": "Blog", "url": "https://aavegotchi.medium.com/" },
+        {
+          "label": "Facebook Group",
+          "url": "https://www.facebook.com/groups/1010087115890588"
+        },
+        {
+          "label": "YouTube",
+          "url": "https://www.youtube.com/channel/UCZ5Z1XW9XZ7Z7LX5QXGx6jw"
+        },
+        { "label": "Discord", "url": "https://discord.gg/8YQXzZ8" }
+      ]
+    }
+  },
+  {
+    "name": "Aavegotchi",
+    "tagline": "Ultimate gamified DeFi experience!",
+    "status": "Live",
+    "chains": ["Ethereum", "Polygon", "Solana"],
+    "categories": ["DeFi"],
+    "integrations": ["VRF"],
+    "year": 2020,
+
+    "about": [
+      "Aavegotchi are DeFi-powered crypto collectibles from another realm. Summon your own Aavegotchis to collect, compete, and combine them for the ultimate gamified DeFi experience!",
+      "Aavegotchi has a vibrant community centered around gamified DAO governance layered on top of Web3. The entire Aavegotchi experience is powered by GHST, the eco-governance token of Aavegotchi. Use GHST to purchase various digital assets within the Aavegotchi universe, such as Aavegotchi portals & wearables. Hold GHST so your Aavegotchi can Cat in DAO governance, and earn GHST by excelling at Aavegotchi rarity farming."
+    ],
+
+    "images": {
+      "logo": "https://global-uploads.webflow.com/61f7ce2e0e6cea2cab6c1739/63e58fdabbe9c8423fc935f6_ok_zZaK3XlGdkEKlyFtjBhSTzWP0J_SuoFO_PNlYNjw.jpeg",
+      "cover": "https://aavegotchi.com/images/cover.png",
+      "banner": "https://global-uploads.webflow.com/61f7ce2e0e6cea2cab6c1739/63e58fdabbe9c8239ec935f7_UbCIPEyXy_ekHtdwdjns8VNqK9ei8ob8gWoOqT8SxnA.png",
+
+      "screenshots": ["", "", ""]
+    },
+
+    "links": {
+      "dapp": "https://app.aavegotchi.com/",
+      "website": "https://aavegotchi.com/",
+      "docs": "https://docs.aavegotchi.com/",
+      "explorer": "https://etherscan.io/token/0x86935f11c86623de8a25696e1c19a8659cbf95d1",
+      "socials": [
+        { "label": "Reddit", "url": "https://www.reddit.com/r/Aavegotchi/" },
+        { "label": "Twitter", "url": "https://twitter.com/aavegotchi" },
+        { "label": "Telegram", "url": "https://t.me/aavegotchi" },
+        { "label": "Blog", "url": "https://aavegotchi.medium.com/" },
+        {
+          "label": "Facebook Group",
+          "url": "https://www.facebook.com/groups/1010087115890588"
+        },
+        {
+          "label": "YouTube",
+          "url": "https://www.youtube.com/channel/UCZ5Z1XW9XZ7Z7LX5QXGx6jw"
+        },
+        { "label": "Discord", "url": "https://discord.gg/8YQXzZ8" }
+      ]
+    }
+  },
+  {
+    "name": "Aavegotchi",
+    "tagline": "Ultimate gamified DeFi experience!",
+    "status": "Live",
+    "chains": ["Ethereum", "Polygon", "Solana"],
+    "categories": ["DeFi"],
+    "integrations": ["VRF"],
+    "year": 2021,
+
+    "about": [
+      "Aavegotchi are DeFi-powered crypto collectibles from another realm. Summon your own Aavegotchis to collect, compete, and combine them for the ultimate gamified DeFi experience!",
+      "Aavegotchi has a vibrant community centered around gamified DAO governance layered on top of Web3. The entire Aavegotchi experience is powered by GHST, the eco-governance token of Aavegotchi. Use GHST to purchase various digital assets within the Aavegotchi universe, such as Aavegotchi portals & wearables. Hold GHST so your Aavegotchi can Cat in DAO governance, and earn GHST by excelling at Aavegotchi rarity farming."
+    ],
+
+    "images": {
+      "logo": "https://global-uploads.webflow.com/61f7ce2e0e6cea2cab6c1739/63e58fdabbe9c8423fc935f6_ok_zZaK3XlGdkEKlyFtjBhSTzWP0J_SuoFO_PNlYNjw.jpeg",
+      "cover": "https://aavegotchi.com/images/cover.png",
+      "banner": "https://global-uploads.webflow.com/61f7ce2e0e6cea2cab6c1739/63e58fdabbe9c8239ec935f7_UbCIPEyXy_ekHtdwdjns8VNqK9ei8ob8gWoOqT8SxnA.png",
+
+      "screenshots": ["", "", ""]
+    },
+
+    "links": {
+      "dapp": "https://app.aavegotchi.com/",
+      "website": "https://aavegotchi.com/",
+      "docs": "https://docs.aavegotchi.com/",
+      "explorer": "https://etherscan.io/token/0x86935f11c86623de8a25696e1c19a8659cbf95d1",
+      "socials": [
+        { "label": "Reddit", "url": "https://www.reddit.com/r/Aavegotchi/" },
+        { "label": "Twitter", "url": "https://twitter.com/aavegotchi" },
+        { "label": "Telegram", "url": "https://t.me/aavegotchi" },
+        { "label": "Blog", "url": "https://aavegotchi.medium.com/" },
+        {
+          "label": "Facebook Group",
+          "url": "https://www.facebook.com/groups/1010087115890588"
+        },
+        {
+          "label": "YouTube",
+          "url": "https://www.youtube.com/channel/UCZ5Z1XW9XZ7Z7LX5QXGx6jw"
+        },
+        { "label": "Discord", "url": "https://discord.gg/8YQXzZ8" }
+      ]
+    }
+  },
+  {
     "name": "Dapp Name",
     "tagline": "Decentralized protocol for depositing & borrowing crypto assets at variable & fixed interest rates.",
     "status": "Intent",
@@ -94,7 +226,7 @@
     "chains": ["Solana", "Polygon", "Ethereum"],
     "categories": ["Category", "Category2", "Category3"],
     "integrations": ["Product", "Product2", "Product3"],
-    "year": 2023,
+    "year": 2019,
     "about": [
       "This the dappp description, this is the first paragraph. lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       "This the dappp description, this is the second paragraph. lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."

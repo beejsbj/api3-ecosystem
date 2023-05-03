@@ -61,6 +61,15 @@ export const useEcosystemStore = defineStore("ecosystem", () => {
     "Automation",
   ];
 
+  const filter = ref({
+    search: "",
+    category: [],
+    chain: [],
+    integration: [],
+    year: [],
+    status: null,
+  });
+
   const currentDapp = computed(() => {
     if (route.params.detail) {
       return list.value.find((dapp) => slug(dapp.name) === route.params.detail);
@@ -77,6 +86,7 @@ export const useEcosystemStore = defineStore("ecosystem", () => {
     categories,
     chains,
     integrations,
+    filter,
 
     addDapp,
   };
