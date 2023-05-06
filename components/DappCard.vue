@@ -130,6 +130,10 @@ header {
   grid-template-columns: 1fr 1fr;
   justify-content: space-between;
   align-items: center;
+
+  h2 {
+    white-space: nowrap;
+  }
   picture {
     width: 50px;
     justify-self: end;
