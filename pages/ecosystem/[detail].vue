@@ -48,9 +48,11 @@ const { currentDapp: dapp } = storeToRefs(ecosystem);
 .detail-header {
   background: linear-gradient(
     0deg,
-    hsla(300, 0%, 3%, 1) 20%,
-    hsla(300, 0%, 3%, 0)
+    hsla(300, 0%, 3%, 0) 10%,
+    hsla(300, 0%, 3%, 1),
+    hsla(300, 0%, 3%, 0) 80%
   );
+  /* background-blend-mode: darken; */
 }
 
 article.main {
