@@ -25,7 +25,8 @@ form,
   gap: 1.5rem;
 }
 
-form form-field,
+input-field,
+form :is(form-field),
 .formkit-wrapper {
   display: grid;
   gap: 1rem;
@@ -47,7 +48,7 @@ form-field .formkit-messages {
 } 
 */
 
-form-field input {
+:is(form-field, input-field) input {
   padding: 0.5rem;
 }
 
