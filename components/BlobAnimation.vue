@@ -12,7 +12,11 @@ onMounted(() => {
         left: `${clientX}px`,
         top: `${clientY}px`,
       },
-      { duration: 3000, fill: "forwards" }
+      {
+        duration: 3000,
+        fill: "forwards",
+        easing: "ease-in-out",
+      }
     );
   };
 });
@@ -53,7 +57,7 @@ onMounted(() => {
   left: 50%;
   top: 50%;
   translate: -50% -50%;
-  border-radius: 50%;
+  /* border-radius: 50%; */
   background: linear-gradient(to right, aquamarine, mediumpurple);
   animation: rotate 20s infinite;
   opacity: 0.5;
