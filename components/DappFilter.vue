@@ -15,13 +15,24 @@ const integrations = computed(() => [
 const years = computed(() => [
   ...new Set(ecosystem.list.map((dapp) => dapp.year).flat()),
 ]);
+
+function clearFilters() {
+  ecosystem.filter.search = "";
+  ecosystem.filter.chains = [];
+  ecosystem.filter.category = [];
+  ecosystem.filter.integrations = [];
+  ecosystem.filter.years = [];
+}
 </script>
 
 <template>
   <dapp-filter>
     <header>
-      <h3 class="solid-voice">Displaying 936 of 936 results</h3>
-      <button class="button">clear</button>
+      <h3 class="solid-voice">
+        Displaying {{ ecosystem.filter.count }} of
+        {{ ecosystem.list.length }} results
+      </h3>
+      <button class="button" @click="clearFilters">clear</button>
     </header>
     <search-bar>
       <FormKit
@@ -47,7 +58,7 @@ const years = computed(() => [
               :id="chain"
               type="checkbox"
               :value="chain"
-              v-model="ecosystem.filter.chain"
+              v-model="ecosystem.filter.chains"
             />
           </li>
         </template>
@@ -93,7 +104,7 @@ const years = computed(() => [
               :id="integration"
               type="checkbox"
               :value="integration"
-              v-model="ecosystem.filter.integration"
+              v-model="ecosystem.filter.integrations"
             />
           </li>
         </template>
@@ -114,7 +125,7 @@ const years = computed(() => [
               :id="year"
               type="checkbox"
               :value="year"
-              v-model="ecosystem.filter.year"
+              v-model="ecosystem.filter.years"
               onclick="console.log('test', this.checked)"
             />
           </li>
@@ -124,10 +135,37 @@ const years = computed(() => [
 
     <div class="status filter">
       <h4 class="firm-voice">Status</h4>
-      <div class="actions">
-        <button class="button">All</button>
-        <button class="button">Live</button>
-        <button class="button">Intent</button>
+      <div class="status-actions">
+        <input-field>
+          <label for="all">All</label>
+          <input
+            type="radio"
+            name="status"
+            id="all"
+            value="all"
+            v-model="ecosystem.filter.status"
+          />
+        </input-field>
+        <input-field>
+          <label for="live">Live</label>
+          <input
+            type="radio"
+            name="status"
+            id="live"
+            value="live"
+            v-model="ecosystem.filter.status"
+          />
+        </input-field>
+        <input-field>
+          <label for="beta">Beta</label>
+          <input
+            type="radio"
+            name="status"
+            id="beta"
+            value="beta"
+            v-model="ecosystem.filter.status"
+          />
+        </input-field>
       </div>
     </div>
   </dapp-filter>
@@ -153,15 +191,30 @@ dapp-filter {
   display: grid;
   gap: 0.5rem;
 
-  &.status .actions {
+  &.status .status-actions {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 2px;
     border-radius: var(--corners);
     overflow: hidden;
+    text-align: center;
 
-    .button {
-      border-radius: 0;
+    input {
+      display: none;
+    }
+
+    label {
+      font-size: 0.875rem;
+      font-weight: 700;
+      background-color: var(--color);
+      color: black;
+      font-family: var(--font);
+      padding: 0.25rem 0.5rem;
+    }
+
+    input-field:has(input:checked) label {
+      background-color: black;
+      color: var(--ink);
     }
   }
 
@@ -171,30 +224,29 @@ dapp-filter {
     align-items: flex-start;
     align-content: flex-start;
     gap: 0.5rem;
+  }
+  .pill {
+    input {
+      display: none;
+    }
 
-    .pill {
-      input {
-        display: none;
-      }
+    label {
+      --gray-dark: hsla(167, 22%, 15%, 1);
 
-      label {
-        --gray-dark: hsla(167, 32%, 20%, 1);
+      font-size: 12px;
+      font-weight: 700;
 
-        font-size: 12px;
-        font-weight: 700;
+      background-color: var(--gray-dark);
+      padding: 0.5em 1em;
 
-        background-color: var(--gray-dark);
-        padding: 0.5em 1em;
+      --corners: 0.7em;
+      border-radius: var(--corners);
+    }
 
-        --corners: 0.7em;
-        border-radius: var(--corners);
-      }
-
-      &:has(input:checked) label {
-        background-color: var(--color);
-        color: var(--ink);
-        --ink: black;
-      }
+    &:has(input:checked) label {
+      background-color: var(--color);
+      color: var(--ink);
+      --ink: black;
     }
   }
 }
