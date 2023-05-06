@@ -13,12 +13,10 @@ export const useInterfaceStore = defineStore("interface", function () {
   });
   const isTablet = computed(() => {
     if (typeof window === "undefined") return false;
-
     return window.innerWidth < 1024 && window.innerWidth >= 768;
   });
   const isDesktop = computed(() => {
     if (typeof window === "undefined") return false;
-
     return window.innerWidth >= 1024;
   });
 
