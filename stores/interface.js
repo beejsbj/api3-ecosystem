@@ -8,9 +8,18 @@ export const useInterfaceStore = defineStore("interface", function () {
   }
 
   const isMobile = computed(() => {
-    if (typeof window !== "undefined") {
-      return window.innerWidth < 450;
-    }
+    if (typeof window === "undefined") return false;
+    return window.innerWidth < 768;
+  });
+  const isTablet = computed(() => {
+    if (typeof window === "undefined") return false;
+
+    return window.innerWidth < 1024 && window.innerWidth >= 768;
+  });
+  const isDesktop = computed(() => {
+    if (typeof window === "undefined") return false;
+
+    return window.innerWidth >= 1024;
   });
 
   function notify(message) {
@@ -25,5 +34,7 @@ export const useInterfaceStore = defineStore("interface", function () {
     toggleMenu,
     notify,
     isMobile,
+    isTablet,
+    isDesktop,
   };
 });
