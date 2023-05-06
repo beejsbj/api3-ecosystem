@@ -64,10 +64,11 @@ export const useEcosystemStore = defineStore("ecosystem", () => {
   const filter = ref({
     search: "",
     category: [],
-    chain: [],
-    integration: [],
-    year: [],
-    status: null,
+    chains: [],
+    integrations: [],
+    years: [],
+    status: "all",
+    count: 0,
   });
 
   const currentDapp = computed(() => {
