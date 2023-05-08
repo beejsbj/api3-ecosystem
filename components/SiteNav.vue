@@ -8,7 +8,7 @@
     <NuxtLink class="button" to="/add-dapp">Add</NuxtLink>
   </nav>
 </template>
-
+<!-- #todo change to a side panel instead of a modal -->
 <style lang="scss" scoped>
 nav:not(.modal-menu) {
   display: flex;
