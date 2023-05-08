@@ -25,16 +25,73 @@ div.actions {
 
 a {
   color: var(--color);
+  padding: 0.5rem 1rem;
+  position: relative;
+}
+a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 1px;
+  background: var(--gradient-color);
+
+  transition: 0.2s;
+}
+
+a:is(:hover, :focus, .router-link-active)::after {
+  width: 100%;
 }
 
 .button {
-  padding: 5px 15px;
-  background-color: var(--color);
-  color: var(--paper);
+  padding: 0.5rem 2rem;
   cursor: pointer;
   text-align: center;
 
-  border-radius: var(--corners);
+  background: none;
+
+  position: relative;
+
+  border: 0.5px solid var(--gray);
+}
+
+.button::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  background: var(--gray);
+  z-index: -2;
+  display: none;
+}
+
+.button::before {
+  content: "";
+  position: absolute;
+  bottom: -0.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50%;
+  height: 1px;
+  background-color: var(--gray);
+  transition: 0.2s;
+}
+
+.button:is(:hover, :focus) {
+  outline-color: var(--highlight);
+}
+
+.button:is(:hover, :focus)::after {
+  background: linear-gradient(to right, var(--color), var(--highlight));
+}
+
+.button:is(:hover, :focus)::before {
+  width: 100%;
+  background: linear-gradient(to right, var(--color), var(--highlight));
+}
+
+.button:active {
+  outline-color: var(--color);
 }
 
 picture.logo {
