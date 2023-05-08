@@ -2,8 +2,18 @@
 import slug from "slug";
 
 const props = defineProps(["dapp"]);
-
+const ecosystem = useEcosystemStore();
 const logo = props.dapp.images.logo ?? "@/assets/images/square.jpg";
+
+function filterBy(event) {
+  if (event.target.classList.contains("category")) {
+    ecosystem.filter.category.push(event.target.innerText);
+  } else if (event.target.classList.contains("integration")) {
+    ecosystem.filter.integrations.push(event.target.innerText);
+  } else if (event.target.classList.contains("status")) {
+    ecosystem.filter.status = event.target.innerText.toLowerCase();
+  }
+}
 </script>
 
 <template>
@@ -32,17 +42,25 @@ const logo = props.dapp.images.logo ?? "@/assets/images/square.jpg";
     <footer>
       <div class="lists">
         <ul class="categories-list">
-          <li class="whisper-voice" v-for="category in dapp.categories">
+          <li
+            class="whisper-voice category"
+            v-for="category in dapp.categories"
+            @click="filterBy"
+          >
             {{ category }}
           </li>
         </ul>
-        <ul class="integrations-list">
-          <li class="whisper-voice" v-for="integration in dapp.integrations">
+        <ul class="integrations-list integration">
+          <li
+            class="whisper-voice"
+            v-for="integration in dapp.integrations"
+            @click="filterBy"
+          >
             {{ integration }}
           </li>
         </ul>
       </div>
-      <p class="status" :class="dapp.status">
+      <p class="status" :class="dapp.status" @click="filterBy">
         {{ dapp.status }}
       </p>
       <NuxtLink :to="`/ecosystem/${slug(dapp.name)}`" class="card-link">
@@ -70,35 +88,42 @@ dapp-card {
   gap: 1rem;
   border-radius: var(--corners);
 
-  background: var(--dark-background);
+  background: var(--gradient-dark);
 
   position: relative;
+  min-height: 300px;
 
-  &::after {
-    content: "";
-    display: block;
-    border-radius: var(--corners);
-    transform: scaleX(0);
+  //   transition: all 0.2s ease-in-out;
 
-    position: absolute;
-    inset: -1px;
-    z-index: -1;
-    background: linear-gradient(90deg, var(--color), var(--highlight));
-
+  &:hover {
+    background: var(--gradient-dark-color);
     box-shadow: var(--shadow);
+    transition: background 0.2s ease-in-out;
   }
 
-  &:hover::after {
-    transform: scaleX(1);
-    transform-origin: left;
-    transition: transform 0.2s ease-in;
-  }
+  //   &::after {
+  //     content: "";
+  //     display: block;
+  //     border-radius: var(--corners);
+  //     transform: scaleX(0);
+
+  //     position: absolute;
+  //     inset: -1px;
+  //     z-index: -1;
+  //     background: var(--gradient-color);
+
+  //   }
+
+  //   &:hover::after {
+  //     transform: scaleX(1);
+  //     transform-origin: left;
+  //     transition: transform 0.2s ease-in;
+  //   }
 
   .calm-voice {
     font-size: 0.875rem;
   }
   .whisper-voice {
-    font-size: 0.75rem;
   }
 
   div.background-wrapper {
@@ -110,13 +135,14 @@ dapp-card {
 
   .card-background {
     position: absolute;
-    opacity: 0.3;
-    right: -20%;
+    opacity: 0.2;
+    right: -100px;
+    top: 25px;
     transform: rotate(-10deg) scale(0.7);
     transform-origin: top;
   }
 
-  & :is(header, text-content, .lists, .status) {
+  & :is(.lists, .status) {
     z-index: 2;
   }
   .card-link {
@@ -174,7 +200,7 @@ footer {
   .status.Live {
     color: var(--success);
   }
-  .status.Intent {
+  .status.Beta {
     color: var(--warning);
   }
 
@@ -186,5 +212,14 @@ footer {
       gap: 0.5rem;
     }
   }
+}
+
+.category,
+.integration,
+.status {
+  cursor: pointer;
+}
+:is(.category, .integration, .status):hover {
+  filter: brightness(1.2);
 }
 </style>
