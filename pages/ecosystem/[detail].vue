@@ -6,6 +6,8 @@ const { currentDapp: dapp } = storeToRefs(ecosystem);
 
 <template>
   <template v-if="dapp">
+    <DetailBanner />
+
     <SectionColumn class="detail-header">
       <detail-banner>
         <h1 class="loud-voice">{{ dapp.name }}</h1>
@@ -44,31 +46,34 @@ const { currentDapp: dapp } = storeToRefs(ecosystem);
   </template>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 .detail-header {
-  background: linear-gradient(
-    0deg,
-    hsla(300, 0%, 3%, 0) 10%,
-    hsla(300, 0%, 3%, 1),
-    hsla(300, 0%, 3%, 0) 80%
-  );
+  //   background: linear-gradient(
+  //     0deg,
+  //     hsla(300, 0%, 3%, 0) 10%,
+  //     hsla(300, 0%, 3%, 1),
+  //     hsla(300, 0%, 3%, 0) 80%
+  //   );
   /* background-blend-mode: darken; */
 }
 
 article.main {
   display: grid;
-  gap: 1rem;
+  gap: 3rem;
   align-items: start;
-}
-@media (min-width: 768px) {
-  article.main {
+
+  p {
+    color: var(--gray);
+  }
+
+  @media (min-width: 768px) {
     grid-template-columns: 1fr 2fr;
   }
 }
 
 article.main article {
   display: grid;
-  gap: 1.5rem;
+  gap: 2rem;
 }
 
 article.main article section {

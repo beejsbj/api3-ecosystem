@@ -8,7 +8,7 @@ const showFilter = ref(false);
 
 <template>
   <SectionColumn>
-    <h1 class="booming-voice">Ecosystem</h1>
+    <h1 class="loud-voice">Search API3's Ecosystem</h1>
   </SectionColumn>
 
   <SectionColumn innerClass="main-grid">
@@ -27,13 +27,16 @@ const showFilter = ref(false);
   </SectionColumn>
 </template>
 
-<style>
-@media (min-width: 768px) {
-  .ecosystem .main-grid {
-    display: grid;
-    grid-template-columns: 0.4fr 1fr;
-    grid-gap: 1rem;
-    align-items: start;
+<style lang="scss">
+.ecosystem .main-grid {
+  display: grid;
+  grid-gap: 2.5rem;
+  align-items: start;
+  @media (min-width: 768px) {
+    grid-template-columns: 0.7fr 1fr;
+  }
+  @media (min-width: 1166px) {
+    grid-template-columns: 0.3fr 1fr;
   }
 }
 </style>

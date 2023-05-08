@@ -6,6 +6,6 @@ definePageMeta({
 
 <template>
   <SectionColumn>
-    <h1 class="booming-voice">Home</h1>
+    <h1 class="loud-voice">Home</h1>
   </SectionColumn>
 </template>
