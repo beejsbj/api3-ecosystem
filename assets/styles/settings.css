@@ -1,28 +1,57 @@
 html {
   /* Black and white */
-  --black: hsla(166, 14%, 5%, 1);
+  --black: hsla(0, 0%, 1%, 1);
   --white: hsla(180, 0%, 95%, 1);
-  --gray: hsla(0, 0%, 53%, 1);
-  --gray-light: hsla(0, 0%, 80%, 1);
-  --gray-lighter: hsla(0, 0%, 98%, 1);
-  --gray-dark: hsla(166, 40%, 5%, 1);
 
-  --color: hsla(166, 65%, 69%, 1);
+  --gray: hsla(0, 0%, 51%, 1);
+  --gray-light: hsla(0, 0%, 71%, 1);
+  --gray-lighter: hsla(0, 0%, 90%, 1);
+
+  --gray-dark: hsla(0, 0%, 26%, 1);
+  --gray-darkest: hsla(166, 40%, 5%, 1);
+
+  --color: hsla(166, 64%, 69%, 1);
   --color-shade: hsla(166, 28%, 27%, 1);
   --color-dark: hsla(166, 65%, 10%, 1);
 
-  --highlight: hsla(232, 35%, 55%, 1);
+  --highlight: hsla(256, 34%, 54%, 1);
 
   --success: hsla(122, 53%, 65%, 1);
-  --warning: hsla(360, 53%, 65%, 1);
+  --warning: hsla(290, 53%, 65%, 1);
 
-  --shadow: var(--ink) 5px 5px 50px -25px;
+  --shadow: var(--highlight) 5px 5px 50px -25px;
 
   --corners: 0.2em; /* or whatevers */
 
   --paper: var(--black);
-  --dark-background: linear-gradient(45deg, black, var(--color-dark));
   --ink: hsla(180, 0%, 95%, 1);
+
+  /* Gradients */
+  --gradient-direction: 120deg;
+
+  --gradient-dark: linear-gradient(
+    var(--gradient-direction),
+    var(--black) 35%,
+    hsla(153, 3%, 15%, 1)
+  );
+
+  --gradient-light: linear-gradient(
+    var(--gradient-direction),
+    var(--gray-light) 35%,
+    var(--white)
+  );
+
+  --gradient-color: linear-gradient(
+    var(--gradient-direction),
+    var(--color),
+    var(--highlight)
+  );
+
+  --gradient-dark-color: linear-gradient(
+    var(--gradient-direction),
+    var(--black) 35%,
+    var(--color-shade)
+  );
 
   /* Backgrounds */
   --texture: url(../images/texture.png);
@@ -30,3 +59,4 @@ html {
   --diagnol: url("data:image/svg+xml,%3Csvg width='4' height='4' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23000000' fill-opacity='0.2' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E");
   --points: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23000000' fill-opacity='0.2' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
 }
+/* #todo api3 triangle texture */
