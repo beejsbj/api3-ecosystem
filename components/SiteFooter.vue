@@ -6,6 +6,7 @@
 
     <Teleport to="body">
       <BlobAnimation />
+      <BackgroundDecoration />
     </Teleport>
   </footer>
 </template>
