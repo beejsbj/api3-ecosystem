@@ -5,59 +5,69 @@
 
 html {
   --font: Inter, sans-serif;
+
+  --step--2: clamp(0.39rem, calc(0.36rem + 0.15vw), 0.5rem);
+  --step--1: clamp(0.58rem, calc(0.54rem + 0.23vw), 0.75rem);
+  --step-0: clamp(0.88rem, calc(0.81rem + 0.34vw), 1.13rem);
+  --step-1: clamp(1.31rem, calc(1.21rem + 0.51vw), 1.69rem);
+  --step-2: clamp(1.97rem, calc(1.82rem + 0.76vw), 2.53rem);
+  --step-3: clamp(2.95rem, calc(2.72rem + 1.14vw), 3.8rem);
+  --step-4: clamp(4.43rem, calc(4.09rem + 1.72vw), 5.7rem);
+  --step-5: clamp(6.64rem, calc(6.13rem + 2.57vw), 8.54rem);
+
+  --weight-semibold: 600;
+  --weight-medium: 500;
+  --weight-light: 300;
 }
 
 .booming-voice {
   font-family: var(--font);
 
-  font-size: clamp(2rem, calc(0.68rem + 6.59vw), 5.63rem);
-  font-weight: 700;
+  font-size: var(--step-4);
+  font-weight: var(--weight-semibold);
   line-height: 2.875rem;
 }
 
 .loud-voice {
   font-family: var(--font);
-  font-size: clamp(2.25rem, calc(1.66rem + 2.93vw), 3.75rem);
+
+  font-size: var(--step-3);
+  font-weight: var(--weight-semibold);
 }
 
 @media (min-width: 600px) {
   .loud-voice {
-    font-weight: 100;
+    /* font-weight: 100; */
+    font-weight: var(--weight-medium);
   }
 }
 
 .attention-voice {
   font-family: var(--font);
-  font-size: clamp(1.5rem, calc(1.3rem + 0.98vw), 2rem);
-  font-weight: 700;
+  font-size: var(--step-1);
+  font-weight: var(--weight-medium);
 }
 
 .notice-voice {
   font-family: var(--font);
-  font-size: 1.125rem;
-  line-height: 1.75rem;
-  font-weight: 200;
+  font-size: var(--step-1);
+  line-height: 1.6;
+  font-weight: var(--weight-light);
   color: var(--gray);
+}
+.firm-voice {
+  font-family: var(--font);
+  font-size: var(--step-1);
+  line-height: 1.6;
+  font-weight: var(--weight-semibold);
 }
 
 .teaser-voice {
   font-family: var(--font);
-  font-size: 1.1rem;
-  line-height: 1.4;
+  font-size: var(--step-0);
+  line-height: 1.6;
   color: var(--color);
-}
-@media (min-width: 700px) {
-  .notice-voice {
-    font-size: 1.3rem;
-  }
-}
-
-.firm-voice {
-  font-family: var(--font);
-
-  font-size: 1.125rem;
-  line-height: 1.75rem;
-  font-weight: 700;
+  font-weight: var(--weight-light);
 }
 
 .calm-voice,
@@ -65,8 +75,9 @@ p,
 a,
 li {
   font-family: var(--font);
-  font-size: 1rem;
-  line-height: 1.4;
+  font-size: var(--step-0);
+  line-height: 1.6;
+  font-weight: var(--weight-light);
 }
 
 em {
@@ -74,23 +85,25 @@ em {
 }
 
 strong {
-  font-weight: 700;
+  font-weight: var(--weight-semibold);
 }
 
 .whisper-voice {
-  font-size: 14px;
-  opacity: 0.8;
-  font-weight: 500;
+  font-size: var(--step--1);
+  /* opacity: 0.8; */
+  font-weight: var(--weight-light);
+  color: var(--gray-light);
 }
 
 .solid-voice {
   font-family: var(--font);
-  font-size: 14px;
-  font-weight: 700;
+  font-size: var(--step--1);
+  font-weight: var(--weight-semibold);
 }
 
 .micro-voice {
-  font-size: 10px;
+  font-size: var(--step--2);
+  font-weight: var(--weight-light);
 }
 
 /* these would be scoped to section or to an article element */
