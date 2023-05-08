@@ -20,13 +20,14 @@ const { currentDapp: dapp } = storeToRefs(ecosystem);
 
 <style lang="scss" scoped>
 .banner {
-  position: relative;
-  top: 4rem;
-  z-index: -1;
+  //   position: relative;
+  //   top: 4rem;
+  //   z-index: -1;
 
   picture {
     overflow: hidden;
     aspect-ratio: 6 / 2;
+
     img {
       width: 100%;
       height: 100%;

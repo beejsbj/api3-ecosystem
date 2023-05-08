@@ -107,7 +107,7 @@ aside {
     padding: 1rem;
   }
   div.row {
-    border-bottom: 1px solid var(--color);
+    border-bottom: 1px solid var(--gray);
   }
 }
 </style>

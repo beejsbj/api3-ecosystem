@@ -68,7 +68,7 @@ function afterLeave(el, done) {
 .dapp-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1rem;
+  gap: 2rem;
   align-items: start;
   position: relative;
 }

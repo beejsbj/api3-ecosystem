@@ -78,7 +78,8 @@ file-upload :is(input, form-field) {
 file-upload {
   display: grid;
   // grid-template-rows: 0.3fr 1fr;
-  background: var(--dark-background);
+  background: linear-gradient(120deg, black, var(--color-dark));
+  --ink: hsla(180, 0%, 95%, 1);
   border: 1px solid var(--ink);
   border-radius: var(--corners);
   gap: 10px;
