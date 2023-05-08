@@ -5,12 +5,12 @@ onMounted(() => {
   const blob = document.getElementById("blob");
 
   window.onpointermove = (event) => {
-    const { clientX, clientY } = event;
+    const { pageX, pageY } = event;
 
     blob.animate(
       {
-        left: `${clientX}px`,
-        top: `${clientY}px`,
+        left: `${pageX}px`,
+        top: `${pageY}px`,
       },
       {
         duration: 3000,
@@ -60,8 +60,9 @@ onMounted(() => {
   /* border-radius: 50%; */
   background: linear-gradient(to right, aquamarine, mediumpurple);
   animation: rotate 20s infinite;
-  opacity: 0.5;
+  opacity: 0.15;
   pointer-events: none;
+  z-index: -3;
 }
 
 #blur {
@@ -69,7 +70,7 @@ onMounted(() => {
   width: 100%;
   position: absolute;
   /* z-index: ; */
-  backdrop-filter: blur(12vmax);
+  backdrop-filter: blur(10vmax);
   pointer-events: none;
 }
 </style>
