@@ -32,19 +32,18 @@ function clearFilters() {
         Displaying {{ ecosystem.filter.count }} of
         {{ ecosystem.list.length }} results
       </h3>
-      <button class="button" @click="clearFilters">clear</button>
+      <button class="button" @click="clearFilters">Clear</button>
     </header>
     <search-bar>
       <FormKit
         type="search"
         placeholder="Search..."
-        label="Search"
         v-model="ecosystem.filter.search"
       />
     </search-bar>
 
     <div class="chain filter">
-      <h4 class="firm-voice">Chain</h4>
+      <h4 class="notice-voice">Chain</h4>
       <ul class="pills">
         <template v-for="chain in chains" :key="chain">
           <li class="pill">
@@ -66,7 +65,7 @@ function clearFilters() {
     </div>
 
     <div class="category filter">
-      <h4 class="firm-voice">Category</h4>
+      <h4 class="notice-voice">Category</h4>
       <ul class="pills">
         <template v-for="category in categories" :key="category">
           <li class="pill">
@@ -89,7 +88,7 @@ function clearFilters() {
     </div>
 
     <div class="integration filter">
-      <h4 class="firm-voice">Integration</h4>
+      <h4 class="notice-voice">Integration</h4>
       <ul class="pills">
         <template v-for="integration in integrations" :key="integration">
           <li class="pill">
@@ -112,7 +111,7 @@ function clearFilters() {
     </div>
 
     <div class="year filter">
-      <h4 class="firm-voice">Year</h4>
+      <h4 class="notice-voice">Year</h4>
       <ul class="pills">
         <template v-for="year in years" :key="year">
           <li class="pill">
@@ -134,7 +133,7 @@ function clearFilters() {
     </div>
 
     <div class="status filter">
-      <h4 class="firm-voice">Status</h4>
+      <h4 class="notice-voice">Status</h4>
       <div class="status-actions">
         <input-field>
           <label for="all">All</label>
@@ -175,15 +174,33 @@ function clearFilters() {
 dapp-filter {
   display: grid;
   grid-template-columns: 1fr;
-  grid-gap: 2rem;
-  background-color: var(--gray-dark);
-  padding: 1rem;
+  //   grid-gap: 2rem;
+  --gray-darkest: hsla(167, 32%, 5%, 0.3);
+  background-color: var(--gray-darkest);
+
+  //   padding: 1rem;
   border-radius: var(--corners);
 
   header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    .solid-voice {
+      font-size: 0.75rem;
+    }
+
+    .button {
+      font-size: 14px;
+    }
+  }
+
+  & > * {
+    padding: 1.2rem;
+
+    & + *:not(search-bar) {
+      border-top: 1px solid hsla(162, 10%, 30%, 0.5);
+    }
   }
 }
 
@@ -231,12 +248,12 @@ dapp-filter {
     }
 
     label {
-      --gray-dark: hsla(167, 22%, 15%, 1);
+      --gray-darkest: hsla(167, 22%, 15%, 1);
 
       font-size: 12px;
       font-weight: 700;
 
-      background-color: var(--gray-dark);
+      background-color: var(--gray-darkest);
       padding: 0.5em 1em;
 
       --corners: 0.7em;
