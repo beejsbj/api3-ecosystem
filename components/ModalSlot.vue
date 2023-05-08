@@ -40,7 +40,9 @@ const props = defineProps(["showModal"]);
   background-color: rgba(0, 0, 0, 0.5);
   transition: opacity 0.3s ease;
   overflow-y: auto;
-  padding: 60px 0;
+
+  display: grid;
+  place-items: center;
 }
 .modal-mask > * {
   width: clamp(300px, 90vw, 500px);
