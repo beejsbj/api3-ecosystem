@@ -8,9 +8,8 @@
     <NuxtLink class="button" to="/add-dapp">Add</NuxtLink>
   </nav>
 </template>
-<!-- #todo change to a side panel instead of a modal -->
 <style lang="scss" scoped>
-nav:not(.modal-menu) {
+nav:not(.panel-menu) {
   display: flex;
   align-items: center;
   justify-content: end;
@@ -25,16 +24,17 @@ nav:not(.modal-menu) {
   }
 }
 
-nav.modal-menu {
+nav.panel-menu {
   display: grid;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
+
+  //   align-items: end;
+  //   justify-content: start;
+  gap: 3em;
   padding: 2rem;
-  background: var(--gradient-dark);
 
   a {
     color: var(--ink);
+    font-size: var(--step-1);
   }
 }
 </style>

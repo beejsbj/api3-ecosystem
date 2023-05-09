@@ -15,19 +15,19 @@ const showMenu = ref(false);
           </picture>
           <SiteNav v-if="!ui.isMobile" />
           <button
-            class="button"
+            class="button menu"
             v-if="ui.isMobile"
             @click="showMenu = !showMenu"
           >
-            Menu
+            <MenuIcon />
           </button>
-          <ModalSlot
+          <SidePanelSlot
             v-if="ui.isMobile"
-            :showModal="showMenu"
+            :showPanel="showMenu"
             @toggle="showMenu = !showMenu"
           >
-            <SiteNav class="modal-menu" />
-          </ModalSlot>
+            <SiteNav class="panel-menu" />
+          </SidePanelSlot>
         </mast-head>
       </ClientOnly>
     </SectionColumn>
@@ -49,6 +49,21 @@ mast-head {
 
   @media (min-width: 768px) {
     grid-template-columns: 0.5fr 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .site-logo {
+    position: fixed;
+    z-index: 9999;
+  }
+  .button.menu {
+    position: fixed;
+    z-index: 9999;
+    top: 1rem;
+    right: 1rem;
+    /* font-size: 2rem; */
+    padding: 1rem;
   }
 }
 </style>
