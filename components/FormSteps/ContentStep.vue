@@ -17,19 +17,6 @@ props.dappForm.date = new Date().toISOString().slice(0, 10);
       />
     </form-field>
 
-    <form-field>
-      <FormKit
-        type="text"
-        label="One Line Integration"
-        label-class="$reset notice-voice"
-        name="oneLineIntegration"
-        placeholder="One Line Integration"
-        validation="required"
-        id="oneLineIntegration"
-        v-model="dappForm.oneLineIntegration"
-      />
-    </form-field>
-
     <!-- short description -->
     <form-field>
       <FormKit
