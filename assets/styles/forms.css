@@ -65,7 +65,7 @@ input.multiselect-tags-search {
 
 input,
 textarea {
-  background: var(--gray-darkest) !important;
+  background: var(--gradient-dark) !important;
 }
 
 label {

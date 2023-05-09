@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@formkit/addons": "^0.16.5",
+    "@formkit/auto-animate": "^1.0.0-beta.6",
     "@formkit/nuxt": "^0.16.5",
     "@formkit/themes": "^0.16.5",
     "@pinia/nuxt": "^0.4.9",
