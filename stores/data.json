@@ -176,7 +176,7 @@
     }
   },
   {
-    "name": "Dapp Name",
+    "name": "Dapp Name 1",
     "tagline": "Decentralized protocol for depositing & borrowing crypto assets.",
     "status": "Beta",
     "chains": ["Polygon", "Ethereum"],
@@ -220,7 +220,7 @@
     }
   },
   {
-    "name": "Dapp Name",
+    "name": "Dapp Name 2",
     "tagline": "Dapp Tagline",
     "status": "Live",
     "chains": ["Solana", "Polygon", "Ethereum"],
@@ -264,7 +264,7 @@
     }
   },
   {
-    "name": "Dapp Name",
+    "name": "Dapp Name 3",
     "tagline": "Dapp Tagline",
     "status": "Live",
     "chains": ["fantom", "Polygon", "Ethereum"],
@@ -308,7 +308,7 @@
     }
   },
   {
-    "name": "Dapp Name",
+    "name": "Dapp Name 4",
     "tagline": "Dapp Tagline",
     "status": "Live",
     "chains": ["gnosis", "Polygon", "Ethereum"],
