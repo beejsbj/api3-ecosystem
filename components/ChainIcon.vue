@@ -1,8 +1,6 @@
 <script setup>
 const props = defineProps(["chain", "fill"]);
-
-
-
+// #todo turn chains into vue components
 </script>
 
 <template>

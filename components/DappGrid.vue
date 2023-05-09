@@ -6,53 +6,45 @@ const ecosystem = useEcosystemStore();
 
 const { searchResults } = useFilteredSearch(ecosystem);
 
-function onBeforeEnter(el) {
-  el.style.opacity = 0;
-}
+// function onBeforeEnter(el) {
+//   el.style.opacity = 0;
+// }
 
-function onEnter(el, done) {
-  console.log(el.dataset.index);
-  gsap.to(el, {
-    x: 0,
-    opacity: 1,
-    delay: el.dataset.index * 0.15,
-    //  ease: "bounce.out",
-    onComplete: done,
-  });
-}
+// function onEnter(el, done) {
+//   console.log(el.dataset.index);
+//   gsap.to(el, {
+//     x: 0,
+//     opacity: 1,
+//     delay: el.dataset.index * 0.15,
+//     //  ease: "bounce.out",
+//     onComplete: done,
+//   });
+// }
 
-function onLeave(el, done) {
-  gsap.fromTo(
-    el,
-    { position: "absolute", zIndex: -5 },
-    {
-      opacity: 0,
-      onComplete: done,
-    }
-  );
-}
+// function onLeave(el, done) {
+//   gsap.fromTo(
+//     el,
+//     { position: "absolute", zIndex: -5 },
+//     {
+//       opacity: 0,
+//       onComplete: done,
+//     }
+//   );
+// }
 
-function afterLeave(el, done) {
-  console.log(el.dataset.index);
+// function afterLeave(el, done) {
+//   console.log(el.dataset.index);
 
-  gsap.to(el, {
-    position: "relative",
-    zIndex: 0,
-  });
-}
+//   gsap.to(el, {
+//     position: "relative",
+//     zIndex: 0,
+//   });
+// }
 </script>
 
 <template>
   <ClientOnly>
-    <TransitionGroup
-      tag="dapp-grid"
-      name="list"
-      class="dapp-grid"
-      @before-enter="onBeforeEnter"
-      @enter="onEnter"
-      @leave="onLeave"
-      @after-leave="afterLeave"
-    >
+    <ul class="dapp-grid" v-auto-animate>
       <DappCard
         v-for="(dapp, index) in searchResults"
         :dapp="dapp"
@@ -60,7 +52,7 @@ function afterLeave(el, done) {
         :data-index="index"
         class="list-move"
       />
-    </TransitionGroup>
+    </ul>
   </ClientOnly>
 </template>
 
