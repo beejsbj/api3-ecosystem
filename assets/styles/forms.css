@@ -66,6 +66,24 @@ input.multiselect-tags-search {
 input,
 textarea {
   background: var(--gradient-dark) !important;
+  position: relative;
+}
+
+:is(input, textarea)::after {
+  color: var(--paper);
+  border: 1px solid var(--ink);
+  border-radius: var(--corners);
+
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  height: 1px;
+  width: 0%;
+  background: var(--gradient-color);
+}
+:is(input, textarea):focus::after {
+  width: 100%;
 }
 
 label {
