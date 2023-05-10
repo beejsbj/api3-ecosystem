@@ -89,11 +89,12 @@ main.add-dapp {
 
     @media (min-width: 768px) {
       grid-template-columns: 0.1fr 1fr;
+      gap: 3rem;
     }
   }
 
   .notice-voice {
-    font-size: var(--step-2);
+    //  font-size: var(--step-1);
   }
 
   & > [data-tab-style="progress"][data-hide-labels="true"] > .formkit-tabs {
@@ -127,33 +128,13 @@ main.add-dapp {
 
   input.formkit-input {
     font-size: var(--step-1);
-    //  border-bottom: 1px solid var(--ink);
     border-radius: var(--corners);
-    position: relative;
-
-    &::after {
-      content: "";
-      position: absolute;
-      bottom: -1px;
-      left: 0;
-      height: 1px;
-      width: 100%;
-      background: var(--ink);
-    }
-
-    &:focus {
-      border-bottom: 1px solid var(--ink);
-    }
-
-    &:focus::after {
-      background: var(--gradient-color);
-    }
   }
 }
 
 .formkit-step-actions {
   margin-bottom: 0rem !important;
-  margin-top: 1rem !important;
+  margin-top: 0rem !important;
 }
 
 .form-steps-enter-active,

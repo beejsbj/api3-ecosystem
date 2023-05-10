@@ -7,9 +7,7 @@ const showFilter = ref(false);
 </script>
 
 <template>
-  <SectionColumn>
-    <h1 class="loud-voice">Search API3's Ecosystem</h1>
-  </SectionColumn>
+  <PageHeader heading="Search API3's Ecosystem" />
 
   <SectionColumn innerClass="main-grid">
     <ClientOnly>
@@ -36,7 +34,7 @@ const showFilter = ref(false);
     grid-template-columns: 0.7fr 1fr;
   }
   @media (min-width: 1166px) {
-    grid-template-columns: 0.3fr 1fr;
+    grid-template-columns: 0.4fr 1fr;
   }
 }
 </style>
