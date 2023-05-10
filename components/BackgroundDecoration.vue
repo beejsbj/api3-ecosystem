@@ -1,8 +1,4 @@
 <template>
-  <picture class="decoration top">
-    <DecorationTriangle />
-  </picture>
-
   <picture class="decoration bottom">
     <DecorationTriangle />
   </picture>

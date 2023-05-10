@@ -25,7 +25,7 @@ watch(
   </Teleport>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 .panel-enter-from,
 .panel-leave-to {
   transform: translateX(100%);
@@ -37,9 +37,9 @@ watch(
   inset: 0;
   background: var(--gradient-dark);
   transition: all 0.3s ease;
+
   display: grid;
   grid-template-rows: auto;
-  overflow: hidden;
 }
 
 .panel-content {

@@ -58,7 +58,7 @@ onMounted(() => {
   top: 50%;
   translate: -50% -50%;
   /* border-radius: 50%; */
-  background: linear-gradient(to right, aquamarine, mediumpurple);
+  background: linear-gradient(to right, var(--color), var(--highlight));
   animation: rotate 20s infinite;
   opacity: 0.15;
   pointer-events: none;

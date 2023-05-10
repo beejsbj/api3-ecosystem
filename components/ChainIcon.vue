@@ -1,12 +1,9 @@
 <script setup>
-const props = defineProps(["chain", "fill"]);
-// #todo turn chains into vue components
+const props = defineProps(["chain", "fill", "stroke"]);
 </script>
 
 <template>
-  <picture :class="fill">
-    {{ chainSVG }}
-  </picture>
+  <Component :is="chain" />
 </template>
 
 <style scoped>
