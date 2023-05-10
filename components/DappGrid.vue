@@ -50,7 +50,7 @@ const { searchResults } = useFilteredSearch(ecosystem);
         :dapp="dapp"
         :key="dapp.name"
         :data-index="index"
-        class="list-move"
+        class="list-move hover-underline"
       />
     </ul>
   </ClientOnly>
