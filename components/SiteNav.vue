@@ -1,9 +1,9 @@
 <template>
   <nav>
-    <NuxtLink to="/">Home</NuxtLink>
-    <NuxtLink to="/ecosystem">Ecosystem</NuxtLink>
+    <NuxtLink class="hover-underline" to="/">Home</NuxtLink>
+    <NuxtLink class="hover-underline" to="/ecosystem">Ecosystem</NuxtLink>
     <!-- <NuxtLink to="/learn">Learn</NuxtLink> -->
-    <NuxtLink to="/contact">Contact</NuxtLink>
+    <NuxtLink class="hover-underline" to="/contact">Contact</NuxtLink>
     <!-- <NuxtLink to="/about">About</NuxtLink> -->
     <NuxtLink class="button" to="/add-dapp">Add</NuxtLink>
   </nav>
@@ -29,7 +29,7 @@ nav.panel-menu {
 
   //   align-items: end;
   //   justify-content: start;
-  gap: 2.5em;
+  gap: 2em;
   padding: 2rem;
 
   a {
@@ -38,6 +38,7 @@ nav.panel-menu {
 
     &.button {
       // justify-self: center;
+      align-self: center;
     }
   }
 }

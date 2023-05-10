@@ -56,7 +56,7 @@ mast-head {
 @media (max-width: 768px) {
   .site-logo.menuOpen {
     //  position: fixed;
-    z-index: 9999;
+    //  z-index: 9999;
   }
 
   .button.menu {
