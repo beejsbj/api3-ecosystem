@@ -19,53 +19,57 @@ function filterBy(event) {
 <template>
   <dapp-card>
     <header>
-      <h2 class="attention-voice">{{ dapp.name }}</h2>
       <picture class="logo">
         <img :src="logo" alt="" />
       </picture>
-      <div class="chains">
-        <!-- <ul>
+      <div>
+        <p class="status" :class="dapp.status" @click="filterBy">
+          {{ dapp.status }}
+        </p>
+        <div class="lists" v-if="true">
+          <ul class="categories-list">
+            <li
+              class="whisper-voice category"
+              v-for="category in dapp.categories"
+              @click="filterBy"
+            >
+              {{ category }}
+            </li>
+          </ul>
+          <ul class="integrations-list integration">
+            <li
+              class="whisper-voice integration"
+              v-for="integration in dapp.integrations"
+              @click="filterBy"
+            >
+              {{ integration }}
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- <div class="chains"> -->
+      <!-- <ul>
           <li v-for="chain in dapp.chains" :key="chain">
             <picture v-if="`/images/chains/${chain.toLowerCase()}.svg`">
               <img :src="`/images/chains/${chain.toLowerCase()}.svg`" alt="" />
             </picture>
           </li>
         </ul> -->
-      </div>
+      <!-- </div> -->
     </header>
 
     <text-content>
       <!-- <h2 class="attention-voice">{{ dapp.name }}</h2> -->
+      <h2 class="attention-voice">{{ dapp.name }}</h2>
+
       <p class="calm-voice">{{ dapp.tagline }}</p>
     </text-content>
 
     <footer>
-      <div class="lists">
-        <ul class="categories-list">
-          <li
-            class="whisper-voice category"
-            v-for="category in dapp.categories"
-            @click="filterBy"
-          >
-            {{ category }}
-          </li>
-        </ul>
-        <ul class="integrations-list integration">
-          <li
-            class="whisper-voice"
-            v-for="integration in dapp.integrations"
-            @click="filterBy"
-          >
-            {{ integration }}
-          </li>
-        </ul>
-      </div>
-      <p class="status" :class="dapp.status" @click="filterBy">
-        {{ dapp.status }}
-      </p>
       <NuxtLink :to="`/ecosystem/${slug(dapp.name)}`" class="card-link">
       </NuxtLink>
     </footer>
+
     <div class="background-wrapper">
       <picture
         class="card-background"
@@ -75,6 +79,7 @@ function filterBy(event) {
           :src="`/images/chains/${dapp.chains[0].toLowerCase()}.svg`"
           alt=""
         />
+        <!-- <ChainIcon :chain="dapp.chains[0]" /> -->
       </picture>
     </div>
   </dapp-card>
@@ -82,23 +87,24 @@ function filterBy(event) {
 
 <style lang="scss" scoped>
 dapp-card {
-  padding: 2.5rem 1.875rem;
+  padding: 1rem;
   display: grid;
-  grid-template-rows: 0.5fr 1fr 0.5fr;
-  gap: 1rem;
+  grid-template-rows: 0.5fr 1fr 0.1fr;
+  gap: 0.5rem;
   border-radius: var(--corners);
 
   background: var(--gradient-dark);
 
   position: relative;
   min-height: 300px;
+  overflow: hidden;
 
   //   transition: all 0.2s ease-in-out;
 
   &:hover {
     background: var(--gradient-dark-color);
     box-shadow: var(--shadow);
-    transition: background 0.2s ease-in-out;
+    transition: 0.2s ease-in-out;
   }
 
   //   &::after {
@@ -135,10 +141,10 @@ dapp-card {
 
   .card-background {
     position: absolute;
-    opacity: 0.2;
+    opacity: 1;
     right: -100px;
-    top: 25px;
-    transform: rotate(-10deg) scale(0.7);
+    top: 140px;
+    transform: rotate(-10deg) scale(0.5);
     transform-origin: top;
   }
 
@@ -154,16 +160,20 @@ dapp-card {
 header {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  justify-content: space-between;
+  justify-content: end;
   align-items: center;
 
   h2 {
     white-space: nowrap;
   }
   picture {
-    width: 50px;
-    justify-self: end;
+    max-width: 110px;
+    border-radius: 50%;
+    //  justify-self: end;
     z-index: 1;
+    //  position: absolute;
+    //  top: -20px;
+    //  left: -20px;
   }
   .chains {
     background-image: url("@/assets/images/chain.svg");
@@ -182,7 +192,9 @@ header {
 }
 
 text-content {
-  align-self: center;
+  align-self: end;
+  display: grid;
+  gap: 0.5rem;
 }
 
 footer {
@@ -191,25 +203,27 @@ footer {
   justify-content: space-between;
   align-items: end;
   gap: 0.5rem;
+}
 
-  .status {
-    font-size: 0.75rem;
-    text-align: right;
-    font-weight: 700;
-  }
-  .status.Live {
-    color: var(--success);
-  }
-  .status.Beta {
-    color: var(--warning);
-  }
-
-  .lists {
-    display: grid;
+header > div {
+  display: grid;
+  gap: 1rem;
+  justify-content: end;
+  align-items: center;
+}
+.lists {
+  display: grid;
+  gap: 0.5rem;
+  ul {
+    display: flex;
     gap: 0.5rem;
-    ul {
-      display: flex;
-      gap: 0.5rem;
+    justify-content: end;
+
+    li {
+      border-radius: var(--corners);
+      padding: 0.1rem 0.5rem;
+      border-right: 0.5px solid var(--gray-dark);
+      border-top: 0.5px solid var(--gray-dark);
     }
   }
 }
@@ -221,5 +235,17 @@ footer {
 }
 :is(.category, .integration, .status):hover {
   filter: brightness(1.2);
+}
+
+.status {
+  font-size: 0.75rem;
+  text-align: right;
+  font-weight: 700;
+}
+.status.Live {
+  color: var(--success);
+}
+.status.Beta {
+  color: var(--warning);
 }
 </style>
