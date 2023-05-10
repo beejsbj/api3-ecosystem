@@ -23,6 +23,13 @@ function clearFilters() {
   ecosystem.filter.integrations = [];
   ecosystem.filter.years = [];
 }
+
+const showAll = ref({
+  chains: false,
+  categories: false,
+  integrations: false,
+  years: false,
+});
 </script>
 
 <template>
@@ -43,10 +50,10 @@ function clearFilters() {
     </search-bar>
 
     <div class="chain filter">
-      <h4 class="notice-voice">Chain</h4>
-      <ul class="pills">
-        <template v-for="chain in chains" :key="chain">
-          <li class="pill">
+      <h4 class="solid-voice">Chain</h4>
+      <ul class="pills" v-auto-animate>
+        <template v-for="(chain, index) in chains">
+          <li class="pill" :key="chain" v-if="index < 5 || showAll.chains">
             <label :for="chain">
               {{ chain }} ({{
                 ecosystem.list.filter((dapp) => dapp.chains.includes(chain))
@@ -62,13 +69,17 @@ function clearFilters() {
           </li>
         </template>
       </ul>
+      <button class="text" @click="showAll.chains = !showAll.chains">
+        + Show More
+      </button>
     </div>
 
     <div class="category filter">
-      <h4 class="notice-voice">Category</h4>
-      <ul class="pills">
-        <template v-for="category in categories" :key="category">
-          <li class="pill">
+      <h4 class="solid-voice">Category</h4>
+
+      <ul class="pills" v-auto-animate>
+        <template v-for="(category, index) in categories" :key="category">
+          <li class="pill" v-if="index < 5 || showAll.categories">
             <label :for="category">
               {{ category }} ({{
                 ecosystem.list.filter((dapp) =>
@@ -85,13 +96,19 @@ function clearFilters() {
           </li>
         </template>
       </ul>
+      <button class="text" @click="showAll.categories = !showAll.categories">
+        + Show More
+      </button>
     </div>
 
     <div class="integration filter">
-      <h4 class="notice-voice">Integration</h4>
-      <ul class="pills">
-        <template v-for="integration in integrations" :key="integration">
-          <li class="pill">
+      <h4 class="solid-voice">Integration</h4>
+      <ul class="pills" v-auto-animate>
+        <template
+          v-for="(integration, index) in integrations"
+          :key="integration"
+        >
+          <li class="pill" v-if="index < 5 || showAll.integrations">
             <label :for="integration">
               {{ integration }} ({{
                 ecosystem.list.filter((dapp) =>
@@ -108,13 +125,19 @@ function clearFilters() {
           </li>
         </template>
       </ul>
+      <button
+        class="text"
+        @click="showAll.integrations = !showAll.integrations"
+      >
+        + Show More
+      </button>
     </div>
 
     <div class="year filter">
-      <h4 class="notice-voice">Year</h4>
-      <ul class="pills">
-        <template v-for="year in years" :key="year">
-          <li class="pill">
+      <h4 class="solid-voice">Year</h4>
+      <ul class="pills" v-auto-animate>
+        <template v-for="(year, index) in years" :key="year">
+          <li class="pill" v-if="index < 5 || showAll.years">
             <label :for="year">
               {{ year }} ({{
                 ecosystem.list.filter((dapp) => dapp.year == year).length
@@ -130,10 +153,13 @@ function clearFilters() {
           </li>
         </template>
       </ul>
+      <button class="text" @click="showAll.years = !showAll.years">
+        + Show More
+      </button>
     </div>
 
     <div class="status filter">
-      <h4 class="notice-voice">Status</h4>
+      <h4 class="solid-voice">Status</h4>
       <div class="status-actions">
         <input-field>
           <label for="all">All</label>
@@ -174,9 +200,8 @@ function clearFilters() {
 dapp-filter {
   display: grid;
   grid-template-columns: 1fr;
+  position: sticky;
   //   grid-gap: 2rem;
-  --gray-darkest: hsla(167, 32%, 5%, 0.3);
-  background-color: var(--gray-darkest);
 
   //   padding: 1rem;
   border-radius: var(--corners);
@@ -196,7 +221,7 @@ dapp-filter {
   }
 
   & > * {
-    padding: 1.2rem;
+    padding: 1.5rem;
 
     & + *:not(search-bar) {
       border-top: 1px solid hsla(162, 10%, 30%, 0.5);
@@ -206,7 +231,7 @@ dapp-filter {
 
 .filter {
   display: grid;
-  gap: 0.5rem;
+  gap: 1rem;
 
   &.status .status-actions {
     display: grid;
@@ -226,7 +251,7 @@ dapp-filter {
       background-color: var(--color);
       color: black;
       font-family: var(--font);
-      padding: 0.25rem 0.5rem;
+      padding: 0.5rem;
     }
 
     input-field:has(input:checked) label {
@@ -249,14 +274,11 @@ dapp-filter {
 
     label {
       --gray-darkest: hsla(167, 22%, 15%, 1);
+      background-color: var(--gray-darkest);
 
       font-size: 12px;
       font-weight: 700;
-
-      background-color: var(--gray-darkest);
       padding: 0.5em 1em;
-
-      --corners: 0.7em;
       border-radius: var(--corners);
     }
 
@@ -265,6 +287,10 @@ dapp-filter {
       color: var(--ink);
       --ink: black;
     }
+  }
+
+  button.text {
+    justify-self: end;
   }
 }
 </style>
