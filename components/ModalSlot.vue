@@ -1,5 +1,16 @@
 <script setup>
 const props = defineProps(["showModal"]);
+
+watch(
+  () => props.showModal,
+  (newVal) => {
+    if (newVal) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+  }
+);
 </script>
 
 <template>

@@ -10,12 +10,13 @@ const showMenu = ref(false);
     <SectionColumn class="mast-head">
       <ClientOnly>
         <mast-head>
-          <picture class="site-logo">
+          <picture class="site-logo" :class="{ menuOpen: showMenu }">
             <LogoText />
           </picture>
           <SiteNav v-if="!ui.isMobile" />
           <button
             class="button menu"
+            :class="{ menuOpen: showMenu }"
             v-if="ui.isMobile"
             @click="showMenu = !showMenu"
           >
@@ -53,17 +54,16 @@ mast-head {
 }
 
 @media (max-width: 768px) {
-  .site-logo {
-    position: fixed;
+  .site-logo.menuOpen {
+    //  position: fixed;
     z-index: 9999;
   }
+
   .button.menu {
-    position: fixed;
-    z-index: 9999;
-    top: 1rem;
-    right: 1rem;
-    /* font-size: 2rem; */
-    padding: 1rem;
+    justify-self: end;
+    &.menuOpen {
+      z-index: 9999;
+    }
   }
 }
 </style>

@@ -1,14 +1,22 @@
 <script setup>
 const props = defineProps(["showPanel"]);
+
+watch(
+  () => props.showPanel,
+  (newVal) => {
+    if (newVal) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+  }
+);
 </script>
 
 <template>
   <Teleport to="body">
     <Transition name="panel">
       <div v-if="showPanel" class="panel-mask">
-        <button class="button close" @click="$emit('toggle')" v-if="false">
-          <MenuIcon />
-        </button>
         <div class="panel-content" @click.stop>
           <slot />
         </div>
@@ -18,11 +26,6 @@ const props = defineProps(["showPanel"]);
 </template>
 
 <style scoped>
-.panel-enter-active,
-.panel-leave-active {
-  transition: all 5s ease;
-}
-
 .panel-enter-from,
 .panel-leave-to {
   transform: translateX(100%);
@@ -33,18 +36,10 @@ const props = defineProps(["showPanel"]);
   z-index: 9998;
   inset: 0;
   background: var(--gradient-dark);
-  transition: opacity 0.3s ease;
-  overflow-y: auto;
+  transition: all 0.3s ease;
   display: grid;
   grid-template-rows: auto;
-}
-
-button.close {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  /* font-size: 2rem; */
-  padding: 1rem;
+  overflow: hidden;
 }
 
 .panel-content {

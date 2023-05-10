@@ -29,12 +29,16 @@ nav.panel-menu {
 
   //   align-items: end;
   //   justify-content: start;
-  gap: 3em;
+  gap: 2.5em;
   padding: 2rem;
 
   a {
     color: var(--ink);
     font-size: var(--step-1);
+
+    &.button {
+      // justify-self: center;
+    }
   }
 }
 </style>
