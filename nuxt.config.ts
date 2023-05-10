@@ -4,7 +4,7 @@ export default defineNuxtConfig({
   //global default head metadata
   app: {
     head: {
-      title: "Nuxt Typescript Starter",
+      title: "API3 Ecosystem",
 
       meta: [
         // <meta name="viewport" content="width=device-width, initial-scale=1">
