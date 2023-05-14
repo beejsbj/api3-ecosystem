@@ -24,40 +24,19 @@ div.actions {
 }
 
 a {
-  color: var(--color);
-  padding: 0.5rem 1rem;
   position: relative;
 }
-.hover-underline {
+
+/* button */
+
+:is(button, a).button {
   position: relative;
-}
-.hover-underline::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0%;
-  height: 1px;
-  background: var(--gradient-color);
-  transition: 0.2s;
-}
 
-.hover-underline:is(:hover, :focus)::after,
-.router-link-active::after {
-  width: 100%;
-}
-
-.button {
   padding: 0.5rem 2rem;
   cursor: pointer;
   text-align: center;
-
   background: none;
-
-  position: relative;
-
   border: 0.5px solid var(--gray);
-
   border-radius: var(--corners);
 }
 
@@ -100,15 +79,49 @@ a {
   outline-color: var(--color);
 }
 
+:is(button, a).text {
+  padding: 0.5rem 1rem;
+  background: none;
+  border: none;
+  font-size: 1rem;
+  color: var(--color);
+}
+
+:is(button, a).icon {
+  padding: 0.5rem;
+}
+
+:is(button, a).filled {
+  padding: 0.5rem 1rem;
+  background-color: var(--highlight);
+}
+
+/*  */
 picture.logo {
   /* max-width: 100px; */
   /* justify-self: center; */
 }
 
-button.text {
-  background: none;
-  border: none;
-  padding: 0;
-  font-size: var(--step--1);
-  color: var(--color);
+:is(button, a).text,
+.hover-underline,
+.router-link-exact-active {
+  position: relative;
+}
+:is(button, a).text::after,
+.hover-underline::after,
+.router-link-exact-active::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 1px;
+  background: var(--gradient-color);
+  transition: 0.2s;
+}
+
+:is(button, a).text:is(:hover, :focus)::after,
+.hover-underline:is(:hover, :focus)::after,
+a.router-link-exact-active::after {
+  width: 100%;
 }

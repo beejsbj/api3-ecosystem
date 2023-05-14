@@ -4,11 +4,11 @@ html {
   --white: hsla(180, 0%, 95%, 1);
   --hue: 160;
 
-  --gray: hsla(0, 0%, 51%, 1);
-  --gray-light: hsla(0, 0%, 71%, 1);
-  --gray-lighter: hsla(0, 0%, 90%, 1);
+  --gray: hsla(var(--hue), 0%, 51%, 1);
+  --gray-light: hsla(var(--hue), 0%, 71%, 1);
+  --gray-lighter: hsla(var(--hue), 0%, 90%, 1);
 
-  --gray-dark: hsla(0, 0%, 26%, 1);
+  --gray-dark: hsla(var(--hue), 0%, 26%, 1);
   --gray-darkest: hsla(var(--hue), 40%, 5%, 1);
 
   --color: hsla(var(--hue), 64%, 69%, 1);
@@ -22,10 +22,10 @@ html {
 
   --shadow: var(--highlight) 5px 5px 50px -25px;
 
-  --corners: 1rem; /* or whatevers */
+  --corners: 16px; /* or whatevers */
 
   --paper: var(--black);
-  --ink: hsla(180, 0%, 95%, 1);
+  --ink: hsla(var(--hue), 0%, 95%, 1);
 
   /* Gradients */
   --gradient-direction: 130deg;

@@ -6,11 +6,11 @@ body {
 
 inner-column {
   display: block;
-  width: 98%;
+  width: 100%;
   max-width: 1400px; /* could be a variable in settings */
   margin-right: auto;
   margin-left: auto;
-  padding: 30px 14px; /* a loose default */
+  padding: 30px 15px; /* a loose default */
 }
 
 inner-column.none {

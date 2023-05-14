@@ -29,7 +29,8 @@ body {
   position: relative;
 }
 
-#__nuxt {
+#__nuxt,
+.display-contents {
   display: contents;
 }
 
