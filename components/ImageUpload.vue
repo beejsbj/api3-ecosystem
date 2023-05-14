@@ -2,7 +2,8 @@
 import { useFileDialog } from "@vueuse/core";
 
 const emit = defineEmits(["setImage"]);
-const props = defineProps(["image", "multiple"]);
+const props = defineProps(["image", "multiple", "ratio"]);
+const validationMessage = ref(null);
 
 const { files, open, reset } = useFileDialog({
   accept: ".jpg, .jpeg, .png",
@@ -10,7 +11,7 @@ const { files, open, reset } = useFileDialog({
 });
 
 watch(files, () => {
-  if (multiple) {
+  if (props.multiple) {
     emit("setImage", files.value);
   } else {
     emit("setImage", files.value[0]);
@@ -23,11 +24,27 @@ function resetImage() {
 
 function previewImage(file) {
   if (file.size > 100000) {
-    alert("File size is too large. Please upload a file less than 1MB.");
+    validationMessage.value =
+      "File size is too large. Please upload a file less than 1MB.";
     reset();
     return;
   }
-  //   emit("setImage", file);
+  //check for aspect ratio
+  if (props.ratio) {
+    console.log(props.ratio);
+    const img = new Image();
+    img.src = URL.createObjectURL(file);
+    img.onload = () => {
+      const width = img.naturalWidth;
+      const height = img.naturalHeight;
+      if (width / height !== props.ratio) {
+        validationMessage.value = `Image aspect ratio is not ${props.ratio}. Please upload an image with ${props.ratio} aspect ratio.`;
+        reset();
+        return;
+      }
+    };
+  }
+
   return URL.createObjectURL(file);
 }
 </script>
@@ -36,6 +53,9 @@ function previewImage(file) {
   <file-upload>
     <form-field class="upload">
       <label class="solid-voice" for="imageupload"> Upload Image </label>
+      <p class="validation-warn whisper-voice" v-if="validationMessage">
+        <strong>{{ validationMessage }}</strong>
+      </p>
       <div class="actions">
         <button class="button" type="button" @click.prevent="open()">
           Choose files
@@ -78,9 +98,9 @@ file-upload :is(input, form-field) {
 file-upload {
   display: grid;
   // grid-template-rows: 0.3fr 1fr;
-  background: linear-gradient(120deg, black, var(--color-dark));
+  background: var(--gradient-dark);
   --ink: hsla(180, 0%, 95%, 1);
-  border: 1px solid var(--ink);
+  //   border: 1px solid var(--ink);
   border-radius: var(--corners);
   gap: 10px;
   min-height: 300px;
