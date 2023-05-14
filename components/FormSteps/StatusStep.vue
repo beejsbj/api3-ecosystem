@@ -10,7 +10,8 @@ const props = defineProps(["dappForm"]);
         type="radio"
         id="live-or-intent"
         label="Status of project - Live or Intent Are you live on main net now, or are you announcing your intent."
-        legend-class="$reset notice-voice"
+        label-class="$reset notice-voice"
+        legend-class="$reset solid-voice"
         required
         :options="['live', 'intent']"
       />
