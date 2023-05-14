@@ -19,7 +19,11 @@ function setScreenshots(files) {
 <template>
   <FormKit type="step" name="images">
     <h3 class="notice-voice">Logo</h3>
-    <ImageUpload @setImage="setLogo" :image="dappForm.images.logo" />
+    <ImageUpload
+      @setImage="setLogo"
+      :image="dappForm.images.logo"
+      :ratio="1 / 1"
+    />
 
     <h3 class="notice-voice">Banner</h3>
     <ImageUpload @setImage="setBanner" :image="dappForm.images.banner" />
