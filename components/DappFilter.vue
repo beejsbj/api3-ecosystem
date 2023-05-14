@@ -70,7 +70,7 @@ const showAll = ref({
         </template>
       </ul>
       <button class="text" @click="showAll.chains = !showAll.chains">
-        + Show More
+        Show More
       </button>
     </div>
 
@@ -97,7 +97,7 @@ const showAll = ref({
         </template>
       </ul>
       <button class="text" @click="showAll.categories = !showAll.categories">
-        + Show More
+        Show More
       </button>
     </div>
 
@@ -129,7 +129,7 @@ const showAll = ref({
         class="text"
         @click="showAll.integrations = !showAll.integrations"
       >
-        + Show More
+        Show More
       </button>
     </div>
 
@@ -154,7 +154,7 @@ const showAll = ref({
         </template>
       </ul>
       <button class="text" @click="showAll.years = !showAll.years">
-        + Show More
+        Show More
       </button>
     </div>
 
@@ -291,6 +291,11 @@ dapp-filter {
 
   button.text {
     justify-self: end;
+    padding: 0;
+  }
+
+  button.text::after {
+    display: none;
   }
 }
 </style>

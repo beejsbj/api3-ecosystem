@@ -7,31 +7,33 @@ props.dappForm.links.socials = props.dappForm.links.socials ?? {};
 
 <template>
   <FormKit type="step" name="links">
-    <h2 class="attention-voice">Links</h2>
+    <section class="form-links">
+      <h2 class="attention-voice">Links</h2>
 
-    <form-field>
-      <FormKit
-        type="url"
-        id="website"
-        v-model="dappForm.links.website"
-        label="Website"
-        label-class="$reset notice-voice"
-        required
-        validation="url"
-      />
-    </form-field>
+      <form-field>
+        <FormKit
+          type="url"
+          id="website"
+          v-model="dappForm.links.website"
+          label="Website"
+          label-class="$reset notice-voice"
+          required
+          validation="url"
+        />
+      </form-field>
 
-    <form-field>
-      <FormKit
-        type="url"
-        validation="url"
-        id="dapp"
-        v-model="dappForm.links.dapp"
-        label="App"
-        label-class="$reset notice-voice"
-        required
-      />
-    </form-field>
+      <form-field>
+        <FormKit
+          type="url"
+          validation="url"
+          id="dapp"
+          v-model="dappForm.links.dapp"
+          label="App"
+          label-class="$reset notice-voice"
+          required
+        />
+      </form-field>
+    </section>
 
     <section class="form-socials">
       <h2 class="attention-voice">Socials</h2>
