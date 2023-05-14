@@ -29,7 +29,7 @@ function filterBy(event) {
         <div class="lists" v-if="true">
           <ul class="categories-list">
             <li
-              class="whisper-voice category"
+              class="micro-voice category"
               v-for="category in dapp.categories"
               @click="filterBy"
             >
@@ -38,7 +38,7 @@ function filterBy(event) {
           </ul>
           <ul class="integrations-list integration">
             <li
-              class="whisper-voice integration"
+              class="micro-voice integration"
               v-for="integration in dapp.integrations"
               @click="filterBy"
             >
@@ -87,17 +87,18 @@ function filterBy(event) {
 
 <style lang="scss" scoped>
 dapp-card {
-  padding: 1rem;
   display: grid;
   grid-template-rows: 0.5fr 1fr 0.1fr;
   gap: 0.5rem;
-  border-radius: var(--corners);
 
-  background: var(--gradient-dark);
+  padding: 1rem;
+  border-radius: var(--corners);
+  min-height: 250px;
 
   position: relative;
-  min-height: 300px;
   overflow: hidden;
+
+  background: var(--gradient-dark);
 
   //   transition: all 0.2s ease-in-out;
 
@@ -130,22 +131,7 @@ dapp-card {
     font-size: 0.875rem;
   }
   .whisper-voice {
-  }
-
-  div.background-wrapper {
-    position: absolute;
-    inset: 0;
-    overflow: hidden;
-    z-index: 0;
-  }
-
-  .card-background {
-    position: absolute;
-    opacity: 1;
-    right: -100px;
-    top: 140px;
-    transform: rotate(-10deg) scale(0.5);
-    transform-origin: top;
+    font-size: var(--step--2);
   }
 
   & :is(.lists, .status) {
@@ -155,6 +141,22 @@ dapp-card {
     position: absolute;
     inset: 0;
     z-index: 1;
+  }
+
+  div.background-wrapper {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    z-index: 0;
+
+    .card-background {
+      position: absolute;
+      opacity: 1;
+      right: -100px;
+      top: 100px;
+      transform: rotate(-10deg) scale(0.5);
+      transform-origin: top;
+    }
   }
 }
 header {
@@ -167,27 +169,13 @@ header {
     white-space: nowrap;
   }
   picture {
-    max-width: 110px;
+    max-width: 80px;
     border-radius: 50%;
     //  justify-self: end;
     z-index: 1;
     //  position: absolute;
     //  top: -20px;
     //  left: -20px;
-  }
-  .chains {
-    background-image: url("@/assets/images/chain.svg");
-    background-size: cover;
-    background-position-x: 50%;
-
-    ul {
-      display: flex;
-      gap: 0.5rem;
-    }
-
-    picture {
-      max-width: 30px;
-    }
   }
 }
 
