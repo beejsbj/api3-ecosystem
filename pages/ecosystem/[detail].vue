@@ -10,14 +10,14 @@ const { currentDapp: dapp } = storeToRefs(ecosystem);
 
     <SectionColumn class="detail-header">
       <detail-banner>
-        <h1 class="loud-voice">{{ dapp.name }}</h1>
+        <PageHeader :heading="dapp.name" />
       </detail-banner>
     </SectionColumn>
-    <SectionColumn class="detail-article">
+    <SectionColumn class="detail-main">
       <article class="main">
         <DetailPanel :dapp="dapp" />
 
-        <article>
+        <detail-content>
           <section class="about">
             <h2 class="attention-voice">About</h2>
             <p v-for="paragraph in dapp.about" :key="paragraph">
@@ -40,7 +40,7 @@ const { currentDapp: dapp } = storeToRefs(ecosystem);
               </li>
             </ul>
           </section>
-        </article>
+        </detail-content>
       </article>
     </SectionColumn>
   </template>
@@ -62,24 +62,25 @@ article.main {
   gap: 3rem;
   align-items: start;
 
-  p {
-    color: var(--gray);
-  }
-
   @media (min-width: 768px) {
     grid-template-columns: 1fr 2fr;
   }
 }
 
-article.main article {
+article.main detail-content {
   display: grid;
   gap: 2rem;
-}
 
-article.main article section {
-  align-self: start;
-  display: grid;
-  gap: 1.2rem;
+  section {
+    align-self: start;
+    display: grid;
+    gap: 1.2rem;
+
+    p {
+      line-height: 1.8;
+      color: var(--gray);
+    }
+  }
 }
 
 article.main .image-grid {
