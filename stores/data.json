@@ -3,7 +3,16 @@
     "name": "Aavegotchi",
     "tagline": "Ultimate gamified DeFi experience!",
     "status": "Live",
-    "chains": ["Ethereum", "Polygon", "Solana"],
+    "chains": [
+      "Ethereum",
+      "Polygon",
+      "Solana",
+      "BNB",
+      "Fantom",
+      "Arbitum",
+      "Avalanche",
+      "gnosis"
+    ],
     "categories": ["DeFi"],
     "integrations": ["VRF"],
     "year": 2020,
@@ -30,13 +39,9 @@
         { "label": "Reddit", "url": "https://www.reddit.com/r/Aavegotchi/" },
         { "label": "Twitter", "url": "https://twitter.com/aavegotchi" },
         { "label": "Telegram", "url": "https://t.me/aavegotchi" },
-        { "label": "Blog", "url": "https://aavegotchi.medium.com/" },
+
         {
-          "label": "Facebook Group",
-          "url": "https://www.facebook.com/groups/1010087115890588"
-        },
-        {
-          "label": "YouTube",
+          "label": "Youtube",
           "url": "https://www.youtube.com/channel/UCZ5Z1XW9XZ7Z7LX5QXGx6jw"
         },
         { "label": "Discord", "url": "https://discord.gg/8YQXzZ8" }
@@ -76,11 +81,11 @@
         { "label": "Telegram", "url": "https://t.me/aavegotchi" },
         { "label": "Blog", "url": "https://aavegotchi.medium.com/" },
         {
-          "label": "Facebook Group",
+          "label": "Facebook",
           "url": "https://www.facebook.com/groups/1010087115890588"
         },
         {
-          "label": "YouTube",
+          "label": "Youtube",
           "url": "https://www.youtube.com/channel/UCZ5Z1XW9XZ7Z7LX5QXGx6jw"
         },
         { "label": "Discord", "url": "https://discord.gg/8YQXzZ8" }
@@ -118,13 +123,8 @@
         { "label": "Reddit", "url": "https://www.reddit.com/r/Aavegotchi/" },
         { "label": "Twitter", "url": "https://twitter.com/aavegotchi" },
         { "label": "Telegram", "url": "https://t.me/aavegotchi" },
-        { "label": "Blog", "url": "https://aavegotchi.medium.com/" },
         {
-          "label": "Facebook Group",
-          "url": "https://www.facebook.com/groups/1010087115890588"
-        },
-        {
-          "label": "YouTube",
+          "label": "Youtube",
           "url": "https://www.youtube.com/channel/UCZ5Z1XW9XZ7Z7LX5QXGx6jw"
         },
         { "label": "Discord", "url": "https://discord.gg/8YQXzZ8" }
@@ -164,11 +164,11 @@
         { "label": "Telegram", "url": "https://t.me/aavegotchi" },
         { "label": "Blog", "url": "https://aavegotchi.medium.com/" },
         {
-          "label": "Facebook Group",
+          "label": "Facebook",
           "url": "https://www.facebook.com/groups/1010087115890588"
         },
         {
-          "label": "YouTube",
+          "label": "Youtube",
           "url": "https://www.youtube.com/channel/UCZ5Z1XW9XZ7Z7LX5QXGx6jw"
         },
         { "label": "Discord", "url": "https://discord.gg/8YQXzZ8" }
@@ -208,11 +208,11 @@
         { "label": "Telegram", "url": "https://t.me/aavegotchi" },
         { "label": "Blog", "url": "https://aavegotchi.medium.com/" },
         {
-          "label": "Facebook Group",
+          "label": "Facebook",
           "url": "https://www.facebook.com/groups/1010087115890588"
         },
         {
-          "label": "YouTube",
+          "label": "Youtube",
           "url": "https://www.youtube.com/channel/UCZ5Z1XW9XZ7Z7LX5QXGx6jw"
         },
         { "label": "Discord", "url": "https://discord.gg/8YQXzZ8" }
@@ -252,11 +252,11 @@
         { "label": "Telegram", "url": "https://t.me/aavegotchi" },
         { "label": "Blog", "url": "https://aavegotchi.medium.com/" },
         {
-          "label": "Facebook Group",
+          "label": "Facebook",
           "url": "https://www.facebook.com/groups/1010087115890588"
         },
         {
-          "label": "YouTube",
+          "label": "Youtube",
           "url": "https://www.youtube.com/channel/UCZ5Z1XW9XZ7Z7LX5QXGx6jw"
         },
         { "label": "Discord", "url": "https://discord.gg/8YQXzZ8" }
@@ -296,11 +296,11 @@
         { "label": "Telegram", "url": "https://t.me/aavegotchi" },
         { "label": "Blog", "url": "https://aavegotchi.medium.com/" },
         {
-          "label": "Facebook Group",
+          "label": "Facebook",
           "url": "https://www.facebook.com/groups/1010087115890588"
         },
         {
-          "label": "YouTube",
+          "label": "Youtube",
           "url": "https://www.youtube.com/channel/UCZ5Z1XW9XZ7Z7LX5QXGx6jw"
         },
         { "label": "Discord", "url": "https://discord.gg/8YQXzZ8" }
@@ -340,11 +340,11 @@
         { "label": "Telegram", "url": "https://t.me/aavegotchi" },
         { "label": "Blog", "url": "https://aavegotchi.medium.com/" },
         {
-          "label": "Facebook Group",
+          "label": "Facebook",
           "url": "https://www.facebook.com/groups/1010087115890588"
         },
         {
-          "label": "YouTube",
+          "label": "Youtube",
           "url": "https://www.youtube.com/channel/UCZ5Z1XW9XZ7Z7LX5QXGx6jw"
         },
         { "label": "Discord", "url": "https://discord.gg/8YQXzZ8" }
@@ -384,11 +384,11 @@
         { "label": "Telegram", "url": "https://t.me/aavegotchi" },
         { "label": "Blog", "url": "https://aavegotchi.medium.com/" },
         {
-          "label": "Facebook Group",
+          "label": "Facebook",
           "url": "https://www.facebook.com/groups/1010087115890588"
         },
         {
-          "label": "YouTube",
+          "label": "Youtube",
           "url": "https://www.youtube.com/channel/UCZ5Z1XW9XZ7Z7LX5QXGx6jw"
         },
         { "label": "Discord", "url": "https://discord.gg/8YQXzZ8" }
@@ -428,11 +428,11 @@
         { "label": "Telegram", "url": "https://t.me/aavegotchi" },
         { "label": "Blog", "url": "https://aavegotchi.medium.com/" },
         {
-          "label": "Facebook Group",
+          "label": "Facebook",
           "url": "https://www.facebook.com/groups/1010087115890588"
         },
         {
-          "label": "YouTube",
+          "label": "Youtube",
           "url": "https://www.youtube.com/channel/UCZ5Z1XW9XZ7Z7LX5QXGx6jw"
         },
         { "label": "Discord", "url": "https://discord.gg/8YQXzZ8" }
