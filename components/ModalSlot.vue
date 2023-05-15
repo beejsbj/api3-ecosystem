@@ -61,4 +61,8 @@ watch(
 
   background-color: var(--paper);
 }
+
+.modal-content {
+  border-radius: var(--corners);
+}
 </style>

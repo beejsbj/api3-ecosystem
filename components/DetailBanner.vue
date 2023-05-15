@@ -23,10 +23,11 @@ const { currentDapp: dapp } = storeToRefs(ecosystem);
   //   position: relative;
   //   top: 4rem;
   //   z-index: -1;
-
+  margin-top: 5rem;
   picture {
     overflow: hidden;
     aspect-ratio: 6 / 2;
+    border-radius: var(--corners);
 
     img {
       width: 100%;
