@@ -13,20 +13,18 @@
       clip-rule: evenodd;
       stroke-linejoin: round;
       stroke-miterlimit: 2;
+      stroke-width: 0.1px;
+      border-radius: 50%;
+      border: 1px solid var(--color);
     "
   >
     <g transform="matrix(1,0,0,1,-8370.75,-4098.96)">
       <g transform="matrix(0.98834,0,0,0.94591,15557.7,-782.509)">
-        <g transform="matrix(12.6475,0,0,13.2148,-7271.21,5161.14)">
-          <circle
-            cx="16"
-            cy="16"
-            r="16"
-            style="fill: none; stroke: rgb(116, 213, 191); stroke-width: 0.08px"
-          />
+        <g transform="matrix(12.6475,0,0,13.2148,-7271.21,5161.14)" sr>
+          <circle cx="16" cy="16" r="16" style="stroke-width: -0.1px" />
           <path
             d="M17.2,12.9L20.8,10.8L20.8,15L17.2,12.9ZM20.8,21.9L16,24.7L11.2,21.9L11.2,17L16,19.8L20.8,17L20.8,21.9ZM11.2,10.8L14.8,12.9L11.2,15L11.2,10.8ZM16.6,13.9L20.2,16L16.6,18.1L16.6,13.9ZM15.4,18.1L11.8,16L15.4,13.9L15.4,18.1ZM20.2,9.8L16,12.2L11.8,9.8L16,7.3L20.2,9.8ZM10,9.4L10,22.5L16,25.9L22,22.5L22,9.4L16,6L10,9.4Z"
-            style="fill: none; stroke: rgb(116, 213, 191); stroke-width: 0.08px"
+            style="stroke-width: 0.1px"
           />
         </g>
       </g>
