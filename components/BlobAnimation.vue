@@ -29,7 +29,7 @@ onMounted(() => {
   </div>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 @keyframes rotate {
   from {
     rotate: 0deg;

@@ -6,47 +6,54 @@ const { currentDapp: dapp } = storeToRefs(ecosystem);
 
 <template>
   <template v-if="dapp">
-    <DetailBanner />
+    <article class="detail-page">
+      <DetailBanner />
 
-    <SectionColumn class="detail-header">
-      <detail-banner>
-        <PageHeader :heading="dapp.name" />
-      </detail-banner>
-    </SectionColumn>
-    <SectionColumn class="detail-main">
-      <article class="main">
-        <DetailPanel :dapp="dapp" />
+      <SectionColumn class="detail-header">
+        <detail-banner>
+          <PageHeader :heading="dapp.name" />
+        </detail-banner>
+      </SectionColumn>
+      <SectionColumn class="detail-main">
+        <article class="main">
+          <DetailPanel :dapp="dapp" />
 
-        <detail-content>
-          <section class="about">
-            <h2 class="attention-voice">About</h2>
-            <p v-for="paragraph in dapp.about" :key="paragraph">
-              {{ paragraph }}
-            </p>
-          </section>
+          <detail-content>
+            <section class="about">
+              <h2 class="attention-voice">About</h2>
+              <p v-for="paragraph in dapp.about" :key="paragraph">
+                {{ paragraph }}
+              </p>
+            </section>
 
-          <section class="">
-            <h2 class="attention-voice">Artciles/Integrations</h2>
-            <p v-for="paragraph in dapp.about" :key="paragraph">
-              {{ paragraph }}
-            </p>
-          </section>
+            <section class="">
+              <h2 class="attention-voice">Artciles/Integrations</h2>
+              <p v-for="paragraph in dapp.about" :key="paragraph">
+                {{ paragraph }}
+              </p>
+            </section>
 
-          <section class="screenshots">
-            <h2 class="attention-voice">Screenshots</h2>
-            <ul class="image-grid">
-              <li v-for="image in dapp.images.screenshots" :key="image">
-                <img src="@/assets/images/landscape.jpg" alt="" />
-              </li>
-            </ul>
-          </section>
-        </detail-content>
-      </article>
-    </SectionColumn>
+            <section class="screenshots">
+              <h2 class="attention-voice">Screenshots</h2>
+              <ul class="image-grid">
+                <li v-for="image in dapp.images.screenshots" :key="image">
+                  <img src="@/assets/images/landscape.jpg" alt="" />
+                </li>
+              </ul>
+            </section>
+          </detail-content>
+        </article>
+      </SectionColumn>
+    </article>
   </template>
 </template>
 
 <style lang="scss" scoped>
+// .detail-page {
+//   display: grid;
+//   gap: 3rem;
+//   align-items: start;
+// }
 .detail-header {
   //   background: linear-gradient(
   //     0deg,
@@ -59,7 +66,7 @@ const { currentDapp: dapp } = storeToRefs(ecosystem);
 
 article.main {
   display: grid;
-  gap: 3rem;
+  gap: 4rem;
   align-items: start;
 
   @media (min-width: 768px) {
@@ -69,7 +76,7 @@ article.main {
 
 article.main detail-content {
   display: grid;
-  gap: 2rem;
+  gap: 4rem;
 
   section {
     align-self: start;

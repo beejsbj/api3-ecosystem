@@ -396,15 +396,15 @@
   resolved "https://registry.yarnpkg.com/@esbuild/win32-x64/-/win32-x64-0.17.16.tgz#260f19b0a3300d22c3a3f52722c671dc561edaa3"
   integrity sha512-xJ7OH/nanouJO9pf03YsL9NAFQBHd8AqfrQd7Pf5laGyyTt/gToul6QYOA/i5i/q8y9iaM5DQFNTgpi995VkOg==
 
-"@formkit/addons@^0.16.5":
-  version "0.16.5"
-  resolved "https://registry.yarnpkg.com/@formkit/addons/-/addons-0.16.5.tgz#d26b6ecff39104b73e06e9e92db13ff4ed753dde"
-  integrity sha512-8vs5YaYno+VEK6gWqyyLB9XICWTaMeLxv+QpWMrAX83PlE9ARX60oWe91b5HO23nB0Yk7IR2eRErZdOmcCB/aQ==
+"@formkit/addons@^0.17.0":
+  version "0.17.0"
+  resolved "https://registry.yarnpkg.com/@formkit/addons/-/addons-0.17.0.tgz#10158216191e2cee9b2522be90f6db87f829fc90"
+  integrity sha512-IPH6awAelWvi/eqFHZlPvf6yyXcnQlxo4D2W1vQgQUuRaVWEl5ykArZ8eVVgpQq1u1Ya8BfDuX+kvO7rlBV32g==
   dependencies:
     "@formkit/auto-animate" latest
-    "@formkit/core" "0.16.5"
-    "@formkit/inputs" "0.16.5"
-    "@formkit/utils" "0.16.5"
+    "@formkit/core" "0.17.0"
+    "@formkit/inputs" "0.17.0"
+    "@formkit/utils" "0.17.0"
 
 "@formkit/auto-animate@^1.0.0-beta.6", "@formkit/auto-animate@latest":
   version "1.0.0-beta.6"
@@ -417,6 +417,13 @@
   integrity sha512-cr2HT3JtTaEWnrjiXkxrsbdMjLLJc73sgkX9HhgNsWMBjVdRxFlk1NHJzACsX4F/tMujCMJC6FiayIEfVC93xA==
   dependencies:
     "@formkit/utils" "0.16.5"
+
+"@formkit/core@0.17.0":
+  version "0.17.0"
+  resolved "https://registry.yarnpkg.com/@formkit/core/-/core-0.17.0.tgz#a9f186a12fb8321b4ce0e7360913150c0a5e7bda"
+  integrity sha512-g+OkGsA96Sfb/BctsU5bqz7jfXsk9PZGpxHp2jWGVA8GEHadV4XDp6VH2fXdIkYJXO7+legYMbTggGM3pUE6UA==
+  dependencies:
+    "@formkit/utils" "0.17.0"
 
 "@formkit/dev@0.16.5":
   version "0.16.5"
@@ -441,6 +448,14 @@
   integrity sha512-YVye40cunF7jMNwqT5Y0kaZQhIlLHmeFuOD3sUMv7jbgRpLSMiUnur1ry4oc5j2qRSb2Bs+qiBXAAEFQmPoCFQ==
   dependencies:
     "@formkit/core" "0.16.5"
+
+"@formkit/inputs@0.17.0":
+  version "0.17.0"
+  resolved "https://registry.yarnpkg.com/@formkit/inputs/-/inputs-0.17.0.tgz#e4ea93ba0c788f35808774a21283a1fca4388648"
+  integrity sha512-HlmO8tbxlYH/Zw9jGaUUIAsfCt6k4Ss1VS6zj6xUrYpMPaQxk4v6XnpEUZ4hZgbbxa944n6/qRKU+DgouelFUw==
+  dependencies:
+    "@formkit/core" "0.17.0"
+    "@formkit/utils" "0.17.0"
 
 "@formkit/nuxt@^0.16.5":
   version "0.16.5"
@@ -477,6 +492,11 @@
   version "0.16.5"
   resolved "https://registry.yarnpkg.com/@formkit/utils/-/utils-0.16.5.tgz#2ae68f9adc02a37292e00c3732ec08531914fdee"
   integrity sha512-wQ+Nx+kALW6SGc3E5dVgp7gxzN8mGVywOMslBeg7J5D6jx0KOqaS/aIFXK4agbqpkwX4HGIskc8scGsOKD0pVg==
+
+"@formkit/utils@0.17.0":
+  version "0.17.0"
+  resolved "https://registry.yarnpkg.com/@formkit/utils/-/utils-0.17.0.tgz#9efdd9b419d78aefecb1168b3ee6df00114aa72e"
+  integrity sha512-Un6xIVaM8mHHJKdHX0UhC0C0YnfHc4/C2w3NS29UhqvPT8WBc1Jyi1BR9UY0q9bZhVULg+XLL6XXyEnvzheNMQ==
 
 "@formkit/validation@0.16.5":
   version "0.16.5"

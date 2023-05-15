@@ -14,61 +14,29 @@ definePageMeta({
 //
 const dappForm = useStorage("dapp-form", {});
 
-// const submitHandler = () => {
-//   console.log(step.value, route.matched[0].children.length);
-//   if (step.value < route.matched[0].children.length) {
-//     nextStep();
-//     return;
-//   }
-//   console.log(dappForm.value);
-//   ecosystem.addDapp(dappForm.value);
-// };
-
-function handleBeforeStepChange(event) {
-  const currentStep = event.currentStep;
-  const targetStep = event.targetStep;
-  const delta = event.delta;
-
-  // Add your transition logic here
-  if (delta > 0) {
-    // Show the target step
-    targetStep.show();
-    // Hide the current step
-    currentStep.hide();
-  } else {
-    // Show the current step
-    currentStep.show();
-    // Hide the target step
-    targetStep.hide();
-  }
-}
+const submitHandler = () => {
+  console.log(dappForm.value);
+  console.log("submit");
+};
 </script>
 
 <template>
-  {{ step.value }}
   <SectionColumn>
     <ClientOnly>
-      <FormKit
-        type="form"
-        :actions="false"
-        @submit="submitHandler"
-        button-class="$reset button"
-      >
+      <FormKit type="form" :actions="false" @submit="submitHandler">
         <FormKit
           type="multi-step"
           tab-style="progress"
           :hide-progress-labels="true"
-          stepNext-class="$reset button"
-          stepPrevious-class="$reset button"
-          button-class="$reset button"
-          @beforeStepChange="handleBeforeStepChange"
         >
-          <OwnerStep type="step" :dappForm="dappForm" key="1" />
-          <ContentStep type="step" :dappForm="dappForm" key="2" />
-          <ImageStep type="step" :dappForm="dappForm" key="3" />
-          <TagStep type="step" :dappForm="dappForm" key="4" />
-          <LinksStep type="step" :dappForm="dappForm" key="5" />
-          <StatusStep type="step" :dappForm="dappForm" key="6" />
+          <OwnerStep :dappForm="dappForm" key="1" />
+          <ContentStep :dappForm="dappForm" key="2" />
+          <ImageStep :dappForm="dappForm" key="3" />
+          <TagStep :dappForm="dappForm" key="4" />
+          <LinksStep :dappForm="dappForm" key="5" />
+          <SocialsStep :dappForm="dappForm" key="6" />
+
+          <StatusStep :dappForm="dappForm" key="7" />
         </FormKit>
       </FormKit>
     </ClientOnly>
@@ -134,16 +102,28 @@ main.add-dapp {
 
 .formkit-step-actions {
   margin-bottom: 0rem !important;
-  margin-top: 0rem !important;
+  margin-top: 2rem !important;
+  display: none;
 }
 
-.form-steps-enter-active,
-.form-steps-leave-active {
-  transition: opacity 0.5s;
+.formSteps-enter-active,
+.formSteps-leave-active {
+  transition: opacity 0.5s ease;
 }
 
-.form-steps-enter,
-.form-steps-leave-to {
+.formSteps-enter-from,
+.formSteps-leave-to {
   opacity: 0;
+}
+
+.v-enter-active,
+.v-leave-active {
+  transition: all 0.5s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
+  transform: translateX(30px);
 }
 </style>

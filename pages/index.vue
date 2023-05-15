@@ -5,5 +5,5 @@ definePageMeta({
 </script>
 
 <template>
-  <PageHeader heading="Home" />
+  <PageHeader heading="Coming Sooooon!" />
 </template>

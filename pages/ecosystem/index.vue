@@ -37,15 +37,4 @@ const showFilter = ref(false);
     grid-template-columns: 0.3fr 1fr;
   }
 }
-
-/* Hide scrollbar for Chrome, Safari and Opera */
-body:has(main.ecosystem)::-webkit-scrollbar {
-  display: none;
-}
-
-/* Hide scrollbar for IE, Edge and Firefox */
-body:has(main.ecosystem) {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
-}
 </style>
