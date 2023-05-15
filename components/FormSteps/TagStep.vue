@@ -9,45 +9,47 @@ const props = defineProps(["dappForm"]);
 </script>
 
 <template>
-  <FormKit type="step" name="tags">
-    <form-field>
-      <label class="notice-voice" for="categories"> Category </label>
-      <Multiselect
-        id="categories"
-        v-model="dappForm.categories"
-        mode="tags"
-        :close-on-select="false"
-        :searchable="true"
-        :create-option="false"
-        :options="ecosystem.categories"
-      />
-    </form-field>
+  <FormKit type="step" name="tags" #default="{ isActiveStep }">
+    <FormTransitionSlot :isActiveStep="isActiveStep">
+      <form-field>
+        <label class="notice-voice" for="categories"> Category </label>
+        <Multiselect
+          id="categories"
+          v-model="dappForm.categories"
+          mode="tags"
+          :close-on-select="false"
+          :searchable="true"
+          :create-option="false"
+          :options="ecosystem.categories"
+        />
+      </form-field>
 
-    <form-field>
-      <label class="notice-voice" for="chains"> Chain </label>
-      <Multiselect
-        id="chains"
-        v-model="dappForm.chains"
-        mode="tags"
-        :close-on-select="false"
-        :searchable="true"
-        :create-option="false"
-        :options="ecosystem.chains"
-      />
-    </form-field>
+      <form-field>
+        <label class="notice-voice" for="chains"> Chain </label>
+        <Multiselect
+          id="chains"
+          v-model="dappForm.chains"
+          mode="tags"
+          :close-on-select="false"
+          :searchable="true"
+          :create-option="false"
+          :options="ecosystem.chains"
+        />
+      </form-field>
 
-    <form-field>
-      <label class="notice-voice" for="integrations"> Integration </label>
-      <Multiselect
-        id="integrations"
-        v-model="dappForm.integrations"
-        mode="tags"
-        :close-on-select="false"
-        :searchable="true"
-        :create-option="false"
-        :options="ecosystem.integrations"
-      />
-    </form-field>
+      <form-field>
+        <label class="notice-voice" for="integrations"> Integration </label>
+        <Multiselect
+          id="integrations"
+          v-model="dappForm.integrations"
+          mode="tags"
+          :close-on-select="false"
+          :searchable="true"
+          :create-option="false"
+          :options="ecosystem.integrations"
+        />
+      </form-field>
+    </FormTransitionSlot>
   </FormKit>
 </template>
 
