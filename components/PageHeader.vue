@@ -10,9 +10,16 @@ const props = defineProps(["heading"]);
 
 <style lang="scss">
 .page-heading {
+  display: grid;
+  justify-content: start;
   padding: 5rem 14px;
   h1 {
-    background: linear-gradient(to right, var(--ink), var(--color));
+    padding: 5px 0;
+    background: linear-gradient(
+      var(--gradient-direction),
+      var(--ink),
+      var(--color)
+    );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
