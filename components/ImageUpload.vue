@@ -52,13 +52,12 @@ function previewImage(file) {
 <template>
   <file-upload>
     <form-field class="upload">
-      <label class="solid-voice" for="imageupload"> Upload Image </label>
       <p class="validation-warn whisper-voice" v-if="validationMessage">
         <strong>{{ validationMessage }}</strong>
       </p>
       <div class="actions">
         <button class="button" type="button" @click.prevent="open()">
-          Choose files
+          Choose {{ multiple ? "Images" : "Image" }}
         </button>
         <button
           class="button"
@@ -71,7 +70,8 @@ function previewImage(file) {
       </div>
       <template v-if="files">
         <p>
-          You have selected: <b>{{ files.length }} files</b>
+          You have selected:
+          <b>{{ files.length }} {{ multiple ? "Images" : "Image" }}</b>
         </p>
         <ul class="preview-images">
           <li v-for="file of files" :key="file.name">
