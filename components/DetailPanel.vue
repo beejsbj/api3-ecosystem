@@ -2,6 +2,7 @@
 const props = defineProps(["dapp"]);
 
 const upvotes = ref(0);
+const showShareBox = ref(false);
 </script>
 
 <template>
@@ -28,7 +29,16 @@ const upvotes = ref(0);
         <p>Chain</p>
         <ul>
           <li v-for="chain in dapp.chains" :key="chain">
-            {{ chain }}
+            <!-- {{ chain }} -->
+            <picture class="chain">
+              <!-- <img :src="`/images/chains/${chain.toLowerCase()}.svg`" alt="" /> -->
+              <ChainIcon
+                :chain="chain"
+                fill="var(--color)"
+                stroke="var(--paper)"
+                strokeWidth="15%"
+              />
+            </picture>
           </li>
         </ul>
       </div>
@@ -61,7 +71,7 @@ const upvotes = ref(0);
         <ul>
           <li v-for="social in dapp.links.socials" :key="social.label">
             <a :href="social.url" :target="social.label">
-              {{ social.label }}
+              <SocialIcon :social="social.label" />
             </a>
           </li>
         </ul>
@@ -84,7 +94,16 @@ const upvotes = ref(0);
         >Launch</NuxtLink
       >
       <button class="button" @click="upvotes++">Upvote ({{ upvotes }})</button>
-      <button class="button">Share</button>
+      <button class="button" @click="showShareBox = !showShareBox">
+        Share
+      </button>
+
+      <ModalSlot
+        :showModal="showShareBox"
+        @toggle="showShareBox = !showShareBox"
+      >
+        <ShareComponent :dappLinks="dapp.links" />
+      </ModalSlot>
     </div>
   </aside>
 </template>
@@ -103,11 +122,37 @@ aside {
   div {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-    padding: 1rem;
+    gap: 2rem;
+    padding: 1rem 0;
+    align-items: center;
   }
   div.row {
     border-bottom: 1px solid var(--gray);
   }
+}
+
+.chain {
+  ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 1rem;
+
+    picture.chain {
+      aspect-ratio: 1/1;
+    }
+  }
+}
+.socials {
+  ul {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+
+    align-items: center;
+  }
+}
+
+.logo {
+  border-radius: 50%;
 }
 </style>
