@@ -11,7 +11,9 @@
       "Fantom",
       "Arbitum",
       "Avalanche",
-      "gnosis"
+      "gnosis",
+      "moonbeam",
+      "moonriver"
     ],
     "categories": ["DeFi"],
     "integrations": ["VRF"],
