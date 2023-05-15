@@ -73,7 +73,8 @@ html {
 .calm-voice,
 p,
 a,
-li {
+li,
+button {
   font-family: var(--font);
   font-size: var(--step-0);
   line-height: 1.6;

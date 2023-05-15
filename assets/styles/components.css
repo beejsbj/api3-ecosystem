@@ -38,6 +38,8 @@ a {
   background: none;
   border: 0.5px solid var(--gray);
   border-radius: var(--corners);
+
+  font-size: 0.875rem;
 }
 
 .button::after {
@@ -60,6 +62,7 @@ a {
   height: 1px;
   background-color: var(--gray);
   transition: 0.2s;
+  border-radius: var(--corners);
 }
 
 .button:is(:hover, :focus) {
@@ -89,6 +92,10 @@ a {
 
 :is(button, a).icon {
   padding: 0.5rem;
+  background: none;
+  /* border: 1px solid var(--gray); */
+  border-radius: 50%;
+  aspect-ratio: 1/1;
 }
 
 :is(button, a).filled {
