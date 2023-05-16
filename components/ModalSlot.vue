@@ -16,9 +16,9 @@ watch(
 <template>
   <Teleport to="body">
     <Transition name="modal">
-      <div v-if="showModal" class="modal-mask" @click="$emit('toggle')">
-        <div class="modal-content" @click.stop>
-          <slot />
+      <div v-if="showModal" class="modal-mask" @click.self="$emit('toggle')">
+        <div class="modal-content">
+          <slot @toggle="$emit('toggle')" />
         </div>
       </div>
     </Transition>

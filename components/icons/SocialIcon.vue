@@ -1,5 +1,5 @@
 <script setup>
-const props = defineProps(["social"]);
+const props = defineProps(["social", "fill"]);
 
 const dynamicComponent = defineAsyncComponent(() =>
   import(`@/components/icons/socials/${props.social}Icon.vue`)
@@ -7,5 +7,10 @@ const dynamicComponent = defineAsyncComponent(() =>
 </script>
 
 <template>
-  <Component :is="dynamicComponent" />
+  <Component
+    :is="dynamicComponent"
+    :style="`
+   ${fill ? `fill: ${fill};` : 'fill: #81838C'}
+  `"
+  />
 </template>

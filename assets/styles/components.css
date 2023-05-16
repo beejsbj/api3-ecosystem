@@ -98,9 +98,10 @@ a {
   aspect-ratio: 1/1;
 }
 
-:is(button, a).filled {
+:is(button, a).button.filled {
   padding: 0.5rem 1rem;
   background-color: var(--highlight);
+  border-color: currentColor;
 }
 
 /*  */

@@ -1,10 +1,10 @@
 <script setup>
-const props = defineProps(["heading"]);
+const props = defineProps(["heading", "voice"]);
 </script>
 
 <template>
   <SectionColumn innerClass="page-heading">
-    <h1 class="loud-voice">{{ heading }}</h1>
+    <h1 :class="voice ? voice : 'loud-voice'">{{ heading }}</h1>
   </SectionColumn>
 </template>
 
@@ -12,7 +12,7 @@ const props = defineProps(["heading"]);
 .page-heading {
   display: grid;
   justify-content: start;
-  padding: 5rem 14px;
+  padding: 5rem 15px;
   h1 {
     padding: 5px 0;
     background: linear-gradient(
@@ -23,5 +23,13 @@ const props = defineProps(["heading"]);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
+
+  .booming-voice {
+    padding: 30px 0;
+  }
+}
+
+main.ecosystem-detail .page-heading {
+  padding: 3rem 15px;
 }
 </style>
