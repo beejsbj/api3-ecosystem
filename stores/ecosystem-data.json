@@ -440,5 +440,401 @@
         { "label": "Discord", "url": "https://discord.gg/8YQXzZ8" }
       ]
     }
+  },
+  {
+    "name": "Dapp Name 3",
+    "tagline": "Dapp Tagline",
+    "status": "Live",
+    "chains": ["fantom", "Polygon", "Ethereum"],
+    "categories": ["Category", "Category2", "Category3"],
+    "integrations": ["Product", "Product2", "Product3"],
+    "year": 2019,
+    "about": [
+      "This the dappp description, this is the first paragraph. lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "This the dappp description, this is the second paragraph. lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    ],
+    "images": {
+      "logo": "/images/square.jpg",
+      "cover": "/images/landscape.jpg",
+      "banner": "/images/landscape.jpg",
+      "screenshots": [
+        "/images/landscape.jpg",
+        "/images/landscape.jpg",
+        "/images/landscape.jpg"
+      ]
+    },
+    "links": {
+      "dapp": "https://app.aavegotchi.com/",
+      "website": "https://aavegotchi.com/",
+      "docs": "https://docs.aavegotchi.com/",
+      "explorer": "https://etherscan.io/token/0x86935f11c86623de8a25696e1c19a8659cbf95d1",
+      "socials": [
+        { "label": "Reddit", "url": "https://www.reddit.com/r/Aavegotchi/" },
+        { "label": "Twitter", "url": "https://twitter.com/aavegotchi" },
+        { "label": "Telegram", "url": "https://t.me/aavegotchi" },
+        { "label": "Blog", "url": "https://aavegotchi.medium.com/" },
+        {
+          "label": "Facebook",
+          "url": "https://www.facebook.com/groups/1010087115890588"
+        },
+        {
+          "label": "Youtube",
+          "url": "https://www.youtube.com/channel/UCZ5Z1XW9XZ7Z7LX5QXGx6jw"
+        },
+        { "label": "Discord", "url": "https://discord.gg/8YQXzZ8" }
+      ]
+    }
+  },
+  {
+    "name": "Dapp Name 5",
+    "tagline": "Dapp Tagline",
+    "status": "Live",
+    "chains": ["moonbeam", "gnosis", "Polygon", "Ethereum"],
+    "categories": ["Category", "Category2", "Category3"],
+    "integrations": ["Product", "Product2", "Product3"],
+    "year": 2019,
+    "about": [
+      "This the dappp description, this is the first paragraph. lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "This the dappp description, this is the second paragraph. lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    ],
+    "images": {
+      "logo": "/images/square.jpg",
+      "cover": "/images/landscape.jpg",
+      "banner": "/images/landscape.jpg",
+      "screenshots": [
+        "/images/landscape.jpg",
+        "/images/landscape.jpg",
+        "/images/landscape.jpg"
+      ]
+    },
+    "links": {
+      "dapp": "https://app.aavegotchi.com/",
+      "website": "https://aavegotchi.com/",
+      "docs": "https://docs.aavegotchi.com/",
+      "explorer": "https://etherscan.io/token/0x86935f11c86623de8a25696e1c19a8659cbf95d1",
+      "socials": [
+        { "label": "Reddit", "url": "https://www.reddit.com/r/Aavegotchi/" },
+        { "label": "Twitter", "url": "https://twitter.com/aavegotchi" },
+        { "label": "Telegram", "url": "https://t.me/aavegotchi" },
+        { "label": "Blog", "url": "https://aavegotchi.medium.com/" },
+        {
+          "label": "Facebook",
+          "url": "https://www.facebook.com/groups/1010087115890588"
+        },
+        {
+          "label": "Youtube",
+          "url": "https://www.youtube.com/channel/UCZ5Z1XW9XZ7Z7LX5QXGx6jw"
+        },
+        { "label": "Discord", "url": "https://discord.gg/8YQXzZ8" }
+      ]
+    }
+  },
+  {
+    "name": "Dapp Name 5",
+    "tagline": "Dapp Tagline",
+    "status": "Live",
+    "chains": ["gnosis", "Polygon", "Ethereum"],
+    "categories": ["Category", "Category2", "Category3"],
+    "integrations": ["Product", "Product2", "Product3"],
+    "year": 2019,
+    "about": [
+      "This the dappp description, this is the first paragraph. lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "This the dappp description, this is the second paragraph. lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    ],
+    "images": {
+      "logo": "/images/square.jpg",
+      "cover": "/images/landscape.jpg",
+      "banner": "/images/landscape.jpg",
+      "screenshots": [
+        "/images/landscape.jpg",
+        "/images/landscape.jpg",
+        "/images/landscape.jpg"
+      ]
+    },
+    "links": {
+      "dapp": "https://app.aavegotchi.com/",
+      "website": "https://aavegotchi.com/",
+      "docs": "https://docs.aavegotchi.com/",
+      "explorer": "https://etherscan.io/token/0x86935f11c86623de8a25696e1c19a8659cbf95d1",
+      "socials": [
+        { "label": "Reddit", "url": "https://www.reddit.com/r/Aavegotchi/" },
+        { "label": "Twitter", "url": "https://twitter.com/aavegotchi" },
+        { "label": "Telegram", "url": "https://t.me/aavegotchi" },
+        { "label": "Blog", "url": "https://aavegotchi.medium.com/" },
+        {
+          "label": "Facebook",
+          "url": "https://www.facebook.com/groups/1010087115890588"
+        },
+        {
+          "label": "Youtube",
+          "url": "https://www.youtube.com/channel/UCZ5Z1XW9XZ7Z7LX5QXGx6jw"
+        },
+        { "label": "Discord", "url": "https://discord.gg/8YQXzZ8" }
+      ]
+    }
+  },
+  {
+    "name": "Dapp Name 3",
+    "tagline": "Dapp Tagline",
+    "status": "Live",
+    "chains": ["fantom", "Polygon", "Ethereum"],
+    "categories": ["Category", "Category2", "Category3"],
+    "integrations": ["Product", "Product2", "Product3"],
+    "year": 2019,
+    "about": [
+      "This the dappp description, this is the first paragraph. lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "This the dappp description, this is the second paragraph. lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    ],
+    "images": {
+      "logo": "/images/square.jpg",
+      "cover": "/images/landscape.jpg",
+      "banner": "/images/landscape.jpg",
+      "screenshots": [
+        "/images/landscape.jpg",
+        "/images/landscape.jpg",
+        "/images/landscape.jpg"
+      ]
+    },
+    "links": {
+      "dapp": "https://app.aavegotchi.com/",
+      "website": "https://aavegotchi.com/",
+      "docs": "https://docs.aavegotchi.com/",
+      "explorer": "https://etherscan.io/token/0x86935f11c86623de8a25696e1c19a8659cbf95d1",
+      "socials": [
+        { "label": "Reddit", "url": "https://www.reddit.com/r/Aavegotchi/" },
+        { "label": "Twitter", "url": "https://twitter.com/aavegotchi" },
+        { "label": "Telegram", "url": "https://t.me/aavegotchi" },
+        { "label": "Blog", "url": "https://aavegotchi.medium.com/" },
+        {
+          "label": "Facebook",
+          "url": "https://www.facebook.com/groups/1010087115890588"
+        },
+        {
+          "label": "Youtube",
+          "url": "https://www.youtube.com/channel/UCZ5Z1XW9XZ7Z7LX5QXGx6jw"
+        },
+        { "label": "Discord", "url": "https://discord.gg/8YQXzZ8" }
+      ]
+    }
+  },
+  {
+    "name": "Dapp Name 5",
+    "tagline": "Dapp Tagline",
+    "status": "Live",
+    "chains": ["moonbeam", "gnosis", "Polygon", "Ethereum"],
+    "categories": ["Category", "Category2", "Category3"],
+    "integrations": ["Product", "Product2", "Product3"],
+    "year": 2019,
+    "about": [
+      "This the dappp description, this is the first paragraph. lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "This the dappp description, this is the second paragraph. lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    ],
+    "images": {
+      "logo": "/images/square.jpg",
+      "cover": "/images/landscape.jpg",
+      "banner": "/images/landscape.jpg",
+      "screenshots": [
+        "/images/landscape.jpg",
+        "/images/landscape.jpg",
+        "/images/landscape.jpg"
+      ]
+    },
+    "links": {
+      "dapp": "https://app.aavegotchi.com/",
+      "website": "https://aavegotchi.com/",
+      "docs": "https://docs.aavegotchi.com/",
+      "explorer": "https://etherscan.io/token/0x86935f11c86623de8a25696e1c19a8659cbf95d1",
+      "socials": [
+        { "label": "Reddit", "url": "https://www.reddit.com/r/Aavegotchi/" },
+        { "label": "Twitter", "url": "https://twitter.com/aavegotchi" },
+        { "label": "Telegram", "url": "https://t.me/aavegotchi" },
+        { "label": "Blog", "url": "https://aavegotchi.medium.com/" },
+        {
+          "label": "Facebook",
+          "url": "https://www.facebook.com/groups/1010087115890588"
+        },
+        {
+          "label": "Youtube",
+          "url": "https://www.youtube.com/channel/UCZ5Z1XW9XZ7Z7LX5QXGx6jw"
+        },
+        { "label": "Discord", "url": "https://discord.gg/8YQXzZ8" }
+      ]
+    }
+  },
+  {
+    "name": "Dapp Name 5",
+    "tagline": "Dapp Tagline",
+    "status": "Live",
+    "chains": ["gnosis", "Polygon", "Ethereum"],
+    "categories": ["Category", "Category2", "Category3"],
+    "integrations": ["Product", "Product2", "Product3"],
+    "year": 2019,
+    "about": [
+      "This the dappp description, this is the first paragraph. lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "This the dappp description, this is the second paragraph. lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    ],
+    "images": {
+      "logo": "/images/square.jpg",
+      "cover": "/images/landscape.jpg",
+      "banner": "/images/landscape.jpg",
+      "screenshots": [
+        "/images/landscape.jpg",
+        "/images/landscape.jpg",
+        "/images/landscape.jpg"
+      ]
+    },
+    "links": {
+      "dapp": "https://app.aavegotchi.com/",
+      "website": "https://aavegotchi.com/",
+      "docs": "https://docs.aavegotchi.com/",
+      "explorer": "https://etherscan.io/token/0x86935f11c86623de8a25696e1c19a8659cbf95d1",
+      "socials": [
+        { "label": "Reddit", "url": "https://www.reddit.com/r/Aavegotchi/" },
+        { "label": "Twitter", "url": "https://twitter.com/aavegotchi" },
+        { "label": "Telegram", "url": "https://t.me/aavegotchi" },
+        { "label": "Blog", "url": "https://aavegotchi.medium.com/" },
+        {
+          "label": "Facebook",
+          "url": "https://www.facebook.com/groups/1010087115890588"
+        },
+        {
+          "label": "Youtube",
+          "url": "https://www.youtube.com/channel/UCZ5Z1XW9XZ7Z7LX5QXGx6jw"
+        },
+        { "label": "Discord", "url": "https://discord.gg/8YQXzZ8" }
+      ]
+    }
+  },
+  {
+    "name": "Dapp Name 3",
+    "tagline": "Dapp Tagline",
+    "status": "Live",
+    "chains": ["fantom", "Polygon", "Ethereum"],
+    "categories": ["Category", "Category2", "Category3"],
+    "integrations": ["Product", "Product2", "Product3"],
+    "year": 2019,
+    "about": [
+      "This the dappp description, this is the first paragraph. lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "This the dappp description, this is the second paragraph. lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    ],
+    "images": {
+      "logo": "/images/square.jpg",
+      "cover": "/images/landscape.jpg",
+      "banner": "/images/landscape.jpg",
+      "screenshots": [
+        "/images/landscape.jpg",
+        "/images/landscape.jpg",
+        "/images/landscape.jpg"
+      ]
+    },
+    "links": {
+      "dapp": "https://app.aavegotchi.com/",
+      "website": "https://aavegotchi.com/",
+      "docs": "https://docs.aavegotchi.com/",
+      "explorer": "https://etherscan.io/token/0x86935f11c86623de8a25696e1c19a8659cbf95d1",
+      "socials": [
+        { "label": "Reddit", "url": "https://www.reddit.com/r/Aavegotchi/" },
+        { "label": "Twitter", "url": "https://twitter.com/aavegotchi" },
+        { "label": "Telegram", "url": "https://t.me/aavegotchi" },
+        { "label": "Blog", "url": "https://aavegotchi.medium.com/" },
+        {
+          "label": "Facebook",
+          "url": "https://www.facebook.com/groups/1010087115890588"
+        },
+        {
+          "label": "Youtube",
+          "url": "https://www.youtube.com/channel/UCZ5Z1XW9XZ7Z7LX5QXGx6jw"
+        },
+        { "label": "Discord", "url": "https://discord.gg/8YQXzZ8" }
+      ]
+    }
+  },
+  {
+    "name": "Dapp Name 5",
+    "tagline": "Dapp Tagline",
+    "status": "Live",
+    "chains": ["moonbeam", "gnosis", "Polygon", "Ethereum"],
+    "categories": ["Category", "Category2", "Category3"],
+    "integrations": ["Product", "Product2", "Product3"],
+    "year": 2019,
+    "about": [
+      "This the dappp description, this is the first paragraph. lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "This the dappp description, this is the second paragraph. lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    ],
+    "images": {
+      "logo": "/images/square.jpg",
+      "cover": "/images/landscape.jpg",
+      "banner": "/images/landscape.jpg",
+      "screenshots": [
+        "/images/landscape.jpg",
+        "/images/landscape.jpg",
+        "/images/landscape.jpg"
+      ]
+    },
+    "links": {
+      "dapp": "https://app.aavegotchi.com/",
+      "website": "https://aavegotchi.com/",
+      "docs": "https://docs.aavegotchi.com/",
+      "explorer": "https://etherscan.io/token/0x86935f11c86623de8a25696e1c19a8659cbf95d1",
+      "socials": [
+        { "label": "Reddit", "url": "https://www.reddit.com/r/Aavegotchi/" },
+        { "label": "Twitter", "url": "https://twitter.com/aavegotchi" },
+        { "label": "Telegram", "url": "https://t.me/aavegotchi" },
+        { "label": "Blog", "url": "https://aavegotchi.medium.com/" },
+        {
+          "label": "Facebook",
+          "url": "https://www.facebook.com/groups/1010087115890588"
+        },
+        {
+          "label": "Youtube",
+          "url": "https://www.youtube.com/channel/UCZ5Z1XW9XZ7Z7LX5QXGx6jw"
+        },
+        { "label": "Discord", "url": "https://discord.gg/8YQXzZ8" }
+      ]
+    }
+  },
+  {
+    "name": "Dapp Name 5",
+    "tagline": "Dapp Tagline",
+    "status": "Live",
+    "chains": ["gnosis", "Polygon", "Ethereum"],
+    "categories": ["Category", "Category2", "Category3"],
+    "integrations": ["Product", "Product2", "Product3"],
+    "year": 2019,
+    "about": [
+      "This the dappp description, this is the first paragraph. lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "This the dappp description, this is the second paragraph. lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    ],
+    "images": {
+      "logo": "/images/square.jpg",
+      "cover": "/images/landscape.jpg",
+      "banner": "/images/landscape.jpg",
+      "screenshots": [
+        "/images/landscape.jpg",
+        "/images/landscape.jpg",
+        "/images/landscape.jpg"
+      ]
+    },
+    "links": {
+      "dapp": "https://app.aavegotchi.com/",
+      "website": "https://aavegotchi.com/",
+      "docs": "https://docs.aavegotchi.com/",
+      "explorer": "https://etherscan.io/token/0x86935f11c86623de8a25696e1c19a8659cbf95d1",
+      "socials": [
+        { "label": "Reddit", "url": "https://www.reddit.com/r/Aavegotchi/" },
+        { "label": "Twitter", "url": "https://twitter.com/aavegotchi" },
+        { "label": "Telegram", "url": "https://t.me/aavegotchi" },
+        { "label": "Blog", "url": "https://aavegotchi.medium.com/" },
+        {
+          "label": "Facebook",
+          "url": "https://www.facebook.com/groups/1010087115890588"
+        },
+        {
+          "label": "Youtube",
+          "url": "https://www.youtube.com/channel/UCZ5Z1XW9XZ7Z7LX5QXGx6jw"
+        },
+        { "label": "Discord", "url": "https://discord.gg/8YQXzZ8" }
+      ]
+    }
   }
 ]
