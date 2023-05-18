@@ -1,9 +1,9 @@
 <script setup>
-const props = defineProps(["heading", "voice"]);
+const props = defineProps(["heading", "voice", "innerClass"]);
 </script>
 
 <template>
-  <SectionColumn innerClass="page-heading">
+  <SectionColumn :innerClass="'page-heading ' + innerClass">
     <h1 :class="voice ? voice : 'loud-voice'">{{ heading }}</h1>
   </SectionColumn>
 </template>
