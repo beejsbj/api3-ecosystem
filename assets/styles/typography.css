@@ -78,6 +78,7 @@ button {
   font-family: var(--font);
   font-size: var(--step-0);
   line-height: 1.6;
+
   font-weight: var(--weight-light);
 }
 

@@ -126,6 +126,7 @@ picture.logo {
   height: 1px;
   background: var(--gradient-color);
   transition: 0.2s;
+  border-radius: var(--corners);
 }
 
 :is(button, a).text:is(:hover, :focus)::after,
