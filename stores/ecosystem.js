@@ -1,5 +1,5 @@
 import { defineStore } from "pinia";
-import data from "./data.json";
+import data from "./ecosystem-data.json";
 import slug from "slug";
 
 export const useEcosystemStore = defineStore("ecosystem", () => {
