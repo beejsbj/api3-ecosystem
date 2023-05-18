@@ -201,9 +201,8 @@ dapp-filter {
   display: grid;
   grid-template-columns: 1fr;
   position: sticky;
-  //   grid-gap: 2rem;
+  top: 2rem;
 
-  //   padding: 1rem;
   border-radius: var(--corners);
 
   header {
