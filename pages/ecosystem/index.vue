@@ -27,9 +27,12 @@ const showFilter = ref(false);
 
 <style lang="scss">
 .ecosystem .main-grid {
+  position: relative;
   display: grid;
   grid-gap: 2.5rem;
+
   align-items: start;
+
   @media (min-width: 768px) {
     grid-template-columns: 0.7fr 1fr;
   }
