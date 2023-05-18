@@ -1,5 +1,45 @@
 <script setup>
 const route = useRoute();
+
+const socials = ref([
+  {
+    name: "Twitter",
+    link: "https://twitter.com/api3dao",
+    icon: "Twitter",
+  },
+  {
+    name: "Discord",
+    link: "https://discord.gg/8uWxnRF",
+    icon: "Discord",
+  },
+  {
+    name: "Reddit",
+    link: "https://www.reddit.com/r/API3/",
+    icon: "Reddit",
+  },
+  {
+    name: "Telegram",
+    link: "https://t.me/API3DAO",
+    icon: "Telegram",
+  },
+  {
+    name: "LinkedIn",
+    link: "https://www.linkedin.com/company/api3",
+    icon: "Linkedin",
+  },
+  {
+    name: "Youtube",
+    link: "https://www.youtube.com/channel/UCS8FZlXJWq_9m7Z9jV8e-kA",
+    icon: "Youtube",
+  },
+  {
+    name: "Github",
+    link: "",
+    icon: "Github",
+  },
+]);
+
+//#todo do the same for the other links
 </script>
 
 <template>
@@ -70,50 +110,12 @@ const route = useRoute();
         </nav>
         <nav class="social-icons">
           <NuxtLink
-            class="icon"
-            href="https://twitter.com/api3dao"
-            target="twitter"
+            v-for="social in socials"
+            :key="social.name"
+            :to="social.link"
+            class="calm-voice"
           >
-            <TwitterIcon />
-          </NuxtLink>
-          <NuxtLink
-            class="icon"
-            href="https://discord.gg/8uWxnRF"
-            target="discord"
-          >
-            <DiscordIcon />
-          </NuxtLink>
-          <NuxtLink class="icon" href="https://t.me/API3DAO" target="telegram">
-            <TelegramIcon />
-          </NuxtLink>
-          <NuxtLink
-            class="icon"
-            href="
-					https://www.reddit.com/r/API3/"
-            target="reddit"
-          >
-            <RedditIcon />
-          </NuxtLink>
-
-          <NuxtLink class="icon" href="#" target="github">
-            <GithubIcon />
-          </NuxtLink>
-
-          <NuxtLink
-            class="icon"
-            href="
-					https://www.linkedin.com/company/api3/"
-            target="linkedin"
-          >
-            <LinkedinIcon />
-          </NuxtLink>
-          <NuxtLink
-            class="icon"
-            href="
-					https://www.youtube.com/channel/UCS8FZlXJWq_9mZf6LKlBZRg"
-            target="youtube"
-          >
-            <YoutubeIcon />
+            <SocialIcon :social="social.icon" />
           </NuxtLink>
         </nav>
         <p class="calm-voice">© 2023 API3 Foundation</p>
@@ -218,8 +220,9 @@ section.other inner-column {
   .social-icons {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    gap: 0.5rem;
+    gap: 2rem;
     place-items: center;
+    fill: var(--gray);
   }
 
   p {
