@@ -142,11 +142,15 @@ figure {
   }
 }
 
-section:not(:has(h2)) > p:first-of-type::first-letter {
-  /* styles for p elements within a section that's not the first child */
-  initial-letter: 2;
-  padding-right: 0.5rem;
-  //   font-family: monospace;
+section:not(:has(h2)) > p {
+  grid-column: 1 /-1;
+  max-width: unset;
+  &:first-of-type::first-letter {
+    /* styles for p elements within a section that's not the first child */
+    initial-letter: 2;
+    padding-right: 0.5rem;
+    //   font-family: monospace;
+  }
 }
 
 code {
