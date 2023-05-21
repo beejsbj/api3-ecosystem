@@ -29,7 +29,7 @@ nav.panel-menu {
 
   //   align-items: end;
   //   justify-content: start;
-  gap: 2em;
+  gap: 1.5em;
   padding: 2rem;
 
   a {
@@ -37,8 +37,9 @@ nav.panel-menu {
     font-size: var(--step-1);
 
     &.button {
-      // justify-self: center;
-      align-self: center;
+      justify-self: center;
+      // align-self: center;
+      min-width: 200px;
     }
   }
 }

@@ -6,6 +6,7 @@ const dynamicComponent = defineAsyncComponent(() =>
 
 props.fill = props.fill ?? "none";
 props.stroke = props.stroke ?? "var(--color)";
+props.chain = props.chain ?? "ethereum";
 
 function handleHover() {
   console.log("hovered");

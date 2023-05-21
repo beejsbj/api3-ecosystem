@@ -1,22 +1,28 @@
 <template>
-  <svg class="hamburger" width="16" height="12" viewBox="0 0 16 12" fill="none">
+  <svg
+    width="40"
+    height="40"
+    viewBox="0 0 40 40"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
     <path
-      class="top"
-      d="M0 1L16 1"
-      stroke="currentColor"
+      d="M11 12H29"
+      stroke="#FCFCFF"
       stroke-width="2"
-    ></path>
+      stroke-linecap="round"
+    />
     <path
-      class="middle"
-      d="M0 6L16 6"
-      stroke="currentColor"
+      d="M11 20H29"
+      stroke="#FCFCFF"
       stroke-width="2"
-    ></path>
+      stroke-linecap="round"
+    />
     <path
-      class="bottom"
-      d="M0 11L16 11"
-      stroke="currentColor"
+      d="M11 28H29"
+      stroke="#FCFCFF"
       stroke-width="2"
-    ></path>
+      stroke-linecap="round"
+    />
   </svg>
 </template>

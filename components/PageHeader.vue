@@ -3,13 +3,13 @@ const props = defineProps(["heading", "voice", "innerClass"]);
 </script>
 
 <template>
-  <SectionColumn :innerClass="'page-heading ' + innerClass">
+  <SectionColumn :innerClass="'page-title ' + innerClass">
     <h1 :class="voice ? voice : 'loud-voice'">{{ heading }}</h1>
   </SectionColumn>
 </template>
 
 <style lang="scss">
-.page-heading {
+.page-title {
   display: grid;
   justify-content: start;
   padding: 5rem 15px;
@@ -29,7 +29,7 @@ const props = defineProps(["heading", "voice", "innerClass"]);
   }
 }
 
-main.ecosystem-detail .page-heading {
+main.ecosystem-detail .page-title {
   padding: 3rem 15px;
 }
 </style>
