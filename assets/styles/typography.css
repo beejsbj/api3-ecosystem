@@ -25,7 +25,7 @@ html {
 
   font-size: var(--step-4);
   font-weight: var(--weight-semibold);
-  line-height: 2.875rem;
+  /* line-height: 2.875rem; */
 }
 
 .loud-voice {
