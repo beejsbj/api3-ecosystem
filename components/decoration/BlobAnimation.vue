@@ -57,7 +57,6 @@ onMounted(() => {
   left: 50%;
   top: 50%;
   translate: -50% -50%;
-  /* border-radius: 50%; */
   background: linear-gradient(to right, var(--color), var(--highlight));
   animation: rotate 20s infinite;
   opacity: 0.15;
@@ -69,8 +68,14 @@ onMounted(() => {
   height: 100%;
   width: 100%;
   position: absolute;
-  /* z-index: ; */
   backdrop-filter: blur(10vmax);
   pointer-events: none;
+}
+</style>
+
+<style lang="scss">
+html:has(main.index) #blob {
+  opacity: 0.4;
+  height: 24vmax;
 }
 </style>
