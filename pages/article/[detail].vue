@@ -19,11 +19,30 @@ article.value.sections = article.value.sections.map((section, index) => {
           {{ article.title }}
         </h1>
         <article-meta>
-          <p class="solid-voice">{{ article.author }}</p>
-          <p class="solid-voice">{{ article.date_published }}</p>
-          <p class="solid-voice">
-            {{ article.category }}
-          </p>
+          <div class="author">
+            <picture>
+              <img src="@/assets/images/author.svg" alt="" />
+            </picture>
+            <p class="solid-voice">
+              {{ article.author }}
+            </p>
+          </div>
+          <div class="date">
+            <picture>
+              <img src="@/assets/images/calendar-icon.svg" alt="" />
+            </picture>
+            <p class="solid-voice">
+              {{ article.date_published }}
+            </p>
+          </div>
+          <div class="tag">
+            <picture>
+              <img src="@/assets/images/bookmark-icon.svg" alt="" />
+            </picture>
+            <p class="solid-voice">
+              {{ article.category }}
+            </p>
+          </div>
         </article-meta>
       </header>
 
@@ -39,6 +58,7 @@ inner-column.article {
   display: grid;
   gap: 1rem;
   padding: 5rem 2rem;
+  align-items: start;
   position: relative;
 
   @media (min-width: 768px) {
@@ -74,8 +94,22 @@ header {
     -webkit-text-fill-color: transparent;
   }
 
-  .solid-voice {
-    font-size: var(--step--1);
+  article-meta {
+    display: flex;
+    gap: 2rem;
+    margin-top: 0.5rem;
+    .solid-voice {
+      font-size: var(--step--1);
+    }
+    div {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.5rem;
+      align-items: center;
+      picture {
+        max-width: 15px;
+      }
+    }
   }
 }
 </style>
