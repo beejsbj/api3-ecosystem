@@ -23,11 +23,17 @@ const submitHandler = () => {
 <template>
   <SectionColumn>
     <ClientOnly>
-      <FormKit type="form" :actions="false" @submit="submitHandler">
+      <FormKit
+        type="form"
+        :actions="false"
+        v-auto-animate
+        @submit="submitHandler"
+      >
         <FormKit
           type="multi-step"
           tab-style="progress"
           :hide-progress-labels="true"
+          v-auto-animate
         >
           <OwnerStep :dappForm="dappForm" key="1" />
           <ContentStep :dappForm="dappForm" key="2" />
