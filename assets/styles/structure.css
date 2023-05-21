@@ -18,6 +18,9 @@ inner-column.none {
   padding: 0;
 }
 
+html:has(main.index) inner-column {
+  max-width: 1750px; /* could be a variable in settings */
+}
 /*.site-header {
 	position: sticky;
 	top: 0;
