@@ -51,8 +51,12 @@ onMounted(() => {
     <h2 class="attention-voice" v-if="section.heading" :id="section.heading">
       {{ section.heading }}
     </h2>
+
     <template v-for="content in section.content">
-      <p v-if="content.type === 'paragraph'">
+      <p
+        v-if="content.type === 'paragraph'"
+        :id="content.text.slice(0, 17) + '...'"
+      >
         {{ content.text }}
       </p>
 
@@ -62,22 +66,24 @@ onMounted(() => {
         </li>
       </ul>
 
-      <figure v-else-if="content.type === 'image'">
-        <img :src="content.url" :alt="content.alt" />
-        <figcaption class="whisper-voice" v-if="content.caption">
-          {{ content.caption }}
-        </figcaption>
-      </figure>
+      <FigureBlock
+        v-else-if="content.type === 'image'"
+        :image="content.url"
+        :alt="content.alt"
+        :caption="content.caption"
+      />
 
-      <blockquote v-else-if="content.type === 'quote'">
-        <p>
-          {{ content.text }}
-        </p>
-        <figcaption>—{{ content.source }}</figcaption>
-      </blockquote>
-      <!-- #todo more refactoring -->
+      <BlockquoteBlock
+        v-else-if="content.type === 'quote'"
+        :quote="content.text"
+        :source="content.source"
+      />
 
-      <CodeBlock v-else-if="content.type === 'code'" :content="content" />
+      <CodeBlock
+        v-else-if="content.type === 'code'"
+        :code="content.text"
+        :language="content.language"
+      />
     </template>
   </section>
 </template>
@@ -143,76 +149,11 @@ figure {
 }
 
 section:not(:has(h2)) > p {
-  grid-column: 1 /-1;
-  max-width: unset;
   &:first-of-type::first-letter {
     /* styles for p elements within a section that's not the first child */
     initial-letter: 2;
     padding-right: 0.5rem;
     //   font-family: monospace;
-  }
-}
-
-code {
-  margin: 2rem 0;
-  padding: 2rem;
-  background: var(--gradient-dark);
-  border-radius: var(--corners);
-  display: block;
-  max-width: 70ch;
-  color: var(--ink);
-  position: relative;
-
-  span {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    font-size: var(--step--2);
-    cursor: pointer;
-  }
-}
-
-blockquote {
-  margin: 2rem 0;
-
-  padding: 4rem;
-  background: var(--gradient-dark);
-  display: block;
-  max-width: 70ch;
-  color: var(--ink);
-  position: relative;
-  border-radius: var(--corners);
-  //   overflow: hidden;
-
-  p {
-    margin: 0;
-    padding: 0;
-    font-style: italic;
-  }
-  figcaption {
-    margin-top: 1rem;
-    color: var(--color);
-    text-align: right;
-    font-style: normal;
-  }
-
-  &::after {
-    content: "“";
-    position: absolute;
-    top: 1rem;
-    left: 1rem;
-    font-size: 10rem;
-    color: var(--highlight);
-    z-index: 1;
-    opacity: 0.5;
-  }
-  p::after {
-    content: "";
-    position: absolute;
-    inset: -1px;
-    z-index: -2;
-    background: var(--gradient-color);
-    border-radius: calc(var(--corners) + 3rem);
   }
 }
 
