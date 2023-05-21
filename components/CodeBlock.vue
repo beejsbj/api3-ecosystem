@@ -1,5 +1,5 @@
 <script setup>
-const props = defineProps(["content"]);
+const props = defineProps(["language", "code"]);
 
 function copyCode(text) {
   navigator.clipboard.writeText(text);
@@ -8,10 +8,10 @@ function copyCode(text) {
 
 <template>
   <code>
-    <span @click="copyCode(content.text)">
-      {{ content.language }}
+    <span @click="copyCode(code)">
+      {{ language }}
     </span>
-    <pre>{{ content.text }}</pre>
+    <pre>{{ code }}</pre>
   </code>
 </template>
 
