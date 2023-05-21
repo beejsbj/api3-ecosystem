@@ -25,7 +25,7 @@ function highlightFocus(event) {
       highlightElement($parent, false);
     });
   }
-  if (event.target.matches(".article-section  h2")) {
+  if (event.target.matches(".article-section  h3")) {
     const $parent = event.target.closest(".article-section");
     highlightElement(event.target, true);
 
@@ -48,9 +48,9 @@ onMounted(() => {
   <section
     :class="section.isHighlighted ? 'article-section' : 'article-section'"
   >
-    <h2 class="attention-voice" v-if="section.heading" :id="section.heading">
+    <h3 class="attention-voice" v-if="section.heading" :id="section.heading">
       {{ section.heading }}
-    </h2>
+    </h3>
 
     <template v-for="content in section.content">
       <p
@@ -92,7 +92,7 @@ onMounted(() => {
 section {
   display: contents;
 }
-h2 {
+h3 {
   margin-bottom: 1.5rem;
   margin-top: 4rem;
 }
@@ -152,7 +152,7 @@ figure {
   }
 }
 
-section:not(:has(h2)) > p {
+section:not(:has(h3)) > p {
   &:first-of-type::first-letter {
     /* styles for p elements within a section that's not the first child */
     initial-letter: 2;

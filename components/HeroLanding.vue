@@ -43,7 +43,7 @@ hero-landing {
   @media (min-width: 768px) {
     grid-template-columns: repeat(12, 1fr);
     gap: 2rem;
-    height: 90vh;
+    height: 100vh;
   }
 
   .line-decoration {

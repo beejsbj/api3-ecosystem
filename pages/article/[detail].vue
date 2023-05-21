@@ -19,6 +19,9 @@ article.value.sections = article.value.sections.map((section, index) => {
         <h1 class="loud-voice article-heading" :id="article.title">
           {{ article.title }}
         </h1>
+        <h2 class="notice-voice" v-if="article.subtitle">
+          {{ article.subtitle }}
+        </h2>
         <article-meta>
           <div class="author">
             <picture>
@@ -75,14 +78,21 @@ article {
   //   background-color: var(--black);
   //   max-width: 80ch;
   //   padding: 1rem;
-
   & > * > :not(aside) {
-    grid-column: 5 / 11;
+    grid-column: 1 / -1;
+    @media (min-width: 768px) {
+      //     padding: 2rem;
+      //     gap: 2rem;
+      grid-column: 5 / 11;
+    }
   }
 }
 
 header {
-  grid-column: 5 / -1;
+  grid-column: 1 / -1;
+  @media (min-width: 768px) {
+    grid-column: 5 / -1;
+  }
   display: grid;
   grid-template-columns: auto auto;
   align-items: start;
@@ -91,6 +101,8 @@ header {
   margin-bottom: 4rem;
 
   h1 {
+    position: relative;
+
     padding: 5px 0;
     background: linear-gradient(
       var(--gradient-direction),
@@ -99,6 +111,27 @@ header {
     );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: -1rem;
+      left: 0;
+
+      --width: 50%;
+
+      width: var(--width);
+      height: 1px;
+      background: var(--gradient-light);
+
+      @media (min-width: 768px) {
+        --width: 6rem;
+
+        top: 50%;
+        left: calc(-1 * var(--width) - 2rem);
+        transform: translateY(-50%);
+      }
+    }
   }
 
   article-meta {
@@ -117,18 +150,6 @@ header {
         max-width: 15px;
       }
     }
-  }
-
-  &::before {
-    --width: 60px;
-    content: "";
-    position: absolute;
-    top: 40%;
-    left: calc(-1 * var(--width) - 2rem);
-    transform: translateY(-50%);
-    width: var(--width);
-    height: 1px;
-    background: var(--color);
   }
 }
 </style>

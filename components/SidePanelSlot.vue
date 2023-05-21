@@ -17,7 +17,7 @@ watch(
   <Teleport to="body">
     <Transition name="panel">
       <div v-if="showPanel" class="panel-mask">
-        <div class="panel-content" @click.stop>
+        <div class="panel-content" @click="$emit('toggle')">
           <slot />
         </div>
       </div>

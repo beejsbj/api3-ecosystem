@@ -20,7 +20,7 @@ function noHeading(section) {
     <h3 class="notice-voice">TOC</h3>
     <ul class="toc-list">
       <li>
-        <a class="text solid-voice" href="#{{ article.title }}">
+        <a class="text solid-voice" :href="'#' + article.title">
           {{ article.title }}
         </a>
       </li>
@@ -42,8 +42,11 @@ function noHeading(section) {
 <style lang="scss" scoped>
 aside {
   grid-row: 2 / 10;
-  grid-column: 1 / 3;
+  grid-column: 1 / -1;
+  margin-bottom: 4rem;
   @media (min-width: 768px) {
+    grid-column: 1 / 3;
+
     position: sticky;
     top: 5rem;
   }

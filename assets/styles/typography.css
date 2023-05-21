@@ -99,6 +99,7 @@ strong {
   /* opacity: 0.8; */
   font-weight: var(--weight-light);
   color: var(--gray-light);
+  letter-spacing: 0.08em;
 }
 
 .solid-voice {
@@ -112,6 +113,7 @@ strong {
 
   font-size: var(--step--2);
   font-weight: var(--weight-light);
+  letter-spacing: 0.08em;
 }
 
 /* these would be scoped to section or to an article element */
