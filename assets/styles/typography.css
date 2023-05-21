@@ -26,6 +26,7 @@ html {
   font-size: var(--step-4);
   font-weight: var(--weight-semibold);
   /* line-height: 2.875rem; */
+  letter-spacing: -0.03em;
 }
 
 .loud-voice {
@@ -33,6 +34,7 @@ html {
 
   font-size: var(--step-3);
   font-weight: var(--weight-semibold);
+  letter-spacing: -0.02em;
 }
 
 @media (min-width: 600px) {

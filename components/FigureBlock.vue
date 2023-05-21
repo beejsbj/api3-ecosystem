@@ -17,6 +17,7 @@ figure {
   display: grid;
   grid-template-columns: 3fr 1fr;
   gap: 1rem;
+  grid-column: 3 / -1 !important;
 
   position: relative;
   //   left: -10%;

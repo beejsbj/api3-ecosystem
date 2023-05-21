@@ -1,10 +1,18 @@
+<script setup>
+import { useInterfaceStore } from "@/stores/interface";
+
+const ui = useInterfaceStore();
+</script>
+
 <template>
   <SectionColumn>
     <hero-landing>
       <picture class="line-decoration decoration">
         <LineDecoration />
       </picture>
-      <h1 class="booming-voice page-title">
+      <h1
+        :class="`${!ui.isMobile ? 'loud-voice' : 'booming-voice'} page-title`"
+      >
         Unleash the Potential of Web3 dApps
       </h1>
 
@@ -20,29 +28,33 @@
         </p>
       </div>
       <HeroCards />
-      <CoinDecoration />
+      <CoinDecoration v-if="!ui.isMobile && false" />
     </hero-landing>
   </SectionColumn>
 </template>
 
 <style scoped lang="scss">
 hero-landing {
-  height: 90vh;
+  display: grid;
+  gap: 4rem;
+  position: relative;
   border-top: 1px solid var(--color);
 
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap: 2rem;
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(12, 1fr);
+    gap: 2rem;
+    height: 90vh;
+  }
 
-  position: relative;
-
-  .decoration {
+  .line-decoration {
     position: absolute;
     top: -1rem;
     right: -1rem;
     z-index: -1;
     scale: 0.6;
     transform-origin: top right;
+
+    opacity: 0.5;
   }
 
   .page-title {
@@ -59,18 +71,23 @@ hero-landing {
   .intro-paragraph {
     grid-row: 2 / span 1;
     grid-column: 1 / -1;
-    @media (min-width: 768px) {
-      grid-column: 2 / -7;
-    }
 
     display: grid;
-    gap: 2rem;
-    grid-template-columns: 0.1fr 1fr;
+    gap: 0.5rem;
     align-content: start;
+
+    @media (min-width: 768px) {
+      grid-column: 2 / -7;
+      grid-template-columns: 0.1fr 1fr;
+      gap: 2rem;
+    }
 
     picture {
       aspect-ratio: 1 / 1;
-      max-width: 200px;
+      max-width: 50px;
+      @media (min-width: 768px) {
+        max-width: 200px;
+      }
     }
 
     .notice-voice {
@@ -83,10 +100,14 @@ hero-landing {
     position: absolute;
     top: 0;
     right: 0;
-    height: 50%;
+
     width: 1px;
     z-index: -2;
     background: var(--gradient-color);
+    height: 25%;
+    @media (min-width: 768px) {
+      height: 50%;
+    }
   }
 }
 </style>

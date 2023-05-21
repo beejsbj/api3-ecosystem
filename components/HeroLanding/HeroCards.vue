@@ -45,23 +45,27 @@ div.items {
 
   grid-row: 3 / span 1;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  position: relative;
+  align-items: start;
 
   @media (min-width: 768px) {
     grid-column: 2 / -2;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0 2rem;
   }
-
-  padding: 0 2rem;
-  overflow-x: scroll;
-  position: relative;
+  @media (min-width: 1024px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
 
   .item {
     border-radius: 50px;
-    border-left: 1px solid var(--color);
+    border-right: 1px solid var(--highlight);
     /* box-shadow: var(--shadow); */
     box-shadow: var(--shadow);
     @media (min-width: 768px) {
       box-shadow: unset;
+      border-right: unset;
+      border-left: 1px solid var(--color);
     }
 
     padding: 3rem;

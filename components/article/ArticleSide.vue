@@ -41,6 +41,8 @@ function noHeading(section) {
 
 <style lang="scss" scoped>
 aside {
+  grid-row: 2 / 10;
+  grid-column: 1 / 3;
   @media (min-width: 768px) {
     position: sticky;
     top: 5rem;

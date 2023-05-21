@@ -12,8 +12,9 @@ article.value.sections = article.value.sections.map((section, index) => {
 
 <template>
   <SectionColumn innerClass="article">
-    <ArticleSide />
     <article>
+      <ArticleSide />
+
       <header>
         <h1 class="loud-voice article-heading" :id="article.title">
           {{ article.title }}
@@ -46,9 +47,11 @@ article.value.sections = article.value.sections.map((section, index) => {
         </article-meta>
       </header>
 
-      <template v-for="section in article.sections" :key="section.heading">
-        <ArticleSection :section="section" />
-      </template>
+      <ArticleSection
+        v-for="section in article.sections"
+        :key="section.heading"
+        :section="section"
+      />
     </article>
   </SectionColumn>
 </template>
@@ -60,28 +63,32 @@ inner-column.article {
   padding: 5rem 2rem;
   align-items: start;
   position: relative;
-
-  @media (min-width: 768px) {
-    grid-template-columns: 1fr 5fr;
-  }
 }
 </style>
 
 <style scoped lang="scss">
 article {
   display: grid;
-  gap: 4rem;
+  //   gap: 4rem;
+  grid-template-columns: repeat(12, 1fr);
   align-items: start;
   //   background-color: var(--black);
   //   max-width: 80ch;
   //   padding: 1rem;
+
+  & > * > :not(aside) {
+    grid-column: 5 / 11;
+  }
 }
 
 header {
+  grid-column: 5 / -1;
   display: grid;
-
+  grid-template-columns: auto auto;
   align-items: start;
-  //   justify-content: start;
+  justify-content: start;
+  position: relative;
+  margin-bottom: 4rem;
 
   h1 {
     padding: 5px 0;
@@ -95,21 +102,33 @@ header {
   }
 
   article-meta {
-    display: flex;
-    gap: 2rem;
+    display: grid;
+    gap: 0.5rem;
+    grid-template-columns: repeat(3, 1fr);
     margin-top: 0.5rem;
     .solid-voice {
       font-size: var(--step--1);
     }
     div {
-      display: grid;
-      grid-template-columns: auto 1fr;
+      display: flex;
       gap: 0.5rem;
       align-items: center;
       picture {
         max-width: 15px;
       }
     }
+  }
+
+  &::before {
+    --width: 60px;
+    content: "";
+    position: absolute;
+    top: 40%;
+    left: calc(-1 * var(--width) - 2rem);
+    transform: translateY(-50%);
+    width: var(--width);
+    height: 1px;
+    background: var(--color);
   }
 }
 </style>

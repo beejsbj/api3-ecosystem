@@ -25,12 +25,12 @@ function highlightFocus(event) {
       highlightElement($parent, false);
     });
   }
-  if (event.target.matches("section  h2")) {
-    const $parent = event.target.closest("section");
-    highlightElement($parent, true);
+  if (event.target.matches(".article-section  h2")) {
+    const $parent = event.target.closest(".article-section");
+    highlightElement(event.target, true);
 
     event.target.addEventListener("mouseleave", () => {
-      highlightElement($parent, false);
+      highlightElement(event.target, false);
     });
   }
 }
@@ -89,8 +89,12 @@ onMounted(() => {
 </template>
 
 <style scoped lang="scss">
+section {
+  display: contents;
+}
 h2 {
   margin-bottom: 1.5rem;
+  margin-top: 4rem;
 }
 
 ul {

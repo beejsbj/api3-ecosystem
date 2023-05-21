@@ -10,10 +10,11 @@ const coins = ref(["ethereum", "solana", "polygon"]);
   </div>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .coins {
   grid-column: 9 / 12;
   grid-row: 1 / span 2;
+  position: absolute;
 
   .coin {
     max-width: 50px;
