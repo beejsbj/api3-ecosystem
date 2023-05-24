@@ -1,51 +1,73 @@
 <script setup>
 import { useEcosystemStore } from "~/stores/ecosystem";
+import { gsap } from "gsap";
 const ecosystem = useEcosystemStore();
 const { currentDapp: dapp } = storeToRefs(ecosystem);
+
+onMounted(() => {
+  const pageLoad = gsap.timeline();
+
+  pageLoad.fromTo(
+    [".detail-page .banner", "aside", ".detail-page detail-content section"],
+    {
+      delay: "0.5",
+      y: "10vw",
+      opacity: 0,
+      duration: 0,
+    },
+    {
+      y: "0vw",
+      opacity: 1,
+      duration: 0.5,
+      stagger: {
+        each: 0.2,
+        from: "start",
+      },
+    }
+  );
+});
 </script>
 
 <template>
-  <template v-if="dapp">
-    <article class="detail-page">
-      <DetailBanner />
+  <article class="detail-page">
+    <DetailBanner />
 
-      <SectionColumn class="detail-header">
-        <detail-banner>
-          <PageHeader :heading="dapp.name" />
-        </detail-banner>
-      </SectionColumn>
-      <SectionColumn class="detail-main">
-        <article class="main">
-          <DetailPanel :dapp="dapp" />
+    <SectionColumn class="detail-header">
+      <detail-banner>
+        <PageHeader :heading="dapp?.name" />
+      </detail-banner>
+    </SectionColumn>
+    <SectionColumn class="detail-main">
+      <article class="main">
+        <DetailPanel :dapp="dapp" v-if="dapp" />
 
-          <detail-content>
-            <section class="about">
-              <h2 class="attention-voice">About</h2>
-              <p v-for="paragraph in dapp.about" :key="paragraph">
-                {{ paragraph }}
-              </p>
-            </section>
+        <detail-content>
+          <section class="about">
+            <h2 class="attention-voice">About</h2>
+            <p v-for="paragraph in dapp?.about" :key="paragraph">
+              {{ paragraph }}
+            </p>
+          </section>
 
-            <section class="">
-              <h2 class="attention-voice">Artciles/Integrations</h2>
-              <p v-for="paragraph in dapp.about" :key="paragraph">
-                {{ paragraph }}
-              </p>
-            </section>
+          <section class="">
+            <h2 class="attention-voice">Artciles/Integrations</h2>
+            <p v-for="paragraph in dapp?.about" :key="paragraph">
+              {{ paragraph }}
+            </p>
+          </section>
 
-            <section class="screenshots">
-              <h2 class="attention-voice">Screenshots</h2>
-              <ul class="image-grid">
-                <li v-for="image in dapp.images.screenshots" :key="image">
-                  <img src="@/assets/images/landscape.jpg" alt="" />
-                </li>
-              </ul>
-            </section>
-          </detail-content>
-        </article>
-      </SectionColumn>
-    </article>
-  </template>
+          <section class="screenshots">
+            <h2 class="attention-voice">Screenshots</h2>
+            <ul class="image-grid">
+              <li v-for="image in dapp?.images.screenshots" :key="image">
+                <img src="@/assets/images/landscape.jpg" alt="" />
+              </li>
+            </ul>
+          </section>
+        </detail-content>
+      </article>
+    </SectionColumn>
+  </article>
 </template>
 
 <style lang="scss" scoped>
