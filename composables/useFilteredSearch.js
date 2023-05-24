@@ -39,23 +39,24 @@ export default function useFilteredSearch(ecosystem) {
 
       const filteredStatus =
         ecosystem.filter.status != "all"
-          ? ecosystem.filter.status == dapp.status
+          ? ecosystem.filter.status.toLowerCase() == dapp.status.toLowerCase()
           : true;
 
       return (
         filteredChains &&
         filteredCategories &&
         filteredIntegrations &&
-        filteredYears
+        filteredYears &&
+        filteredStatus
       );
     });
-    ecosystem.filter.count = allFiltered.length;
     return allFiltered;
   });
 
   const searchResults = computed(() => {
     if (!ecosystem.filter.search) return filtered.value;
-    return filtered.value.filter((dapp) => {
+
+    const allFiltered = filtered.value.filter((dapp) => {
       const searchStr = searchLowerCase.value;
       const fieldsToCheck = [
         dapp.name,
@@ -72,6 +73,8 @@ export default function useFilteredSearch(ecosystem) {
         ) || dapp.year == ecosystem.filter.search
       );
     });
+
+    return allFiltered;
   });
 
   return {
