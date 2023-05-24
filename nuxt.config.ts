@@ -21,6 +21,9 @@ export default defineNuxtConfig({
   },
 
   css: ["@/assets/styles/site.css", "@formkit/themes/genesis"],
+  build: {
+	transpile: ['gsap'],
+ },
 
   vue: {
     compilerOptions: {
@@ -39,6 +42,7 @@ export default defineNuxtConfig({
       },
     ],
   ],
+  plugins: ['~/plugins/gsap.ts'],
 
 
   components: [
