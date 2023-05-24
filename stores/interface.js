@@ -3,6 +3,8 @@ import { defineStore } from "pinia";
 
 export const useInterfaceStore = defineStore("interface", function () {
   const mainMenuOpen = ref(false);
+  const firstLoad = ref(true);
+
   function toggleMenu() {
     mainMenuOpen.value = !mainMenuOpen.value;
   }
@@ -11,10 +13,12 @@ export const useInterfaceStore = defineStore("interface", function () {
     if (typeof window === "undefined") return false;
     return window.innerWidth < 768;
   });
+
   const isTablet = computed(() => {
     if (typeof window === "undefined") return false;
     return window.innerWidth < 1024 && window.innerWidth >= 768;
   });
+
   const isDesktop = computed(() => {
     if (typeof window === "undefined") return false;
     return window.innerWidth >= 1024;
@@ -34,5 +38,6 @@ export const useInterfaceStore = defineStore("interface", function () {
     isMobile,
     isTablet,
     isDesktop,
+    firstLoad,
   };
 });
