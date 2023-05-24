@@ -1,12 +1,92 @@
+<script setup>
+import { useInterfaceStore } from "@/stores/interface";
+import { gsap } from "gsap";
+
+const ui = useInterfaceStore();
+
+onMounted(() => {
+  const pageLoad = gsap.timeline();
+
+  pageLoad.fromTo(
+    "hero-landing .page-title",
+    {
+      delay: "0.5",
+      duration: 0,
+      y: 50,
+      opacity: 0,
+    },
+    {
+      y: 0,
+      opacity: 1,
+      duration: 0.5,
+      ease: "power4.out",
+
+      className: ui.isMobile
+        ? "page-title loud-voice"
+        : "page-title booming-voice",
+    }
+  );
+
+  pageLoad.from("hero-landing .intro-paragraph", {
+    duration: 0.5,
+    y: 50,
+    opacity: 0,
+    ease: "power4.out",
+  });
+
+  pageLoad
+    .to(
+      "hero-landing",
+      {
+        duration: 0.5,
+        "--before-width": "100%",
+        opacity: 1,
+        ease: "power4.inOut",
+      },
+      "-=1"
+    )
+    .fromTo(
+      "hero-landing",
+      {
+        "--after-height": "0",
+      },
+
+      {
+        duration: 0.5,
+        "--after-height": ui.isMobile ? "25%" : "50%",
+        ease: "power4.in",
+      },
+      "-=0.5"
+    );
+  pageLoad.from("hero-card", {
+    duration: 0.5,
+    x: 50,
+    opacity: 0,
+    ease: "power4.out",
+    stagger: 0.2,
+  });
+
+  pageLoad.from(
+    ".line-decoration path",
+    {
+      duration: 0.5,
+      scale: 0,
+      transformOrigin: "bottom right",
+      stagger: { each: 0.1, from: "random" },
+      ease: "power4.out",
+    },
+    "-=1"
+  );
+});
+</script>
+
 <template>
   <SectionColumn>
     <hero-landing>
       <picture class="line-decoration decoration">
         <LineDecoration />
       </picture>
-      <h1 class="booming-voice page-title">
-        Unleash the Potential of Web3 dApps
-      </h1>
+      <h1 class="page-title">Unleash the Potential of Web3 dApps</h1>
 
       <div class="intro-paragraph">
         <picture>
@@ -20,34 +100,44 @@
         </p>
       </div>
       <HeroCards />
+      <CoinDecoration v-if="!ui.isMobile && false" />
     </hero-landing>
   </SectionColumn>
 </template>
 
 <style scoped lang="scss">
 hero-landing {
-  height: 90vh;
-  border-top: 1px solid var(--color);
-
   display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap: 2rem;
-
+  row-gap: 4rem;
   position: relative;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  opacity: 0;
 
-  .decoration {
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(12, 1fr);
+
+    gap: 2rem;
+    height: 100vh;
+  }
+
+  .line-decoration {
     position: absolute;
     top: -1rem;
     right: -1rem;
-    z-index: -1;
     scale: 0.6;
     transform-origin: top right;
+
+    opacity: 0.5;
+    @media (min-width: 768px) {
+      scale: 1;
+    }
   }
 
   .page-title {
     grid-column: 1 / -1;
 
-    @media (min-width: 768px) {
+    @media (min-width: 1194px) {
       grid-column: 2 / -6;
     }
     grid-row: 1 / span 1;
@@ -58,18 +148,29 @@ hero-landing {
   .intro-paragraph {
     grid-row: 2 / span 1;
     grid-column: 1 / -1;
-    @media (min-width: 768px) {
-      grid-column: 2 / -7;
-    }
 
     display: grid;
-    gap: 2rem;
-    grid-template-columns: 0.1fr 1fr;
+    gap: 0.5rem;
     align-content: start;
+
+    @media (min-width: 768px) {
+      grid-column: 1 / -7;
+      grid-template-columns: 0.1fr 1fr;
+      gap: 2rem;
+    }
+    @media (min-width: 1194px) {
+      grid-template-columns: repeat(6, 1fr);
+      p {
+        grid-column: 2 / -1;
+      }
+    }
 
     picture {
       aspect-ratio: 1 / 1;
-      max-width: 200px;
+      max-width: 50px;
+      @media (min-width: 768px) {
+        max-width: 200px;
+      }
     }
 
     .notice-voice {
@@ -77,15 +178,33 @@ hero-landing {
     }
   }
 
+  &::before {
+    content: "";
+    position: absolute;
+    top: -1px;
+    left: 0;
+
+    width: var(--before-width);
+    height: 1px;
+
+    z-index: -2;
+    background: var(--color);
+  }
+
   &::after {
     content: "";
     position: absolute;
     top: 0;
     right: 0;
-    height: 50%;
+
     width: 1px;
     z-index: -2;
     background: var(--gradient-color);
+
+    height: var(--after-height);
+    @media (min-width: 768px) {
+      height: var(--after-height);
+    }
   }
 }
 </style>

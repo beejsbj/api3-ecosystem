@@ -24,7 +24,7 @@ const showcaseCards = ref([
 </script>
 <template>
   <div class="items">
-    <showcase-card class="item" v-for="card in showcaseCards">
+    <hero-card class="item" v-for="card in showcaseCards">
       <picture>
         <LogoWhite />
       </picture>
@@ -36,7 +36,7 @@ const showcaseCards = ref([
           {{ card.paragraph }}
         </p>
       </text-content>
-    </showcase-card>
+    </hero-card>
   </div>
 </template>
 <style scoped lang="scss">
@@ -47,20 +47,28 @@ div.items {
   display: grid;
   position: relative;
   align-items: start;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 
-  @media (min-width: 768px) {
+  @media (min-width: 625px) {
     grid-column: 2 / -2;
-    grid-template-columns: repeat(2, 1fr);
-    padding: 0 2rem;
+    //  grid-template-columns: repeat(2, 1fr);
+    .item:nth-last-of-type(1) {
+      grid-column: 1 / -1;
+    }
   }
-  @media (min-width: 1024px) {
-    grid-template-columns: repeat(3, 1fr);
+  @media (min-width: 1120px) {
+    //  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    padding: 0 2rem;
+    .item:nth-last-of-type(1) {
+      grid-column: unset;
+    }
   }
 
   .item {
     border-radius: 50px;
     border-right: 1px solid var(--highlight);
     /* box-shadow: var(--shadow); */
+    min-height: 250px;
     box-shadow: var(--shadow);
     @media (min-width: 768px) {
       box-shadow: unset;
@@ -79,12 +87,12 @@ div.items {
     }
   }
 
-  &::after {
+  &::before {
     content: "";
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
+    width: var(--before-width);
     height: 1px;
     background: var(--gradient-color);
   }
