@@ -131,16 +131,17 @@ const socials = ref([
 <style scoped lang="scss">
 footer {
   padding: 4rem 0;
-}
-footer inner-column {
-  padding-left: 30px;
-  padding-right: 30px;
+  inner-column {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
 }
 a.calm-voice {
   font-size: var(--step-0);
   padding: 0.5rem 0;
   color: var(--ink);
 }
+
 .footer-navigation inner-column {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -192,19 +193,6 @@ section.other inner-column {
     justify-content: space-between;
     text-align: left;
     align-items: center;
-
-    p {
-      order: 1;
-    }
-
-    .misc-links {
-      order: 2;
-    }
-    .social-icons {
-      order: 3;
-      justify-content: end;
-      justify-self: end;
-    }
   }
 
   .misc-links {
@@ -216,6 +204,9 @@ section.other inner-column {
       gap: 2rem;
       justify-content: center;
     }
+    @media (min-width: 1024px) {
+      order: 2;
+    }
   }
   .social-icons {
     display: grid;
@@ -223,10 +214,19 @@ section.other inner-column {
     gap: 2rem;
     place-items: center;
     fill: var(--gray);
+    @media (min-width: 1024px) {
+      order: 3;
+      justify-content: end;
+      justify-self: end;
+      gap: 3rem;
+    }
   }
 
   p {
     color: var(--gray);
+    @media (min-width: 1024px) {
+      order: 1;
+    }
   }
 }
 </style>

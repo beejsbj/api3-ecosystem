@@ -1,5 +1,6 @@
 <script setup>
 import slug from "slug";
+import { gsap } from "gsap";
 
 const props = defineProps(["dapp"]);
 const ecosystem = useEcosystemStore();
@@ -14,6 +15,29 @@ function filterBy(event) {
     ecosystem.filter.status = event.target.innerText.toLowerCase();
   }
 }
+
+onMounted(() => {
+  const pageLoad = gsap.timeline();
+
+  pageLoad.fromTo(
+    "dapp-card",
+    {
+      y: "10vw",
+      opacity: 0,
+      duration: 0,
+      delay: "0.5",
+    },
+    {
+      y: "0vw",
+      opacity: 1,
+      duration: 0.5,
+      stagger: {
+        each: 0.15,
+        from: "start",
+      },
+    }
+  );
+});
 </script>
 
 <template>
@@ -90,6 +114,7 @@ dapp-card {
   display: grid;
   grid-template-rows: 0.5fr 1fr 0.1fr;
   gap: 0.5rem;
+  opacity: 0;
 
   padding: 1rem;
   border-radius: var(--corners);

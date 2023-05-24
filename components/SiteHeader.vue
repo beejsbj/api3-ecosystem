@@ -1,16 +1,37 @@
 <script setup>
 import { useInterfaceStore } from "~/stores/interface";
+import { gsap } from "gsap";
+
 const ui = useInterfaceStore();
+const router = useRouter();
 
 const showMenu = ref(false);
+
+onMounted(() => {
+  const pageLoad = gsap.timeline();
+  if (ui.firstLoad) {
+    pageLoad.from(".site-header", {
+      delay: "0.5",
+      duration: 0.5,
+      y: -50,
+      opacity: 0,
+      ease: "power4.out",
+    });
+    ui.firstLoad = false;
+  }
+});
 </script>
 
 <template>
-  <header>
+  <header class="site-header">
     <SectionColumn class="mast-head">
       <ClientOnly>
         <mast-head>
-          <picture class="site-logo" :class="{ menuOpen: showMenu }">
+          <picture
+            class="site-logo"
+            :class="{ menuOpen: showMenu }"
+            @click="router.push('/')"
+          >
             <LogoText />
           </picture>
           <SiteNav v-if="!ui.isMobile" />
@@ -37,13 +58,20 @@ const showMenu = ref(false);
 	 --></header>
 </template>
 
+<style>
+.site-header inner-column {
+  padding: 15px;
+}
+</style>
+
 <style lang="scss" scoped>
 mast-head {
   display: grid;
   grid-template-columns: 1fr 0.5fr;
   justify-content: space-between;
   .site-logo {
-    width: 50px;
+    width: 40px;
+    cursor: pointer;
     @media (min-width: 768px) {
       width: 100px;
     }
@@ -64,6 +92,9 @@ mast-head {
     justify-self: end;
     &.menuOpen {
       z-index: 9999;
+    }
+    &.icon {
+      scale: 0.8;
     }
   }
 }

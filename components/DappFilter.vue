@@ -1,5 +1,6 @@
 <script setup>
 import { useEcosystemStore } from "~/stores/ecosystem";
+import { gsap } from "gsap";
 
 const ecosystem = useEcosystemStore();
 
@@ -22,6 +23,7 @@ function clearFilters() {
   ecosystem.filter.category = [];
   ecosystem.filter.integrations = [];
   ecosystem.filter.years = [];
+  ecosystem.filter.status = "all";
 }
 
 const showAll = ref({
@@ -29,6 +31,29 @@ const showAll = ref({
   categories: false,
   integrations: false,
   years: false,
+});
+
+onMounted(() => {
+  const pageLoad = gsap.timeline();
+
+  pageLoad.fromTo(
+    "dapp-filter",
+    {
+      delay: "0.5",
+      y: "10vw",
+      opacity: 0,
+      duration: 0,
+    },
+    {
+      y: "0vw",
+      opacity: 1,
+      duration: 0.5,
+      stagger: {
+        each: 0.15,
+        from: "start",
+      },
+    }
+  );
 });
 </script>
 
@@ -69,7 +94,11 @@ const showAll = ref({
           </li>
         </template>
       </ul>
-      <button class="text" @click="showAll.chains = !showAll.chains">
+      <button
+        class="text"
+        @click="showAll.chains = !showAll.chains"
+        v-if="chains.length > 5"
+      >
         Show More
       </button>
     </div>
@@ -96,7 +125,11 @@ const showAll = ref({
           </li>
         </template>
       </ul>
-      <button class="text" @click="showAll.categories = !showAll.categories">
+      <button
+        class="text"
+        @click="showAll.categories = !showAll.categories"
+        v-if="categories.length > 5"
+      >
         Show More
       </button>
     </div>
@@ -128,6 +161,7 @@ const showAll = ref({
       <button
         class="text"
         @click="showAll.integrations = !showAll.integrations"
+        v-if="integrations.length > 5"
       >
         Show More
       </button>
@@ -153,7 +187,11 @@ const showAll = ref({
           </li>
         </template>
       </ul>
-      <button class="text" @click="showAll.years = !showAll.years">
+      <button
+        class="text"
+        @click="showAll.years = !showAll.years"
+        v-if="years.length > 5"
+      >
         Show More
       </button>
     </div>
@@ -204,6 +242,10 @@ dapp-filter {
   top: 2rem;
 
   border-radius: var(--corners);
+  padding-bottom: 2rem;
+
+  max-height: 100vh;
+  overflow-y: auto;
 
   header {
     display: flex;
@@ -247,15 +289,15 @@ dapp-filter {
     label {
       font-size: 0.875rem;
       font-weight: 700;
-      background-color: var(--color);
-      color: black;
       font-family: var(--font);
       padding: 0.5rem;
+      --gray-darkest: hsla(167, 22%, 15%, 1);
+      background-color: var(--gray-darkest);
     }
 
     input-field:has(input:checked) label {
-      background-color: black;
-      color: var(--ink);
+      color: var(--black);
+      background-color: var(--color);
     }
   }
 

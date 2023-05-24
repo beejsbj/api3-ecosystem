@@ -1,5 +1,26 @@
 <script setup>
+import { gsap } from "gsap";
 const props = defineProps(["heading", "voice", "innerClass"]);
+
+onMounted(() => {
+  const pageLoad = gsap.timeline();
+
+  pageLoad.fromTo(
+    ".page-title",
+    {
+      y: 50,
+      opacity: 0,
+      duration: 0,
+      delay: "0.5",
+    },
+    {
+      y: 0,
+      opacity: 1,
+      duration: 0.5,
+      ease: "power4.out",
+    }
+  );
+});
 </script>
 
 <template>
@@ -13,18 +34,20 @@ const props = defineProps(["heading", "voice", "innerClass"]);
   display: grid;
   justify-content: start;
   padding: 5rem 15px;
-  h1 {
-    padding: 5px 0;
-    background: linear-gradient(
-      var(--gradient-direction),
-      var(--ink),
-      var(--color)
-    );
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
+  opacity: 0;
+}
 
-  .booming-voice {
+h1 {
+  padding: 5px 0;
+  background: linear-gradient(
+    var(--gradient-direction),
+    var(--ink),
+    var(--color)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  &.booming-voice {
     padding: 30px 0;
   }
 }
