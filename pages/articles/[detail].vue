@@ -55,6 +55,7 @@ article.value.sections = article.value.sections.map((section, index) => {
         :key="section.heading"
         :section="section"
       />
+      <ArticleRecommend :article="blog.list[0]" />
     </article>
   </SectionColumn>
 </template>
@@ -72,7 +73,7 @@ inner-column.article {
 <style scoped lang="scss">
 article {
   display: grid;
-  //   gap: 4rem;
+  column-gap: 1rem;
   grid-template-columns: repeat(12, 1fr);
   align-items: start;
   //   background-color: var(--black);
@@ -83,7 +84,7 @@ article {
     @media (min-width: 768px) {
       //     padding: 2rem;
       //     gap: 2rem;
-      grid-column: 5 / 11;
+      grid-column: 4 / 10;
     }
   }
 }

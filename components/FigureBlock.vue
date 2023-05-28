@@ -19,7 +19,7 @@ figure {
   gap: 1rem;
 
   @media (min-width: 768px) {
-    grid-column: 3 / -1 !important;
+    grid-column: 4 / -1 !important;
   }
 
   position: relative;

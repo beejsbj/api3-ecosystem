@@ -12,10 +12,6 @@ const blog = useBlogStore();
     <p class="attention-voice">
       This page is still under construction. Please check back later.
     </p>
-    <ul>
-      <li v-for="article in blog.list">
-        <NuxtLink :to="slug(article.title)">{{ article.title }}</NuxtLink>
-      </li>
-    </ul>
+    <ArticleGrid />
   </SectionColumn>
 </template>

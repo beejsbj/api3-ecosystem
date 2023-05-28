@@ -168,8 +168,17 @@ hero-landing {
     picture {
       aspect-ratio: 1 / 1;
       max-width: 50px;
+      background-image: url("@/assets/images/dual-lines.svg");
+      background-size: cover;
+      background-position: center;
+
       @media (min-width: 768px) {
         max-width: 200px;
+      }
+
+      svg {
+        filter: invert(1);
+        mix-blend-mode: multiply;
       }
     }
 

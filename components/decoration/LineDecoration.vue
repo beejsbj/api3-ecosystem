@@ -1,7 +1,32 @@
-<script setup></script>
+<script setup>
+import { Howl } from "howler";
+
+const guitar = {
+  A: new Howl({
+    src: ["/sounds/guitar-A.wav"],
+  }),
+};
+
+const strum = (note) => {
+  console.log(note);
+  guitar[note].play();
+};
+
+const stopGuitar = () => {
+  Object.keys(guitar).forEach((note) => {
+    guitar[note].stop();
+  });
+};
+</script>
 
 <template>
-  <svg width="292" height="292" viewBox="0 0 292 292" fill="none">
+  <svg
+    width="292"
+    height="292"
+    viewBox="0 0 292 292"
+    fill="none"
+    @click="stopGuitar()"
+  >
     <path
       d="M278.861 209.34L82.1621 12.6396"
       stroke-miterlimit="1.5"
@@ -49,6 +74,7 @@
       stroke-miterlimit="1.5"
       stroke-linecap="round"
       stroke-linejoin="round"
+      @mouseenter="strum('A')"
     />
     <path
       d="M290.486 197.741L93.7871 1.04102"

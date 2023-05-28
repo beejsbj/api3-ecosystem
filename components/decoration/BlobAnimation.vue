@@ -1,12 +1,8 @@
 <script setup>
-/* -- Glow effect -- */
-
 onMounted(() => {
   const blob = document.getElementById("blob");
-
   window.onpointermove = (event) => {
     const { pageX, pageY } = event;
-
     blob.animate(
       {
         left: `${pageX}px`,
