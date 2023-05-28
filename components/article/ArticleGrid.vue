@@ -3,19 +3,24 @@ import { useBlogStore } from "@/stores/blog";
 
 const blog = useBlogStore();
 
-function cardType(index) {
-  const types = [
-    "card",
-    "card",
-    "card",
-    "big-card",
-    "slide",
-    "text",
-    "text",
-    "text",
-    "text",
-  ];
-  return types[index % types.length];
+const layoutOne = [
+  "card",
+  "card",
+  "card",
+  "big-card",
+  "slide",
+  "text",
+  "text",
+  "text",
+  "text",
+];
+
+const layoutTwo = ["big-card", "big-card", "card", "card", "card"];
+
+const layoutThree = ["text", "text", "text", "slide", "slide"];
+
+function cardType(index, layout = layoutOne) {
+  return layout[index % layout.length];
 }
 </script>
 
