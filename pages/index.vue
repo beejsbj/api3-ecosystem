@@ -44,6 +44,8 @@ onMounted(() => {
 
 <style lang="scss">
 main.index {
+  display: grid;
+  gap: 5rem;
   @media (min-width: 1024px) {
     height: 100vh;
     overflow-y: scroll;

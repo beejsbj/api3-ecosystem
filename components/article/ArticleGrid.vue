@@ -17,7 +17,9 @@ const layoutOne = [
 
 const layoutTwo = ["big-card", "big-card", "card", "card", "card"];
 
-const layoutThree = ["text", "text", "text", "slide", "slide"];
+const layoutThree = ["big-card", "slide", "big-card", "slide", "slide"];
+
+const layoutFour = ["big-card", "slide", "text", "text", "text"];
 
 function cardType(index, layout = layoutOne) {
   return layout[index % layout.length];
@@ -27,7 +29,7 @@ function cardType(index, layout = layoutOne) {
 <template>
   <ul class="article-grid" v-auto-animate>
     <template v-for="(article, index) in blog.list">
-      <ArticleCard :article="article" :class="cardType(index)" />
+      <ArticleCard :article="article" :class="cardType(index, layoutFour)" />
     </template>
   </ul>
 </template>

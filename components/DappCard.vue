@@ -16,28 +16,7 @@ function filterBy(event) {
   }
 }
 
-onMounted(() => {
-  const pageLoad = gsap.timeline();
-
-  pageLoad.fromTo(
-    "dapp-card",
-    {
-      y: "10vw",
-      opacity: 0,
-      duration: 0,
-      delay: "0.5",
-    },
-    {
-      y: "0vw",
-      opacity: 1,
-      duration: 0.5,
-      stagger: {
-        each: 0.15,
-        from: "start",
-      },
-    }
-  );
-});
+//if filtered by something highlight the category/integration
 </script>
 
 <template>

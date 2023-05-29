@@ -9,9 +9,6 @@ const blog = useBlogStore();
   <PageHeader heading="Articles/Blog" />
 
   <SectionColumn>
-    <p class="attention-voice">
-      This page is still under construction. Please check back later.
-    </p>
     <ArticleGrid />
   </SectionColumn>
 </template>

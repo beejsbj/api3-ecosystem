@@ -19,7 +19,12 @@ inner-column.none {
 }
 
 html:has(main.index) inner-column {
-  max-width: 1750px; /* could be a variable in settings */
+  /* max-width: 1750px;  */
+}
+@media (min-width: 1700px) {
+  html:has(main.index) inner-column {
+    max-width: 1750px;
+  }
 }
 /*.site-header {
 	position: sticky;
