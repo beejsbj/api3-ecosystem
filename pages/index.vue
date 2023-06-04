@@ -1,5 +1,6 @@
 <script setup>
 import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 definePageMeta({
   title: "My home page",
   meta: [
@@ -27,6 +28,11 @@ onMounted(() => {
   //       ease: "none",
   //     });
   //   });
+  gsap.registerPlugin(ScrollTrigger);
+  ScrollTrigger.defaults({
+    toggleActions: "restart pause resume pause",
+    scroller: "main.index",
+  });
 });
 </script>
 
