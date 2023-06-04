@@ -1,7 +1,3 @@
-
-
-
-
 export default defineNuxtConfig({
   //global default head metadata
   app: {
@@ -22,8 +18,8 @@ export default defineNuxtConfig({
 
   css: ["@/assets/styles/site.css", "@formkit/themes/genesis"],
   build: {
-	transpile: ['gsap'],
- },
+    transpile: ["gsap"],
+  },
 
   vue: {
     compilerOptions: {
@@ -42,15 +38,14 @@ export default defineNuxtConfig({
       },
     ],
   ],
-  plugins: ['~/plugins/gsap.ts'],
-
+  plugins: ["~/plugins/gsap.ts", "~/plugins/tooltip.ts"],
 
   components: [
-	{
-	  path: '~/components', 
-	  pathPrefix: false,
-	},
- ],
+    {
+      path: "~/components",
+      pathPrefix: false,
+    },
+  ],
 
   imports: {
     dirs: ["stores"],
