@@ -5,7 +5,13 @@ import { gsap } from "gsap";
 const ui = useInterfaceStore();
 
 onMounted(() => {
-  const pageLoad = gsap.timeline();
+  const pageLoad = gsap.timeline({
+    scrollTrigger: {
+      trigger: "hero-landing",
+      toggleActions: "restart reset restart none",
+      scroller: "main.index",
+    },
+  });
 
   pageLoad.fromTo(
     "hero-landing .page-title",
@@ -58,7 +64,7 @@ onMounted(() => {
       },
       "-=0.5"
     );
-  pageLoad.from("hero-card", {
+  pageLoad.from("hero-landing hero-card", {
     duration: 0.5,
     x: 50,
     opacity: 0,
@@ -67,7 +73,7 @@ onMounted(() => {
   });
 
   pageLoad.from(
-    ".line-decoration path",
+    "hero-landing .line-decoration path",
     {
       duration: 0.5,
       scale: 0,
@@ -166,7 +172,7 @@ hero-landing {
     }
 
     picture {
-      aspect-ratio: 1 / 1;
+      // aspect-ratio: 1 / 1;
       max-width: 50px;
       background-image: url("@/assets/images/dual-lines.svg");
       background-size: cover;
