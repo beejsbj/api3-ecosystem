@@ -1,6 +1,5 @@
 <script setup>
 import slug from "slug";
-import { gsap } from "gsap";
 
 const props = defineProps(["dapp"]);
 const ecosystem = useEcosystemStore();
@@ -15,12 +14,10 @@ function filterBy(event) {
     ecosystem.filter.status = event.target.innerText.toLowerCase();
   }
 }
-
-//if filtered by something highlight the category/integration
 </script>
 
 <template>
-  <dapp-card>
+  <dapp-card class="list-move">
     <header>
       <picture class="logo">
         <img :src="logo" alt="" />
@@ -50,26 +47,17 @@ function filterBy(event) {
           </ul>
         </div>
       </div>
-      <!-- <div class="chains"> -->
-      <!-- <ul>
-          <li v-for="chain in dapp.chains" :key="chain">
-            <picture v-if="`/images/chains/${chain.toLowerCase()}.svg`">
-              <img :src="`/images/chains/${chain.toLowerCase()}.svg`" alt="" />
-            </picture>
-          </li>
-        </ul> -->
-      <!-- </div> -->
     </header>
 
     <text-content>
-      <!-- <h2 class="attention-voice">{{ dapp.name }}</h2> -->
       <h2 class="attention-voice">{{ dapp.name }}</h2>
 
       <p class="calm-voice">{{ dapp.tagline }}</p>
     </text-content>
 
     <footer>
-      <NuxtLink :to="`/ecosystem/${slug(dapp.name)}`" class="card-link">
+      <NuxtLink :to="`/ecosystem/${slug(dapp.name)}`" class="text card-link">
+        Read More
       </NuxtLink>
     </footer>
 
@@ -78,10 +66,6 @@ function filterBy(event) {
         class="card-background"
         v-if="`/images/chains/${dapp.chains[0].toLowerCase()}.svg`"
       >
-        <!-- <img
-          :src="`/images/chains/${dapp.chains[0].toLowerCase()}.svg`"
-          alt=""
-        /> -->
         <ChainIcon :chain="dapp.chains[0]" fill="none" stroke="var(--color)" />
       </picture>
     </div>
@@ -104,32 +88,10 @@ dapp-card {
 
   background: var(--gradient-dark);
 
-  //   transition: all 0.2s ease-in-out;
-
   &:hover {
     background: var(--gradient-dark-color);
-    box-shadow: var(--shadow);
     transition: 0.2s ease-in-out;
   }
-
-  //   &::after {
-  //     content: "";
-  //     display: block;
-  //     border-radius: var(--corners);
-  //     transform: scaleX(0);
-
-  //     position: absolute;
-  //     inset: -1px;
-  //     z-index: -1;
-  //     background: var(--gradient-color);
-
-  //   }
-
-  //   &:hover::after {
-  //     transform: scaleX(1);
-  //     transform-origin: left;
-  //     transition: transform 0.2s ease-in;
-  //   }
 
   .calm-voice {
     font-size: 0.875rem;
@@ -141,10 +103,17 @@ dapp-card {
   & :is(.lists, .status) {
     z-index: 2;
   }
+
   .card-link {
+    padding-left: 0;
+    position: unset;
+  }
+  .card-link::before {
+    content: "";
     position: absolute;
     inset: 0;
-    z-index: 1;
+    z-index: 10;
+    cursor: pointer;
   }
 
   div.background-wrapper {
@@ -175,25 +144,13 @@ header {
   picture {
     max-width: 80px;
     border-radius: 50%;
-    //  justify-self: end;
     z-index: 1;
-    //  position: absolute;
-    //  top: -20px;
-    //  left: -20px;
   }
 }
 
 text-content {
   align-self: end;
   display: grid;
-  gap: 0.5rem;
-}
-
-footer {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  justify-content: space-between;
-  align-items: end;
   gap: 0.5rem;
 }
 

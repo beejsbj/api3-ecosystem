@@ -44,7 +44,6 @@ onMounted(() => {
       :dapp="dapp"
       :key="dapp.name"
       :data-index="index"
-      class="list-move hover-underline"
     />
   </ul>
 </template>

@@ -4,6 +4,7 @@ import { Howl } from "howler";
 const guitar = {
   A: new Howl({
     src: ["/sounds/guitar-A.wav"],
+    volume: 0.04,
   }),
 };
 
