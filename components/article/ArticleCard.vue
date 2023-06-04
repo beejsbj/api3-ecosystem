@@ -63,8 +63,8 @@ onMounted(() => {
 <style scoped lang="scss">
 article-card {
   display: grid;
-  /*   border-radius: var(--corners);*/
-  /*   overflow: hidden;*/
+  border-radius: var(--corners);
+  overflow: hidden;
   position: relative;
   background: var(--gradient-dark);
 
