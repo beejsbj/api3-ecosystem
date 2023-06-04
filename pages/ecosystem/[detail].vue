@@ -7,8 +7,12 @@ const { currentDapp: dapp } = storeToRefs(ecosystem);
 onMounted(() => {
   const pageLoad = gsap.timeline();
 
-  pageLoad.fromTo(
-    [".detail-page .banner", "aside", ".detail-page detail-content section"],
+  pageLoad.to(".detail-page", { opacity: 1, duration: 0 }).fromTo(
+    [
+      ".detail-page .banner",
+      "aside > *",
+      ".detail-page detail-content section",
+    ],
     {
       delay: "0.5",
       y: "10vw",
@@ -84,6 +88,11 @@ onMounted(() => {
   //     hsla(300, 0%, 3%, 0) 80%
   //   );
   /* background-blend-mode: darken; */
+}
+
+.detail-page,
+.banner {
+  opacity: 0;
 }
 
 article.main {
