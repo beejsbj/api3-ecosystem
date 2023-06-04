@@ -41,7 +41,6 @@ const submitHandler = () => {
           <TagStep :dappForm="dappForm" key="4" />
           <LinksStep :dappForm="dappForm" key="5" />
           <SocialsStep :dappForm="dappForm" key="6" />
-
           <StatusStep :dappForm="dappForm" key="7" />
         </FormKit>
       </FormKit>
