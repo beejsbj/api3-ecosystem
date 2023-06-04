@@ -5,7 +5,6 @@ const { currentDapp: dapp } = storeToRefs(ecosystem);
 </script>
 
 <template>
-  <!-- <Teleport v-if="dapp" to="header .teleport-target"> -->
   <SectionColumn v-if="dapp" class="banner" innerClass="none">
     <picture>
       <img
@@ -15,7 +14,6 @@ const { currentDapp: dapp } = storeToRefs(ecosystem);
       />
     </picture>
   </SectionColumn>
-  <!-- </Teleport> -->
 </template>
 
 <style lang="scss" scoped>
@@ -26,7 +24,7 @@ const { currentDapp: dapp } = storeToRefs(ecosystem);
   margin-top: 5rem;
   picture {
     overflow: hidden;
-    aspect-ratio: 6 / 2;
+    aspect-ratio: 8 / 2;
     border-radius: var(--corners);
 
     img {

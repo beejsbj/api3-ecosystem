@@ -70,6 +70,7 @@ const showShareBox = ref(false);
         <p>Socials</p>
         <ul>
           <li v-for="social in dapp.links.socials" :key="social.label">
+            <!--             v-tooltip="social.label" #todo -->
             <a :href="social.url" :target="social.label">
               <SocialIcon :social="social.label" />
             </a>
@@ -111,7 +112,7 @@ const showShareBox = ref(false);
 aside {
   display: grid;
   grid-column: 1 / 1;
-  gap: 1rem;
+  gap: 3rem;
 
   .panel-header {
     display: grid;
@@ -154,5 +155,6 @@ aside {
 
 .logo {
   border-radius: 50%;
+  max-width: 100px;
 }
 </style>
