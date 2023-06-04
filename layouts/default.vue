@@ -4,8 +4,11 @@ const route = useRoute();
 
 <template>
   <SiteHeader />
-  <main :class="route.name">
-    <slot />
-  </main>
+  <Transition name="fade" mode="out-in">
+    <main :class="route.name">
+      <slot />
+    </main>
+  </Transition>
+
   <SiteFooter />
 </template>
