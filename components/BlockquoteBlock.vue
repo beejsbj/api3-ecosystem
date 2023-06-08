@@ -23,6 +23,7 @@ blockquote {
   position: relative;
   border-radius: var(--corners);
   //   overflow: hidden;
+  z-index: 1;
 
   p {
     margin: 0;
@@ -46,6 +47,7 @@ blockquote {
     z-index: 1;
     opacity: 0.5;
   }
+
   p::after {
     content: "";
     position: absolute;

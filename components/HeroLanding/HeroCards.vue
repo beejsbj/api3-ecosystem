@@ -1,17 +1,21 @@
 <script setup>
+import { useInterfaceStore } from "~/stores/interface";
+const ui = useInterfaceStore();
+
 const showcaseCards = ref([
   {
     heading: "Ecosystem",
     paragraph: "Discover the various components of the blockchain ecosystem.",
     cta: "Explore Ecosystem",
     link: "/ecosystem",
+    image: "/images/hero-graphic-ecosystem.svg",
   },
   {
     heading: "Developers",
     paragraph: "Learn how to build your own blockchain applications.",
     cta: "Get Started",
     link: "/developers",
-    image: "/images/hero-developers.png",
+    image: "/images/hero-ecosystem-gears.svg",
   },
 
   {
@@ -19,12 +23,17 @@ const showcaseCards = ref([
     paragraph: "Find the tools and resources you need to get started.",
     cta: "Explore Resources",
     link: "/learning",
+    image: "/images/hero-ecosystem-articles.svg",
   },
 ]);
 </script>
 <template>
   <div class="items">
-    <hero-card class="item" v-for="card in showcaseCards">
+    <hero-card
+      class="item"
+      v-for="card in showcaseCards"
+      @mouseover="ui.changeHeroImage(card)"
+    >
       <picture>
         <LogoWhite />
       </picture>
@@ -48,6 +57,7 @@ div.items {
   position: relative;
   align-items: start;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 0.25rem;
 
   @media (min-width: 625px) {
     grid-column: 2 / -2;
@@ -65,15 +75,36 @@ div.items {
   }
 
   .item {
-    border-radius: 50px;
+    --heroCard-corners: var(--corners);
+    border-radius: var(--heroCard-corners);
     border-right: 1px solid var(--highlight);
     /* box-shadow: var(--shadow); */
     min-height: 250px;
     box-shadow: var(--shadow);
+    position: relative;
     @media (min-width: 768px) {
       box-shadow: unset;
       border-right: unset;
       border-left: 1px solid var(--color);
+    }
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+
+      inset: 0;
+      left: -5px;
+      border-radius: var(--heroCard-corners);
+      border-right: 1px solid var(--highlight);
+
+      @media (min-width: 768px) {
+        border-left: 1px solid var(--color);
+        border-right: unset;
+      }
+    }
+    &::after {
+      left: 3px;
     }
 
     padding: 3rem;

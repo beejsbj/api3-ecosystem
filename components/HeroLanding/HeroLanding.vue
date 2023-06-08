@@ -8,8 +8,6 @@ onMounted(() => {
   const pageLoad = gsap.timeline({
     scrollTrigger: {
       trigger: "hero-landing",
-      toggleActions: "restart reset restart none",
-      scroller: "main.index",
     },
   });
 
@@ -88,33 +86,44 @@ onMounted(() => {
 
 <template>
   <SectionColumn>
-    <hero-landing>
-      <picture class="line-decoration decoration">
-        <LineDecoration />
-      </picture>
-      <h1 class="page-title">Unleash the Potential of Web3 dApps</h1>
-
-      <div class="intro-paragraph">
-        <picture>
-          <LogoWhite />
+    <ClientOnly
+      ><hero-landing>
+        <picture class="line-decoration decoration">
+          <LineDecoration />
         </picture>
-        <p class="notice-voice">
-          Experience the transformative power of blockchain technology through
-          revolutionary applications that are reshaping various industries.
-          Uncover the forefront of innovation and witness the game-changing
-          potential of blockchain in action.
-        </p>
-      </div>
-      <HeroCards />
-      <CoinDecoration v-if="!ui.isMobile && false" />
-    </hero-landing>
+        <h1 class="page-title">Unleash the Potential of Web3 dApps</h1>
+
+        <div class="intro-paragraph">
+          <picture>
+            <LogoWhite />
+          </picture>
+          <p class="notice-voice">
+            Experience the transformative power of blockchain technology through
+            revolutionary applications that are reshaping various industries.
+            Uncover the forefront of innovation and witness the game-changing
+            potential of blockchain in action.
+          </p>
+        </div>
+        <HeroCards />
+        <CoinDecoration v-if="!ui.isMobile && false" />
+        <picture class="hero-graphic" v-if="ui.heroImage && ui.isDesktop">
+          <img :src="ui.heroImage" alt="" />
+        </picture> </hero-landing
+    ></ClientOnly>
   </SectionColumn>
 </template>
 
 <style scoped lang="scss">
+.hero-graphic {
+  position: absolute;
+  top: 5rem;
+  right: 100px;
+  width: 500px;
+  z-index: -1;
+}
 hero-landing {
   display: grid;
-  row-gap: 4rem;
+  row-gap: 5rem;
   position: relative;
   margin-top: 1.5rem;
   padding-top: 1.5rem;
@@ -123,8 +132,7 @@ hero-landing {
   @media (min-width: 768px) {
     grid-template-columns: repeat(12, 1fr);
 
-    gap: 2rem;
-    height: 100vh;
+    height: calc(100vh - 100px);
   }
 
   .line-decoration {

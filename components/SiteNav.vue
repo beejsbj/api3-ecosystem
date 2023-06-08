@@ -5,7 +5,7 @@
     <NuxtLink class="text" to="/articles">Articles</NuxtLink>
     <NuxtLink class="text" to="/contact">Contact</NuxtLink>
     <!-- <NuxtLink to="/about">About</NuxtLink> -->
-    <NuxtLink class="button" to="/add-dapp">Add</NuxtLink>
+    <NuxtLink class="button" to="/add-dapp">Connect</NuxtLink>
   </nav>
 </template>
 <style lang="scss" scoped>

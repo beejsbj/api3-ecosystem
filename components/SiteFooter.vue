@@ -124,7 +124,7 @@ const socials = ref([
   </footer>
   <Teleport to="body">
     <BlobAnimation />
-    <BackgroundDecoration />
+    <!-- <BackgroundDecoration /> -->
   </Teleport>
 </template>
 
@@ -227,6 +227,11 @@ section.other inner-column {
     @media (min-width: 1024px) {
       order: 1;
     }
+  }
+}
+
+main.index {
+  footer {
   }
 }
 </style>
