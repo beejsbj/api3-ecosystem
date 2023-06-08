@@ -1,6 +1,7 @@
 <script setup>
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+
 definePageMeta({
   title: "My home page",
   meta: [
@@ -13,7 +14,15 @@ definePageMeta({
 });
 
 onMounted(() => {
+  //   document.body.scrollTop = document.documentElement.scrollTop = 0;
+  window.scroll({
+    top: 0,
+    left: 0,
+    behavior: "smooth",
+  });
+
   gsap.registerPlugin(ScrollTrigger);
+
   ScrollTrigger.defaults({
     toggleActions: "restart none restart none",
     scroller: "main.index",
@@ -37,6 +46,11 @@ onMounted(() => {
 </template>
 
 <style lang="scss">
+body:has(main.index) {
+  @media (min-width: 1024px) {
+    overflow: hidden;
+  }
+}
 main.index {
   display: grid;
   gap: 5rem;
