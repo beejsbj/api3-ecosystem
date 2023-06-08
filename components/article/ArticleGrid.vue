@@ -62,7 +62,7 @@ function cardType(index, layout = layoutOne) {
 }
 
 button {
-  position: fixed;
-  left: 10%;
+  //   position: fixed;
+  //   left: 10%;
 }
 </style>

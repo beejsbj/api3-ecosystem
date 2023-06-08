@@ -1,6 +1,6 @@
 body {
   display: grid;
-  grid-auto-rows: auto 1fr auto; /* main fills up available space + push the footer down */
+  grid-auto-rows: auto 1fr auto;
   min-height: 100vh; /* be at least a full viewport height */
 }
 
@@ -18,8 +18,8 @@ inner-column.none {
   padding: 0;
 }
 
-html:has(main.index) inner-column {
-  /* max-width: 1750px;  */
+html:has(main.index) main inner-column {
+  max-width: 1600px;
 }
 @media (min-width: 1700px) {
   html:has(main.index) inner-column {

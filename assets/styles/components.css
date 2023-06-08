@@ -154,3 +154,22 @@ a.router-link-exact-active::after {
   left: 50%;
   transform: translateX(-50%);
 }
+
+.button.loud {
+  border-radius: 0;
+  background: var(--gradient-color);
+  font-size: var(--step-1);
+  font-weight: var(--weight-semibold);
+  padding: 1rem 2rem;
+}
+
+.gradient-text {
+  background: linear-gradient(
+    var(--gradient-direction),
+    var(--ink),
+    var(--color)
+  );
+  background: var(--gradient-color);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

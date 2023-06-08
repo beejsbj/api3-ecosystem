@@ -19,11 +19,13 @@
     "@pinia/nuxt": "^0.4.9",
     "@vueform/multiselect": "^2.6.1",
     "@vueuse/core": "^9.13.0",
+    "ethers": "^6.4.1",
     "gsap": "^3.11.5",
     "howler": "^2.2.3",
     "postcss-import": "^15.1.0",
     "sass": "^1.62.0",
     "scss": "^0.2.4",
-    "slug": "^8.2.2"
+    "slug": "^8.2.2",
+    "vagmi": "^0.1.20"
   }
 }
