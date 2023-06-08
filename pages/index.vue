@@ -13,25 +13,11 @@ definePageMeta({
 });
 
 onMounted(() => {
-  // slide sections in while scrolling
-  //   const sections = gsap.utils.toArray("main.index > section");
-  //   sections.forEach((section) => {
-  //     gsap.from(section, {
-  //       scrollTrigger: {
-  //         trigger: section,
-  //         start: "top center",
-  //         end: "bottom center",
-  //         scrub: true,
-  //         toggleActions: "play none none reverse",
-  //       },
-  //       xPercent: 100,
-  //       ease: "none",
-  //     });
-  //   });
   gsap.registerPlugin(ScrollTrigger);
   ScrollTrigger.defaults({
-    toggleActions: "restart pause resume pause",
+    toggleActions: "restart none restart none",
     scroller: "main.index",
+    markers: "true",
   });
 });
 </script>
@@ -39,6 +25,7 @@ onMounted(() => {
 <template>
   <HeroLanding />
   <ScrollingStats />
+  <CallToAction />
   <PageHeader heading="Coming Sooooon!" voice="booming-voice" />
 
   <SectionColumn>
@@ -46,6 +33,7 @@ onMounted(() => {
       This page is still under construction. Please check back later.
     </p>
   </SectionColumn>
+  <SiteFooter />
 </template>
 
 <style lang="scss">
@@ -57,15 +45,27 @@ main.index {
     overflow-y: scroll;
     scroll-snap-type: mandatory;
     scroll-snap-type: y mandatory;
-    scroll-snap-points-y: repeat(100vh);
+    scroll-snap-points-y: repeat(calc(100vh - 100px));
 
     display: grid;
 
     & > section {
-      height: 100vh;
       scroll-snap-align: start;
-      scroll-padding-top: 5rem;
+      scroll-padding-top: 15rem;
+      inner-column {
+        height: calc(100vh - 100px);
+      }
+    }
+    & > footer {
+      scroll-snap-align: end;
+      // scroll-padding-top: 15rem;
+      inner-column {
+        height: calc(50vh - 50px);
+      }
     }
   }
+}
+main.index + footer {
+  display: none;
 }
 </style>
