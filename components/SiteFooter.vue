@@ -1,6 +1,4 @@
 <script setup>
-const route = useRoute();
-
 const socials = ref([
   {
     name: "Twitter",
@@ -30,7 +28,7 @@ const socials = ref([
   {
     name: "Youtube",
     link: "https://www.youtube.com/channel/UCS8FZlXJWq_9m7Z9jV8e-kA",
-    icon: "Youtube",
+    icon: "YouTube",
   },
   {
     name: "Github",
@@ -43,7 +41,7 @@ const socials = ref([
 </script>
 
 <template>
-  <footer v-if="route.name != 'add-dapp'">
+  <footer>
     <section class="footer-navigation">
       <inner-column>
         <picture class="site-logo">
@@ -113,7 +111,7 @@ const socials = ref([
             v-for="social in socials"
             :key="social.name"
             :to="social.link"
-            class="calm-voice"
+            class="calm-voice social-icon"
           >
             <SocialIcon :social="social.icon" />
           </NuxtLink>
@@ -122,10 +120,6 @@ const socials = ref([
       </inner-column>
     </section>
   </footer>
-  <Teleport to="body">
-    <BlobAnimation />
-    <!-- <BackgroundDecoration /> -->
-  </Teleport>
 </template>
 
 <style scoped lang="scss">
@@ -219,6 +213,10 @@ section.other inner-column {
       justify-content: end;
       justify-self: end;
       gap: 3rem;
+    }
+
+    .social-icon {
+      max-width: 25px;
     }
   }
 
