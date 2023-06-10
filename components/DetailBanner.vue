@@ -1,15 +1,15 @@
 <script setup>
 import { useEcosystemStore } from "~/stores/ecosystem";
 const ecosystem = useEcosystemStore();
-const { currentDapp: dapp } = storeToRefs(ecosystem);
+const props = defineProps(["dapp"]);
 </script>
 
 <template>
   <SectionColumn v-if="dapp" class="banner" innerClass="none">
     <picture>
       <img
-        :src="dapp?.images?.banner"
         src="@/assets/images/landscape.jpg"
+        :src="dapp.images.banner"
         alt=""
       />
     </picture>

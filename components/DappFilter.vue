@@ -10,8 +10,8 @@ const chains = computed(() => [
 const categories = computed(() => [
   ...new Set(ecosystem.list.map((dapp) => dapp.categories).flat()),
 ]);
-const integrations = computed(() => [
-  ...new Set(ecosystem.list.map((dapp) => dapp.integrations).flat()),
+const productTypes = computed(() => [
+  ...new Set(ecosystem.list.map((dapp) => dapp.productTypes).flat()),
 ]);
 const years = computed(() => [
   ...new Set(ecosystem.list.map((dapp) => dapp.year).flat()),
@@ -21,7 +21,7 @@ function clearFilters() {
   ecosystem.filter.search = "";
   ecosystem.filter.chains = [];
   ecosystem.filter.category = [];
-  ecosystem.filter.integrations = [];
+  ecosystem.filter.productTypes = [];
   ecosystem.filter.years = [];
   ecosystem.filter.status = "all";
 }
@@ -29,7 +29,7 @@ function clearFilters() {
 const showAll = ref({
   chains: false,
   categories: false,
-  integrations: false,
+  productTypes: false,
   years: false,
 });
 
@@ -78,11 +78,12 @@ onMounted(() => {
       <h4 class="solid-voice">Chain</h4>
       <ul class="pills" v-auto-animate>
         <template v-for="(chain, index) in chains">
-          <li class="pill" :key="chain" v-if="index < 5 || showAll.chains">
+          <li class="pill" :key="chain.id" v-if="index < 5 || showAll.chains">
             <label :for="chain">
-              {{ chain }} ({{
-                ecosystem.list.filter((dapp) => dapp.chains.includes(chain))
-                  .length
+              {{ chain.name }} ({{
+                ecosystem.list.filter((dapp) =>
+                  dapp.chains.some((chainObj) => chainObj.name === chain.name)
+                ).length
               }})
             </label>
             <input
@@ -134,34 +135,34 @@ onMounted(() => {
       </button>
     </div>
 
-    <div class="integration filter">
-      <h4 class="solid-voice">Integration</h4>
+    <div class="productType filter">
+      <h4 class="solid-voice">productType</h4>
       <ul class="pills" v-auto-animate>
         <template
-          v-for="(integration, index) in integrations"
-          :key="integration"
+          v-for="(productType, index) in productTypes"
+          :key="productType"
         >
-          <li class="pill" v-if="index < 5 || showAll.integrations">
-            <label :for="integration">
-              {{ integration }} ({{
+          <li class="pill" v-if="index < 5 || showAll.productTypes">
+            <label :for="productType">
+              {{ productType }} ({{
                 ecosystem.list.filter((dapp) =>
-                  dapp.integrations.includes(integration)
+                  dapp.productTypes.includes(productType)
                 ).length
               }})
             </label>
             <input
-              :id="integration"
+              :id="productType"
               type="checkbox"
-              :value="integration"
-              v-model="ecosystem.filter.integrations"
+              :value="productType"
+              v-model="ecosystem.filter.productTypes"
             />
           </li>
         </template>
       </ul>
       <button
         class="text"
-        @click="showAll.integrations = !showAll.integrations"
-        v-if="integrations.length > 5"
+        @click="showAll.productTypes = !showAll.productTypes"
+        v-if="productTypes.length > 5"
       >
         Show More
       </button>

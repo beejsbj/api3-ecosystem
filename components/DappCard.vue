@@ -8,8 +8,8 @@ const logo = props.dapp.images.logo ?? "@/assets/images/square.jpg";
 function filterBy(event) {
   if (event.target.classList.contains("category")) {
     ecosystem.filter.category.push(event.target.innerText);
-  } else if (event.target.classList.contains("integration")) {
-    ecosystem.filter.integrations.push(event.target.innerText);
+  } else if (event.target.classList.contains("productType")) {
+    ecosystem.filter.productTypes.push(event.target.innerText);
   } else if (event.target.classList.contains("status")) {
     ecosystem.filter.status = event.target.innerText.toLowerCase();
   }
@@ -23,7 +23,11 @@ function filterBy(event) {
         <img :src="logo" alt="" />
       </picture>
       <div>
-        <p class="status" :class="dapp.status" @click="filterBy">
+        <p
+          class="status"
+          :class="{ Live: dapp.status, Beta: dapp.status }"
+          @click="filterBy"
+        >
           {{ dapp.status }}
         </p>
         <div class="lists" v-if="true">
@@ -36,13 +40,13 @@ function filterBy(event) {
               {{ category }}
             </li>
           </ul>
-          <ul class="integrations-list integration">
+          <ul class="productTypes-list productType">
             <li
-              class="micro-voice integration"
-              v-for="integration in dapp.integrations"
+              class="micro-voice productType"
+              v-for="productType in dapp.productTypes"
               @click="filterBy"
             >
-              {{ integration }}
+              {{ productType }}
             </li>
           </ul>
         </div>
@@ -52,11 +56,11 @@ function filterBy(event) {
     <text-content>
       <h2 class="attention-voice">{{ dapp.name }}</h2>
 
-      <p class="calm-voice">{{ dapp.tagline }}</p>
+      <p class="calm-voice">{{ dapp.description }}</p>
     </text-content>
 
     <footer>
-      <NuxtLink :to="`/ecosystem/${slug(dapp.name)}`" class="text card-link">
+      <NuxtLink :to="`/ecosystem/${dapp._id}`" class="text card-link">
         Read More
       </NuxtLink>
     </footer>
@@ -64,7 +68,7 @@ function filterBy(event) {
     <div class="background-wrapper">
       <picture
         class="card-background"
-        v-if="`/images/chains/${dapp.chains[0].toLowerCase()}.svg`"
+        v-if="`/images/chains/${dapp.chains[0].name.toLowerCase()}.svg`"
       >
         <ChainIcon :chain="dapp.chains[0]" fill="none" stroke="var(--color)" />
       </picture>
@@ -178,11 +182,11 @@ header > div {
 }
 
 .category,
-.integration,
+.productType,
 .status {
   cursor: pointer;
 }
-:is(.category, .integration, .status):hover {
+:is(.category, .productType, .status):hover {
   filter: brightness(1.2);
 }
 

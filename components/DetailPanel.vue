@@ -16,22 +16,21 @@ const showShareBox = ref(false);
         />
       </picture>
       <h2 class="teaser-voice">
-        {{ dapp.tagline }}
+        {{ dapp.description }}
       </h2>
     </header>
     <article class="rows">
       <div class="row status">
         <p>Status</p>
-        <p>{{ dapp.status }}</p>
+        <p>{{ dapp.status ? "Live" : "Beta" }}</p>
       </div>
 
       <div class="row chain">
         <p>Chain</p>
         <ul>
-          <li v-for="chain in dapp.chains" :key="chain">
+          <li v-for="chain in dapp.chains" :key="chain.id">
             <!-- {{ chain }} -->
             <picture class="chain">
-              <!-- <img :src="`/images/chains/${chain.toLowerCase()}.svg`" alt="" /> -->
               <ChainIcon
                 :chain="chain"
                 fill="var(--color)"
@@ -58,10 +57,10 @@ const showShareBox = ref(false);
       </div>
 
       <div class="row product-list">
-        <p>integrations</p>
+        <p>productTypes</p>
         <ul>
-          <li v-for="integration in dapp.integrations" :key="integration">
-            {{ integration }}
+          <li v-for="productType in dapp.productTypes" :key="productType">
+            {{ productType }}
           </li>
         </ul>
       </div>
@@ -69,10 +68,10 @@ const showShareBox = ref(false);
       <div class="row socials">
         <p>Socials</p>
         <ul>
-          <li v-for="social in dapp.links.socials" :key="social.label">
-            <!--             v-tooltip="social.label" #todo -->
-            <a :href="social.url" :target="social.label">
-              <SocialIcon :social="social.label" />
+          <li v-for="social in dapp.socials" :key="social.id">
+            <!--             v-tooltip="social.name" #todo -->
+            <a :href="social.url" :target="social.name">
+              <SocialIcon :social="social.name" />
             </a>
           </li>
         </ul>
@@ -81,7 +80,7 @@ const showShareBox = ref(false);
 
     <div class="actions">
       <NuxtLink
-        :to="dapp.links.website"
+        :to="dapp.links?.website"
         :target="`${dapp.name}-website`"
         class="button"
       >
