@@ -86,40 +86,44 @@ onMounted(() => {
 
 <template>
   <SectionColumn>
-    <ClientOnly
-      ><hero-landing>
-        <picture class="line-decoration decoration">
-          <LineDecoration />
-        </picture>
-        <h1 class="page-title">Unleash the Potential of Web3 dApps</h1>
+    <hero-landing>
+      <picture class="line-decoration decoration">
+        <LineDecoration />
+      </picture>
+      <h1
+        class="page-title"
+        :class="{ 'booming-voice': !ui.isMobile, 'loud-voice': ui.isMobile }"
+      >
+        Unleash the Potential of Web3 dApps
+      </h1>
 
-        <div class="intro-paragraph">
-          <picture>
-            <LogoWhite />
-          </picture>
-          <p class="notice-voice">
-            Experience the transformative power of blockchain technology through
-            revolutionary applications that are reshaping various industries.
-            Uncover the forefront of innovation and witness the game-changing
-            potential of blockchain in action.
-          </p>
-        </div>
-        <HeroCards />
-        <CoinDecoration v-if="!ui.isMobile && false" />
-        <picture class="hero-graphic" v-if="ui.heroImage && ui.isDesktop">
-          <img :src="ui.heroImage" alt="" />
-        </picture> </hero-landing
-    ></ClientOnly>
+      <div class="intro-paragraph">
+        <picture>
+          <LogoWhite />
+        </picture>
+        <p class="notice-voice">
+          Experience the transformative power of blockchain technology through
+          revolutionary applications that are reshaping various industries.
+          Uncover the forefront of innovation and witness the game-changing
+          potential of blockchain in action.
+        </p>
+      </div>
+      <HeroCards />
+      <picture class="hero-graphic" v-if="ui.heroImage && ui.isDesktop">
+        <img :src="ui.heroImage" alt="" />
+      </picture>
+    </hero-landing>
   </SectionColumn>
 </template>
 
 <style scoped lang="scss">
 .hero-graphic {
   position: absolute;
-  top: 5rem;
-  right: 100px;
-  width: 500px;
+  top: 6rem;
+  right: 150px;
+  width: 400px;
   z-index: -1;
+  filter: hue-rotate(100deg);
 }
 hero-landing {
   display: grid;
@@ -127,7 +131,6 @@ hero-landing {
   position: relative;
   margin-top: 1.5rem;
   padding-top: 1.5rem;
-  opacity: 0;
 
   @media (min-width: 768px) {
     grid-template-columns: repeat(12, 1fr);
@@ -227,5 +230,9 @@ hero-landing {
       height: var(--after-height);
     }
   }
+}
+
+hero-landing {
+  opacity: 0;
 }
 </style>
