@@ -23,11 +23,11 @@ onMounted(() => {
 
   gsap.registerPlugin(ScrollTrigger);
 
-  ScrollTrigger.defaults({
-    toggleActions: "restart none restart none",
-    scroller: "main.index",
-    markers: "true",
-  });
+  //   ScrollTrigger.defaults({
+  //     toggleActions: "restart reset restart none",
+  //     scroller: "main.index",
+  //     markers: "true",
+  //   });
 });
 </script>
 
@@ -36,6 +36,11 @@ onMounted(() => {
   <ScrollingStats />
   <CallToAction />
   <PageHeader heading="Coming Sooooon!" voice="booming-voice" />
+
+  <SectionColumn>
+    <h2 class="loud-voice">Read About us</h2>
+    <ArticleGrid layout="4" cardCount="4" />
+  </SectionColumn>
 
   <SectionColumn>
     <p class="attention-voice">
@@ -68,7 +73,12 @@ main.index {
       scroll-padding-top: 15rem;
       inner-column {
         height: calc(100vh - 100px);
+
+        & > h2 {
+          margin-bottom: 2rem;
+        }
       }
+      // padding-bottom: 5rem 0;
     }
     & > footer {
       scroll-snap-align: end;
@@ -78,8 +88,5 @@ main.index {
       }
     }
   }
-}
-main.index + footer {
-  display: none;
 }
 </style>
