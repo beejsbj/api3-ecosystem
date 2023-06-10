@@ -50,7 +50,9 @@ function handleScroll(event) {
           </p>
         </div>
         <div class="graphic">
-          <picture> <img src="@/assets/images/square.jpg" /> </picture>
+          <picture>
+            <img src="@/assets/images/square.jpg" />
+          </picture>
         </div>
       </article>
       <!-- <article>

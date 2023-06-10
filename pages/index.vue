@@ -18,35 +18,36 @@ onMounted(() => {
   window.scroll({
     top: 0,
     left: 0,
-    behavior: "smooth",
   });
 
   gsap.registerPlugin(ScrollTrigger);
 
-  //   ScrollTrigger.defaults({
-  //     toggleActions: "restart reset restart none",
-  //     scroller: "main.index",
-  //     markers: "true",
-  //   });
+  ScrollTrigger.defaults({
+    toggleActions: "restart reset restart none",
+    scroller: "main.index",
+    markers: "true",
+  });
 });
 </script>
 
 <template>
   <HeroLanding />
   <ScrollingStats />
-  <CallToAction />
-  <PageHeader heading="Coming Sooooon!" voice="booming-voice" />
 
-  <SectionColumn>
+  <SectionColumn class="home-article-grid">
     <h2 class="loud-voice">Read About us</h2>
     <ArticleGrid layout="4" cardCount="4" />
   </SectionColumn>
 
+  <CallToAction />
+
+  <PageHeader heading="Coming Sooooon!" voice="booming-voice" />
   <SectionColumn>
     <p class="attention-voice">
       This page is still under construction. Please check back later.
     </p>
   </SectionColumn>
+
   <SiteFooter />
 </template>
 
@@ -58,7 +59,13 @@ body:has(main.index) {
 }
 main.index {
   display: grid;
-  gap: 5rem;
+  gap: 3rem;
+  inner-column > h2 {
+    margin-bottom: 2rem;
+  }
+  @media (min-width: 768px) {
+    gap: 5rem;
+  }
   @media (min-width: 1024px) {
     height: 100vh;
     overflow-y: scroll;
@@ -73,10 +80,6 @@ main.index {
       scroll-padding-top: 15rem;
       inner-column {
         height: calc(100vh - 100px);
-
-        & > h2 {
-          margin-bottom: 2rem;
-        }
       }
       // padding-bottom: 5rem 0;
     }

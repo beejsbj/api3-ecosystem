@@ -15,9 +15,10 @@ onMounted(() => {
     "hero-landing .page-title",
     {
       delay: "0.5",
-      duration: 0,
+      duration: 0.5,
       y: 50,
       opacity: 0,
+      ease: "power4.out",
     },
     {
       y: 0,
@@ -25,9 +26,9 @@ onMounted(() => {
       duration: 0.5,
       ease: "power4.out",
 
-      className: ui.isMobile
-        ? "page-title loud-voice"
-        : "page-title booming-voice",
+      // className: ui.isMobile
+      //   ? "page-title loud-voice"
+      //   : "page-title booming-voice",
     }
   );
 
@@ -90,12 +91,14 @@ onMounted(() => {
       <picture class="line-decoration decoration">
         <LineDecoration />
       </picture>
-      <h1
-        class="page-title"
-        :class="{ 'booming-voice': !ui.isMobile, 'loud-voice': ui.isMobile }"
-      >
-        Unleash the Potential of Web3 dApps
-      </h1>
+      <ClientOnly>
+        <h1
+          class="page-title"
+          :class="{ 'booming-voice': !ui.isMobile, 'loud-voice': ui.isMobile }"
+        >
+          Unleash the Potential of Web3 dApps
+        </h1>
+      </ClientOnly>
 
       <div class="intro-paragraph">
         <picture>
@@ -127,12 +130,14 @@ onMounted(() => {
 }
 hero-landing {
   display: grid;
-  row-gap: 5rem;
+  row-gap: 3rem;
   position: relative;
   margin-top: 1.5rem;
   padding-top: 1.5rem;
 
   @media (min-width: 768px) {
+    row-gap: 5rem;
+
     grid-template-columns: repeat(12, 1fr);
 
     height: calc(100vh - 100px);

@@ -37,6 +37,59 @@ const socials = ref([
   },
 ]);
 
+const footerLinks = [
+  {
+    title: "For Developers",
+    links: [
+      { label: "Contact", path: "/contact" },
+      { label: "Contact", path: "/contact" },
+      { label: "Contact", path: "/contact" },
+      // Add more links here
+    ],
+  },
+  {
+    title: "For data providers",
+    links: [
+      { label: "Contact", path: "/contact" },
+      { label: "Contact", path: "/contact" },
+      { label: "Contact", path: "/contact" },
+      { label: "Contact", path: "/contact" },
+      { label: "Contact", path: "/contact" },
+      // Add more links here
+    ],
+  },
+  {
+    title: "DAO",
+    links: [
+      { label: "Contact", path: "/contact" },
+      { label: "Contact", path: "/contact" },
+      // Add more links here
+    ],
+  },
+  {
+    title: "Resources",
+    links: [
+      { label: "Contact", path: "/contact" },
+      { label: "Contact", path: "/contact" },
+      { label: "Contact", path: "/contact" },
+
+      // Add more links here
+    ],
+  },
+  {
+    title: "Participate",
+    links: [
+      { label: "Contact", path: "/contact" },
+      { label: "Contact", path: "/contact" },
+      { label: "Contact", path: "/contact" },
+      { label: "Contact", path: "/contact" },
+      { label: "Contact", path: "/contact" },
+
+      // Add more links here
+    ],
+  },
+];
+
 //#todo do the same for the other links
 </script>
 
@@ -47,44 +100,21 @@ const socials = ref([
         <picture class="site-logo">
           <LogoText />
         </picture>
-        <section class="footer-menu">
-          <h5 class="notice-voice">For Developers</h5>
+        <section
+          v-for="(footerMenu, index) in footerLinks"
+          :key="index"
+          class="footer-menu"
+        >
+          <h5 class="notice-voice">{{ footerMenu.title }}</h5>
           <nav>
-            <NuxtLink to="/contact" class="calm-voice text"> Contact </NuxtLink>
-            <NuxtLink to="/contact" class="calm-voice text"> Contact </NuxtLink>
-            <NuxtLink to="/contact" class="calm-voice text"> Contact </NuxtLink>
-          </nav>
-        </section>
-        <section class="footer-menu">
-          <h5 class="notice-voice">For data providers</h5>
-          <nav>
-            <NuxtLink to="/contact" class="calm-voice text"> Contact </NuxtLink>
-            <NuxtLink to="/contact" class="calm-voice text"> Contact </NuxtLink>
-          </nav>
-        </section>
-        <section class="footer-menu">
-          <h5 class="notice-voice">DAO</h5>
-          <nav>
-            <NuxtLink to="/contact" class="calm-voice text"> Contact </NuxtLink>
-            <NuxtLink to="/contact" class="calm-voice text"> Contact </NuxtLink>
-            <NuxtLink to="/contact" class="calm-voice text"> Contact </NuxtLink>
-          </nav>
-        </section>
-        <section class="footer-menu">
-          <h5 class="notice-voice">Resources</h5>
-          <nav>
-            <NuxtLink to="/contact" class="calm-voice text"> Contact </NuxtLink>
-            <NuxtLink to="/contact" class="calm-voice text"> Contact </NuxtLink>
-            <NuxtLink to="/contact" class="calm-voice text"> Contact </NuxtLink>
-          </nav>
-        </section>
-        <section class="footer-menu">
-          <h5 class="notice-voice">Participate</h5>
-          <nav>
-            <NuxtLink to="/contact" class="calm-voice text"> Contact </NuxtLink>
-            <NuxtLink to="/contact" class="calm-voice text"> Contact </NuxtLink>
-            <NuxtLink to="/contact" class="calm-voice text"> Contact </NuxtLink>
-            <NuxtLink to="/contact" class="calm-voice text"> Contact </NuxtLink>
+            <NuxtLink
+              v-for="(link, linkIndex) in footerMenu.links"
+              :key="linkIndex"
+              :to="link.path"
+              class="calm-voice text"
+            >
+              {{ link.label }}
+            </NuxtLink>
           </nav>
         </section>
       </inner-column>

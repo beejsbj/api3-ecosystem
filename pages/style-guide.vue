@@ -8,7 +8,7 @@ const ecosystem = useEcosystemStore();
   <SectionColumn>
     <pre>
 	<code>
-{{ ecosystem.error }}
+{{ ecosystem.stats }}
 	</code>
 </pre>
   </SectionColumn>
