@@ -1,6 +1,15 @@
+<script setup>
+import { useEcosystemStore } from "~/stores/ecosystem";
+const ecosystem = useEcosystemStore();
+</script>
+
 <template>
   <PageHeader heading="Style Guide" />
   <SectionColumn>
-    <ArticleCard />
+    <pre>
+	<code>
+{{ ecosystem.error }}
+	</code>
+</pre>
   </SectionColumn>
 </template>

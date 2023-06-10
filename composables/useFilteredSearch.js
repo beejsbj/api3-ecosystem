@@ -8,7 +8,7 @@ export default function useFilteredSearch(ecosystem) {
     if (
       !ecosystem.filter.category.length &&
       !ecosystem.filter.chains.length &&
-      !ecosystem.filter.integrations.length &&
+      !ecosystem.filter.productTypes.length &&
       !ecosystem.filter.years.length &&
       !ecosystem.filter.status
     ) {
@@ -27,9 +27,9 @@ export default function useFilteredSearch(ecosystem) {
         return dapp.chains.includes(chain);
       });
 
-      const filteredIntegrations = ecosystem.filter.integrations.every(
-        (integration) => {
-          return dapp.integrations.includes(integration);
+      const filteredproductTypes = ecosystem.filter.productTypes.every(
+        (productType) => {
+          return dapp.productTypes.includes(productType);
         }
       );
 
@@ -45,7 +45,7 @@ export default function useFilteredSearch(ecosystem) {
       return (
         filteredChains &&
         filteredCategories &&
-        filteredIntegrations &&
+        filteredproductTypes &&
         filteredYears &&
         filteredStatus
       );
@@ -62,7 +62,7 @@ export default function useFilteredSearch(ecosystem) {
         dapp.name,
         dapp.tagline,
         ...dapp.categories,
-        ...dapp.integrations,
+        ...dapp.productTypes,
         ...dapp.chains,
         ...dapp.about,
       ];

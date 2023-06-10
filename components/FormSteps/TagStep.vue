@@ -38,15 +38,15 @@ const props = defineProps(["dappForm"]);
       </form-field>
 
       <form-field>
-        <label class="notice-voice" for="integrations"> Integration </label>
+        <label class="notice-voice" for="productTypes"> productType </label>
         <Multiselect
-          id="integrations"
-          v-model="dappForm.integrations"
+          id="productTypes"
+          v-model="dappForm.productTypes"
           mode="tags"
           :close-on-select="false"
           :searchable="true"
           :create-option="false"
-          :options="ecosystem.integrations"
+          :options="ecosystem.productTypes"
         />
       </form-field>
     </FormTransitionSlot>
