@@ -2,16 +2,14 @@
 import { gsap } from "gsap";
 
 onMounted(() => {
-  const pageLoad = gsap.timeline({
-    scrollTrigger: {
-      trigger: ".scrolling-stats",
-    },
-  });
-
-  pageLoad.set(".scrolling-stats", {
-    opacity: 1,
-  });
-
+  //   const pageLoad = gsap.timeline({
+  //     scrollTrigger: {
+  //       trigger: ".scrolling-stats",
+  //     },
+  //   });
+  //   pageLoad.set(".scrolling-stats", {
+  //     opacity: 1,
+  //   });
   //   pageLoad.fromTo(
   //     ".scrolling-stats :is(h2, .text-content, .graphic)",
   //     {
@@ -109,14 +107,11 @@ article {
       min-height: 100%;
     }
   }
-  min-height: 100vh;
 }
 </style>
 <style>
-.scrolling-stats {
-  opacity: 0;
-}
+.scrolling-stats,
 .scrolling-stats :is(h2, .text-content, .graphic) {
-  opacity: 0;
+  /* opacity: 0; */
 }
 </style>
