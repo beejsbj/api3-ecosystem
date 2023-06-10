@@ -3,7 +3,13 @@ import { gsap } from "gsap";
 
 import { useBlogStore } from "@/stores/blog";
 const blog = useBlogStore();
-const { currentArticle: article } = storeToRefs(blog);
+
+const article = computed(() => {
+  return list.value.find(
+    (article) => slug(article.title) === route.params.detail
+  );
+});
+
 article.value.sections = article.value.sections.map((section, index) => {
   return {
     ...section,
