@@ -35,7 +35,7 @@ const showcaseCards = ref([
       @mouseover="ui.changeHeroImage(card)"
     >
       <picture>
-        <LogoWhite />
+        <img :src="card.image" alt="" />
       </picture>
       <text-content>
         <h2 class="firm-voice">
@@ -56,20 +56,19 @@ div.items {
   display: grid;
   position: relative;
   align-items: start;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
   gap: 0.25rem;
 
   @media (min-width: 625px) {
     grid-column: 2 / -2;
-    //  grid-template-columns: repeat(2, 1fr);
-    .item:nth-last-of-type(1) {
+
+    .item:nth-of-type(1) {
       grid-column: 1 / -1;
     }
   }
   @media (min-width: 1120px) {
-    //  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
     padding: 0 2rem;
-    .item:nth-last-of-type(1) {
+    .item:nth-of-type(1) {
       grid-column: unset;
     }
   }
@@ -82,10 +81,27 @@ div.items {
     min-height: 250px;
     box-shadow: var(--shadow);
     position: relative;
+    padding: 3rem;
+    display: grid;
+    align-items: center;
+    //  grid-template-columns: 0.1fr 1fr;
+    gap: 1.5rem;
+
     @media (min-width: 768px) {
       box-shadow: unset;
       border-right: unset;
       border-left: 1px solid var(--color);
+    }
+
+    picture {
+      // aspect-ratio: 1 / 1;
+
+      position: absolute;
+      top: 50%;
+      right: 2rem;
+      transform: translateY(-50%);
+      width: 150px;
+      opacity: 0.5;
     }
 
     &::before,
@@ -106,16 +122,6 @@ div.items {
     &::after {
       left: 3px;
     }
-
-    padding: 3rem;
-    display: grid;
-    align-items: center;
-    grid-template-columns: 0.1fr 1fr;
-    gap: 2rem;
-
-    picture {
-      aspect-ratio: 1 / 1;
-    }
   }
 
   &::before {
@@ -126,6 +132,10 @@ div.items {
     width: var(--before-width);
     height: 1px;
     background: var(--gradient-color);
+    display: none;
+    @media (min-width: 768px) {
+      display: block;
+    }
   }
 }
 </style>
