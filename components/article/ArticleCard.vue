@@ -5,7 +5,6 @@ const props = defineProps(["article"]);
 
 onMounted(() => {
   const pageLoad = gsap.timeline();
-
   pageLoad.fromTo(
     "article-card",
     {
@@ -35,7 +34,6 @@ onMounted(() => {
           article?.image ??
           'https://source.unsplash.com/random/1000x600/?article'
         "
-        alt=""
       />
     </picture>
     <text-content>
@@ -47,6 +45,7 @@ onMounted(() => {
       </h4>
       <p class="calm-voice">
         {{
+          // only displays a short snipper of the paragraph
           (article.description ?? article.sections[0].content[0].text).slice(
             0,
             100

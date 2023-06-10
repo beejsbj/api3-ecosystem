@@ -1,11 +1,25 @@
 import { defineStore } from "pinia";
-import data from "./ecosystem-data.json" assert { type: "json" };
+import data from "./ecosystem-data.json";
 import slug from "slug";
+import { useFetch } from "nuxt/app";
 
 export const useEcosystemStore = defineStore("ecosystem", () => {
   const route = useRoute();
 
-  const list = useLocalStorage("ecosystem-data", data);
+  const baseServerUrl = ref("http://localhost:5002/api/projects/v1/");
+  const serverPage = ref(1);
+  const serverURL = computed(() => {
+    return baseServerUrl.value + serverPage.value;
+  });
+  const { data: list, error: listError } = useFetch(serverURL.value);
+
+  const { data: stats, error: statsError } = useFetch(
+    "http://localhost:5002/api/projects/stats/"
+  );
+
+  function addDapp(dapp) {
+    list.value.push(dapp);
+  }
 
   const categories = [
     "DeFi",
@@ -50,7 +64,7 @@ export const useEcosystemStore = defineStore("ecosystem", () => {
     "Bitcoin",
   ];
 
-  const integrations = [
+  const productTypes = [
     "VRF",
     "Proof of Reserve",
     "Functions",
@@ -65,28 +79,18 @@ export const useEcosystemStore = defineStore("ecosystem", () => {
     search: "",
     category: [],
     chains: [],
-    integrations: [],
+    productTypes: [],
     years: [],
     status: "all",
     count: 0,
   });
 
-  const currentDapp = computed(() => {
-    if (route.params.detail) {
-      return list.value.find((dapp) => slug(dapp.name) === route.params.detail);
-    }
-  });
-
-  function addDapp(dapp) {
-    list.value.push(dapp);
-  }
-
   return {
     list,
-    currentDapp,
+    stats,
     categories,
     chains,
-    integrations,
+    productTypes,
     filter,
 
     addDapp,
