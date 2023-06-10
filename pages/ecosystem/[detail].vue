@@ -1,8 +1,12 @@
 <script setup>
 import { useEcosystemStore } from "~/stores/ecosystem";
 import { gsap } from "gsap";
-const ecosystem = useEcosystemStore();
-const { currentDapp: dapp } = storeToRefs(ecosystem);
+
+const route = useRoute();
+
+const { data: dapp, error } = useFetch(
+  `http://localhost:5002/api/projects/project/${route.params.detail}`
+);
 
 onMounted(() => {
   const pageLoad = gsap.timeline();
@@ -34,7 +38,7 @@ onMounted(() => {
 
 <template>
   <article class="detail-page">
-    <DetailBanner />
+    <DetailBanner :dapp="dapp" />
 
     <SectionColumn class="detail-header">
       <detail-banner>
@@ -44,7 +48,6 @@ onMounted(() => {
     <SectionColumn class="detail-main">
       <article class="main">
         <DetailPanel :dapp="dapp" v-if="dapp" />
-
         <detail-content>
           <section class="about">
             <h2 class="attention-voice">About</h2>
@@ -54,7 +57,7 @@ onMounted(() => {
           </section>
 
           <section class="">
-            <h2 class="attention-voice">Artciles/Integrations</h2>
+            <h2 class="attention-voice">Artciles/productTypes</h2>
             <p v-for="paragraph in dapp?.about" :key="paragraph">
               {{ paragraph }}
             </p>
