@@ -3,7 +3,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 definePageMeta({
-  title: "My home page",
+  title: "API3 Ecosystem",
   meta: [
     {
       hid: "home",
