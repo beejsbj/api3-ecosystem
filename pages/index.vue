@@ -11,6 +11,7 @@ definePageMeta({
       content: "Home page home",
     },
   ],
+  layout: "home",
 });
 
 onMounted(() => {
@@ -23,9 +24,9 @@ onMounted(() => {
   gsap.registerPlugin(ScrollTrigger);
 
   ScrollTrigger.defaults({
-    toggleActions: "restart reset restart none",
-    scroller: "main.index",
-    markers: "true",
+    // toggleActions: "restart reset restart none",
+    //  scroller: "main.index",
+    // markers: "true",
   });
 });
 </script>
@@ -34,19 +35,14 @@ onMounted(() => {
   <HeroLanding />
   <ScrollingStats />
 
+  <MissionComponent />
+
   <SectionColumn class="home-article-grid">
     <h2 class="loud-voice">Read About us</h2>
     <ArticleGrid layout="4" cardCount="4" />
   </SectionColumn>
 
   <CallToAction />
-
-  <PageHeader heading="Coming Sooooon!" voice="booming-voice" />
-  <SectionColumn>
-    <p class="attention-voice">
-      This page is still under construction. Please check back later.
-    </p>
-  </SectionColumn>
 
   <SiteFooter />
 </template>
@@ -67,7 +63,7 @@ main.index {
     gap: 5rem;
   }
   @media (min-width: 1024px) {
-    height: 100vh;
+    max-height: 100vh;
     overflow-y: scroll;
     scroll-snap-type: mandatory;
     scroll-snap-type: y mandatory;
@@ -75,7 +71,7 @@ main.index {
 
     display: grid;
 
-    & > section {
+    & > section:not(.scrolling-stats) {
       scroll-snap-align: start;
       scroll-padding-top: 15rem;
       inner-column {
