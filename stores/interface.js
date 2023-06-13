@@ -34,7 +34,7 @@ export const useInterfaceStore = defineStore("interface", function () {
     gsap.fromTo(
       "hero-landing .hero-graphic",
       { duration: 0, opacity: 0 },
-      { duration: 1, opacity: 1 }
+      { duration: 1, opacity: 0.25 }
     );
     gsap.to("hero-landing .line-decoration", { duration: 0, scale: 0.6 });
     gsap.fromTo(
