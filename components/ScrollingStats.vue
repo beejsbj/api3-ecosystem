@@ -1,119 +1,131 @@
 <script setup>
 import { gsap } from "gsap";
 
-onMounted(() => {
-  //   const pageLoad = gsap.timeline({
-  //     scrollTrigger: {
-  //       trigger: ".scrolling-stats",
-  //     },
-  //   });
-  //   pageLoad.set(".scrolling-stats", {
-  //     opacity: 1,
-  //   });
-  //   pageLoad.fromTo(
-  //     ".scrolling-stats :is(h2, .text-content, .graphic)",
-  //     {
-  //       y: 50,
-  //       opacity: 0,
-  //     },
-  //     {
-  //       y: 0,
-  //       opacity: 1,
-  //       duration: 0.5,
-  //       ease: "power4.out",
-  //       stagger: 0.25,
-  //     }
-  //   );
-});
+const ui = useInterfaceStore();
+const graph = ref(null);
 
-function handleScroll(event) {
-  //console log if i am scrolling up or down
-  console.log(event.deltaY);
-}
+const cards = [
+  {
+    triggerClass: "stats-card.first",
+    imagePath: "/images/hero-ecosystem-articles.svg",
+  },
+  {
+    triggerClass: "stats-card.second",
+    imagePath: "/images/hero-ecosystem-gears.svg",
+  },
+  {
+    triggerClass: "stats-card.third",
+    imagePath: "/images/hero-graphic-ecosystem.svg",
+  },
+];
+
+const changeImage = (card, index) => {
+  gsap.to("scrolling-stats .graph", {
+    scrollTrigger: {
+      scroller: ui.isMobile ? "" : "main.index",
+      trigger: card.triggerClass,
+      toggleActions: "play reset play reset",
+      start: "top 30%",
+      end: "bottom 70%",
+    },
+
+    onStart: () => {
+      graph.value = card.imagePath;
+      gsap.to("scrolling-stats", {
+        "--after-height":
+          index === 0 ? "5%" : index === 1 ? "50%" : index === 2 ? "95%" : "0%",
+        duration: 1,
+        ease: "power2.out",
+      });
+    },
+  });
+};
+
+onMounted(() => {
+  cards.forEach(changeImage);
+});
 </script>
 
 <template>
-  <SectionColumn class="scrolling-stats" @scroll="handleScroll">
-    <h2 class="loud-voice">Why Statistics?</h2>
-    <scrolling-section>
-      <article>
-        <div class="text-content">
-          <p class="notice-voice">
-            Statistics are a great way to show off your project's growth and
-            success.
-          </p>
-          <p class="notice-voice">
-            They can also be used to show off your project's growth and success.
-          </p>
-          <p class="notice-voice">
-            They can also be used to show off your project's growth and success.
-          </p>
-        </div>
-        <div class="graphic">
-          <picture>
-            <img src="@/assets/images/square.jpg" />
-          </picture>
-        </div>
-      </article>
-      <!-- <article>
-        <div class="text-content">
-          <p class="notice-voice">
-            Statistics are a great way to show off your project's growth and
-            success.
-          </p>
-          <p class="notice-voice">
-            They can also be used to show off your project's growth and success.
-          </p>
-          <p class="notice-voice">
-            They can also be used to show off your project's growth and success.
-          </p>
-        </div>
-        <div class="graphic">
-          <picture> <img src="@/assets/images/square.jpg" /> </picture>
-        </div>
-      </article>
-      <article>
-        <div class="text-content">
-          <p class="notice-voice">
-            Statistics are a great way to show off your project's growth and
-            success.
-          </p>
-          <p class="notice-voice">
-            They can also be used to show off your project's growth and success.
-          </p>
-          <p class="notice-voice">
-            They can also be used to show off your project's growth and success.
-          </p>
-        </div>
-        <div class="graphic">
-          <picture> <img src="@/assets/images/square.jpg" /> </picture>
-        </div>
-      </article> -->
-    </scrolling-section>
+  <SectionColumn class="scrolling-stats">
+    <scrolling-stats>
+      <stats-card class="first">
+        <h2 class="loud-voice">Why Statistics?</h2>
+        <p class="notice-voice">
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dicta
+          praesentium explicabo provident error tempora. Tenetur, facilis
+          eligendi exercitationem nihil voluptates omnis enim magnam ducimus
+          alias nam sint mollitia quisquam totam.
+        </p>
+      </stats-card>
+      <stats-card class="second">
+        <p class="notice-voice">
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dicta
+          praesentium explicabo provident error tempora. Tenetur, facilis
+          eligendi exercitationem nihil voluptates omnis enim magnam ducimus
+          alias nam sint mollitia quisquam totam.
+        </p>
+      </stats-card>
+      <stats-card class="third">
+        <p class="notice-voice">
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dicta
+          praesentium explicabo provident error tempora. Tenetur, facilis
+          eligendi exercitationem nihil voluptates omnis enim magnam ducimus
+          alias nam sint mollitia quisquam totam.
+        </p>
+      </stats-card>
+      <picture class="graph">
+        <img :src="graph" alt="" />
+      </picture>
+    </scrolling-stats>
   </SectionColumn>
 </template>
 
+<style lang="scss"></style>
 <style scoped lang="scss">
-scrolling-section {
-  display: grid;
-}
-article {
+scrolling-stats {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 2rem;
+  gap: 1rem;
+  position: relative;
   align-items: center;
-  .text-content {
+  justify-items: center;
+
+  @media (min-width: 768px) {
+    gap: 5rem;
+  }
+
+  stats-card {
+    scroll-snap-align: center;
+    grid-column: 1;
+    height: 100vh;
     display: grid;
-    gap: 1rem;
-    p {
-      min-height: 100%;
+    align-items: center;
+    align-content: center;
+
+    .notice-voice {
+      @media (max-width: 768px) {
+        font-size: var(--step-0);
+      }
     }
   }
-}
-</style>
-<style>
-.scrolling-stats,
-.scrolling-stats :is(h2, .text-content, .graphic) {
-  /* opacity: 0; */
+  .graph {
+    position: sticky;
+    top: 50%;
+    transform: translatey(-50%);
+    grid-row: 1;
+    grid-column: 2;
+  }
+
+  &::after {
+    content: "";
+    background: var(--gradient-color);
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    width: 1px;
+    height: var(--after-height);
+  }
 }
 </style>
