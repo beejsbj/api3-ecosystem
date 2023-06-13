@@ -103,25 +103,6 @@ div.items {
       width: 150px;
       opacity: 0.5;
     }
-
-    &::before,
-    &::after {
-      content: "";
-      position: absolute;
-
-      inset: 0;
-      left: -5px;
-      border-radius: var(--heroCard-corners);
-      border-right: 1px solid var(--highlight);
-
-      @media (min-width: 768px) {
-        border-left: 1px solid var(--color);
-        border-right: unset;
-      }
-    }
-    &::after {
-      left: 3px;
-    }
   }
 
   &::before {

@@ -6,9 +6,9 @@ const ui = useInterfaceStore();
 
 onMounted(() => {
   const pageLoad = gsap.timeline({
-    scrollTrigger: {
-      trigger: "hero-landing",
-    },
+    //  scrollTrigger: {
+    //    trigger: "hero-landing",
+    //  },
   });
 
   pageLoad.fromTo(
@@ -25,10 +25,6 @@ onMounted(() => {
       opacity: 1,
       duration: 0.5,
       ease: "power4.out",
-
-      // className: ui.isMobile
-      //   ? "page-title loud-voice"
-      //   : "page-title booming-voice",
     }
   );
 
@@ -126,7 +122,8 @@ onMounted(() => {
   right: 150px;
   width: 400px;
   z-index: -1;
-  filter: hue-rotate(100deg);
+  filter: hue-rotate(120deg);
+  opacity: 0.25;
 }
 hero-landing {
   display: grid;
@@ -201,6 +198,7 @@ hero-landing {
       svg {
         filter: invert(1);
         mix-blend-mode: multiply;
+        opacity: 0;
       }
     }
 

@@ -4,18 +4,26 @@ import { gsap } from "gsap";
 
 const ecosystem = useEcosystemStore();
 
-const chains = computed(() => [
-  ...new Set(ecosystem.list.map((dapp) => dapp.chains).flat()),
-]);
-const categories = computed(() => [
-  ...new Set(ecosystem.list.map((dapp) => dapp.categories).flat()),
-]);
-const productTypes = computed(() => [
-  ...new Set(ecosystem.list.map((dapp) => dapp.productTypes).flat()),
-]);
-const years = computed(() => [
-  ...new Set(ecosystem.list.map((dapp) => dapp.year).flat()),
-]);
+const chains = computed(() => {
+  if (ecosystem.stats) {
+    return [...ecosystem.stats.chains];
+  }
+});
+const categories = computed(() => {
+  if (ecosystem.stats) {
+    return [...ecosystem.stats.categories];
+  }
+});
+const productTypes = computed(() => {
+  if (ecosystem.stats) {
+    return [...ecosystem.stats.productTypes];
+  }
+});
+const years = computed(() => {
+  if (ecosystem.stats) {
+    return [...ecosystem.stats.years];
+  }
+});
 
 function clearFilters() {
   ecosystem.filter.search = "";
@@ -62,7 +70,7 @@ onMounted(() => {
     <header>
       <h3 class="solid-voice">
         Displaying {{ ecosystem.filter.count }} of
-        {{ ecosystem.list.length }} results
+        {{ ecosystem?.list?.length }} results
       </h3>
       <button class="button" @click="clearFilters">Clear</button>
     </header>
@@ -79,13 +87,7 @@ onMounted(() => {
       <ul class="pills" v-auto-animate>
         <template v-for="(chain, index) in chains">
           <li class="pill" :key="chain.id" v-if="index < 5 || showAll.chains">
-            <label :for="chain">
-              {{ chain.name }} ({{
-                ecosystem.list.filter((dapp) =>
-                  dapp.chains.some((chainObj) => chainObj.name === chain.name)
-                ).length
-              }})
-            </label>
+            <label :for="chain"> {{ chain.name }} ({{ chain.count }}) </label>
             <input
               :id="chain"
               type="checkbox"
@@ -98,7 +100,7 @@ onMounted(() => {
       <button
         class="text"
         @click="showAll.chains = !showAll.chains"
-        v-if="chains.length > 5"
+        v-if="chains?.length > 5"
       >
         Show More
       </button>
@@ -111,11 +113,7 @@ onMounted(() => {
         <template v-for="(category, index) in categories" :key="category">
           <li class="pill" v-if="index < 5 || showAll.categories">
             <label :for="category">
-              {{ category }} ({{
-                ecosystem.list.filter((dapp) =>
-                  dapp.categories.includes(category)
-                ).length
-              }})
+              {{ category.name }} ({{ category.count }})
             </label>
             <input
               :id="category"
@@ -129,7 +127,7 @@ onMounted(() => {
       <button
         class="text"
         @click="showAll.categories = !showAll.categories"
-        v-if="categories.length > 5"
+        v-if="categories?.length > 5"
       >
         Show More
       </button>
@@ -144,11 +142,7 @@ onMounted(() => {
         >
           <li class="pill" v-if="index < 5 || showAll.productTypes">
             <label :for="productType">
-              {{ productType }} ({{
-                ecosystem.list.filter((dapp) =>
-                  dapp.productTypes.includes(productType)
-                ).length
-              }})
+              {{ productType.name }} ({{ productType.count }})
             </label>
             <input
               :id="productType"
@@ -162,7 +156,7 @@ onMounted(() => {
       <button
         class="text"
         @click="showAll.productTypes = !showAll.productTypes"
-        v-if="productTypes.length > 5"
+        v-if="productTypes?.length > 5"
       >
         Show More
       </button>
@@ -173,11 +167,7 @@ onMounted(() => {
       <ul class="pills" v-auto-animate>
         <template v-for="(year, index) in years" :key="year">
           <li class="pill" v-if="index < 5 || showAll.years">
-            <label :for="year">
-              {{ year }} ({{
-                ecosystem.list.filter((dapp) => dapp.year == year).length
-              }})
-            </label>
+            <label :for="year"> {{ year.name }} ({{ year.count }}) </label>
             <input
               :id="year"
               type="checkbox"
@@ -191,7 +181,7 @@ onMounted(() => {
       <button
         class="text"
         @click="showAll.years = !showAll.years"
-        v-if="years.length > 5"
+        v-if="years?.length > 5"
       >
         Show More
       </button>

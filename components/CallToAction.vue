@@ -83,10 +83,14 @@ onMounted(() => {
 }
 .cta-module .curves-decoration {
   position: absolute;
-  bottom: 180px;
-  left: 200px;
+  bottom: -60px;
+  left: 100px;
   transform: rotateY(180deg) rotate(-10deg) scaleX(1.4);
   z-index: -1;
+
+  @media (min-width: 768px) {
+    bottom: 0;
+  }
 }
 
 .cta-module :is(h2, button, picture.graphic, .curves-decoration path) {
