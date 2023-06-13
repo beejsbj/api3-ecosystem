@@ -81,7 +81,7 @@ export const useEcosystemStore = defineStore("ecosystem", () => {
     chains: [],
     productTypes: [],
     years: [],
-    status: "all",
+    status: "",
     count: 0,
   });
 

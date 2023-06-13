@@ -1,11 +1,14 @@
 <script setup>
 import { gsap } from "gsap";
+import slug from "slug";
+
+const route = useRoute();
 
 import { useBlogStore } from "@/stores/blog";
 const blog = useBlogStore();
 
 const article = computed(() => {
-  return list.value.find(
+  return blog.list.find(
     (article) => slug(article.title) === route.params.detail
   );
 });

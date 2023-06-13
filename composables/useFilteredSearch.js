@@ -12,8 +12,7 @@ export default function useFilteredSearch(ecosystem) {
       !ecosystem.filter.years.length &&
       !ecosystem.filter.status
     ) {
-      console.log("returned list");
-      ecosystem.filter.count = ecosystem.list.length;
+      console.log("returned list", ecosystem.list);
       return ecosystem.list;
     }
     console.log("filtered list");
