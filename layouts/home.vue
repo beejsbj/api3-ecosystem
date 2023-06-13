@@ -10,8 +10,6 @@ const route = useRoute();
     </main>
   </Transition>
 
-  <SiteFooter v-if="route.name != 'add-dapp'" />
-
   <BlobAnimation />
   <!-- <BackgroundDecoration /> -->
 </template>
