@@ -4,9 +4,14 @@ import { gsap } from "gsap";
 
 const route = useRoute();
 
-const { data: dapp, error } = useFetch(
-  `http://localhost:5002/api/projects/project/${route.params.detail}`
+const { data: dapp, error } = await useFetch(
+  `http://localhost:5002/api/projects/project/${route.params.detail}`,
+  { initialCache: true }
 );
+
+definePageMeta({
+  //   title: dapp.name,
+});
 
 onMounted(() => {
   const pageLoad = gsap.timeline();
