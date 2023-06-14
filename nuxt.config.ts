@@ -57,4 +57,10 @@ export default defineNuxtConfig({
   imports: {
     dirs: ["stores"],
   },
+  nitro: {
+    plugins: ["~/server/index.ts"],
+  },
+  runtimeConfig: {
+    mongodbURI: process.env.DEV_DB_URL,
+  },
 });
