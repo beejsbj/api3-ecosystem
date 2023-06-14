@@ -21,6 +21,7 @@
     "@vueuse/core": "^9.13.0",
     "gsap": "^3.11.5",
     "howler": "^2.2.3",
+    "mongoose": "^7.2.3",
     "postcss-import": "^15.1.0",
     "sass": "^1.62.0",
     "scss": "^0.2.4",
