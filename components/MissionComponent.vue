@@ -1,6 +1,9 @@
 <script setup>
 import { gsap } from "gsap";
 
+const images = ref(["square", "triangle", "circle"]);
+const imageIndex = ref(0);
+
 onMounted(() => {
   const pageLoad = gsap.timeline({
     // scrollTrigger: {
@@ -18,7 +21,7 @@ onMounted(() => {
     },
     {
       y: 0,
-      opacity: 1,
+      opacity: 0.5,
       duration: 0.5,
       ease: "power4.out",
       stagger: 0.25,
@@ -45,7 +48,7 @@ onMounted(() => {
       </heading-text>
       <article>
         <text-content>
-          <div class="mission-card">
+          <div class="mission-card" @mouseenter="imageIndex = 0">
             <h4 class="notice-voice">Decentralization</h4>
             <p>
               API3 prioritizes decentralization, a core value in the Web3
@@ -56,7 +59,7 @@ onMounted(() => {
               holders in decision-making.
             </p>
           </div>
-          <div class="mission-card">
+          <div class="mission-card" @mouseenter="imageIndex = 1">
             <h4 class="notice-voice">Innovation</h4>
             <p>
               API3 empowers developers with secure and reliable APIs and
@@ -67,7 +70,7 @@ onMounted(() => {
               Web.
             </p>
           </div>
-          <div class="mission-card">
+          <div class="mission-card" @mouseenter="imageIndex = 2">
             <h4 class="notice-voice">Accessibility</h4>
             <p>
               API3 is dedicated to democratizing Web3, making it accessible to
@@ -82,7 +85,7 @@ onMounted(() => {
         </picture> -->
       </article>
       <picture class="background-graphic">
-        <DecorationTriangle />
+        <img :src="`/images/${images[imageIndex]}.svg`" alt="" />
       </picture>
     </mission-section>
   </SectionColumn>
@@ -122,7 +125,7 @@ mission-section {
     right: 10vw;
     max-width: 50vw;
     z-index: -1;
-    opacity: 0.75;
+    opacity: 0.5;
   }
   text-content {
     display: grid;

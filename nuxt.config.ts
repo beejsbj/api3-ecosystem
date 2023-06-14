@@ -37,6 +37,13 @@ export default defineNuxtConfig({
         autoImports: ["defineStore", "storeToRefs"],
       },
     ],
+    [
+      "@nuxt/content",
+      {
+        content: null,
+        // https://content.nuxtjs.org/api/configuration
+      },
+    ],
   ],
   plugins: ["~/plugins/gsap.ts", "~/plugins/tooltip.ts"],
 

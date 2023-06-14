@@ -260,6 +260,22 @@ section.other inner-column {
 
 main.index {
   footer {
+    .footer-navigation inner-column {
+      @media (min-width: 1024px) {
+        grid-template-columns: repeat(5, 1fr);
+        grid-template-rows: 1fr;
+        picture {
+          grid-column: 1 / -1;
+        }
+      }
+    }
+    .other inner-column {
+      grid-template-columns: unset;
+      grid-template-rows: unset;
+      text-align: center;
+      justify-content: center;
+      align-content: center;
+    }
   }
 }
 </style>
