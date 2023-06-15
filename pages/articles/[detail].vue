@@ -1,98 +1,119 @@
 <script setup>
 import { gsap } from "gsap";
 import slug from "slug";
+import { useBlogStore } from "@/stores/blog";
+import { parseMarkdown } from "~/utils/parseMarkdown";
 
 const route = useRoute();
 
-import { useBlogStore } from "@/stores/blog";
-const blog = useBlogStore();
+const { data, error } = await useFetch(
+  `/api/articles/article/${route.params.detail}`,
+  { initialCache: true }
+);
 
-const article = computed(() => {
-  return blog.list.find(
-    (article) => slug(article.title) === route.params.detail
-  );
-});
+const article = ref(null);
+const loadMarkdown = async () => {
+  if (data.value.content) {
+    console.log(data.value);
 
-article.value.sections = article.value.sections.map((section, index) => {
-  return {
-    ...section,
-    isHighlighted: index === 0 ? true : false,
-  };
-});
+    article.value = await parseMarkdown(data.value);
+  }
+};
+loadMarkdown();
 
-onMounted(() => {
-  const pageLoad = gsap.timeline();
+// const article = computed(() => {
+//   return blog.list.find(
+//     (article) => slug(article.title) === route.params.detail
+//   );
+// });[]
 
-  pageLoad
-    .to("article", {
-      opacity: 1,
-      duration: 0,
-    })
+// article.value.sections = article.value.sections.map((section, index) => {
+//   return {
+//     ...section,
+//     isHighlighted: index === 0 ? true : false,
+//   };
+// });
 
-    .fromTo(
-      ["h1", "h2", "article-meta div, aside"],
-      {
-        x: "-5vw",
-        opacity: 0,
-        delay: "0.5",
-        duration: 0,
-      },
-      {
-        x: "0vw",
-        opacity: 1,
-        duration: 0.5,
-        stagger: {
-          each: 0.15,
-          from: "start",
-        },
-      },
-      "0"
-    )
-    .fromTo(
-      "h1",
-      {
-        "--before-width": "0",
-        duration: 0,
-      },
-      {
-        "--before-width": "50%",
-        duration: 0.5,
-      }
-    )
-    .fromTo(
-      ["article > section > *"],
-      {
-        y: "10vw",
-        opacity: 0,
-        duration: 0,
-      },
-      {
-        y: "0vw",
-        opacity: 1,
-        duration: 0.5,
-        stagger: {
-          each: 0.08,
-          from: "start",
-        },
-      },
-      "1"
-    );
-});
+// onMounted(() => {
+//   const pageLoad = gsap.timeline();
+
+//   pageLoad
+//     .to("article", {
+//       opacity: 1,
+//       duration: 0,
+//     })
+
+//     .fromTo(
+//       ["h1", "h2", "article-meta div, aside"],
+//       {
+//         x: "-5vw",
+//         opacity: 0,
+//         delay: "0.5",
+//         duration: 0,
+//       },
+//       {
+//         x: "0vw",
+//         opacity: 1,
+//         duration: 0.5,
+//         stagger: {
+//           each: 0.15,
+//           from: "start",
+//         },
+//       },
+//       "0"
+//     )
+//     .fromTo(
+//       "h1",
+//       {
+//         "--before-width": "0",
+//         duration: 0,
+//       },
+//       {
+//         "--before-width": "50%",
+//         duration: 0.5,
+//       }
+//     )
+//     .fromTo(
+//       ["article > section > *"],
+//       {
+//         y: "10vw",
+//         opacity: 0,
+//         duration: 0,
+//       },
+//       {
+//         y: "0vw",
+//         opacity: 1,
+//         duration: 0.5,
+//         stagger: {
+//           each: 0.08,
+//           from: "start",
+//         },
+//       },
+//       "1"
+//     );
+// });
 </script>
 
 <template>
   <SectionColumn innerClass="article">
     <article>
-      <ArticleSide />
+      <!-- <ArticleSide /> -->
+      <pre>
+			{{ article }}
+		</pre
+      >
 
       <ArticleHeader :article="article" />
+
+      <ContentRendererMarkdown :value="article" v-if="article" />
+      <!--
 
       <ArticleSection
         v-for="section in article.sections"
         :key="section.heading"
         :section="section"
       />
-      <ArticleRecommend :article="blog.list[0]" />
+      <ArticleRecommend :article="blog.list[0]" /> -->
     </article>
   </SectionColumn>
 </template>
@@ -108,8 +129,8 @@ inner-column.article {
 </style>
 
 <style scoped lang="scss">
-article {
-  opacity: 0;
+.article > article {
+  //   opacity: 0;
   display: grid;
   column-gap: 1rem;
   grid-template-columns: repeat(12, 1fr);

@@ -3,15 +3,14 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 definePageMeta({
-  title: "API3 Ecosystem",
+  layout: "home",
+
   meta: [
     {
       hid: "home",
       name: "home",
-      content: "Home page home",
     },
   ],
-  layout: "home",
 });
 
 onMounted(() => {

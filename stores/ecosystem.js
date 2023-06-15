@@ -6,16 +6,26 @@ import { useFetch } from "nuxt/app";
 export const useEcosystemStore = defineStore("ecosystem", () => {
   const route = useRoute();
 
-  const baseServerUrl = ref("http://localhost:5002/api/projects/v1/");
+  //get projects, with dynamic pagination
+  const baseServerUrl = ref("/api/projects/");
   const serverPage = ref(1);
   const serverURL = computed(() => {
-    return baseServerUrl.value + serverPage.value;
+    return serverPage.value
+      ? baseServerUrl.value + `?page=${serverPage.value}`
+      : baseServerUrl.value;
   });
-  const { data: list, error: listError } = useFetch(serverURL.value);
 
-  const { data: stats, error: statsError } = useFetch(
-    "http://localhost:5002/api/projects/stats/"
-  );
+  const { data: list, error: listError, refresh } = useFetch(serverURL.value);
+
+  watch(serverPage, () => {
+    console.log("serverPage changed", serverPage.value);
+    console.log("serverURL changed", serverURL.value);
+    console.log("list changed", list.value);
+    refresh(); //#todo, this isnt working
+  });
+
+  //stats
+  const { data: stats, error: statsError } = useFetch("/api/projects/stats/");
 
   function addDapp(dapp) {
     list.value.push(dapp);
@@ -92,6 +102,7 @@ export const useEcosystemStore = defineStore("ecosystem", () => {
     chains,
     productTypes,
     filter,
+    serverPage,
 
     addDapp,
   };

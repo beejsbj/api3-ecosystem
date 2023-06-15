@@ -41,7 +41,7 @@ onMounted(() => {
         {{ article.title }}
       </h3>
       <h4 class="whisper-voice">
-        {{ article.author }}
+        {{ article.author.name }}
       </h4>
       <p class="calm-voice">
         {{
@@ -52,7 +52,7 @@ onMounted(() => {
           ) + "..."
         }}
       </p>
-      <NuxtLink :to="`/articles/${slug(article.title)}`" class="text">
+      <NuxtLink :to="`/articles/${slug(article._id)}`" class="text">
         Read more
       </NuxtLink>
     </text-content>

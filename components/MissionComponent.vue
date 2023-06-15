@@ -5,28 +5,42 @@ const images = ref(["square", "triangle", "circle"]);
 const imageIndex = ref(0);
 
 onMounted(() => {
-  const pageLoad = gsap.timeline({
-    // scrollTrigger: {
-    //   trigger: ".mission-stats",
-    // },
-  });
-  pageLoad.set(".mission-stats", {
-    opacity: 1,
-  });
-  pageLoad.fromTo(
-    ".mission-stats :is(h2, text-content, .background-graphic)",
-    {
-      y: 50,
-      opacity: 0,
-    },
-    {
-      y: 0,
-      opacity: 0.5,
-      duration: 0.5,
-      ease: "power4.out",
-      stagger: 0.25,
-    }
-  );
+  //   const pageLoad = gsap.timeline({
+  //     // scrollTrigger: {
+  //     //   trigger: ".mission-stats",
+  //     // },
+  //   });
+  //   pageLoad.set(".mission-stats", {
+  //     opacity: 1,
+  //   });
+  //   pageLoad.fromTo(
+  //     ".background-graphic)",
+  //     {
+  //       y: 50,
+  //       opacity: 0,
+  //     },
+  //     {
+  //       y: 0,
+  //       opacity: 1,
+  //       duration: 0.5,
+  //       ease: "power4.out",
+  //       stagger: 0.25,
+  //     }
+  //   );
+  //   pageLoad.fromTo(
+  //     ".mission-stats :is(h2, text-content)",
+  //     {
+  //       y: 50,
+  //       opacity: 0,
+  //     },
+  //     {
+  //       y: 0,
+  //       opacity: 1,
+  //       duration: 0.5,
+  //       ease: "power4.out",
+  //       stagger: 0.25,
+  //     }
+  //   );
 });
 </script>
 

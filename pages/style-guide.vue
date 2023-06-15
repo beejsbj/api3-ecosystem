@@ -1,14 +1,18 @@
 <script setup>
-import { useEcosystemStore } from "~/stores/ecosystem";
-const ecosystem = useEcosystemStore();
+import { useBlogStore } from "~/stores/blog";
+const blog = useBlogStore();
 </script>
 
 <template>
   <PageHeader heading="Style Guide" />
   <SectionColumn>
+    <button class="button" @click="blog.serverPage -= 1">Next page</button>
     <pre>
+		page: {{ blog.serverPage }}
 	<code>
-{{ ecosystem.stats }}
+
+{{blog.list}}
+
 	</code>
 </pre>
   </SectionColumn>

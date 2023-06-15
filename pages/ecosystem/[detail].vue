@@ -5,7 +5,7 @@ import { gsap } from "gsap";
 const route = useRoute();
 
 const { data: dapp, error } = await useFetch(
-  `http://localhost:5002/api/projects/project/${route.params.detail}`,
+  `/api/projects/project/${route.params.detail}`,
   { initialCache: true }
 );
 

@@ -4,6 +4,7 @@ subtitle: This is Sample Subtitle
 author: John Doe
 date_published: 2023-05-17
 category: Technology
+image: "https://images.unsplash.com/photo-1499750310107-5fef28a66643?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=600&ixid=MnwxfDB8MXxyYW5kb218MHx8d3JpdGluZ3x8fHx8fDE2ODUyMjc5NTM&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1000"
 ---
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet.
@@ -12,9 +13,8 @@ Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. M
 
 Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla.
 
-## Section 1
 
-### Subheading 1
+## Subheading 1
 
 Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur sodales ligula in libero.
 
@@ -28,9 +28,8 @@ Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
 
 Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur sodales ligula in libero.
 
-## Longer One Section 2
 
-### Subheading 2
+## Subheading 2
 
 Sed dignissim lacinia nunc. Curabitur tortor. Pellentesque nibh. Aenean quam. In scelerisque sem at dolor.
 
@@ -44,9 +43,8 @@ Maecenas mattis. Sed convallis tristique sem. Proin ut ligula vel nunc egestas p
 
 Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur sodales ligula in libero.
 
-## Section 3
 
-### Subheading 3
+## Subheading 3
 
 Sed dignissim lacinia nunc. Curabitur tortor. Pellentesque nibh. Aenean quam. In scelerisque sem at dolor.
 
