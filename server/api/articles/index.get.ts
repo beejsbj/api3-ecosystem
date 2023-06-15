@@ -9,10 +9,6 @@ export default defineEventHandler(async (event) => {
     const limit = _page * 10;
     const skips = (_page - 1) * 10;
 
-    // order by keys
-    // name
-    // release date
-
     let articles = await Article.find({}, { content: 0 })
       .skip(skips)
       .limit(limit)
