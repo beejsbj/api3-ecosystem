@@ -46,7 +46,14 @@ export default defineEventHandler(async (event) => {
     ]);
 
     const statsObject = stats?.[0];
-    const chains = statsObject.chains.map((el: any) => {
+    if (!statsObject) {
+      event.res.statusCode = 400;
+      return {
+        code: "REQ_FAILED",
+        message: "Failed to fetch stats",
+      };
+    }
+    const chains = statsObject?.chains?.map((el: any) => {
       return {
         chainId: el?._id?.chainId,
         name: el?._id?.name,

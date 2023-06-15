@@ -3,28 +3,38 @@ const Schema = mongoose.Schema;
 
 // Define the nested schema
 const ChainSchema = new mongoose.Schema({
-  name: String,
-  chainId: Number,
+  name: { type: String, required: true },
+  chainId: { type: Number, required: true },
 });
 
 // Define the nested schema
 const SocialSchema = new mongoose.Schema({
-  name: String,
-  url: String,
+  label: { type: String, required: true },
+  url: { type: String, required: true },
   logo: String,
 });
 
 const ProjectLinkSchema = new mongoose.Schema({
-  dapp: String,
-  doc: String,
-  website: String,
+  dapp: { type: String, required: true },
+  doc: { type: String, required: true },
+  website: { type: String, required: true },
+  explorer: { type: String, required: true },
+  socials: { type: [SocialSchema], required: true },
 });
 
 const ImageSchema = new mongoose.Schema({
-  logo: String,
-  cover: String,
-  banner: String,
-  screenshots: [String],
+  logo: { type: String, required: true },
+  cover: { type: String, required: true },
+  banner: { type: String, required: true },
+  screenshots: { type: [String], required: true },
+});
+
+const proxySchema = new mongoose.Schema({
+  proxyType: { type: String, required: true },
+  feedName: { type: String, required: true },
+  dapiName: { type: String, required: true },
+  proxyAddress: { type: String, required: true },
+  oevBeneficiary: { type: String },
 });
 
 const ProjectSchema = new Schema({
@@ -32,13 +42,20 @@ const ProjectSchema = new Schema({
     type: String,
     required: true,
   },
-  description: {
+  tagline: {
     type: String,
     required: true,
   },
-  about: {
+  description: {
     type: [String],
     required: true,
+  },
+  status: {
+    type: String,
+    enum: {
+      values: ["inactive", "active", "rejected"],
+      required: true,
+    },
   },
   images: {
     type: ImageSchema,
@@ -55,15 +72,13 @@ const ProjectSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: "users",
   },
-  live: {
-    type: Boolean, //
-    default: false,
-  },
-  socials: {
-    type: [SocialSchema],
-  },
   chains: {
     type: [ChainSchema],
+    required: true,
+  },
+  proxies: {
+    type: [proxySchema],
+    required: true,
   },
   year: {
     type: String,
