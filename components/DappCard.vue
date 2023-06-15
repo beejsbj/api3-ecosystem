@@ -56,7 +56,7 @@ function filterBy(event) {
     <text-content>
       <h2 class="attention-voice">{{ dapp.name }}</h2>
 
-      <p class="calm-voice">{{ dapp.description }}</p>
+      <p class="calm-voice">{{ dapp.tagline }}</p>
     </text-content>
 
     <footer>

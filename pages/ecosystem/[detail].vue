@@ -56,14 +56,14 @@ onMounted(() => {
         <detail-content>
           <section class="about">
             <h2 class="attention-voice">About</h2>
-            <p v-for="paragraph in dapp?.about" :key="paragraph">
+            <p v-for="paragraph in dapp?.description" :key="paragraph">
               {{ paragraph }}
             </p>
           </section>
 
           <section class="">
             <h2 class="attention-voice">Artciles/productTypes</h2>
-            <p v-for="paragraph in dapp?.about" :key="paragraph">
+            <p v-for="paragraph in dapp?.description" :key="paragraph">
               {{ paragraph }}
             </p>
           </section>

@@ -16,7 +16,7 @@ const showShareBox = ref(false);
         />
       </picture>
       <h2 class="teaser-voice">
-        {{ dapp.description }}
+        {{ dapp.tagline }}
       </h2>
     </header>
     <article class="rows">
@@ -68,10 +68,10 @@ const showShareBox = ref(false);
       <div class="row socials">
         <p>Socials</p>
         <ul>
-          <li v-for="social in dapp.socials" :key="social.id">
+          <li v-for="social in dapp.links.socials" :key="social.id">
             <!--             v-tooltip="social.name" #todo -->
             <a :href="social.url" :target="social.name">
-              <SocialIcon :social="social.name" />
+              <SocialIcon :social="social.label" />
             </a>
           </li>
         </ul>
