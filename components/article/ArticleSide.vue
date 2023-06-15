@@ -1,7 +1,5 @@
 <script setup>
-import { useBlogStore } from "@/stores/blog";
-const blog = useBlogStore();
-const { currentArticle: article } = storeToRefs(blog);
+const props = defineProps(["toc", "title"]);
 
 function noHeading(section) {
   const firstPara = section.content.find((content) => {
@@ -18,21 +16,16 @@ function noHeading(section) {
 <template>
   <aside>
     <h3 class="notice-voice">TOC</h3>
+
     <ul class="toc-list">
       <li>
-        <a class="text solid-voice" :href="'#' + article.title">
-          {{ article.title }}
+        <a class="text solid-voice" :href="'#' + title">
+          {{ title }}
         </a>
       </li>
-      <li
-        v-for="section in article.sections"
-        :key="section.heading ?? noHeading(section)"
-      >
-        <a
-          class="text solid-voice"
-          :href="`#${section.heading ?? noHeading(section)}`"
-        >
-          {{ section.heading ?? noHeading(section) }}
+      <li v-for="link in toc.links" :key="link.id">
+        <a class="text solid-voice" :href="`#${link.id}`">
+          {{ link.text }}
         </a>
       </li>
     </ul>

@@ -184,7 +184,6 @@ section > * {
     transition: 0.1s;
   }
 }
-
 .highlight {
   --height: 100%;
 }

@@ -1,5 +1,16 @@
 <script setup>
 const props = defineProps(["article"]);
+
+console.log(props.article);
+
+const datePublished = computed(() => {
+  const date = new Date(props.article.date_published);
+  return date.toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+});
 </script>
 
 <template>
@@ -24,7 +35,7 @@ const props = defineProps(["article"]);
           <img src="@/assets/images/calendar-icon.svg" alt="" />
         </picture>
         <p class="solid-voice">
-          {{ article.date_published }}
+          {{ datePublished }}
         </p>
       </div>
       <div class="tag">

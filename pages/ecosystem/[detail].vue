@@ -68,6 +68,8 @@ onMounted(() => {
             </p>
           </section>
 
+          <DappProxies :dapp="dapp" v-if="dapp" />
+
           <section class="screenshots">
             <h2 class="attention-voice">Screenshots</h2>
             <ul class="image-grid">
