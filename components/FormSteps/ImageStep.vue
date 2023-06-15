@@ -2,52 +2,57 @@
 const props = defineProps(["dappForm"]);
 props.dappForm.images = props.dappForm.images ?? {};
 
-function setLogo(file) {
-  props.dappForm.images.logo = file;
-  // upload to imgur
-}
+import { setErrors } from "@formkit/vue";
 
-function setBanner(file) {
-  props.dappForm.images.banner = file;
-}
+const complete = ref(false);
 
-function setScreenshots(files) {
-  props.dappForm.images.screenshot = files;
-}
+const submitHandler = async (data) => {
+  // We need to submit this as a multipart/form-data
+  // to do this we use the FormData API.
+  const body = new FormData();
+  // We can append other data to our form data:
+  body.append("name", data.name);
+  // Finally, we append the actual File object(s)
+  data.license.forEach((fileItem) => {
+    body.append("license", fileItem.file);
+  });
+
+  // We'll perform a real upload to httpbin.org
+  const res = await fetch("https://httpbin.org/post", {
+    method: "POST",
+    body: body,
+  });
+
+  if (res.ok) {
+    complete.value = true;
+  } else {
+    setErrors("logoForm", ["The server didn’t like our request."]);
+  }
+};
 </script>
 
 <template>
   <FormKit type="step" name="images" #default="{ isActiveStep }">
     <FormTransitionSlot :isActiveStep="isActiveStep">
       <div class="single-images">
-        <div>
-          <label class="notice-voice">Logo</label>
-          <ImageUpload
-            @setImage="setLogo"
-            :image="dappForm.images.logo"
-            :ratio="1 / 1"
-            id="logo-upload"
-          />
-        </div>
-
-        <div>
-          <label class="notice-voice">Banner</label>
-          <ImageUpload
-            @setImage="setBanner"
-            :image="dappForm.images.banner"
-            id="banner-upload"
-          />
-        </div>
-      </div>
-
-      <div>
-        <label class="notice-voice">Screenshots</label>
-        <ImageUpload
-          @setImage="setScreenshots"
-          :image="dappForm.images.screenshot"
-          multiple="true"
-          id="screenshot-upload"
-        />
+        <file-upload>
+          <FormKit
+            v-if="!complete"
+            id="logoForm"
+            type="form"
+            @submit="submitHandler"
+          >
+            <FormKit
+              type="file"
+              label="Logo"
+              name="license"
+              help="Please add a logo"
+              accept=".jpg,.png,.pdf,.svg"
+              validation="required"
+            />
+          </FormKit>
+          <div v-else class="complete">License upload complete 👍</div>
+        </file-upload>
       </div>
     </FormTransitionSlot>
   </FormKit>

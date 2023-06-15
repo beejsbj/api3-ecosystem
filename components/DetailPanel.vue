@@ -32,7 +32,7 @@ const showShareBox = ref(false);
             <!-- {{ chain }} -->
             <picture class="chain">
               <ChainIcon
-                :chain="chain"
+                :chain="chain.name"
                 fill="var(--color)"
                 stroke="var(--paper)"
                 strokeWidth="15%"
