@@ -50,12 +50,9 @@ onMounted(() => {
   <SectionColumn class="scrolling-stats">
     <scrolling-stats>
       <stats-card class="first">
-        <h2 class="loud-voice">Why Statistics?</h2>
+        <h2 class="loud-voice">Ecosystem Dashboard</h2>
         <p class="notice-voice">
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dicta
-          praesentium explicabo provident error tempora. Tenetur, facilis
-          eligendi exercitationem nihil voluptates omnis enim magnam ducimus
-          alias nam sint mollitia quisquam totam.
+          L
         </p>
       </stats-card>
       <stats-card class="second">
