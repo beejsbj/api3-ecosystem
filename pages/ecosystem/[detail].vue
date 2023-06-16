@@ -45,13 +45,14 @@ onMounted(() => {
   <article class="detail-page">
     <DetailBanner :dapp="dapp" />
 
-    <SectionColumn class="detail-header">
-      <detail-banner>
-        <PageHeader :heading="dapp?.name" />
-      </detail-banner>
-    </SectionColumn>
     <SectionColumn class="detail-main">
       <article class="main">
+        <PageHeader
+          class="dapp-title"
+          :heading="dapp?.name"
+          innerClass="none"
+        />
+
         <DetailPanel :dapp="dapp" v-if="dapp" />
         <detail-content>
           <section class="about">
@@ -85,21 +86,6 @@ onMounted(() => {
 </template>
 
 <style lang="scss" scoped>
-// .detail-page {
-//   display: grid;
-//   gap: 3rem;
-//   align-items: start;
-// }
-.detail-header {
-  //   background: linear-gradient(
-  //     0deg,
-  //     hsla(300, 0%, 3%, 0) 10%,
-  //     hsla(300, 0%, 3%, 1),
-  //     hsla(300, 0%, 3%, 0) 80%
-  //   );
-  /* background-blend-mode: darken; */
-}
-
 .detail-page,
 .banner {
   opacity: 0;
@@ -118,6 +104,8 @@ article.main {
 article.main detail-content {
   display: grid;
   gap: 4rem;
+  //   grid-column: 2;
+  //   grid-row: 2;
 
   section {
     align-self: start;
@@ -135,5 +123,10 @@ article.main .image-grid {
   display: grid;
   gap: 0.3125rem;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-rows: auto auto;
+}
+
+:deep(.dapp-title) {
+  //   grid-column: 2;
 }
 </style>

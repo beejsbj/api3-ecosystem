@@ -45,11 +45,6 @@ const submitHandler = async (data) => {
 </template>
 
 <style lang="scss" scoped>
-file-upload .preview {
-  max-width: 220px;
-  max-height: 220px;
-}
-
 file-upload :is(input, form-field) {
   padding: 0;
 }

@@ -1,6 +1,6 @@
 <script setup>
 const props = defineProps(["dappForm"]);
-props.dappForm.images = props.dappForm.images ?? {};
+// props.dappForm.images = props.dappForm.images ?? {};
 
 import { setErrors } from "@formkit/vue";
 
@@ -41,11 +41,12 @@ const submitHandler = async (data) => {
             id="logoForm"
             type="form"
             @submit="submitHandler"
+            submit-label="Upload"
           >
             <FormKit
               type="file"
               label="Logo"
-              name="license"
+              name="logo"
               help="Please add a logo"
               accept=".jpg,.png,.pdf,.svg"
               validation="required"
@@ -65,5 +66,29 @@ const submitHandler = async (data) => {
   grid-template-columns: 1fr 1fr;
 }
 div {
+}
+
+file-upload {
+  display: grid;
+  justify-content: start;
+  background: var(--gradient-dark);
+  --ink: hsla(180, 0%, 95%, 1);
+  border-radius: var(--corners);
+  gap: 10px;
+  padding: 1rem;
+  align-items: start;
+
+  :deep([data-type="file"]) {
+    input.formkit-input {
+      color: var(--white) !important;
+      font-size: var(--step--1) !important;
+
+      ul li.formkit-file-item {
+        display: grid !important;
+        grid-template-columns: 0.25fr 1fr 0.25fr !important;
+        align-content: center !important;
+      }
+    }
+  }
 }
 </style>

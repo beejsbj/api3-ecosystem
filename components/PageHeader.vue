@@ -53,6 +53,6 @@ h1 {
 }
 
 main.ecosystem-detail .page-title {
-  padding: 3rem 15px;
+  padding: 3rem 0px;
 }
 </style>
