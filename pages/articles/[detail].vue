@@ -109,7 +109,7 @@ loadMarkdown();
       <ArticleSection
         v-for="section in article.sections"
         :key="section.heading"
-        :section="section"
+        :section="section"P
       />
       <ArticleRecommend :article="blog.list[0]" /> -->
     </article>

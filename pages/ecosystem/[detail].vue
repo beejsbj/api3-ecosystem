@@ -64,9 +64,7 @@ onMounted(() => {
 
           <section class="">
             <h2 class="attention-voice">Artciles/productTypes</h2>
-            <p v-for="paragraph in dapp?.description" :key="paragraph">
-              {{ paragraph }}
-            </p>
+            <ArticleGrid layout="6" cardCount="2" />
           </section>
 
           <DappProxies :dapp="dapp" v-if="dapp" />

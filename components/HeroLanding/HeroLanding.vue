@@ -87,14 +87,12 @@ onMounted(() => {
       <picture class="line-decoration decoration">
         <LineDecoration />
       </picture>
-      <ClientOnly>
-        <h1
-          class="page-title"
-          :class="{ 'booming-voice': !ui.isMobile, 'loud-voice': ui.isMobile }"
-        >
-          Unleash the Potential of Web3 dApps
-        </h1>
-      </ClientOnly>
+      <h1
+        class="page-title"
+        :class="{ 'booming-voice': !ui.isMobile, 'loud-voice': ui.isMobile }"
+      >
+        Unleash the Potential of Web3 dApps
+      </h1>
 
       <div class="intro-paragraph">
         <picture>
@@ -129,8 +127,6 @@ hero-landing {
   display: grid;
   row-gap: 3rem;
   position: relative;
-  margin-top: 1.5rem;
-  padding-top: 1.5rem;
 
   @media (min-width: 768px) {
     row-gap: 5rem;

@@ -7,7 +7,12 @@ const showFilter = ref(false);
 </script>
 
 <template>
-  <PageHeader heading="Search API3's Ecosystem" />
+  <SectionColumn innerClass="ecosystem-header">
+    <h1 class="loud-voice gradient-text">Search API3's Ecosystem</h1>
+    <button class="button filled firm-voice">
+      <NuxtLink to="/ecosystem/add-dapp">Add Your Own</NuxtLink>
+    </button>
+  </SectionColumn>
 
   <SectionColumn innerClass="main-grid">
     <ClientOnly>
@@ -38,6 +43,18 @@ const showFilter = ref(false);
   }
   @media (min-width: 1166px) {
     grid-template-columns: 0.3fr 1fr;
+  }
+}
+.ecosystem-header {
+  display: grid;
+  grid-template-columns: 1fr 0.5fr;
+  align-items: center;
+  justify-content: space-between;
+  justify-items: start;
+  padding: 60px 15px;
+
+  button {
+    justify-self: center;
   }
 }
 </style>

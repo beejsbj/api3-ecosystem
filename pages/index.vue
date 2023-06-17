@@ -55,6 +55,9 @@ body:has(main.index) {
 main.index {
   display: grid;
   gap: 3rem;
+  inner-column {
+    padding: 3rem 15px;
+  }
   inner-column > h2 {
     margin-bottom: 2rem;
   }

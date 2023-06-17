@@ -1,25 +1,25 @@
 <script setup>
 import { useInterfaceStore } from "~/stores/interface";
-import { gsap } from "gsap";
+// import { gsap } from "gsap";
 
 const ui = useInterfaceStore();
 const router = useRouter();
 
 const showMenu = ref(false);
 
-onMounted(() => {
-  const pageLoad = gsap.timeline();
-  if (ui.firstLoad) {
-    pageLoad.from(".site-header", {
-      delay: "0.5",
-      duration: 0.5,
-      y: -50,
-      opacity: 0,
-      ease: "power4.out",
-    });
-    ui.firstLoad = false;
-  }
-});
+// onMounted(() => {
+//   const pageLoad = gsap.timeline();
+//   if (ui.firstLoad) {
+//     pageLoad.from(".site-header", {
+//       delay: "0.5",
+//       duration: 0.5,
+//       y: -50,
+//       opacity: 0,
+//       ease: "power4.out",
+//     });
+//     ui.firstLoad = false;
+//   }
+// });
 </script>
 
 <template>

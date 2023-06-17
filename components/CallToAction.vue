@@ -53,19 +53,17 @@ onMounted(() => {
     </picture>
     <cta-module>
       <text-content>
-        <ClientOnly>
-          <h2
-            class="gradient-text"
-            :class="{
-              'booming-voice': !ui.isMobile,
-              'loud-voice': ui.isMobile,
-            }"
-          >
-            Join the decentralized revolution and publish your dapp on our site
-            today!
-          </h2>
-        </ClientOnly>
-        <button class="button loud">Join Now</button>
+        <h2
+          class="gradient-text"
+          :class="{
+            'booming-voice': !ui.isMobile,
+            'loud-voice': ui.isMobile,
+          }"
+        >
+          Join the decentralized revolution and publish your dapp on our site
+          today!
+        </h2>
+        <button class="button filled">Join Now</button>
       </text-content>
       <picture class="graphic">
         <img src="@/assets/images/partner-logos.png" alt="" />

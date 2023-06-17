@@ -205,7 +205,6 @@ main.add-dapp {
   & > .formkit-wrapper {
     max-width: unset;
     display: grid;
-
     align-items: center;
 
     @media (min-width: 768px) {

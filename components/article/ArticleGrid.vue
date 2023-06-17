@@ -11,6 +11,7 @@ const layouts = [
   ["big-card", "slide", "text", "text", "text"],
   ["big-card", "big-card", "slide", "slide", "slide"],
   ["big-card", "card", "text", "text"],
+  ["big-card"],
 ];
 
 const layoutIndex = ref(props.layout ?? 0);

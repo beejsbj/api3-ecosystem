@@ -50,6 +50,7 @@ const submitHandler = async (data) => {
               help="Please add a logo"
               accept=".jpg,.png,.pdf,.svg"
               validation="required"
+              v-auto-animate
             />
           </FormKit>
           <div v-else class="complete">License upload complete 👍</div>

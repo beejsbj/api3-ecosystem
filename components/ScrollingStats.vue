@@ -1,5 +1,7 @@
 <script setup>
 import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
 
 const ui = useInterfaceStore();
 const graph = ref(null);
@@ -20,24 +22,39 @@ const cards = [
 ];
 
 const changeImage = (card, index) => {
-  gsap.to("scrolling-stats .graph", {
-    scrollTrigger: {
-      scroller: ui.isMobile ? "" : "main.index",
-      trigger: card.triggerClass,
-      toggleActions: "play reset play reset",
-      start: "top 30%",
-      end: "bottom 70%",
-    },
+  const triggerElement = ref(document.querySelector(card.triggerClass));
+  //   console.log(triggerElement.value);
 
-    onStart: () => {
-      graph.value = card.imagePath;
-      gsap.to("scrolling-stats", {
-        "--after-height":
-          index === 0 ? "5%" : index === 1 ? "50%" : index === 2 ? "95%" : "0%",
-        duration: 1,
-        ease: "power2.out",
+  watch(triggerElement, () => {
+    if (triggerElement.value) {
+      console.log("triggered");
+
+      gsap.to("scrolling-stats .graph", {
+        scrollTrigger: {
+          scroller: ui.isMobile ? "" : "main.index",
+          trigger: triggerElement.value,
+          toggleActions: "play reset play reset",
+          start: "top 30%",
+          end: "bottom 70%",
+        },
+
+        onStart: () => {
+          graph.value = card.imagePath;
+          gsap.to("scrolling-stats", {
+            "--after-height":
+              index === 0
+                ? "5%"
+                : index === 1
+                ? "50%"
+                : index === 2
+                ? "95%"
+                : "0%",
+            duration: 1,
+            ease: "power2.out",
+          });
+        },
       });
-    },
+    }
   });
 };
 
@@ -98,7 +115,7 @@ scrolling-stats {
   stats-card {
     scroll-snap-align: center;
     grid-column: 1;
-    height: 100vh;
+    height: 100vmin;
     display: grid;
     align-items: center;
     align-content: center;

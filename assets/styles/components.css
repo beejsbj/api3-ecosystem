@@ -98,12 +98,6 @@ a {
   aspect-ratio: 1/1;
 }
 
-:is(button, a).button.filled {
-  padding: 0.5rem 1rem;
-  background-color: var(--highlight);
-  border-color: currentColor;
-}
-
 /*  */
 picture.logo {
   /* max-width: 100px; */
@@ -155,12 +149,28 @@ a.router-link-exact-active::after {
   transform: translateX(-50%);
 }
 
-.button.loud {
+.button.filled {
   border-radius: 0;
   background: var(--gradient-color);
   font-size: var(--step-1);
   font-weight: var(--weight-semibold);
   padding: 1rem 2rem;
+}
+
+.button.loud {
+  border-radius: 0;
+  font-size: var(--step-1);
+  font-weight: var(--weight-semibold);
+  padding: 1rem 2rem;
+  border: unset;
+  position: relative;
+}
+
+button.button.loud::after {
+  content: "";
+  inset: -1px;
+  z-index: -1;
+  background: var(--gradient-color);
 }
 
 .gradient-text {

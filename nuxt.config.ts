@@ -1,4 +1,9 @@
 export default defineNuxtConfig({
+  routeRules: {
+    // Homepage pre-rendered at build time
+    "/": { prerender: true },
+  },
+
   //global default head metadata
   app: {
     head: {
@@ -16,7 +21,12 @@ export default defineNuxtConfig({
     },
   },
 
-  css: ["@/assets/styles/site.css", "@formkit/themes/genesis"],
+  css: [
+    "@/assets/styles/site.css",
+    "@formkit/themes/genesis",
+    "floating-vue/dist/style.css",
+  ],
+
   build: {
     transpile: ["gsap"],
   },
@@ -30,6 +40,9 @@ export default defineNuxtConfig({
 
   modules: [
     "@formkit/nuxt",
+    "@nuxt/devtools",
+    //  "floating-vue/nuxt",
+    //  "@nuxt/content",
 
     [
       "@pinia/nuxt",
@@ -37,15 +50,15 @@ export default defineNuxtConfig({
         autoImports: ["defineStore", "storeToRefs"],
       },
     ],
-    [
-      "@nuxt/content",
-      {
-        content: null,
-        // https://content.nuxtjs.org/api/configuration
-      },
-    ],
+    //  [
+    //    "@nuxt/content",
+    //    {
+    //      content: null,
+    //      // https://content.nuxtjs.org/api/configuration
+    //    },
+    //  ],
   ],
-  plugins: ["~/plugins/gsap.ts", "~/plugins/tooltip.ts"],
+  plugins: ["~/plugins/gsap.ts"],
 
   components: [
     {
