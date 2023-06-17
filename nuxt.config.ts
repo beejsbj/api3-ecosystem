@@ -59,8 +59,18 @@ export default defineNuxtConfig({
   },
   nitro: {
     plugins: ["~/server/index.ts"],
+    serverAssets: [
+      {
+        baseName: "",
+        dir: "assets",
+      },
+    ],
   },
   runtimeConfig: {
     mongodbURI: process.env.DEV_DB_URL,
+    AWS_ACCESS_KEY_ID: process.env.AWS_ACCESS_KEY_ID,
+    AWS_SECRET_ACCESS_KEY: process.env.AWS_SECRET_ACCESS_KEY,
+    ROOT_BUCKET: process.env.ROOT_BUCKET,
+    IMAGE_UPLOAD_SIZE_LIMIT: process.env.IMAGE_UPLOAD_SIZE_LIMIT,
   },
 });

@@ -11,7 +11,6 @@ const ChainSchema = new mongoose.Schema({
 const SocialSchema = new mongoose.Schema({
   label: { type: String, required: true },
   url: { type: String, required: true },
-  logo: String,
 });
 
 const ProjectLinkSchema = new mongoose.Schema({
@@ -32,9 +31,10 @@ const ImageSchema = new mongoose.Schema({
 const proxySchema = new mongoose.Schema({
   proxyType: { type: String, required: true },
   feedName: { type: String, required: true },
-  dapiName: { type: String, required: true },
+  dapiName: { type: String, required: false },
   proxyAddress: { type: String, required: true },
   oevBeneficiary: { type: String },
+  chainId: { type: Number, required: true },
 });
 
 const ProjectSchema = new Schema({
@@ -52,10 +52,8 @@ const ProjectSchema = new Schema({
   },
   status: {
     type: String,
-    enum: {
-      values: ["inactive", "active", "rejected"],
-      required: true,
-    },
+    enum: ["inactive", "active", "rejected"],
+    default: "inactive",
   },
   images: {
     type: ImageSchema,
@@ -86,7 +84,6 @@ const ProjectSchema = new Schema({
   },
   releaseDate: {
     type: String,
-    required: true,
   },
   created_at: {
     type: Date,
