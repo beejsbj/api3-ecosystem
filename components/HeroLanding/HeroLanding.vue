@@ -4,6 +4,8 @@ import { gsap } from "gsap";
 
 const ui = useInterfaceStore();
 
+// const content = await queryContent("/home").findOne().heroLanding; #todo
+
 onMounted(() => {
   const pageLoad = gsap.timeline({
     //  scrollTrigger: {
@@ -92,6 +94,7 @@ onMounted(() => {
         :class="{ 'booming-voice': !ui.isMobile, 'loud-voice': ui.isMobile }"
       >
         Unleash the Potential of Web3 dApps
+        <!-- {{ content.title }} -->
       </h1>
 
       <div class="intro-paragraph">

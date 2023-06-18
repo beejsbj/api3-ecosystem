@@ -4,7 +4,6 @@ import { gsap } from "gsap";
 const props = defineProps(["isActiveStep"]);
 
 function onEnter(el, done) {
-  console.log("enter");
   const formStep = el.closest(".formkit-step");
   const formActions = formStep.querySelector(".formkit-step-actions");
   formActions.style.display = "flex";
@@ -26,7 +25,6 @@ function onEnter(el, done) {
 }
 
 function onLeave(el, done) {
-  console.log("leave");
   const formStep = el.closest(".formkit-step");
   const formActions = formStep.querySelector(".formkit-step-actions");
 

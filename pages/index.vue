@@ -4,7 +4,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 definePageMeta({
   layout: "home",
-
   meta: [
     {
       hid: "home",

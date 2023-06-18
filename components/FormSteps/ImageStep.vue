@@ -1,34 +1,8 @@
 <script setup>
 const props = defineProps(["dappForm"]);
-// props.dappForm.images = props.dappForm.images ?? {};
+props.dappForm.images = props.dappForm.images ?? {};
 
 import { setErrors } from "@formkit/vue";
-
-const complete = ref(false);
-
-const submitHandler = async (data) => {
-  // We need to submit this as a multipart/form-data
-  // to do this we use the FormData API.
-  const body = new FormData();
-  // We can append other data to our form data:
-  body.append("name", data.name);
-  // Finally, we append the actual File object(s)
-  data.license.forEach((fileItem) => {
-    body.append("license", fileItem.file);
-  });
-
-  // We'll perform a real upload to httpbin.org
-  const res = await fetch("https://httpbin.org/post", {
-    method: "POST",
-    body: body,
-  });
-
-  if (res.ok) {
-    complete.value = true;
-  } else {
-    setErrors("logoForm", ["The server didn’t like our request."]);
-  }
-};
 </script>
 
 <template>
@@ -37,23 +11,29 @@ const submitHandler = async (data) => {
       <div class="single-images">
         <file-upload>
           <FormKit
-            v-if="!complete"
             id="logoForm"
-            type="form"
-            @submit="submitHandler"
-            submit-label="Upload"
-          >
-            <FormKit
-              type="file"
-              label="Logo"
-              name="logo"
-              help="Please add a logo"
-              accept=".jpg,.png,.pdf,.svg"
-              validation="required"
-              v-auto-animate
-            />
-          </FormKit>
-          <div v-else class="complete">License upload complete 👍</div>
+            type="file"
+            label="Logo"
+            name="logo"
+            help="Please add a logo"
+            accept=".jpg,.png"
+            validation="required"
+            @change="dappForm.images.logo = $event.target.files[0]"
+            v-auto-animate
+          />
+        </file-upload>
+        <file-upload>
+          <FormKit
+            id="bannerForm"
+            type="file"
+            label="Banner"
+            name="banner"
+            help="Please add a banner"
+            accept=".jpg,.png"
+            validation="required"
+            @change="dappForm.images.banner = $event.target.files[0]"
+            v-auto-animate
+          />
         </file-upload>
       </div>
     </FormTransitionSlot>
@@ -65,8 +45,6 @@ const submitHandler = async (data) => {
   display: grid;
   gap: 2rem;
   grid-template-columns: 1fr 1fr;
-}
-div {
 }
 
 file-upload {

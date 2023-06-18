@@ -7,18 +7,22 @@ const props = defineProps(["dappForm"]);
     <FormTransitionSlot :isActiveStep="isActiveStep">
       <form-field>
         <FormKit
-          v-model="dappForm.liveOrIntent"
+          v-model="dappForm.status"
           type="radio"
-          id="live-or-intent"
-          label="Status of project - Live or Intent Are you live on main net now, or are you announcing your intent."
+          id="status"
+          label="Status of project - Is you dApp live or in development?"
           label-class="$reset notice-voice"
           legend-class="$reset solid-voice"
           required
-          :options="['live', 'intent']"
+          :options="[
+            { label: 'Inactive', value: 'inactive' },
+            { label: 'Live', value: 'active' },
+            { label: 'In Development', value: false },
+          ]"
         />
       </form-field>
     </FormTransitionSlot>
-    <!-- <FormKit #stepNext type="submit" /> -->
+    <FormKit #stepNext type="submit" />
   </FormKit>
 </template>
 

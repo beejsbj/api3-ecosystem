@@ -93,8 +93,8 @@ loadMarkdown();
 
 <template>
   <SectionColumn innerClass="article">
-    <article>
-      <ArticleSide :toc="article.body.toc" :title="article.title" />
+    <article v-if="article">
+      <ArticleSide :toc="article?.body?.toc" :title="article?.title" />
 
       <ArticleHeader :article="article" />
 

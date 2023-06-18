@@ -12,10 +12,38 @@ definePageMeta({
 
 //
 const dappForm = useStorage("dapp-form", {});
+const complete = ref(false);
 
-const submitHandler = () => {
-  console.log(dappForm.value);
-  console.log("submit");
+const submitHandler = async () => {
+  console.log("submit", dappForm.value);
+
+  // to do this we use the FormData API.
+  const body = new FormData();
+
+  // We can append other data to our form data:
+  body.append("name", dappForm.name);
+  body.append("tagline", dappForm.tagline);
+  body.append("description", dappForm.description);
+  body.append("categories", dappForm.categories);
+
+  // Finally, we append the actual File object(s)
+  body.append("logo", dappForm.images.logo);
+  dappForm.images.screenshots.forEach((fileItem, index) => {
+    console.log(fileItem);
+    body.append(`license-${index + 1}`, fileItem.file);
+  });
+
+  // We'll perform a real upload to httpbin.org
+  //   const res = await fetch("https://httpbin.org/post", {
+  //     method: "POST",
+  //     body: body,
+  //   });
+
+  //   if (res.ok) {
+  //     complete.value = true;
+  //   } else {
+  //     setErrors("logoForm", ["The server didn’t like our request."]);
+  //   }
 };
 
 const projectItem = {
@@ -101,25 +129,9 @@ const projectItem = {
   },
 };
 
-const handleCoverImage = (event) => {
-  const file = event.target.files[0];
-  console.log("file", file);
-};
-
 const handleFileInputChange = async (event) => {
-  const file = event.target.files[0];
-  const screenshots = event.target.files;
-
   const formData = new FormData();
 
-  formData.append("logo", file);
-  formData.append("cover", file);
-  formData.append("banner", file);
-  formData.append("screenshot1", screenshots[0]);
-  formData.append("screenshot2", screenshots[1]);
-  formData.append("screenshot3", screenshots[2]);
-  formData.append("screenshot4", screenshots[3]);
-  formData.append("name", projectItem.name);
   formData.append("tagline", projectItem.tagline);
   formData.append("description", projectItem.description);
   formData.append("categories", JSON.stringify(projectItem.categories));
@@ -160,39 +172,28 @@ const handleAdd = async () => {
 
 <template>
   <SectionColumn>
-    <button @click="handleAdd">Test add listing</button>
-    <div class="text-center">
-      Select image
-      <input
-        type="file"
-        accept="image/*"
-        multiple
-        @change="handleFileInputChange"
-      />
-    </div>
-    <ClientOnly>
+    <FormKit
+      type="form"
+      :actions="false"
+      v-auto-animate
+      @submit="submitHandler"
+    >
       <FormKit
-        type="form"
-        :actions="false"
+        type="multi-step"
+        tab-style="progress"
+        :hide-progress-labels="true"
         v-auto-animate
-        @submit="submitHandler"
       >
-        <FormKit
-          type="multi-step"
-          tab-style="progress"
-          :hide-progress-labels="true"
-          v-auto-animate
-        >
-          <OwnerStep :dappForm="dappForm" key="1" />
-          <ContentStep :dappForm="dappForm" key="2" />
-          <ImageStep :dappForm="dappForm" key="3" />
-          <TagStep :dappForm="dappForm" key="4" />
-          <LinksStep :dappForm="dappForm" key="5" />
-          <SocialsStep :dappForm="dappForm" key="6" />
-          <StatusStep :dappForm="dappForm" key="7" />
-        </FormKit>
+        <OwnerStep :dappForm="dappForm" key="1" />
+        <ContentStep :dappForm="dappForm" key="2" />
+        <ImageStep :dappForm="dappForm" key="3" />
+        <TagStep :dappForm="dappForm" key="4" />
+        <ProxyStep :dappForm="dappForm" key="5" />
+        <LinksStep :dappForm="dappForm" key="6" />
+        <SocialsStep :dappForm="dappForm" key="7" />
+        <StatusStep :dappForm="dappForm" key="8" />
       </FormKit>
-    </ClientOnly>
+    </FormKit>
   </SectionColumn>
 </template>
 
@@ -211,10 +212,6 @@ main.add-dapp {
       grid-template-columns: 0.1fr 1fr;
       gap: 3rem;
     }
-  }
-
-  .notice-voice {
-    //  font-size: var(--step-1);
   }
 
   & > [data-tab-style="progress"][data-hide-labels="true"] > .formkit-tabs {

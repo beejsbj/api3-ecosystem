@@ -2,6 +2,9 @@ export default defineNuxtConfig({
   routeRules: {
     // Homepage pre-rendered at build time
     "/": { prerender: true },
+    "add-dapp": {
+      ssr: false,
+    },
   },
 
   //global default head metadata
@@ -42,7 +45,7 @@ export default defineNuxtConfig({
     "@formkit/nuxt",
     "@nuxt/devtools",
     //  "floating-vue/nuxt",
-    //  "@nuxt/content",
+    "@nuxt/content",
 
     [
       "@pinia/nuxt",

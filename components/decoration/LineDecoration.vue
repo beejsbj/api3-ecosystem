@@ -1,23 +1,23 @@
 <script setup>
-import { Howl } from "howler";
+// import { Howl } from "howler";
 
-const guitar = {
-  A: new Howl({
-    src: ["/sounds/guitar-A.wav"],
-    volume: 0.04,
-  }),
-};
+// const guitar = {
+//   A: new Howl({
+//     src: ["/sounds/guitar-A.wav"],
+//     volume: 0.04,
+//   }),
+// };
 
-const strum = (note) => {
-  console.log(note);
-  guitar[note].play();
-};
+// const strum = (note) => {
+//   console.log(note);
+//   guitar[note].play();
+// };
 
-const stopGuitar = () => {
-  Object.keys(guitar).forEach((note) => {
-    guitar[note].stop();
-  });
-};
+// const stopGuitar = () => {
+//   Object.keys(guitar).forEach((note) => {
+//     guitar[note].stop();
+//   });
+// };
 </script>
 
 <template>

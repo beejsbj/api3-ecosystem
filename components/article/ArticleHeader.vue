@@ -14,7 +14,7 @@ const datePublished = computed(() => {
 </script>
 
 <template>
-  <header>
+  <header v-if="article">
     <h1 class="loud-voice article-heading" :id="article.title">
       {{ article.title }}
     </h1>

@@ -23,7 +23,7 @@ function noHeading(section) {
           {{ title }}
         </a>
       </li>
-      <li v-for="link in toc.links" :key="link.id">
+      <li v-for="link in toc?.links" :key="link.id">
         <a class="text solid-voice" :href="`#${link.id}`">
           {{ link.text }}
         </a>

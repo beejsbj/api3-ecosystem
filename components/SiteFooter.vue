@@ -123,17 +123,11 @@ const footerLinks = [
     <section class="other">
       <inner-column>
         <nav class="misc-links">
-          <NuxtLink to="/todo" class="calm-voice text">
-            Privacy & Terms
-          </NuxtLink>
-          <!-- #todo -->
-          <NuxtLink to="/todo" class="calm-voice text">
-            Privacy & Terms
-          </NuxtLink>
-          <!-- #todo -->
-          <NuxtLink to="/todo" class="calm-voice text">
-            Privacy & Terms
-          </NuxtLink>
+          <NuxtLink to="/" class="calm-voice text"> Privacy & Terms </NuxtLink>
+
+          <NuxtLink to="/" class="calm-voice text"> Privacy & Terms </NuxtLink>
+
+          <NuxtLink to="/" class="calm-voice text"> Privacy & Terms </NuxtLink>
           <!-- #todo -->
         </nav>
         <nav class="social-icons">

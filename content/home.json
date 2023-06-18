@@ -1,0 +1,31 @@
+{
+  "heroLanding": {
+    "title": "Unleash the Potential of Web3 dApps",
+    "introPara": "Experience the transformative power of blockchain technology through revolutionary applications that are reshaping various industries. Uncover the forefront of innovation and witness the game-changing potential of blockchain in action.",
+    "heroCards": [
+      {
+        "heading": "Ecosystem",
+        "paragraph": "Discover the various components of the blockchain ecosystem.",
+        "cta": "Explore Ecosystem",
+        "link": "/ecosystem",
+        "image": "/images/hero-graphic-ecosystem.svg"
+      },
+      {
+        "heading": "Developers",
+        "paragraph": "Learn how to build your own blockchain applications.",
+        "cta": "Get Started",
+        "link": "/developers",
+        "image": "/images/hero-ecosystem-gears.svg"
+      },
+      {
+        "heading": "Learning",
+        "paragraph": "Find the tools and resources you need to get started.",
+        "cta": "Explore Resources",
+        "link": "/learning",
+        "image": "/images/hero-ecosystem-articles.svg"
+      }
+    ]
+  },
+
+  "scollingStats": {}
+}

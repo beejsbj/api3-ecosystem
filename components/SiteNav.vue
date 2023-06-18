@@ -1,3 +1,5 @@
+<script setup></script>
+
 <template>
   <nav>
     <NuxtLink class="text" to="/">Home</NuxtLink>
