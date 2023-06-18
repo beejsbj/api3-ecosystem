@@ -134,7 +134,7 @@ dapp-card {
       position: absolute;
       opacity: 1;
       right: -100px;
-      top: 100px;
+      top: 125px;
       transform: rotate(-10deg) scale(0.5);
       transform-origin: top;
     }

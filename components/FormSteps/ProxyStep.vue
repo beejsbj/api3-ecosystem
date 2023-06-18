@@ -16,7 +16,7 @@ const proxy = ref({
   chainId: "",
 });
 
-const repeater = ref(0);
+const repeater = ref(1);
 </script>
 
 <template>
@@ -25,10 +25,17 @@ const repeater = ref(0);
       <ul class="proxy-table">
         <button class="button" @click="repeater += 1">Add Row</button>
         <li class="row" v-for="count in repeater">
-          <form-field class="cell"> </form-field>
-          <form-field class="cell"></form-field>
-          <form-field class="cell"></form-field>
-          <form-field class="cell"></form-field>
+          <form-field>
+            <FormKit
+              type="checkbox"
+              label="Is it OEV?"
+              label-class="$reset notice-voice"
+              name="oevBeneficiary"
+              placeholder="OEV Beneficiary"
+              validation="required"
+              id="oevBeneficiary"
+            />
+          </form-field>
           <button class="button" @click="repeater -= 1">Remove</button>
         </li>
       </ul>

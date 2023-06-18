@@ -15,9 +15,8 @@ const props = defineProps(["dappForm"]);
           legend-class="$reset solid-voice"
           required
           :options="[
-            { label: 'Inactive', value: 'inactive' },
             { label: 'Live', value: 'active' },
-            { label: 'In Development', value: false },
+            { label: 'In Development', value: 'inactive' },
           ]"
         />
       </form-field>
