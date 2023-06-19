@@ -55,6 +55,10 @@ const ProjectSchema = new Schema({
     enum: ["inactive", "active", "rejected"],
     default: "inactive",
   },
+  isLive: {
+    type: Boolean,
+    default: false,
+  },
   images: {
     type: ImageSchema,
   },
