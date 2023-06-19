@@ -1,6 +1,4 @@
 <script setup>
-import slug from "slug";
-
 const props = defineProps(["dapp"]);
 const ecosystem = useEcosystemStore();
 const logo = props.dapp.images.logo ?? "@/assets/images/square.jpg";

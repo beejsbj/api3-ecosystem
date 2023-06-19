@@ -29,13 +29,17 @@ a {
 
 /* button */
 
+button,
+a {
+  background: none;
+  cursor: pointer;
+}
+
 :is(button, a).button {
   position: relative;
 
   padding: 0.5rem 2rem;
-  cursor: pointer;
   text-align: center;
-  background: none;
   border: 0.5px solid var(--gray);
   border-radius: var(--corners);
 
@@ -95,7 +99,8 @@ a {
   background: none;
   /* border: 1px solid var(--gray); */
   border-radius: 50%;
-  aspect-ratio: 1/1;
+  aspect-ratio: 1 / 1;
+  border: 0.5px solid var(--gray);
 }
 
 /*  */
@@ -157,20 +162,20 @@ a.router-link-exact-active::after {
   padding: 1rem 2rem;
 }
 
-.button.loud {
-  border-radius: 0;
-  font-size: var(--step-1);
-  font-weight: var(--weight-semibold);
-  padding: 1rem 2rem;
-  border: unset;
+.loud-button {
   position: relative;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  text-align: center;
+  background: var(--paper);
 }
 
-button.button.loud::after {
+.loud-button::after {
   content: "";
+  position: absolute;
   inset: -1px;
-  z-index: -1;
   background: var(--gradient-color);
+  z-index: -1;
 }
 
 .gradient-text {

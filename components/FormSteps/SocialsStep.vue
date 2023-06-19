@@ -8,7 +8,7 @@ props.dappForm.links.socials = props.dappForm.links.socials ?? {};
   <FormKit type="step" name="socialLinks" #default="{ isActiveStep }">
     <FormTransitionSlot :isActiveStep="isActiveStep">
       <section class="form-socials">
-        <h2 class="attention-voice">Socials</h2>
+        <h2 class="solid-voice">Socials</h2>
         <form-field>
           <FormKit
             type="url"

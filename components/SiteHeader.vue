@@ -36,9 +36,7 @@ const showMenu = ref(false);
           </picture>
           <SiteNav v-if="!ui.isMobile" />
           <button
-            :class="`button menu ${ui.isMobile ? 'icon' : ''} ${
-              showMenu ? 'menuOpen' : ''
-            }`"
+            :class="`button menu icon ${showMenu ? 'menuOpen' : ''}`"
             v-if="ui.isMobile"
             @click="showMenu = !showMenu"
           >

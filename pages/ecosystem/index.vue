@@ -9,7 +9,7 @@ const showFilter = ref(false);
 <template>
   <SectionColumn innerClass="ecosystem-header">
     <h1 class="loud-voice gradient-text">Search API3's Ecosystem</h1>
-    <button class="button filled firm-voice">
+    <button class="loud-button firm-voice">
       <NuxtLink to="/add-dapp">Add Your Own</NuxtLink>
     </button>
   </SectionColumn>

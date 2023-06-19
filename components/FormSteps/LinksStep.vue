@@ -8,7 +8,7 @@ props.dappForm.links = props.dappForm.links ?? {};
   <FormKit type="step" name="links" #default="{ isActiveStep }">
     <FormTransitionSlot :isActiveStep="isActiveStep">
       <section class="form-links">
-        <h2 class="attention-voice">Links</h2>
+        <h2 class="solid-voice">Links</h2>
 
         <form-field>
           <FormKit
@@ -52,5 +52,6 @@ div {
 }
 .form-socials h2 {
   grid-column: 1 / -1;
+  margin-bottom: 2rem;
 }
 </style>

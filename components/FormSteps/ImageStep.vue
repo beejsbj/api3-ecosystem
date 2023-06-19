@@ -1,8 +1,6 @@
 <script setup>
 const props = defineProps(["dappForm"]);
 props.dappForm.images = props.dappForm.images ?? {};
-
-import { setErrors } from "@formkit/vue";
 </script>
 
 <template>
@@ -14,11 +12,15 @@ import { setErrors } from "@formkit/vue";
             id="logoForm"
             type="file"
             label="Logo"
+            label-class="$reset notice-voice"
             name="logo"
             help="Please add a logo"
-            accept=".jpg,.png"
+            accept=".jpg,.png,.jpeg"
             validation="required"
-            @change="dappForm.images.logo = $event.target.files[0]"
+            @change="
+              console.log($event.target.files[0]);
+              dappForm.images.logo = $event.target.files[0];
+            "
             v-auto-animate
           />
         </file-upload>
@@ -27,9 +29,10 @@ import { setErrors } from "@formkit/vue";
             id="bannerForm"
             type="file"
             label="Banner"
+            label-class="$reset notice-voice"
             name="banner"
             help="Please add a banner"
-            accept=".jpg,.png"
+            accept=".jpg,.png,.jpeg"
             validation="required"
             @change="dappForm.images.banner = $event.target.files[0]"
             v-auto-animate

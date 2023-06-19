@@ -5,26 +5,30 @@
 
 const props = defineProps(["dappForm"]);
 
-props.dappForm.proxies = props.dappForm.proxies ?? [];
+props.dappForm.proxies = props.dappForm.proxies ?? [
+  {
+    proxyAddress: "",
+    isOEV: false,
+  },
+];
 
-const proxy = ref({
-  proxyType: "",
-  feedName: "",
-  dapiName: "",
+const proxyTemplate = {
   proxyAddress: "",
-  oevBeneficiary: "",
-  chainId: "",
-});
-
-const repeater = ref(1);
+  isOEV: false,
+};
 </script>
 
 <template>
   <FormKit type="step" name="proxy" #default="{ isActiveStep }">
     <FormTransitionSlot :isActiveStep="isActiveStep">
-      <ul class="proxy-table">
-        <button class="button" @click="repeater += 1">Add Row</button>
-        <li class="row" v-for="count in repeater">
+      <ul class="proxy-table" v-auto-animate>
+        <button
+          class="icon"
+          @click.prevent="dappForm.proxies.push({ ...proxyTemplate })"
+        >
+          +
+        </button>
+        <li class="row" v-for="(proxy, index) in dappForm.proxies">
           <form-field>
             <FormKit
               type="checkbox"
@@ -34,9 +38,29 @@ const repeater = ref(1);
               placeholder="OEV Beneficiary"
               validation="required"
               id="oevBeneficiary"
+              v-model="proxy.isOEV"
             />
           </form-field>
-          <button class="button" @click="repeater -= 1">Remove</button>
+          <form-field>
+            <FormKit
+              type="text"
+              label="Proxy Address"
+              label-class="$reset notice-voice"
+              name="proxyAddress"
+              placeholder="Proxy Address"
+              validation="required"
+              id="proxyAddress"
+              v-model="proxy.proxyAddress"
+            />
+          </form-field>
+          <button
+            class="icon"
+            @click.prevent="dappForm.proxies.splice(index, 1)"
+          >
+            <picture>
+              <img src="@/assets/images/icon-cross.svg" alt="" />
+            </picture>
+          </button>
         </li>
       </ul>
     </FormTransitionSlot>
@@ -47,11 +71,22 @@ const repeater = ref(1);
 .proxy-table {
   display: grid;
   gap: 1rem;
+  align-items: end;
 
   li.row {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 0.1fr;
-    gap: 0.5rem;
+    grid-template-columns: 0.5fr 1fr 0.1fr;
+    gap: 1rem;
+  }
+
+  button {
+    justify-self: end;
+    align-self: center;
+    background-color: var(--paper);
+  }
+
+  img {
+    width: 25px;
   }
 }
 </style>

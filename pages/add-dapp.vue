@@ -1,6 +1,6 @@
 <script setup>
 import { useStorage } from "@vueuse/core";
-
+import { setErrors } from "@formkit/vue";
 const ecosystem = useEcosystemStore();
 const route = useRoute();
 const step = ref({});
@@ -15,158 +15,42 @@ const dappForm = useStorage("dapp-form", {});
 const complete = ref(false);
 
 const submitHandler = async () => {
-  console.log("submit", dappForm.value);
+  console.log("submit click", dappForm.value);
 
-  // to do this we use the FormData API.
   const body = new FormData();
 
   // We can append other data to our form data:
   body.append("name", dappForm.name);
   body.append("tagline", dappForm.tagline);
   body.append("description", dappForm.description);
+  body.append("chains", dappForm.chains);
   body.append("categories", dappForm.categories);
+  body.append("productTypes", dappForm.productTypes);
+  body.append("proxies", dappForm.proxies);
+  body.append("year", dappForm.year);
+  body.append("links", dappForm.links);
+  body.append("isLive", dappForm.isLive);
 
-  // Finally, we append the actual File object(s)
+  // images
   body.append("logo", dappForm.images.logo);
+  body.append("banner", dappForm.images.banner);
+
   dappForm.images.screenshots.forEach((fileItem, index) => {
     console.log(fileItem);
-    body.append(`license-${index + 1}`, fileItem.file);
+    body.append(`screenshot-${index + 1}`, fileItem.file);
   });
 
-  // We'll perform a real upload to httpbin.org
-  //   const res = await fetch("https://httpbin.org/post", {
-  //     method: "POST",
-  //     body: body,
-  //   });
-
-  //   if (res.ok) {
-  //     complete.value = true;
-  //   } else {
-  //     setErrors("logoForm", ["The server didn’t like our request."]);
-  //   }
-};
-
-const projectItem = {
-  name: "ThirdFi",
-  tagline: "DeFi Infra-Middleware with all in 1 API",
-  description: [
-    "ThirdFi is building DeFi infra-middleware that makes DeFi more accessible with API. Build, trade, invest and manage DeFi apps easily with ThirdFi’s API, sdk and developer tools",
-    "ThirdFi is currently live on 11 L1/L2 chains. ThirdFi helps developers, fintech, and tradFi to build, invest & manage their DeFi with simple & dev-friendly tools using all-in-1 API integration.",
-  ],
-  categories: ["DeFi", "Infrastructure", "Developer Tool"],
-  productTypes: ["Data Feeds"],
-  proxies: [
-    {
-      proxyType: "OEV dAPI Proxy",
-      feedName: "BTC/USD",
-      dapiName: "BTC/USD",
-      proxyAddress: "0x",
-      oevBeneficiary: "0x",
-      chainId: 137,
-    },
-    {
-      proxyType: "OEV datafeed Proxy",
-      feedName: "BTC/USD",
-      datafeedId: "0x",
-      proxyAddress: "0x",
-      oevBeneficiary: "0x",
-      chainId: 137,
-    },
-  ],
-  year: "2023",
-  chains: [
-    {
-      chainId: 1,
-      name: "Ethereum",
-    },
-    {
-      chainId: 137,
-      name: "Polygon",
-    },
-    {
-      name: "BNB",
-      chainId: 56,
-    },
-    {
-      name: "Avalanche",
-      chainId: 43114,
-    },
-  ],
-  links: {
-    dapp: "https://neutra.finance/vault",
-    doc: "https://docs.neutra.finance/english/",
-    website: "https://neutra.finance/",
-    explorer: "https://etherscan.io/",
-    socials: [
-      {
-        label: "Twitter",
-        url: "https://twitter.com/thirdfiorg",
-      },
-      {
-        label: "Discord",
-        url: "https://discord.com/invite/tcZ42jHZ5N",
-      },
-      {
-        label: "Telegram",
-        url: "https://t.me/NeutraFi_discussion",
-      },
-      {
-        label: "YouTube",
-        url: "https://www.youtube.com/channel/UCTJoXywam24P7nWlqCdPGZQ",
-      },
-      {
-        label: "Github",
-        url: "https://github.com/thirdfi",
-      },
-    ],
-  },
-
-  images: {
-    logo: "https://global-uploads.webflow.com/61f7ce2e0e6cea2cab6c1739/646e821df3d109ac7b55097d_Yg8dkDcFsugbO3nXJwEWfylOXO6zT8TN8Ds7JOE7thk.jpeg",
-    cover: "",
-    banner: "",
-    screenshots: [""],
-  },
-};
-
-const handleFileInputChange = async (event) => {
-  const formData = new FormData();
-
-  formData.append("tagline", projectItem.tagline);
-  formData.append("description", projectItem.description);
-  formData.append("categories", JSON.stringify(projectItem.categories));
-  formData.append("productTypes", JSON.stringify(projectItem.productTypes));
-  formData.append("chains", JSON.stringify(projectItem.chains));
-  formData.append("links", JSON.stringify(projectItem.links));
-  formData.append("proxies", JSON.stringify(projectItem.proxies));
-  formData.append("year", projectItem.year);
-
-  const res = await $fetch("/api/projects", {
+  const response = await $fetch("/api/projects", {
     method: "POST",
-    body: formData,
+    body,
   });
 
-  console.log("api response ", res);
-};
-
-const handleAdd = async () => {
-  const listingPayload = {
-    name: projectItem.name,
-    tagline: projectItem.tagline,
-    description: projectItem.description,
-    categories: projectItem.categories,
-    productTypes: projectItem.productTypes,
-    links: projectItem.links,
-    year: projectItem.year,
-    images: projectItem.images,
-  };
-
-  const res = await $fetch("/api/projects", {
-    method: "POST",
-    body: listingPayload,
-  });
-
-  console.log("api response ", res);
+  if (response.ok) {
+    console.log("api response", response);
+    complete.value = true;
+  } else {
+    setErrors("logoForm", ["The server didn’t like our request."]);
+  }
 };
 </script>
 
