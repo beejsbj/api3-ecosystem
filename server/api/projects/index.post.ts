@@ -15,6 +15,7 @@ export default imageUploadHandler(
         links,
         proxies,
         year,
+        isLive,
       } = await (event.node?.req?.body || readBody(event));
 
       const uploadedImages = {
@@ -29,13 +30,14 @@ export default imageUploadHandler(
         ],
       };
       const payload = {
-        name: "Test project",
+        name: "Test project live",
         tagline,
         description,
         images: uploadedImages,
         categories: JSON.parse(categories),
         productTypes: JSON.parse(productTypes),
         user: null,
+        isLive: isLive === "true" ? true : false,
         chains: JSON.parse(chains),
         proxies: JSON.parse(proxies),
         links: JSON.parse(links),
