@@ -5,7 +5,17 @@ import {
   createFloatingLabelsPlugin,
   createAutoHeightTextareaPlugin,
 } from "@formkit/addons";
+
+//pro
+import { createProPlugin, repeater } from "@formkit/pro";
+
+//css
 import "@formkit/addons/css/multistep";
+
+const proPlugin = createProPlugin("fk-885cbbc2860", {
+  repeater,
+  // ... and any other Pro Inputs
+});
 
 const config = defaultConfig({
   plugins: [
@@ -13,6 +23,7 @@ const config = defaultConfig({
     createAutoHeightTextareaPlugin(),
     createFloatingLabelsPlugin(),
     addAsteriskPlugin,
+    proPlugin,
   ],
 });
 
