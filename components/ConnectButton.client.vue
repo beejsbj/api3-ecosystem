@@ -77,12 +77,4 @@ async function onSignIn() {
 
     <button class="loud-button" @click="getSignature" v-else>Sign</button>
   </div>
-
-  <pre>
-
-	
-	{{ wallet.isConnected ? wallet : "Not Connected" }}
-
-
-  </pre>
 </template>

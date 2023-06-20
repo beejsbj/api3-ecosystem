@@ -6,7 +6,7 @@
     <NuxtLink class="text" to="/ecosystem">Ecosystem</NuxtLink>
     <NuxtLink class="text" to="/articles">Articles</NuxtLink>
     <!-- <NuxtLink to="/about">About</NuxtLink> -->
-    <!-- <ConnectButton /> -->
+    <ConnectButton />
   </nav>
 </template>
 <style lang="scss" scoped>
