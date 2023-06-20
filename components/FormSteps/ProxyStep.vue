@@ -21,7 +21,7 @@ const proxyTemplate = {
 <template>
   <FormKit type="step" name="proxy" #default="{ isActiveStep }">
     <FormTransitionSlot :isActiveStep="isActiveStep">
-      <ul class="proxy-table" v-auto-animate>
+      <!-- <ul class="proxy-table" v-auto-animate>
         <button
           class="icon"
           @click.prevent="dappForm.proxies.push({ ...proxyTemplate })"
@@ -62,7 +62,39 @@ const proxyTemplate = {
             </picture>
           </button>
         </li>
-      </ul>
+      </ul> -->
+      <FormKit
+        id="repeater"
+        name="proxy"
+        type="repeater"
+        label="Proxy"
+        :insert-control="true"
+        :add-button="false"
+        #default="{ index }"
+      >
+        <form-field>
+          <FormKit
+            type="checkbox"
+            label="Is it OEV?"
+            label-class="$reset notice-voice"
+            name="oevBeneficiary"
+            placeholder="OEV Beneficiary"
+            validation="required"
+            id="oevBeneficiary"
+          />
+        </form-field>
+        <form-field>
+          <FormKit
+            type="text"
+            label="Proxy Address"
+            label-class="$reset notice-voice"
+            name="proxyAddress"
+            placeholder="Proxy Address"
+            validation="required"
+            id="proxyAddress"
+          />
+        </form-field>
+      </FormKit>
     </FormTransitionSlot>
   </FormKit>
 </template>

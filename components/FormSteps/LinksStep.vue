@@ -41,17 +41,8 @@ props.dappForm.links = props.dappForm.links ?? {};
 </template>
 
 <style scoped>
-div {
+.form-links {
   display: inherit;
   gap: inherit;
-}
-.form-socials {
-  display: inherit;
-  grid-template-columns: repeat(2, 1fr);
-  gap: inherit;
-}
-.form-socials h2 {
-  grid-column: 1 / -1;
-  margin-bottom: 2rem;
 }
 </style>

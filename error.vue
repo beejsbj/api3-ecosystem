@@ -1,6 +1,7 @@
 <script setup>
 console.log("hello world");
 const props = defineProps(["error"]);
+console.log(props.error);
 </script>
 
 <template>
@@ -21,6 +22,12 @@ const props = defineProps(["error"]);
         Go Home
       </button>
     </div>
+
+    <pre>
+		<code>
+			{{ error.stack }}
+		</code>
+	 </pre>
   </SectionColumn>
 </template>
 

@@ -43,7 +43,7 @@ export default defineNuxtConfig({
 
   modules: [
     "@formkit/nuxt",
-    "@nuxt/devtools",
+    //  "@nuxt/devtools",
     //  "floating-vue/nuxt",
     "@nuxt/content",
 
@@ -88,5 +88,8 @@ export default defineNuxtConfig({
     AWS_SECRET_ACCESS_KEY: process.env.AWS_SECRET_ACCESS_KEY,
     ROOT_BUCKET: process.env.ROOT_BUCKET,
     IMAGE_UPLOAD_SIZE_LIMIT: process.env.IMAGE_UPLOAD_SIZE_LIMIT,
+    public: {
+      WEB3MODAL_PROJECT_ID: process.env.WEB3MODAL_PROJECT_ID,
+    },
   },
 });
