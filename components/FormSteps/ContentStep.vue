@@ -5,7 +5,7 @@ props.dappForm.date = new Date().toISOString().slice(0, 10);
 <template>
   <FormKit type="step" name="content" #default="{ isActiveStep }">
     <FormTransitionSlot :isActiveStep="isActiveStep">
-      <div>
+      <div class="step-transition-wrapper">
         <form-field>
           <FormKit
             type="text"
@@ -45,20 +45,6 @@ props.dappForm.date = new Date().toISOString().slice(0, 10);
             validation="required"
             id="longDescription"
             v-model="dappForm.longDescription"
-          />
-        </form-field>
-
-        <!-- published date -->
-        <form-field>
-          <FormKit
-            type="date"
-            label="Published Date"
-            label-class="$reset notice-voice"
-            name="publishedDate"
-            placeholder="Published Date"
-            validation="required"
-            id="publishedDate"
-            v-model="dappForm.date"
           />
         </form-field>
       </div>

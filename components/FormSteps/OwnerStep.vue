@@ -6,7 +6,7 @@ props.dappForm.owner = props.dappForm.owner ?? {};
 <template>
   <FormKit type="step" name="owner" #default="{ isActiveStep }">
     <FormTransitionSlot :isActiveStep="isActiveStep">
-      <div>
+      <div class="step-transition-wrapper">
         <form-field>
           <FormKit
             type="text"
@@ -17,19 +17,6 @@ props.dappForm.owner = props.dappForm.owner ?? {};
             validation="required"
             id="name"
             v-model="dappForm.owner.name"
-          />
-        </form-field>
-
-        <form-field>
-          <FormKit
-            type="email"
-            label="Email"
-            label-class="$reset notice-voice"
-            name="email"
-            placeholder="email@domain.com"
-            validation="required|email"
-            id="email"
-            v-model="dappForm.owner.email"
           />
         </form-field>
 
