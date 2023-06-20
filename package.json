@@ -16,27 +16,28 @@
     "nuxt": "^3.5.3"
   },
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.353.0",
     "@formkit/addons": "^0.17.0",
-    "@formkit/auto-animate": "^1.0.0-beta.6",
+    "@formkit/auto-animate": "0.7",
     "@formkit/nuxt": "^0.16.5",
+    "@formkit/pro": "^0.112.6",
     "@formkit/themes": "^0.16.5",
     "@pinia/nuxt": "^0.4.9",
     "@vueform/multiselect": "^2.6.1",
     "@vueuse/core": "^9.13.0",
+    "@web3modal/auth-html": "^2.4.7",
+    "aws-sdk": "^2.1398.0",
     "ethers": "^6.4.1",
     "floating-vue": "^2.0.0-beta.22",
     "gsap": "^3.11.5",
+    "h3-formidable": "^0.3.4",
     "howler": "^2.2.3",
     "mongoose": "^7.2.3",
+    "multer": "^1.4.5-lts.1",
+    "multer-s3": "^3.0.1",
     "postcss-import": "^15.1.0",
     "sass": "^1.62.0",
     "scss": "^0.2.4",
-    "slug": "^8.2.2",
-    "vagmi": "^0.1.20",
-    "@aws-sdk/client-s3": "^3.353.0",
-    "aws-sdk": "^2.1398.0",
-    "h3-formidable": "^0.3.4",
-    "multer": "^1.4.5-lts.1",
-    "multer-s3": "^3.0.1"
+    "slug": "^8.2.2"
   }
 }
