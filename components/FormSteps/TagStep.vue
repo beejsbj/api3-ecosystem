@@ -11,7 +11,7 @@ const props = defineProps(["dappForm"]);
 <template>
   <FormKit type="step" name="tags" #default="{ isActiveStep }">
     <FormTransitionSlot :isActiveStep="isActiveStep">
-      <div>
+      <div class="step-transition-wrapper">
         <form-field>
           <label class="notice-voice" for="categories"> Category </label>
           <Multiselect

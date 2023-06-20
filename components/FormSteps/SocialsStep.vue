@@ -122,14 +122,10 @@ props.dappForm.links.socials = props.dappForm.links.socials ?? {};
 </template>
 
 <style scoped>
-div {
-  display: inherit;
-  gap: inherit;
-}
 .form-socials {
-  display: inherit;
+  display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: inherit;
+  gap: 1.5rem;
 }
 .form-socials h2 {
   grid-column: 1 / -1;

@@ -21,7 +21,6 @@ const props = defineProps(["dappForm"]);
         />
       </form-field>
     </FormTransitionSlot>
-    <FormKit #stepNext type="submit" />
   </FormKit>
 </template>
 
