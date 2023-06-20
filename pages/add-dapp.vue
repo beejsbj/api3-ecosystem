@@ -1,9 +1,6 @@
 <script setup>
 import { useStorage } from "@vueuse/core";
 import { setErrors } from "@formkit/vue";
-const ecosystem = useEcosystemStore();
-const route = useRoute();
-const step = ref({});
 
 //
 definePageMeta({
@@ -13,6 +10,7 @@ definePageMeta({
 //
 const dappForm = useStorage("dapp-form", {});
 const complete = ref(false);
+const stepInformation = ref({});
 
 const submitHandler = async () => {
   console.log("submit click", dappForm.value);
@@ -58,15 +56,27 @@ const submitHandler = async () => {
   <SectionColumn>
     <FormKit
       type="form"
-      :actions="false"
-      v-auto-animate
+      :actions="stepInformation?.value?.targetStepName === 'Status'"
       @submit="submitHandler"
+      :submit-attrs="{
+        inputClass: '$reset loud-button',
+      }"
     >
       <FormKit
         type="multi-step"
         tab-style="progress"
         :hide-progress-labels="true"
-        v-auto-animate
+        :before-step-change="
+          ({ currentStep, targetStep, delta }) => {
+            stepInformation.value = {
+              currentStepName: currentStep.stepName,
+              targetStepName: targetStep.stepName,
+              delta,
+            };
+
+            return true; // Change to false to block all step changes
+          }
+        "
       >
         <OwnerStep :dappForm="dappForm" key="1" />
         <ContentStep :dappForm="dappForm" key="2" />
@@ -75,7 +85,6 @@ const submitHandler = async () => {
         <ProxyStep :dappForm="dappForm" key="5" />
         <LinksStep :dappForm="dappForm" key="6" />
         <SocialsStep :dappForm="dappForm" key="7" />
-        <StatusStep :dappForm="dappForm" key="8" />
       </FormKit>
     </FormKit>
   </SectionColumn>
@@ -85,7 +94,10 @@ const submitHandler = async () => {
 main.add-dapp {
   display: grid;
   align-items: center;
+
+  --fk-margin-outer: 0;
 }
+
 .formkit-outer[data-type="multi-step"] {
   & > .formkit-wrapper {
     max-width: unset;
@@ -133,30 +145,13 @@ main.add-dapp {
   }
 }
 
+form > .formkit-actions {
+  justify-self: end;
+}
+
 .formkit-step-actions {
   margin-bottom: 0rem !important;
   margin-top: 2rem !important;
   display: none;
-}
-
-.formSteps-enter-active,
-.formSteps-leave-active {
-  transition: opacity 0.5s ease;
-}
-
-.formSteps-enter-from,
-.formSteps-leave-to {
-  opacity: 0;
-}
-
-.v-enter-active,
-.v-leave-active {
-  transition: all 0.5s ease;
-}
-
-.v-enter-from,
-.v-leave-to {
-  opacity: 0;
-  transform: translateX(30px);
 }
 </style>

@@ -6,14 +6,6 @@ const blog = useBlogStore();
 <template>
   <PageHeader heading="Style Guide" />
   <SectionColumn>
-    <button class="button" @click="blog.serverPage -= 1">Next page</button>
-    <pre>
-		page: {{ blog.serverPage }}
-	<code>
-
-{{blog.list}}
-
-	</code>
-</pre>
+    <ConnectButton />
   </SectionColumn>
 </template>
