@@ -4,12 +4,15 @@ import { gsap } from "gsap";
 const props = defineProps(["isActiveStep"]);
 
 function onEnter(el, done) {
+  const form = el.closest("form");
   const formStep = el.closest(".formkit-step");
   const formActions = formStep.querySelector(".formkit-step-actions");
   formActions.style.display = "flex";
-  formStep.querySelectorAll("button").forEach((button) => {
+
+  form.querySelectorAll(".formkit-step-actions button").forEach((button) => {
     button.classList = "button";
   });
+
   gsap.fromTo(
     formStep,
     { y: "10vh", opacity: 0, delay: 5 },
