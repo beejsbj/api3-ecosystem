@@ -5,12 +5,12 @@ import { setErrors } from "@formkit/vue";
 //
 definePageMeta({
   title: "Add Dapp",
+  layout: "home",
 });
 
 //
 const dappForm = useStorage("dapp-form", {});
 const complete = ref(false);
-const stepInformation = ref({});
 
 const submitHandler = async () => {
   console.log("submit click", dappForm.value);
@@ -50,89 +50,90 @@ const submitHandler = async () => {
     setErrors("logoForm", ["The server didn’t like our request."]);
   }
 };
+
+///
+onMounted(() => {
+  window.scroll({
+    top: 0,
+    left: 0,
+  });
+});
 </script>
 
 <template>
   <SectionColumn>
     <FormKit
       type="form"
-      :actions="stepInformation?.value?.targetStepName === 'Status'"
       @submit="submitHandler"
+      :actions="true"
       :submit-attrs="{
-        inputClass: '$reset loud-button',
+        inputClass: '$reset button filled',
       }"
     >
-      <FormKit
-        type="multi-step"
-        tab-style="progress"
-        :hide-progress-labels="true"
-        :before-step-change="
-          ({ currentStep, targetStep, delta }) => {
-            stepInformation.value = {
-              currentStepName: currentStep.stepName,
-              targetStepName: targetStep.stepName,
-              delta,
-            };
-
-            return true; // Change to false to block all step changes
-          }
-        "
-      >
-        <OwnerStep :dappForm="dappForm" key="1" />
-        <ContentStep :dappForm="dappForm" key="2" />
-        <ImageStep :dappForm="dappForm" key="3" />
-        <TagStep :dappForm="dappForm" key="4" />
-        <ProxyStep :dappForm="dappForm" key="5" />
-        <LinksStep :dappForm="dappForm" key="6" />
-        <SocialsStep :dappForm="dappForm" key="7" />
-      </FormKit>
+      <div class="step">
+        <OwnerStep :dappForm="dappForm" />
+      </div>
+      <div class="step">
+        <ContentStep :dappForm="dappForm" />
+      </div>
+      <div class="step">
+        <ImageStep :dappForm="dappForm" />
+      </div>
+      <div class="step">
+        <TagStep :dappForm="dappForm" />
+      </div>
+      <div class="step">
+        <ProxyStep :dappForm="dappForm" />
+      </div>
+      <div class="step">
+        <LinksStep :dappForm="dappForm" />
+      </div>
+      <div class="step">
+        <SocialsStep :dappForm="dappForm" />
+      </div>
+      <div class="step">
+        <SocialsStep2 :dappForm="dappForm" />
+      </div>
     </FormKit>
   </SectionColumn>
 </template>
 
 <style lang="scss">
-main.add-dapp {
+body:has(main.add-dapp-2) {
+  overflow: hidden;
+}
+
+main.add-dapp-2 {
   display: grid;
   align-items: center;
 
   --fk-margin-outer: 0;
 }
 
-.formkit-outer[data-type="multi-step"] {
-  & > .formkit-wrapper {
+form {
+  max-height: 100vh;
+  overflow-y: scroll;
+  scroll-snap-type: mandatory;
+  scroll-snap-type: y mandatory;
+  scroll-snap-points-y: repeat(calc(100vh - 125px));
+  scroll-behavior: smooth;
+
+  & > :is(.step, .formkit-actions) {
+    scroll-snap-align: start;
+    height: calc(100vh - 125px);
+    display: grid;
+    gap: 3rem;
+    align-content: center;
+    padding: 0 2rem;
+    //  padding-top: 4rem;
+  }
+
+  .formkit-wrapper {
     max-width: unset;
     display: grid;
     align-items: center;
 
-    @media (min-width: 768px) {
-      grid-template-columns: 0.1fr 1fr;
-      gap: 3rem;
-    }
-  }
-
-  & > [data-tab-style="progress"][data-hide-labels="true"] > .formkit-tabs {
-    @media (min-width: 768px) {
-      display: grid;
-      min-height: 500px;
-
-      button.formkit-tab {
-        &::after {
-          width: 0.25rem;
-          height: 100%;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%);
-          top: unset;
-        }
-      }
-    }
-  }
-
-  & > [data-tab-style="progress"] > .formkit-steps {
-    border: none;
-    width: 100%;
-    box-shadow: unset;
-    padding: unset;
+    gap: 1rem;
   }
 
   .formkit-inner {
@@ -143,10 +144,21 @@ main.add-dapp {
     font-size: var(--step-1);
     border-radius: var(--corners);
   }
+
+  button.next {
+    justify-self: end;
+  }
+
+  .not-valid {
+    color: red;
+  }
+  .valid {
+    color: green;
+  }
 }
 
 form > .formkit-actions {
-  justify-self: end;
+  justify-content: end;
 }
 
 .formkit-step-actions {

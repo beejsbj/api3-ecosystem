@@ -1,45 +1,67 @@
 <script setup>
 const props = defineProps(["dappForm"]);
 props.dappForm.images = props.dappForm.images ?? {};
+
+const buttonClick = ref(false);
+function buttonHandle(valid, direction) {
+  formStepButtonHandle(valid, direction, buttonClick);
+}
 </script>
 
 <template>
-  <FormKit type="step" #default="{ isActiveStep }" name="images">
-    <FormTransitionSlot :isActiveStep="isActiveStep">
-      <div class="single-images">
-        <file-upload>
-          <FormKit
-            id="logoForm"
-            type="file"
-            label="Logo"
-            label-class="$reset notice-voice"
-            name="logo"
-            help="Please add a logo"
-            accept=".jpg,.png,.jpeg"
-            validation="required"
-            @change="
-              console.log($event.target.files[0]);
-              dappForm.images.logo = $event.target.files[0];
-            "
-            v-auto-animate
-          />
-        </file-upload>
-        <file-upload>
-          <FormKit
-            id="bannerForm"
-            type="file"
-            label="Banner"
-            label-class="$reset notice-voice"
-            name="banner"
-            help="Please add a banner"
-            accept=".jpg,.png,.jpeg"
-            validation="required"
-            @change="dappForm.images.banner = $event.target.files[0]"
-            v-auto-animate
-          />
-        </file-upload>
-      </div>
-    </FormTransitionSlot>
+  <FormKit
+    type="group"
+    #default="{ state: { valid } }"
+    v-auto-animate
+    name="images"
+  >
+    <div class="single-images">
+      <file-upload>
+        <FormKit
+          id="logoForm"
+          type="file"
+          label="Logo"
+          label-class="$reset notice-voice"
+          name="logo"
+          help="Please add a logo"
+          accept=".jpg,.png,.jpeg"
+          validation="required"
+          @change="
+            console.log($event.target.files[0]);
+            dappForm.images.logo = $event.target.files[0];
+          "
+          v-auto-animate
+        />
+      </file-upload>
+      <file-upload>
+        <FormKit
+          id="bannerForm"
+          type="file"
+          label="Banner"
+          label-class="$reset notice-voice"
+          name="banner"
+          help="Please add a banner"
+          accept=".jpg,.png,.jpeg"
+          validation="required"
+          @change="dappForm.images.banner = $event.target.files[0]"
+          v-auto-animate
+        />
+      </file-upload>
+    </div>
+    <div class="actions">
+      <button class="button previous" @click.prevent="buttonHandle(valid, -1)">
+        Previous
+      </button>
+      <button class="button next" @click.prevent="buttonHandle(valid, 1)">
+        Next
+      </button>
+    </div>
+    <template v-if="buttonClick">
+      <p v-if="!valid" class="not-valid">
+        Your account details are not complete!
+      </p>
+      <p v-else class="valid">It all looks good 👍</p>
+    </template>
   </FormKit>
 </template>
 

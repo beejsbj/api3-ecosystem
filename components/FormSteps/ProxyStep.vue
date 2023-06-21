@@ -16,12 +16,21 @@ const proxyTemplate = {
   proxyAddress: "",
   isOEV: false,
 };
+
+const buttonClick = ref(false);
+function buttonHandle(valid, direction) {
+  formStepButtonHandle(valid, direction, buttonClick);
+}
 </script>
 
 <template>
-  <FormKit type="step" #default="{ isActiveStep }" name="proxy">
-    <FormTransitionSlot :isActiveStep="isActiveStep">
-      <!-- <ul class="proxy-table" v-auto-animate>
+  <FormKit
+    type="group"
+    #default="{ state: { valid } }"
+    v-auto-animate
+    name="proxy"
+  >
+    <!-- <ul class="proxy-table" v-auto-animate>
         <button
           class="icon"
           @click.prevent="dappForm.proxies.push({ ...proxyTemplate })"
@@ -63,39 +72,52 @@ const proxyTemplate = {
           </button>
         </li>
       </ul> -->
-      <FormKit
-        id="repeater"
-        name="proxy"
-        type="repeater"
-        label="Proxy"
-        :insert-control="true"
-        :add-button="false"
-        #default="{ index }"
-      >
-        <form-field>
-          <FormKit
-            type="checkbox"
-            label="Is it OEV?"
-            label-class="$reset notice-voice"
-            name="oevBeneficiary"
-            placeholder="OEV Beneficiary"
-            validation="required"
-            id="oevBeneficiary"
-          />
-        </form-field>
-        <form-field>
-          <FormKit
-            type="text"
-            label="Proxy Address"
-            label-class="$reset notice-voice"
-            name="proxyAddress"
-            placeholder="Proxy Address"
-            validation="required"
-            id="proxyAddress"
-          />
-        </form-field>
-      </FormKit>
-    </FormTransitionSlot>
+    <FormKit
+      id="repeater"
+      name="proxy"
+      type="repeater"
+      label="Proxy"
+      :insert-control="true"
+      :add-button="false"
+      #default="{ index }"
+    >
+      <form-field>
+        <FormKit
+          type="checkbox"
+          label="Is it OEV?"
+          label-class="$reset notice-voice"
+          name="oevBeneficiary"
+          placeholder="OEV Beneficiary"
+          validation="required"
+          id="oevBeneficiary"
+        />
+      </form-field>
+      <form-field>
+        <FormKit
+          type="text"
+          label="Proxy Address"
+          label-class="$reset notice-voice"
+          name="proxyAddress"
+          placeholder="Proxy Address"
+          validation="required"
+          id="proxyAddress"
+        />
+      </form-field>
+    </FormKit>
+    <div class="actions">
+      <button class="button previous" @click.prevent="buttonHandle(valid, -1)">
+        Previous
+      </button>
+      <button class="button next" @click.prevent="buttonHandle(valid, 1)">
+        Next
+      </button>
+    </div>
+    <template v-if="buttonClick">
+      <p v-if="!valid" class="not-valid">
+        Your account details are not complete!
+      </p>
+      <p v-else class="valid">It all looks good 👍</p>
+    </template>
   </FormKit>
 </template>
 

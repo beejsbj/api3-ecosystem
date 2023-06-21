@@ -14,19 +14,20 @@ function buttonHandle(valid, direction) {
     type="group"
     #default="{ state: { valid } }"
     v-auto-animate
-    name="socialLinks"
+    name="socialLinks2"
   >
     <section class="form-socials">
-      <h2 class="solid-voice">Socials</h2>
+      <h2 class="solid-voice">More Socials</h2>
+
       <form-field>
         <FormKit
           type="url"
           validation="url"
-          id="twitter"
-          v-model="dappForm.links.socials.twitter"
-          label="Twitter"
+          id="facebook"
+          v-model="dappForm.links.socials.facebook"
+          label="Facebook"
           label-class="$reset notice-voice"
-          placeholder="https://twitter.com/yourdapp"
+          placeholder="https://facebook.com/yourdapp"
         />
       </form-field>
 
@@ -34,11 +35,11 @@ function buttonHandle(valid, direction) {
         <FormKit
           type="url"
           validation="url"
-          id="discord"
-          v-model="dappForm.links.socials.discord"
-          label="Discord"
+          id="instagram"
+          v-model="dappForm.links.socials.instagram"
+          label="Instagram"
           label-class="$reset notice-voice"
-          placeholder="https://discord.gg/yourdapp"
+          placeholder="https://instagram.com/yourdapp"
         />
       </form-field>
 
@@ -46,11 +47,11 @@ function buttonHandle(valid, direction) {
         <FormKit
           type="url"
           validation="url"
-          id="github"
-          v-model="dappForm.links.socials.github"
-          label="Github"
+          id="youtube"
+          v-model="dappForm.links.socials.youtube"
+          label="Youtube"
           label-class="$reset notice-voice"
-          placeholder="github.com/yourdapp"
+          placeholder="https://youtube.com/yourdapp"
         />
       </form-field>
 
@@ -58,23 +59,11 @@ function buttonHandle(valid, direction) {
         <FormKit
           type="url"
           validation="url"
-          id="reddit"
-          v-model="dappForm.links.socials.reddit"
-          label="Reddit"
+          id="blog"
+          v-model="dappForm.links.socials.blog"
+          label="Blog"
           label-class="$reset notice-voice"
-          placeholder="https://reddit.com/r/yourdapp"
-        />
-      </form-field>
-
-      <form-field>
-        <FormKit
-          type="url"
-          validation="url"
-          id="telegram"
-          v-model="dappForm.links.socials.telegram"
-          label="Telegram"
-          label-class="$reset notice-voice"
-          placeholder="https://t.me/yourdapp"
+          placeholder="https://yourdapp.com/blog"
         />
       </form-field>
     </section>
