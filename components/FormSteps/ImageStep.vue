@@ -4,7 +4,7 @@ props.dappForm.images = props.dappForm.images ?? {};
 </script>
 
 <template>
-  <FormKit type="step" name="images" #default="{ isActiveStep }">
+  <FormKit type="step" #default="{ isActiveStep }" name="images">
     <FormTransitionSlot :isActiveStep="isActiveStep">
       <div class="single-images">
         <file-upload>

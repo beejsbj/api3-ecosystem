@@ -4,7 +4,7 @@ const props = defineProps(["dappForm"]);
 props.dappForm.owner = props.dappForm.owner ?? {};
 </script>
 <template>
-  <FormKit type="step" name="owner" #default="{ isActiveStep }">
+  <FormKit type="step" #default="{ isActiveStep }" name="owner">
     <FormTransitionSlot :isActiveStep="isActiveStep">
       <div class="step-transition-wrapper">
         <form-field>

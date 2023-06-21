@@ -5,7 +5,7 @@ props.dappForm.links = props.dappForm.links ?? {};
 </script>
 
 <template>
-  <FormKit type="step" name="links" #default="{ isActiveStep }">
+  <FormKit type="step" #default="{ isActiveStep }" name="links">
     <FormTransitionSlot :isActiveStep="isActiveStep">
       <section class="form-links">
         <h2 class="solid-voice">Links</h2>

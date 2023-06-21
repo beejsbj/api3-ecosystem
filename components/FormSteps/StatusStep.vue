@@ -3,7 +3,7 @@ const props = defineProps(["dappForm"]);
 </script>
 
 <template>
-  <FormKit type="step" name="status" #default="{ isActiveStep }">
+  <FormKit type="step" #default="{ isActiveStep }" name="status">
     <FormTransitionSlot :isActiveStep="isActiveStep">
       <form-field>
         <FormKit

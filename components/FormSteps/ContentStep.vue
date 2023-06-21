@@ -3,7 +3,7 @@ const props = defineProps(["dappForm"]);
 props.dappForm.date = new Date().toISOString().slice(0, 10);
 </script>
 <template>
-  <FormKit type="step" name="content" #default="{ isActiveStep }">
+  <FormKit type="step" #default="{ isActiveStep }" name="content">
     <FormTransitionSlot :isActiveStep="isActiveStep">
       <div class="step-transition-wrapper">
         <form-field>

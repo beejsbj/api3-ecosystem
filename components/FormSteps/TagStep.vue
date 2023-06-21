@@ -9,7 +9,7 @@ const props = defineProps(["dappForm"]);
 </script>
 
 <template>
-  <FormKit type="step" name="tags" #default="{ isActiveStep }">
+  <FormKit type="step" #default="{ isActiveStep }" name="tags">
     <FormTransitionSlot :isActiveStep="isActiveStep">
       <div class="step-transition-wrapper">
         <form-field>

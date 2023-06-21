@@ -19,7 +19,7 @@ const proxyTemplate = {
 </script>
 
 <template>
-  <FormKit type="step" name="proxy" #default="{ isActiveStep }">
+  <FormKit type="step" #default="{ isActiveStep }" name="proxy">
     <FormTransitionSlot :isActiveStep="isActiveStep">
       <!-- <ul class="proxy-table" v-auto-animate>
         <button

@@ -5,7 +5,7 @@ props.dappForm.links.socials = props.dappForm.links.socials ?? {};
 </script>
 
 <template>
-  <FormKit type="step" name="socialLinks" #default="{ isActiveStep }">
+  <FormKit type="step" #default="{ isActiveStep }" name="socialLinks">
     <FormTransitionSlot :isActiveStep="isActiveStep">
       <section class="form-socials">
         <h2 class="solid-voice">Socials</h2>
