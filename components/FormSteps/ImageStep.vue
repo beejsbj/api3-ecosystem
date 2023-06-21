@@ -11,7 +11,7 @@ props.dappForm.images = props.dappForm.images ?? {};
           <FormKit
             id="logoForm"
             type="file"
-            label="Logo"
+            label="Upload your logo"
             label-class="$reset notice-voice"
             name="logo"
             help="Please add a logo"
@@ -28,7 +28,7 @@ props.dappForm.images = props.dappForm.images ?? {};
           <FormKit
             id="bannerForm"
             type="file"
-            label="Banner"
+            label="Upload a branded banner"
             label-class="$reset notice-voice"
             name="banner"
             help="Please add a banner"

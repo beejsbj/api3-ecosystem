@@ -13,7 +13,7 @@ const props = defineProps(["dappForm"]);
     <FormTransitionSlot :isActiveStep="isActiveStep">
       <div>
         <form-field>
-          <label class="notice-voice" for="categories"> Category </label>
+          <label class="notice-voice" for="categories"> Select category </label>
           <Multiselect
             id="categories"
             v-model="dappForm.categories"
@@ -26,7 +26,7 @@ const props = defineProps(["dappForm"]);
         </form-field>
 
         <form-field>
-          <label class="notice-voice" for="chains"> Chain </label>
+          <label class="notice-voice" for="chains"> Select chain </label>
           <Multiselect
             id="chains"
             v-model="dappForm.chains"
@@ -39,7 +39,7 @@ const props = defineProps(["dappForm"]);
         </form-field>
 
         <form-field>
-          <label class="notice-voice" for="productTypes"> productType </label>
+          <label class="notice-voice" for="productTypes"> Select service used </label>
           <Multiselect
             id="productTypes"
             v-model="dappForm.productTypes"

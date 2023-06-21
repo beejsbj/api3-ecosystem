@@ -49,47 +49,39 @@ onMounted(() => {
     <mission-section>
       <heading-text>
         <h2 class="loud-voice">
-          <span class="highlight">API3</span> connects real-world data feeds to
+          <span class="highlight">API3</span> serves real-world data to
           <span class="highlight">Web3</span>, providing developers with secure
-          and reliable <span class="highlight">APIs</span> for building
-          decentralized applications.
+          and reliable <span class="highlight">data feeds</span> for smart contracts.
         </h2>
         <h3 class="teaser-voice">
-          Our mission is to enable digital innovation by bridging the gap
-          between smart contracts and the outside world, and to empower
-          developers to create industry-leading websites, experiences, and apps.
+          Through first-party oracles API3 DAO serves data on-chain using a secure and reliable solution, with end-to-end transparency.
         </h3>
       </heading-text>
       <article>
         <text-content>
           <div class="mission-card" @mouseenter="imageIndex = 0">
-            <h4 class="notice-voice">Decentralization</h4>
+            <h4 class="notice-voice">First-party Oracle Services</h4>
+            <p>
+              API3 empowers developers with secure and reliable access to real-world data. and
+              middleware, bridging the gap between smart contracts and the
+              outside world. 
+            </p>
+          </div>
+          <div class="mission-card" @mouseenter="imageIndex = 1">
+            <h4 class="notice-voice">DAO Governed</h4>
             <p>
               API3 prioritizes decentralization, a core value in the Web3
-              ecosystem. It establishes a trustless, open-source network of node
-              operators delivering secure, reliable, and transparent data feeds
-              to smart contracts. API3's governance model, based on a
+              ecosystem. API3's governance model, based on a
               decentralized autonomous organization (DAO), empowers token
               holders in decision-making.
             </p>
           </div>
-          <div class="mission-card" @mouseenter="imageIndex = 1">
-            <h4 class="notice-voice">Innovation</h4>
-            <p>
-              API3 empowers developers with secure and reliable APIs and
-              middleware, bridging the gap between smart contracts and the
-              outside world. Its commitment to digital innovation drives the
-              growth of the Web3 ecosystem. By providing decentralized APIs,
-              API3 enhances the security, transparency, and accessibility of the
-              Web.
-            </p>
-          </div>
           <div class="mission-card" @mouseenter="imageIndex = 2">
-            <h4 class="notice-voice">Accessibility</h4>
+            <h4 class="notice-voice">Developer Experience</h4>
             <p>
               API3 is dedicated to democratizing Web3, making it accessible to
               all. It achieves this through a user-friendly and comprehensive
-              decentralized API ecosystem, empowering developers to create
+              ecosystem, empowering developers to create
               exceptional websites, experiences, and apps.
             </p>
           </div>

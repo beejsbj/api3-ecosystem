@@ -4,23 +4,22 @@ const ui = useInterfaceStore();
 
 const showcaseCards = ref([
   {
-    heading: "Ecosystem",
-    paragraph: "Discover the various components of the blockchain ecosystem.",
+    heading: "API3 Ecosystem",
+    paragraph: "Discover and explore API3's ecosystem.",
     cta: "Explore Ecosystem",
     link: "/ecosystem",
     image: "/images/hero-graphic-ecosystem.svg",
   },
   {
-    heading: "Developers",
-    paragraph: "Learn how to build your own blockchain applications.",
+    heading: "Developer resource",
+    paragraph: "Learn how to utilize oracles whilst building your own blockchain applications.",
     cta: "Get Started",
     link: "/developers",
     image: "/images/hero-ecosystem-gears.svg",
   },
-
   {
-    heading: "Learning",
-    paragraph: "Find the tools and resources you need to get started.",
+    heading: "Updates",
+    paragraph: "Read updates from the API3 Ecosystem and partners",
     cta: "Explore Resources",
     link: "/learning",
     image: "/images/hero-ecosystem-articles.svg",

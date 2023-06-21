@@ -10,7 +10,7 @@ props.dappForm.owner = props.dappForm.owner ?? {};
         <form-field>
           <FormKit
             type="text"
-            label="Name"
+            label="Contact name"
             label-class="$reset notice-voice"
             name="name"
             placeholder="John Doe"
@@ -36,10 +36,10 @@ props.dappForm.owner = props.dappForm.owner ?? {};
         <form-field>
           <FormKit
             type="text"
-            label="Company"
+            label="dApp name"
             label-class="$reset notice-voice"
             name="company"
-            placeholder="Company inc."
+            placeholder="dApp name"
             validation="required"
             id="company"
             v-model="dappForm.owner.company"
