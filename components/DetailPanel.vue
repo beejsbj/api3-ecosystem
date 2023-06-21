@@ -20,10 +20,10 @@ const showShareBox = ref(false);
       </h2>
     </header>
     <article class="rows">
-      <div class="row status">
+      <!-- <div class="row status">
         <p>Status</p>
         <p>{{ dapp.status ? "Live" : "Beta" }}</p>
-      </div>
+      </div> -->
 
       <div class="row chain">
         <p>Chain</p>

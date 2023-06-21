@@ -19,7 +19,7 @@ const showcaseCards = ref([
   },
 
   {
-    heading: "Learning",
+    heading: "Updates",
     paragraph: "Find the tools and resources you need to get started.",
     cta: "Explore Resources",
     link: "/learning",

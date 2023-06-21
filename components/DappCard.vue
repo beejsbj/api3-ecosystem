@@ -21,13 +21,13 @@ function filterBy(event) {
         <img :src="logo" alt="" />
       </picture>
       <div>
-        <p
+        <!-- <p
           class="status"
           :class="{ Live: dapp.status, Beta: dapp.status }"
           @click="filterBy"
         >
           {{ dapp.status }}
-        </p>
+        </p> -->
         <div class="lists" v-if="true">
           <ul class="categories-list">
             <li

@@ -25,7 +25,9 @@ const props = defineProps(["dapp"]);
   picture {
     overflow: hidden;
     aspect-ratio: 8 / 2;
-    border-radius: var(--corners);
+    @media (min-width: 1400px) {
+      border-radius: var(--corners);
+    }
 
     img {
       width: 100%;

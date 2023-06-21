@@ -2,6 +2,9 @@
 
 <template>
   <nav>
+    <NuxtLink to="https://discord.gg/8uWxnRF" class="text social-icon">
+      <SocialIcon social="Discord" />
+    </NuxtLink>
     <NuxtLink class="text" to="/">Home</NuxtLink>
     <NuxtLink class="text" to="/ecosystem">Ecosystem</NuxtLink>
     <NuxtLink class="text" to="/articles">Articles</NuxtLink>
@@ -10,6 +13,9 @@
   </nav>
 </template>
 <style lang="scss" scoped>
+.social-icon {
+  max-width: 50px;
+}
 nav:not(.panel-menu) {
   display: flex;
   align-items: center;
