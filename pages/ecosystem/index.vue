@@ -1,15 +1,36 @@
 <script setup>
+import { gsap } from "gsap";
 import { useInterfaceStore } from "@/stores/interface";
 
 const ui = useInterfaceStore();
 
 const showFilter = ref(false);
+
+onMounted(() => {
+  const pageLoad = gsap.timeline();
+
+  pageLoad.fromTo(
+    ".ecosystem-header",
+    {
+      y: 50,
+      opacity: 0,
+      duration: 0,
+      delay: "0.5",
+    },
+    {
+      y: 0,
+      opacity: 1,
+      duration: 0.5,
+      ease: "power4.out",
+    }
+  );
+});
 </script>
 
 <template>
-  <SectionColumn innerClass="ecosystem-header">
+  <SectionColumn class="ecosystem-header">
     <h1 class="loud-voice gradient-text">Search API3's Ecosystem</h1>
-    <button class="loud-button firm-voice">
+    <button class="button filled firm-voice">
       <NuxtLink to="/add-dapp">Add Your Own</NuxtLink>
     </button>
   </SectionColumn>
@@ -46,15 +67,18 @@ const showFilter = ref(false);
   }
 }
 .ecosystem-header {
-  display: grid;
-  grid-template-columns: 1fr 0.5fr;
-  align-items: center;
-  justify-content: space-between;
-  justify-items: start;
-  padding: 60px 15px;
+  opacity: 0;
+  inner-column {
+    display: grid;
+    grid-template-columns: 1fr 0.5fr;
+    align-items: center;
+    justify-content: space-between;
+    justify-items: start;
+    padding: 60px 15px;
 
-  button {
-    justify-self: center;
+    button {
+      justify-self: center;
+    }
   }
 }
 </style>

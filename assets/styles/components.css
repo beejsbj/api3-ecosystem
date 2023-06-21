@@ -176,6 +176,12 @@ a.router-link-exact-active::after {
   inset: -1px;
   background: var(--gradient-color);
   z-index: -1;
+  transition: 0.1s;
+}
+
+.loud-button:hover::after {
+  inset: -3px;
+  transition: 0.2s;
 }
 
 .gradient-text {
