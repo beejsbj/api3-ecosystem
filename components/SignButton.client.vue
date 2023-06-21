@@ -31,5 +31,11 @@ async function getSignature() {
 </script>
 
 <template>
-  <button class="loud-button" @click="getSignature">Signature</button>
+  <button
+    class="loud-button"
+    v-if="getAccount().isConnected"
+    @click="getSignature"
+  >
+    Signature
+  </button>
 </template>

@@ -5,9 +5,8 @@ import {
   w3mProvider,
 } from "@web3modal/ethereum";
 import { Web3Modal } from "@web3modal/html";
-import { configureChains, createConfig } from "@wagmi/core";
+import { configureChains, createConfig, getAccount } from "@wagmi/core";
 import { arbitrum, mainnet, polygon } from "@wagmi/core/chains";
-import { signTypedData, getAccount } from "@wagmi/core";
 
 //get env variable for project id
 const config = useRuntimeConfig();
@@ -29,52 +28,19 @@ const ethereumClient = new EthereumClient(wagmiConfig, chains);
 const web3modal = new Web3Modal({ projectId }, ethereumClient);
 
 /////
-const signature = ref(null);
 
-const wallet = computed(() => {
-  return getAccount();
-});
-
-async function getSignature() {
-  console.log(getAccount());
-
-  const domain = {
-    name: "Verify User",
-    version: "1",
-  };
-  // The named list of all type definitions
-  const types = {
-    User: [{ name: "wallet", type: "string" }],
-  };
-  const message = {
-    wallet: getAccount().address,
-  };
-
-  signature.value = await signTypedData({
-    domain,
-    message,
-    types,
-    primaryType: "User",
-  });
-
-  console.log("signature", signature.value);
-}
-
-async function onSignIn() {
+async function buttonHandle() {
   await web3modal.openModal();
 }
 </script>
 
 <template>
-  <div class="actions">
-    <button
-      class="loud-button"
-      v-if="!getAccount().isConnected"
-      @click="onSignIn"
-    >
-      <span class="gradient-text"> Connect </span>
+  <div>
+    <button class="loud-button" @click="buttonHandle">
+      <span class="gradient-text" v-if="!getAccount().isConnected">
+        Connect
+      </span>
+      <span v-else class="gradient-text">Connected</span>
     </button>
-
-    <button class="loud-button" @click="getSignature" v-else>Sign</button>
   </div>
 </template>

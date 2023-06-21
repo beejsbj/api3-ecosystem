@@ -6,6 +6,6 @@ const blog = useBlogStore();
 <template>
   <PageHeader heading="Style Guide" />
   <SectionColumn>
-    <ConnectButton />
+    <SignButton />
   </SectionColumn>
 </template>
