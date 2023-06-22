@@ -91,5 +91,6 @@ export default defineNuxtConfig({
     public: {
       WEB3MODAL_PROJECT_ID: process.env.WEB3MODAL_PROJECT_ID,
     },
+    GIT_ACCESS_TOKEN: process.env.GIT_ACCESS_TOKEN,
   },
 });
