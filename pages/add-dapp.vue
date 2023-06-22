@@ -6,6 +6,11 @@ import { setErrors } from "@formkit/vue";
 definePageMeta({
   title: "Add Dapp",
   layout: "home",
+  middleware: ["auth"],
+});
+
+useHead({
+  title: "Add Dapp",
 });
 
 //
@@ -27,7 +32,6 @@ const submitHandler = async () => {
   body.append("proxies", dappForm.proxies);
   body.append("year", dappForm.year);
   body.append("links", dappForm.links);
-  body.append("isLive", dappForm.isLive);
 
   // images
   body.append("logo", dappForm.images.logo);
@@ -41,6 +45,9 @@ const submitHandler = async () => {
   const response = await $fetch("/api/projects", {
     method: "POST",
     body,
+    headers: {
+      Authorization: "token #todo",
+    },
   });
 
   if (response.ok) {
@@ -99,7 +106,7 @@ onMounted(() => {
 </template>
 
 <style lang="scss">
-body:has(main.add-dapp-2) {
+body:has(main.add-dapp) {
   overflow: hidden;
 }
 
@@ -115,12 +122,12 @@ form {
   overflow-y: scroll;
   scroll-snap-type: mandatory;
   scroll-snap-type: y mandatory;
-  scroll-snap-points-y: repeat(calc(100vh - 125px));
+  scroll-snap-points-y: repeat(calc(100vh - 100px));
   scroll-behavior: smooth;
 
   & > :is(.step, .formkit-actions) {
     scroll-snap-align: start;
-    height: calc(100vh - 125px);
+    height: calc(100vh - 100px);
     display: grid;
     gap: 3rem;
     align-content: center;
@@ -158,7 +165,7 @@ form {
 }
 
 form > .formkit-actions {
-  justify-content: end;
+  justify-content: start;
 }
 
 .formkit-step-actions {

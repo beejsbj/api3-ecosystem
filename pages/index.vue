@@ -31,7 +31,7 @@ onMounted(() => {
 
 <template>
   <HeroLanding />
-  <ScrollingStats />
+  <!-- <ScrollingStats /> -->
 
   <MissionComponent />
 
@@ -61,7 +61,7 @@ main.index {
     margin-bottom: 2rem;
   }
   @media (min-width: 768px) {
-    gap: 5rem;
+    gap: 8rem;
   }
   @media (min-width: 1024px) {
     max-height: 100vh;
@@ -87,6 +87,21 @@ main.index {
         height: calc(50vh - 50px);
       }
     }
+  }
+}
+
+h1 {
+  padding: 5px 0;
+  background: linear-gradient(
+    var(--gradient-direction),
+    var(--ink),
+    var(--color)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  &.booming-voice {
+    padding: 30px 0;
   }
 }
 </style>

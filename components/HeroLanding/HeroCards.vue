@@ -11,19 +11,19 @@ const showcaseCards = ref([
     image: "/images/hero-graphic-ecosystem.svg",
   },
   {
-    heading: "Developer resource",
+    heading: "Developers",
     paragraph:
       "Learn how to utilize oracles whilst building your own blockchain applications.",
     cta: "Get Started",
-    link: "/developers",
+    link: "/ecosystem#todo",
     image: "/images/hero-ecosystem-gears.svg",
   },
 
   {
     heading: "Updates",
     paragraph: "Read updates from the API3 Ecosystem and partners",
-    cta: "Explore Resources",
-    link: "/learning",
+    cta: "Discover Updates",
+    link: "/articles",
     image: "/images/hero-ecosystem-articles.svg",
   },
 ]);
@@ -46,6 +46,9 @@ const showcaseCards = ref([
           {{ card.paragraph }}
         </p>
       </text-content>
+      <NuxtLink class="text" :to="card.link">
+        {{ card.cta }}
+      </NuxtLink>
     </hero-card>
   </div>
 </template>
@@ -82,11 +85,15 @@ div.items {
     min-height: 250px;
     box-shadow: var(--shadow);
     position: relative;
-    padding: 3rem;
+    padding: 1.5rem 0;
     display: grid;
     align-items: center;
     //  grid-template-columns: 0.1fr 1fr;
     gap: 1.5rem;
+
+    text-content {
+      padding: 0 1rem;
+    }
 
     @media (min-width: 768px) {
       box-shadow: unset;
@@ -103,6 +110,10 @@ div.items {
       transform: translateY(-50%);
       width: 150px;
       opacity: 0.5;
+    }
+
+    a {
+      align-self: end;
     }
   }
 

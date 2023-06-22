@@ -89,13 +89,15 @@ onMounted(() => {
       <picture class="line-decoration decoration">
         <LineDecoration />
       </picture>
-      <h1
-        class="page-title"
-        :class="{ 'booming-voice': !ui.isMobile, 'loud-voice': ui.isMobile }"
-      >
-        Uniting the First-Party Oracle Ecosystem
-        <!-- {{ content.title }} -->
-      </h1>
+      <ClientOnly>
+        <h1
+          class="page-title"
+          :class="{ 'booming-voice': !ui.isMobile, 'loud-voice': ui.isMobile }"
+        >
+          Uniting the First-Party Oracle Ecosystem
+          <!-- {{ content.title }} -->
+        </h1>
+      </ClientOnly>
 
       <div class="intro-paragraph">
         <picture>

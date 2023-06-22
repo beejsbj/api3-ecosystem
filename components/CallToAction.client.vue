@@ -87,7 +87,7 @@ onMounted(() => {
   z-index: -1;
 
   @media (min-width: 768px) {
-    bottom: 0;
+    bottom: 20px;
   }
 }
 

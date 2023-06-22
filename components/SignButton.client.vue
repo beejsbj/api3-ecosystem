@@ -32,6 +32,8 @@ async function getSignature() {
       nonce: nonce,
     },
   });
+
+  console.log(signatureVerification);
 }
 </script>
 

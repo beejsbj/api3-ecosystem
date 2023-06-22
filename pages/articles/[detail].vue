@@ -18,6 +18,18 @@ const loadMarkdown = async () => {
 };
 loadMarkdown();
 
+useHead({
+  title: article.value?.title,
+  description: article.value?.description,
+  image: article.value?.image,
+  ogType: "article",
+  ogUrl: `#todo/articles/${data.id}`,
+  ogTitle: article.value?.title,
+  ogDescription: article.value?.description,
+  ogImage: article.value?.image,
+  ogArticlePublishedTime: article.value?.date,
+});
+
 // const article = computed(() => {
 //   return blog.list.find(
 //     (article) => slug(article.title) === route.params.detail

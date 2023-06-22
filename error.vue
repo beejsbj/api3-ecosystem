@@ -1,6 +1,11 @@
 <script setup>
 console.log("hello world");
 const props = defineProps(["error"]);
+
+useHead({
+  title: error.statusCode,
+});
+
 console.log(props.error);
 </script>
 

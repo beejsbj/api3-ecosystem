@@ -9,17 +9,25 @@
     <NuxtLink class="text" to="/ecosystem">Ecosystem</NuxtLink>
     <NuxtLink class="text" to="/articles">Articles</NuxtLink>
     <!-- <NuxtLink to="/about">About</NuxtLink> -->
-    <ConnectButton />
+    <div class="actions">
+      <ConnectButton />
+    </div>
   </nav>
 </template>
 <style lang="scss" scoped>
 .social-icon {
   max-width: 50px;
+  padding: 0.5rem 1rem;
 }
 
 :deep(.loud-button) {
   padding: 0.5rem 2rem;
-  margin-left: 2rem;
+  @media (min-width: 768px) {
+    margin-left: 2rem;
+  }
+  @media (max-width: 768px) {
+    margin-top: 2rem;
+  }
 }
 nav:not(.panel-menu) {
   display: flex;

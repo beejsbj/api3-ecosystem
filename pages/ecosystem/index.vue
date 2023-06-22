@@ -6,6 +6,10 @@ const ui = useInterfaceStore();
 
 const showFilter = ref(false);
 
+useHead({
+  title: "Ecosystems",
+});
+
 onMounted(() => {
   const pageLoad = gsap.timeline();
 
