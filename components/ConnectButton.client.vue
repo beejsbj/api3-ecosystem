@@ -35,12 +35,10 @@ async function buttonHandle() {
 </script>
 
 <template>
-  <div>
-    <button class="loud-button" @click="buttonHandle">
-      <span class="gradient-text" v-if="!getAccount().isConnected">
-        Connect
-      </span>
-      <span v-else class="gradient-text">Connected</span>
-    </button>
-  </div>
+  <button class="loud-button" @click="buttonHandle">
+    <span class="gradient-text" v-if="!getAccount().isConnected">
+      Connect
+    </span>
+    <span v-else class="gradient-text">Connected</span>
+  </button>
 </template>

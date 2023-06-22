@@ -16,6 +16,11 @@
 .social-icon {
   max-width: 50px;
 }
+
+:deep(.loud-button) {
+  padding: 0.5rem 2rem;
+  margin-left: 2rem;
+}
 nav:not(.panel-menu) {
   display: flex;
   align-items: center;
