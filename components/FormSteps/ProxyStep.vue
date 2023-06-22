@@ -84,7 +84,7 @@ function buttonHandle(valid, direction) {
       <form-field>
         <FormKit
           type="checkbox"
-          label="Is it OEV?"
+          label="Are you capturing OEV?"
           label-class="$reset notice-voice"
           name="oevBeneficiary"
           placeholder="OEV Beneficiary"
@@ -95,10 +95,9 @@ function buttonHandle(valid, direction) {
       <form-field>
         <FormKit
           type="text"
-          label="Proxy Address"
+          label="Insert Proxy Address"
           label-class="$reset notice-voice"
           name="proxyAddress"
-          placeholder="Proxy Address"
           validation="required"
           id="proxyAddress"
         />

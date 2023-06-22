@@ -18,7 +18,7 @@ function buttonHandle(valid, direction) {
     <form-field>
       <FormKit
         type="text"
-        label="Name"
+        label="Contact name"
         label-class="$reset notice-voice"
         name="name"
         placeholder="John Doe"

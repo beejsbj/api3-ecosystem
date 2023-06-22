@@ -17,10 +17,10 @@ function buttonHandle(valid, direction) {
     <form-field>
       <FormKit
         type="text"
-        label="Dapp Name"
+        label="dApp Name"
         label-class="$reset notice-voice"
         name="dappName"
-        placeholder="Dapp Name"
+        placeholder="Insert your dApp name"
         validation="required"
         id="dappName"
         v-model="dappForm.name"
@@ -31,11 +31,12 @@ function buttonHandle(valid, direction) {
     <form-field>
       <FormKit
         type="text"
-        label="Short Description"
+        label="Tagline"
         label-class="$reset notice-voice"
         name="shortDescription"
-        placeholder="Short Description"
-        validation="required"
+        placeholder="Insert a quater-tweet sized description of your dApp"
+        help="You will see this on your card"
+        validation="required|length:60"
         id="shortDescription"
         v-model="dappForm.shortDescription"
       />
@@ -46,10 +47,11 @@ function buttonHandle(valid, direction) {
       <FormKit
         type="textarea"
         rows="5"
-        label="Long Description"
+        label="Description"
         label-class="$reset notice-voice"
         name="longDescription"
-        placeholder="Long Description"
+        placeholder="Insert a longer form description of your dApp"
+        help="This is going to be your 'About', it can be a paragraph or two."
         validation="required"
         id="longDescription"
         v-model="dappForm.longDescription"

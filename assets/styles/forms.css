@@ -1,6 +1,7 @@
 form {
   --multistep-radius: var(--corners);
   --multistep-color-success: var(--color);
+  --fk-color-help: var(--ink);
   fill: black !important;
 
   /* vueform/multistep */

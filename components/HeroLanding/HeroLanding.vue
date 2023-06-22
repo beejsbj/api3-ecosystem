@@ -93,7 +93,7 @@ onMounted(() => {
         class="page-title"
         :class="{ 'booming-voice': !ui.isMobile, 'loud-voice': ui.isMobile }"
       >
-        Unleash the Potential of Web3 dApps
+        Uniting the First-Party Oracle Ecosystem
         <!-- {{ content.title }} -->
       </h1>
 
@@ -102,10 +102,9 @@ onMounted(() => {
           <LogoWhite />
         </picture>
         <p class="notice-voice">
-          Experience the transformative power of blockchain technology through
-          revolutionary applications that are reshaping various industries.
-          Uncover the forefront of innovation and witness the game-changing
-          potential of blockchain in action.
+          Welcome to the API3 ecosystem a space for blockchain enthusiasts,
+          developers, and visionaries from across the globe using API3 data
+          feeds.
         </p>
       </div>
       <HeroCards />

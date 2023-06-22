@@ -20,7 +20,7 @@ function buttonHandle(valid, direction) {
         <FormKit
           id="logoForm"
           type="file"
-          label="Logo"
+          label="Upload your logo"
           label-class="$reset notice-voice"
           name="logo"
           help="Please add a logo"
@@ -33,11 +33,12 @@ function buttonHandle(valid, direction) {
           v-auto-animate
         />
       </file-upload>
+      <!-- #todo add resolution helper and size limit -->
       <file-upload>
         <FormKit
           id="bannerForm"
           type="file"
-          label="Banner"
+          label="Upload a branded banner"
           label-class="$reset notice-voice"
           name="banner"
           help="Please add a banner"

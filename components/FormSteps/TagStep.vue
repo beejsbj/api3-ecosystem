@@ -21,7 +21,7 @@ function buttonHandle(valid, direction) {
     name="tags"
   >
     <form-field>
-      <label class="notice-voice" for="categories"> Category </label>
+      <label class="notice-voice" for="categories"> Select category </label>
       <Multiselect
         id="categories"
         v-model="dappForm.categories"
@@ -34,7 +34,7 @@ function buttonHandle(valid, direction) {
     </form-field>
 
     <form-field>
-      <label class="notice-voice" for="chains"> Chain </label>
+      <label class="notice-voice" for="chains"> Select chains </label>
       <Multiselect
         id="chains"
         v-model="dappForm.chains"
@@ -47,7 +47,9 @@ function buttonHandle(valid, direction) {
     </form-field>
 
     <form-field>
-      <label class="notice-voice" for="productTypes"> productType </label>
+      <label class="notice-voice" for="productTypes">
+        select the services used
+      </label>
       <Multiselect
         id="productTypes"
         v-model="dappForm.productTypes"
