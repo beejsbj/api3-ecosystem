@@ -55,10 +55,6 @@ const ProjectSchema = new Schema({
     enum: ["inactive", "active", "rejected"],
     default: "inactive",
   },
-  isLive: {
-    type: Boolean,
-    default: false,
-  },
   images: {
     type: ImageSchema,
   },
@@ -69,10 +65,6 @@ const ProjectSchema = new Schema({
   productTypes: {
     type: [String],
     required: true,
-  },
-  user: {
-    type: Schema.Types.ObjectId,
-    ref: "users",
   },
   chains: {
     type: [ChainSchema],

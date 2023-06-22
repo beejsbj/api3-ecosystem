@@ -1,10 +1,10 @@
 import type { EventHandler } from "h3";
+import { verifyToken } from "../services/jwt";
+import { DecodedToken } from "../types";
 
 export const authenticated = (handler: EventHandler) =>
   defineEventHandler(async (event) => {
     try {
-      // validate token in header
-      // set authenticated user in context
       const authToken = event.node.req.headers.authorization;
       console.log("token ", authToken);
       console.log("headers ", event.node.req.headers);
@@ -14,17 +14,17 @@ export const authenticated = (handler: EventHandler) =>
           error: "Unauthorized",
         };
       }
-      //:TODO: verify token
 
-      //   const token = authToken.split(" ")[1];
-      //   const decodedToken = jwt.verify(token, config.JWT_SECRET);
-      //   if (!decodedToken) {
-      //     event.res.statusCode = 401;
-      //     return {
-      //       error: "Unauthorized",
-      //     };
-      //   }
-      event.context.auth = { user: "auth checked" };
+      const decodedToken: DecodedToken | null = verifyToken(authToken);
+
+      if (!decodedToken) {
+        event.res.statusCode = 401;
+        return {
+          error: "Unauthorized",
+        };
+      }
+
+      event.context.auth = { user: decodedToken };
 
       const response = await handler(event);
 
