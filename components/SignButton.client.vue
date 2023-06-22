@@ -1,32 +1,37 @@
 <script setup>
-import { signTypedData, getAccount } from "@wagmi/core";
+import { getAccount, signMessage } from "@wagmi/core";
+import { SiweMessage } from "siwe";
 
 /////
-const signature = ref(null);
-
-const domain = {
-  name: "Verify User",
-  version: "1",
-};
-// The named list of all type definitions
-const types = {
-  User: [{ name: "wallet", type: "string" }],
-};
-const message = {
-  wallet: getAccount().address,
-};
 
 async function getSignature() {
-  console.log(getAccount());
-
-  signature.value = await signTypedData({
-    domain,
-    message,
-    types,
-    primaryType: "User",
+  const nonce = await $fetch("/api/auth/nonce", {
+    method: "GET",
   });
 
-  console.log("signature", signature.value);
+  const address = getAccount().address;
+
+  const message = new SiweMessage({
+    domain: window.location.host,
+    address: address,
+    statement: "Sign in with Ethereum to the API3 ecosystem.",
+    uri: window.location.origin,
+    version: "1",
+    chainId: 56,
+    nonce: nonce,
+  });
+
+  const signature = await signMessage({ message: message.prepareMessage() });
+
+  const signatureVerification = await $fetch("/api/auth", {
+    method: "POST",
+    body: {
+      signature: signature,
+      address: address,
+      message: message.prepareMessage(),
+      nonce: nonce,
+    },
+  });
 }
 </script>
 
