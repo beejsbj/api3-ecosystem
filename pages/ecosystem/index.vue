@@ -34,9 +34,10 @@ onMounted(() => {
 <template>
   <SectionColumn class="ecosystem-header">
     <h1 class="loud-voice gradient-text">Search API3's Ecosystem</h1>
-    <button class="button filled firm-voice">
-      <NuxtLink to="/add-dapp">Add Your Own</NuxtLink>
-    </button>
+
+    <NuxtLink to="/add-dapp" class="button filled firm-voice"
+      >Add Your Own</NuxtLink
+    >
   </SectionColumn>
 
   <SectionColumn innerClass="main-grid">
@@ -80,7 +81,7 @@ onMounted(() => {
     justify-items: start;
     padding: 60px 15px;
 
-    button {
+    .button {
       justify-self: center;
     }
   }

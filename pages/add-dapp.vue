@@ -8,7 +8,6 @@ import { SiweMessage } from "siwe";
 definePageMeta({
   title: "Add Dapp",
   layout: "home",
-  middleware: ["auth"],
 });
 
 useHead({

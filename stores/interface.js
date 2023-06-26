@@ -1,7 +1,6 @@
 import { ref, computed, onUpdated } from "vue";
 import { defineStore } from "pinia";
 import { gsap } from "gsap";
-// #todo make this store client only
 
 export const useInterfaceStore = defineStore("interface", function () {
   const mainMenuOpen = ref(false);

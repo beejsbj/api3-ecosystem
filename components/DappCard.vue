@@ -66,7 +66,10 @@ function filterBy(event) {
     <div class="background-wrapper">
       <picture
         class="card-background"
-        v-if="`/images/chains/${dapp.chains[0].name.toLowerCase()}.svg`"
+        v-if="
+          dapp.chains[0].name &&
+          `/images/chains/${dapp.chains[0].name.toLowerCase()}.svg`
+        "
       >
         <ChainIcon
           :chain="dapp.chains[0].name"
