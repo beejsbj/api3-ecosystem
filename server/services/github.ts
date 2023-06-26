@@ -1,5 +1,10 @@
 import { Octokit } from "@octokit/rest";
 
+interface PrStatus {
+  status: "success" | "failure";
+  message: string;
+}
+
 const config = useRuntimeConfig();
 const octokit = new Octokit({
   auth: config.GIT_ACCESS_TOKEN,
@@ -8,14 +13,16 @@ const octokit = new Octokit({
 const owner = "AamirAlam";
 const repo = "dapp-registry";
 
-export async function createPR(projectData: any): Promise<boolean> {
+export async function createPR(
+  projectData: any,
+  projectId: string
+): Promise<PrStatus> {
   const title = projectData.name?.split(" ")?.join("-");
-  const branch = `${title}-${projectData?._id}`;
+  const branch = `${title}-${projectId}`;
   const base = "main";
   const path = `projects/${branch}.json`;
 
   let branchCreated = false;
-  let prCreated = false;
   try {
     // get the SHA of the latest commit on the base branch
     const { data: refData } = await octokit.git.getRef({
@@ -91,8 +98,7 @@ export async function createPR(projectData: any): Promise<boolean> {
       head: branch,
       base,
     });
-    prCreated = true;
-    return prCreated;
+    return { status: "success", message: "Pull request created for review" };
   } catch (err) {
     // delete created branch if something went wrong
 
@@ -111,6 +117,6 @@ export async function createPR(projectData: any): Promise<boolean> {
       }
     }
 
-    return prCreated;
+    return { status: "failure", message: "Failed to create pull request" };
   }
 }

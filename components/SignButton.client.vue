@@ -17,7 +17,6 @@ async function getSignature() {
     statement: "Sign in with Ethereum to the API3 ecosystem.",
     uri: window.location.origin,
     version: "1",
-    chainId: 56,
     nonce: nonce,
   });
 

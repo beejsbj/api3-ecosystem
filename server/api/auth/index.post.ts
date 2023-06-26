@@ -8,7 +8,7 @@ export default defineEventHandler(async (event: any) => {
     const { signature, message, address, nonce } = await (event.node?.req
       ?.body || readBody(event));
 
-    const siweMessage = new SiweMessage(message);
+    const siweMessage = new SiweMessage(JSON.parse(message));
     const verificationResult = await siweMessage.verify({ signature });
     const fields = verificationResult.data;
     console.log("fields ", fields);
@@ -28,6 +28,23 @@ export default defineEventHandler(async (event: any) => {
       };
     }
 
+    // check for request origin and domain
+    // if(fields.domain !== event.node.req.headers.host) {
+    //   event.res.statusCode = 401;
+    //   return {
+    //     code: "AuthorizationFailed",
+    //     message: "Wrong domain!",
+    //   };
+    // }
+
+    // if(fields.uri !== event.node.req.headers.origin) {
+    //   event.res.statusCode = 401;
+    //   return {
+    //     code: "AuthorizationFailed",
+    //     message: "Wrong uri!",
+    //   };
+    // }
+
     const existingUser = await User.findOne({ address: fields.address });
 
     if (!existingUser) {
@@ -39,9 +56,19 @@ export default defineEventHandler(async (event: any) => {
       await newUser.save();
     }
 
+    if (
+      existingUser &&
+      existingUser.address?.toLowerCase() !== fields?.address?.toLowerCase()
+    ) {
+      event.res.statusCode = 401;
+      return {
+        code: "AuthorizationFailed",
+        message: "Wrong address!",
+      };
+    }
+
     const tokenPayload: JwtPayload = {
       address: fields.address,
-      chainId: fields.chainId,
       id: existingUser?.id,
       role: "user",
     };
