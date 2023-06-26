@@ -6,8 +6,7 @@ export const authenticated = (handler: EventHandler) =>
   defineEventHandler(async (event) => {
     try {
       const authToken = event.node.req.headers.authorization;
-      console.log("token ", authToken);
-      console.log("headers ", event.node.req.headers);
+
       if (!authToken) {
         event.res.statusCode = 401;
         return {

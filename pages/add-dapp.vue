@@ -1,6 +1,8 @@
 <script setup>
 import { useStorage } from "@vueuse/core";
 import { setErrors } from "@formkit/vue";
+import { getAccount, signMessage } from "@wagmi/core";
+import { SiweMessage } from "siwe";
 
 //
 definePageMeta({
@@ -17,8 +19,55 @@ useHead({
 const dappForm = useStorage("dapp-form", {});
 const complete = ref(false);
 
+async function checkSignatureVerification() {
+  try {
+    const nonce = await $fetch("/api/auth/nonce", {
+      method: "GET",
+    });
+
+    const address = getAccount().address;
+
+    const message = new SiweMessage({
+      domain: window.location.host,
+      address: address,
+      statement: "Sign in with Ethereum to the API3 ecosystem",
+      uri: window.location.origin,
+      version: "1",
+      nonce: nonce,
+    });
+
+    const messageToSign = message.prepareMessage();
+    const signature = await signMessage({ message: messageToSign });
+
+    if (!signature) {
+      return null;
+    }
+
+    const signatureVerification = await $fetch("/api/auth", {
+      method: "POST",
+      body: {
+        signature: signature,
+        address: address,
+        message: JSON.stringify(message),
+        nonce: nonce,
+      },
+    });
+
+    console.log("verificationStatus result", signatureVerification);
+
+    return signatureVerification;
+  } catch (error) {
+    console.log("signature error", error);
+    return null;
+  }
+}
+
 const submitHandler = async () => {
   console.log("submit click", dappForm.value);
+
+  const verificationStatus = await checkSignatureVerification();
+
+  console.log("verificationStatus", verificationStatus);
 
   const body = new FormData();
 
@@ -26,27 +75,27 @@ const submitHandler = async () => {
   body.append("name", dappForm.name);
   body.append("tagline", dappForm.tagline);
   body.append("description", dappForm.description);
-  body.append("chains", dappForm.chains);
-  body.append("categories", dappForm.categories);
-  body.append("productTypes", dappForm.productTypes);
+  body.append("chains", JSON.stringify(dappForm.chains));
+  body.append("categories", JSON.stringify(dappForm.categories));
+  body.append("productType", dappForm.productType);
   body.append("proxies", dappForm.proxies);
   body.append("year", dappForm.year);
-  body.append("links", dappForm.links);
+  body.append("links", JSON.stringify(dappForm.links));
 
   // images
   body.append("logo", dappForm.images.logo);
   body.append("banner", dappForm.images.banner);
 
-  dappForm.images.screenshots.forEach((fileItem, index) => {
+  dappForm.images?.screenshots.forEach((fileItem, index) => {
     console.log(fileItem);
     body.append(`screenshot-${index + 1}`, fileItem.file);
   });
 
   const response = await $fetch("/api/projects", {
     method: "POST",
-    body,
+    body: body,
     headers: {
-      Authorization: "token #todo",
+      Authorization: verificationStatus.token,
     },
   });
 

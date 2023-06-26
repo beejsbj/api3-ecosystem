@@ -47,17 +47,17 @@ function buttonHandle(valid, direction) {
     </form-field>
 
     <form-field>
-      <label class="notice-voice" for="productTypes">
-        select the services used
+      <label class="notice-voice" for="productType">
+        select the service used
       </label>
       <Multiselect
         id="productTypes"
-        v-model="dappForm.productTypes"
+        v-model="dappForm.productType"
         mode="tags"
         :close-on-select="false"
         :searchable="true"
         :create-option="false"
-        :options="ecosystem.productTypes"
+        :options="ecosystem.productType"
       />
     </form-field>
     <div class="actions">
