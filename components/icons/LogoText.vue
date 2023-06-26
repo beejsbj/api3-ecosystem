@@ -2,6 +2,7 @@
 import { useInterfaceStore } from "~/stores/interface";
 
 const ui = useInterfaceStore();
+console.log(ui.isMobile);
 </script>
 
 <template>

@@ -68,7 +68,7 @@ mast-head {
   grid-template-columns: 1fr 0.5fr;
   justify-content: space-between;
   .site-logo {
-    width: 40px;
+    width: 50px;
     cursor: pointer;
     @media (min-width: 768px) {
       width: 100px;

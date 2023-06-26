@@ -5,7 +5,7 @@ import {
   w3mProvider,
 } from "@web3modal/ethereum";
 import { Web3Modal } from "@web3modal/html";
-import { configureChains, createConfig, getAccount } from "@wagmi/core";
+import { configureChains, createConfig, watchAccount } from "@wagmi/core";
 import { arbitrum, mainnet, polygon } from "@wagmi/core/chains";
 
 //get env variable for project id
@@ -27,8 +27,13 @@ const wagmiConfig = createConfig({
 const ethereumClient = new EthereumClient(wagmiConfig, chains);
 const web3modal = new Web3Modal({ projectId }, ethereumClient);
 
-/////
+//get account info in a ref to keep watchful
+const account = ref({});
+const unwatch = watchAccount((acc) => {
+  account.value = { ...acc };
+});
 
+/////
 async function buttonHandle() {
   await web3modal.openModal();
 }
@@ -36,9 +41,11 @@ async function buttonHandle() {
 
 <template>
   <button class="loud-button" @click="buttonHandle">
-    <span class="gradient-text" v-if="!getAccount().isConnected">
-      Connect
-    </span>
-    <span v-else class="gradient-text">Connected</span>
+    <Transition name="fade" mode="out-in">
+      <span class="gradient-text" v-if="!account?.isConnected"> Connect </span>
+      <span v-else class="gradient-text">Connected</span>
+    </Transition>
   </button>
 </template>
+
+<style scoped></style>

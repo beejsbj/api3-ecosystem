@@ -16,7 +16,7 @@
 </template>
 <style lang="scss" scoped>
 .social-icon {
-  max-width: 50px;
+  width: 50px;
   padding: 0.5rem 1rem;
 }
 
