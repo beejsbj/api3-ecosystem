@@ -16,6 +16,11 @@ watch(
 onMounted(() => {
   const pageLoad = gsap.timeline();
 
+  pageLoad.to(".dapp-grid", {
+    opacity: 1,
+    duration: 0,
+  });
+
   if (document.querySelector("dapp-card")) {
     pageLoad.fromTo(
       "dapp-card",
@@ -57,6 +62,7 @@ onMounted(() => {
   gap: 2rem;
   align-items: start;
   position: relative;
+  opacity: 0;
 }
 
 .list-move {

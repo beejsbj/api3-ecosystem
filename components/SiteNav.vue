@@ -2,7 +2,7 @@
 
 <template>
   <nav>
-    <NuxtLink to="https://discord.gg/8uWxnRF" class="text social-icon">
+    <NuxtLink to="https://discord.gg/8uWxnRF" class="icon social-icon">
       <SocialIcon social="Discord" />
     </NuxtLink>
     <NuxtLink class="text" to="/">Home</NuxtLink>
@@ -16,8 +16,10 @@
 </template>
 <style lang="scss" scoped>
 .social-icon {
-  width: 50px;
-  padding: 0.5rem 1rem;
+  width: 35px;
+  padding: 0.5rem;
+  border: unset;
+  margin-right: 1rem;
 }
 
 :deep(.loud-button) {

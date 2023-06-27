@@ -86,7 +86,6 @@ dapp-card {
   display: grid;
   grid-template-rows: 0.5fr 1fr 0.1fr;
   gap: 0.5rem;
-  opacity: 0;
 
   padding: 1rem;
   border-radius: var(--corners);

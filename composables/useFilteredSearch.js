@@ -15,7 +15,6 @@ export default function useFilteredSearch(ecosystem) {
       console.log("returned list", ecosystem.list);
       return ecosystem.list;
     }
-    console.log("filtered list");
 
     const allFiltered = ecosystem.list.filter((dapp) => {
       const filteredCategories = ecosystem.filter.category.every((category) => {
@@ -49,26 +48,30 @@ export default function useFilteredSearch(ecosystem) {
         filteredStatus
       );
     });
+    console.log("filtered list", allFiltered);
     return allFiltered;
   });
 
   const searchResults = computed(() => {
-    if (!ecosystem.filter.search) return filtered.value;
+    if (!searchLowerCase.value) return filtered.value;
+
+    console.log(searchLowerCase.value);
 
     const allFiltered = filtered.value.filter((dapp) => {
+      console.log(filtered.value, dapp);
       const searchStr = searchLowerCase.value;
       const fieldsToCheck = [
         dapp.name,
         dapp.tagline,
         ...dapp.categories,
         ...dapp.productTypes,
-        ...dapp.chains,
-        ...dapp.about,
+        ...dapp.chains.map((chain) => chain.name),
       ];
+      console.log("fields", fieldsToCheck);
 
       return (
         fieldsToCheck.some((field) =>
-          field.toLowerCase().includes(searchStr)
+          field?.toLowerCase().includes(searchStr)
         ) || dapp.year == ecosystem.filter.search
       );
     });
