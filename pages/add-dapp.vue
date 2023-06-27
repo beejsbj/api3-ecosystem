@@ -1,8 +1,7 @@
 <script setup>
 import { useStorage } from "@vueuse/core";
 import { setErrors } from "@formkit/vue";
-import { getAccount, signMessage } from "@wagmi/core";
-import { SiweMessage } from "siwe";
+import { useSiwe } from "~/composables/useSiwe";
 
 //
 definePageMeta({
@@ -18,55 +17,20 @@ useHead({
 const dappForm = useStorage("dapp-form", {});
 const complete = ref(false);
 
-async function checkSignatureVerification() {
-  try {
-    const nonce = await $fetch("/api/auth/nonce", {
-      method: "GET",
-    });
-
-    const address = getAccount().address;
-
-    const message = new SiweMessage({
-      domain: window.location.host,
-      address: address,
-      statement: "Sign in with Ethereum to the API3 ecosystem",
-      uri: window.location.origin,
-      version: "1",
-      nonce: nonce,
-    });
-
-    const messageToSign = message.prepareMessage();
-    const signature = await signMessage({ message: messageToSign });
-
-    if (!signature) {
-      return null;
-    }
-
-    const signatureVerification = await $fetch("/api/auth", {
-      method: "POST",
-      body: {
-        signature: signature,
-        address: address,
-        message: JSON.stringify(message),
-        nonce: nonce,
-      },
-    });
-
-    console.log("verificationStatus result", signatureVerification);
-
-    return signatureVerification;
-  } catch (error) {
-    console.log("signature error", error);
-    return null;
-  }
-}
+const { verifyWallet } = useSiwe();
 
 const submitHandler = async () => {
-  console.log("submit click", dappForm.value);
-
-  const verificationStatus = await checkSignatureVerification();
+  const verificationStatus = await verifyWallet();
 
   console.log("verificationStatus", verificationStatus);
+
+  if (!verificationStatus || !verificationStatus.verified) {
+    console.log(
+      "verificationStatus signature verification failed",
+      verificationStatus
+    );
+    return;
+  }
 
   const body = new FormData();
 
