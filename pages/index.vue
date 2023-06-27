@@ -31,7 +31,7 @@ onMounted(() => {
 
 <template>
   <HeroLanding />
-  <ScrollingStats />
+  <!-- <ScrollingStats /> -->
 
   <MissionComponent />
 

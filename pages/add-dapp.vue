@@ -7,6 +7,7 @@ import { useSiwe } from "~/composables/useSiwe";
 definePageMeta({
   title: "Add Dapp",
   layout: "home",
+  middleware: "auth",
 });
 
 useHead({
