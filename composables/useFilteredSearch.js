@@ -2,7 +2,9 @@
 import { computed } from "vue";
 
 export default function useFilteredSearch(ecosystem) {
-  const searchLowerCase = computed(() => ecosystem.filter.search.toLowerCase());
+  const searchLowerCase = computed(() =>
+    ecosystem?.filter?.search?.toLowerCase()
+  );
 
   const filtered = computed(() => {
     if (
@@ -37,7 +39,8 @@ export default function useFilteredSearch(ecosystem) {
 
       const filteredStatus =
         ecosystem.filter.status != "all"
-          ? ecosystem.filter.status.toLowerCase() == dapp.status.toLowerCase()
+          ? ecosystem?.filter?.status?.toLowerCase() ==
+            dapp?.status?.toLowerCase()
           : true;
 
       return (

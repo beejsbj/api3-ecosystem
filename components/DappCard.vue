@@ -9,7 +9,7 @@ function filterBy(event) {
   } else if (event.target.classList.contains("productType")) {
     ecosystem.filter.productTypes.push(event.target.innerText);
   } else if (event.target.classList.contains("status")) {
-    ecosystem.filter.status = event.target.innerText.toLowerCase();
+    ecosystem.filter.status = event.target.innerText?.toLowerCase();
   }
 }
 </script>
