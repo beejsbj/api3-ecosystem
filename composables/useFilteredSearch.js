@@ -11,8 +11,7 @@ export default function useFilteredSearch(ecosystem) {
       !ecosystem.filter.category.length &&
       !ecosystem.filter.chains.length &&
       !ecosystem.filter.productTypes.length &&
-      !ecosystem.filter.years.length &&
-      !ecosystem.filter.status
+      !ecosystem.filter.years.length
     ) {
       console.log("returned list", ecosystem.list);
       return ecosystem.list;
@@ -37,20 +36,14 @@ export default function useFilteredSearch(ecosystem) {
         return dapp.year == year;
       });
 
-      const filteredStatus =
-        ecosystem.filter.status != "all"
-          ? ecosystem?.filter?.status?.toLowerCase() ==
-            dapp?.status?.toLowerCase()
-          : true;
-
       return (
         filteredChains &&
         filteredCategories &&
         filteredproductTypes &&
-        filteredYears &&
-        filteredStatus
+        filteredYears
       );
     });
+
     console.log("filtered list", allFiltered);
     return allFiltered;
   });

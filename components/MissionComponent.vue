@@ -49,10 +49,8 @@ onMounted(() => {
     <mission-section>
       <heading-text>
         <h2 class="loud-voice">
-          <span class="highlight">API3</span> serves real-world data to
-          <span class="highlight">Web3</span>, providing developers with secure
-          and reliable <span class="highlight">data feeds</span> for smart
-          contracts.
+          API3 serves real-world data to Web3, providing developers with secure
+          and reliable data feeds for smart contracts.
         </h2>
         <h3 class="teaser-voice">
           Through first-party oracles API3 DAO serves data on-chain using a
@@ -105,12 +103,12 @@ span.highlight {
 }
 mission-section {
   display: grid;
+  align-content: center;
+  gap: 100px;
   height: 100%;
   position: relative;
 
   heading-text {
-    margin-bottom: 2rem;
-
     h2 {
       margin-bottom: 1rem;
     }
@@ -128,10 +126,10 @@ mission-section {
   }
 
   picture.background-graphic {
+    //  max-width: 60vw;
     position: absolute;
-    top: 40px;
-    right: 10vw;
-    max-width: 50vw;
+    top: 50px;
+    width: 500px;
     z-index: -1;
     opacity: 0.5;
   }
@@ -145,6 +143,9 @@ mission-section {
     background: var(--gradient-dark);
     padding: 1rem;
     border-radius: var(--corners);
+    h4 {
+      margin-bottom: 1.5rem;
+    }
   }
 }
 article {

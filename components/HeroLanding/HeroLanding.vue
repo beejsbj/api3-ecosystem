@@ -157,7 +157,7 @@ hero-landing {
     grid-column: 1 / -1;
 
     @media (min-width: 1194px) {
-      grid-column: 2 / -6;
+      grid-column: 2 / -5;
     }
     grid-row: 1 / span 1;
     padding: 15px 0;

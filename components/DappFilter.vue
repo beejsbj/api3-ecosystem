@@ -31,7 +31,6 @@ function clearFilters() {
   ecosystem.filter.category = [];
   ecosystem.filter.productTypes = [];
   ecosystem.filter.years = [];
-  ecosystem.filter.status = "all";
 }
 
 const showAll = ref({
@@ -187,7 +186,7 @@ onMounted(() => {
       </button>
     </div>
 
-    <div class="status filter">
+    <!-- <div class="status filter">
       <h4 class="solid-voice">Status</h4>
       <div class="status-actions">
         <input-field>
@@ -221,7 +220,7 @@ onMounted(() => {
           />
         </input-field>
       </div>
-    </div>
+    </div> -->
   </dapp-filter>
 </template>
 
