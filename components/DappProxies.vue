@@ -3,7 +3,7 @@ const props = defineProps(["dapp"]);
 </script>
 
 <template>
-  <proxy-table>
+  <section class="proxy-table">
     <h2 class="attention-voice">Proxies</h2>
     <ul>
       <li class="table-row">
@@ -37,11 +37,11 @@ const props = defineProps(["dapp"]);
         </div>
       </li>
     </ul>
-  </proxy-table>
+  </section>
 </template>
 
 <style scoped lang="scss">
-proxy-table {
+section.proxy-table {
   ul {
     margin-top: 0.5rem;
   }

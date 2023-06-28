@@ -168,7 +168,10 @@ h2.loud-voice {
   font-size: var(--step-2);
 }
 </style>
-<style>
+<style lang="scss">
+.mission-stats {
+}
+
 .mission-stats,
 .mission-stats :is(h2, text-content, .background-graphic) {
   /* opacity: 0; */
