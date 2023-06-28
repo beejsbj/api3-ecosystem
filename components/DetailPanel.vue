@@ -28,7 +28,11 @@ const showShareBox = ref(false);
       <div class="row chain">
         <p>Chain</p>
         <ul>
-          <li v-for="chain in dapp.chains" :key="chain.id">
+          <li
+            v-for="chain in dapp.chains"
+            :key="chain.id"
+            v-tooltip="chain.name"
+          >
             <!-- {{ chain }} -->
             <picture class="chain">
               <ChainIcon

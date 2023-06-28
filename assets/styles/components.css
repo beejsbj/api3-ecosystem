@@ -194,3 +194,21 @@ a.router-link-exact-active::after {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
+/* tooltip */
+.v-popper--theme-tooltip .v-popper__inner {
+  background: var(--gradient-dark-color) !important;
+  font-family: var(--font);
+  color: #ffffff;
+  padding: 12px;
+  border-radius: var(--corners);
+  box-shadow: var(--shadow);
+}
+
+.v-popper--theme-tooltip .v-popper__arrow-outer {
+  border-color: var(--color) !important;
+}
+
+.v-popper--theme-tooltip .v-popper__arrow-inner {
+  visibility: hidden;
+}

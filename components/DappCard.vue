@@ -3,6 +3,8 @@ const props = defineProps(["dapp"]);
 const ecosystem = useEcosystemStore();
 const logo = props.dapp.images.logo ?? "@/assets/images/square.jpg";
 
+// console.log(props.dapp);
+
 function filterBy(event) {
   if (event.target.classList.contains("category")) {
     ecosystem.filter.category.push(event.target.innerText);
@@ -29,15 +31,6 @@ function filterBy(event) {
           {{ dapp.status }}
         </p> -->
         <div class="lists" v-if="true">
-          <ul class="categories-list">
-            <li
-              class="micro-voice category"
-              v-for="category in dapp.categories"
-              @click="filterBy"
-            >
-              {{ category }}
-            </li>
-          </ul>
           <ul class="productTypes-list productType">
             <li
               class="micro-voice productType"
@@ -45,6 +38,16 @@ function filterBy(event) {
               @click="filterBy"
             >
               {{ productType }}
+            </li>
+          </ul>
+
+          <ul class="categories-list">
+            <li
+              class="micro-voice category"
+              v-for="category in dapp.categories"
+              @click="filterBy"
+            >
+              {{ category }}
             </li>
           </ul>
         </div>

@@ -73,11 +73,6 @@ onMounted(() => {
             </p>
           </section>
 
-          <section class="">
-            <h2 class="attention-voice">Artciles/productTypes</h2>
-            <ArticleGrid layout="6" cardCount="2" />
-          </section>
-
           <DappProxies :dapp="dapp" v-if="dapp" />
 
           <section class="screenshots">

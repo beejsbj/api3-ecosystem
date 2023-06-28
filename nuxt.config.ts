@@ -44,7 +44,6 @@ export default defineNuxtConfig({
   modules: [
     "@formkit/nuxt",
     //  "@nuxt/devtools",
-    //  "floating-vue/nuxt",
     "@nuxt/content",
 
     [
@@ -61,7 +60,7 @@ export default defineNuxtConfig({
     //    },
     //  ],
   ],
-  plugins: ["~/plugins/gsap.ts"],
+  plugins: ["~/plugins/gsap.ts", "~/plugins/floating-vue.ts"],
 
   components: [
     {
