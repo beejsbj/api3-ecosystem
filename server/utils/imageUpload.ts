@@ -13,7 +13,6 @@ let s3 = new S3Client({
     secretAccessKey: config.AWS_SECRET_ACCESS_KEY,
   },
 });
-
 const awsStorage = multerS3({
   s3: s3,
   bucket: config.ROOT_BUCKET,
@@ -62,6 +61,9 @@ export const imageUploadHandler = (handler: EventHandler) =>
       return { response };
     } catch (err) {
       console.log("upload error ", err);
-      return { err };
+      event.res.statusCode = 500;
+      return {
+        error: "Something went wrong at server!",
+      };
     }
   });

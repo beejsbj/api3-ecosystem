@@ -30,6 +30,9 @@ export const authenticated = (handler: EventHandler) =>
       return { response };
     } catch (err) {
       console.log("auth middleware error ", err);
-      return { err };
+      event.res.statusCode = 500;
+      return {
+        error: "Something went wrong at server!",
+      };
     }
   });
