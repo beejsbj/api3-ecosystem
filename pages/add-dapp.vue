@@ -21,6 +21,8 @@ const complete = ref(false);
 const { verifyWallet } = useSiwe();
 
 const submitHandler = async () => {
+  console.log(dappForm.value);
+
   const verificationStatus = await verifyWallet();
 
   console.log("verificationStatus", verificationStatus);
@@ -35,22 +37,22 @@ const submitHandler = async () => {
 
   const body = new FormData();
 
-  // We can append other data to our form data:
-  body.append("name", dappForm.name);
-  body.append("tagline", dappForm.tagline);
-  body.append("description", dappForm.description);
-  body.append("chains", JSON.stringify(dappForm.chains));
-  body.append("categories", JSON.stringify(dappForm.categories));
-  body.append("productType", dappForm.productType);
-  body.append("proxies", dappForm.proxies);
-  body.append("year", dappForm.year);
-  body.append("links", JSON.stringify(dappForm.links));
+  // append dappform to body, dappForm is vue reactive, so needs .value
+  body.append("name", dappForm.value.name);
+  body.append("tagline", dappForm.value.tagline);
+  body.append("description", dappForm.value.description);
+  body.append("chains", JSON.stringify(dappForm.value.chains));
+  body.append("categories", JSON.stringify(dappForm.value.categories));
+  body.append("productType", dappForm.value.productType);
+  body.append("proxies", dappForm.value.proxies);
+  body.append("year", dappForm.value.year);
+  body.append("links", JSON.stringify(dappForm.value.links));
 
   // images
-  body.append("logo", dappForm.images.logo);
-  body.append("banner", dappForm.images.banner);
+  body.append("logo", dappForm.value.images.logo);
+  body.append("banner", dappForm.value.images.banner);
 
-  dappForm.images?.screenshots.forEach((fileItem, index) => {
+  dappForm.value.images?.screenshots.forEach((fileItem, index) => {
     console.log(fileItem);
     body.append(`screenshot-${index + 1}`, fileItem.file);
   });
