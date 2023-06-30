@@ -1,7 +1,8 @@
 <script setup>
 import { useStorage } from "@vueuse/core";
-import { setErrors } from "@formkit/vue";
+import { setErrors, FormKitMessages } from "@formkit/vue";
 import { useSiwe } from "~/composables/useSiwe";
+import { getValidationMessages } from "@formkit/validation";
 
 //
 definePageMeta({
@@ -17,10 +18,22 @@ useHead({
 //
 const dappForm = useStorage("dapp-form", {});
 const complete = ref(false);
-
+const messages = ref([]);
 const { verifyWallet } = useSiwe();
 
+///
+
+function showErrors(node) {
+  const validations = getValidationMessages(node);
+  validations.forEach((inputMessages) => {
+    messages.value = messages.value.concat(
+      inputMessages.map((message) => message.value)
+    );
+  });
+}
+
 const submitHandler = async () => {
+  messages.value = [];
   console.log(dappForm.value);
 
   const verificationStatus = await verifyWallet();
@@ -87,7 +100,8 @@ onMounted(() => {
     <FormKit
       type="form"
       @submit="submitHandler"
-      :actions="true"
+      @submit-invalid="showErrors"
+      :actions="false"
       :submit-attrs="{
         inputClass: '$reset button filled',
       }"
@@ -116,6 +130,16 @@ onMounted(() => {
       <div class="step">
         <SocialsStep2 :dappForm="dappForm" />
       </div>
+
+      <div class="actions">
+        <button type="submit" class="button filled">Submit</button>
+        <ul class="validation-errors">
+          <FormKitMessages />
+          <template v-if="messages.length">
+            <li v-for="message in messages">{{ message }}</li>
+          </template>
+        </ul>
+      </div>
     </FormKit>
   </SectionColumn>
 </template>
@@ -140,7 +164,7 @@ form {
   scroll-snap-points-y: repeat(calc(100vh - 100px));
   scroll-behavior: smooth;
 
-  & > :is(.step, .formkit-actions) {
+  & > :is(.step, .actions) {
     scroll-snap-align: start;
     height: calc(100vh - 100px);
     display: grid;
@@ -179,8 +203,8 @@ form {
   }
 }
 
-form > .formkit-actions {
-  justify-content: start;
+form > .actions {
+  justify-items: start;
 }
 
 .formkit-step-actions {
