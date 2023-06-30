@@ -184,6 +184,12 @@ a.router-link-exact-active::after {
   transition: 0.2s;
 }
 
+button:disabled {
+  filter: saturate(0);
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
 .gradient-text {
   background: linear-gradient(
     var(--gradient-direction),

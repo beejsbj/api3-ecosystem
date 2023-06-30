@@ -24,6 +24,7 @@ const { verifyWallet } = useSiwe();
 ///
 
 function showErrors(node) {
+  messages.value = [];
   const validations = getValidationMessages(node);
   validations.forEach((inputMessages) => {
     messages.value = messages.value.concat(
@@ -34,6 +35,7 @@ function showErrors(node) {
 
 const submitHandler = async () => {
   messages.value = [];
+
   console.log(dappForm.value);
 
   const verificationStatus = await verifyWallet();
@@ -102,6 +104,7 @@ onMounted(() => {
       @submit="submitHandler"
       @submit-invalid="showErrors"
       :actions="false"
+      #default="{ state: { valid: isValid } }"
       :submit-attrs="{
         inputClass: '$reset button filled',
       }"
@@ -135,7 +138,7 @@ onMounted(() => {
         <button type="submit" class="button filled">Submit</button>
         <ul class="validation-errors">
           <FormKitMessages />
-          <template v-if="messages.length">
+          <template v-if="!isValid">
             <li v-for="message in messages">{{ message }}</li>
           </template>
         </ul>
