@@ -60,8 +60,7 @@ onMounted(() => {
             'loud-voice': ui.isMobile,
           }"
         >
-          Join the decentralized revolution and publish your dapp on our site
-          today!
+          Join the Web3 API revolution and publish your dapp on our site today!
         </h2>
         <button class="button filled">Join Now</button>
       </text-content>

@@ -49,8 +49,8 @@ onMounted(() => {
     <mission-section>
       <heading-text>
         <h2 class="loud-voice">
-          API3 serves real-world data to Web3, providing developers with secure
-          and reliable data feeds for smart contracts.
+          API3 DAO serves data on-chain with first-party oracles that provide a
+          secure and reliable solution, with end-to-end transparency.
         </h2>
         <h3 class="teaser-voice">
           Through first-party oracles API3 DAO serves data on-chain using a
@@ -60,11 +60,11 @@ onMounted(() => {
       <article>
         <text-content>
           <div class="mission-card" @mouseenter="imageIndex = 0">
-            <h4 class="notice-voice">First-party Oracle Services</h4>
+            <h4 class="notice-voice">First-Party Oracle Services</h4>
             <p>
-              API3 empowers developers with secure and reliable access to
-              real-world data. and middleware, bridging the gap between smart
-              contracts and the outside world.
+              API3 provides first-party data feeds that link API providers
+              directly to oracle smart contracts, eliminating third-party
+              intermediaries and enhancing data integrity.
             </p>
           </div>
           <div class="mission-card" @mouseenter="imageIndex = 1">
@@ -79,10 +79,10 @@ onMounted(() => {
           <div class="mission-card" @mouseenter="imageIndex = 2">
             <h4 class="notice-voice">Developer Experience</h4>
             <p>
-              API3 is dedicated to democratizing Web3, making it accessible to
-              all. It achieves this through a user-friendly and comprehensive
-              ecosystem, empowering developers to create exceptional websites,
-              experiences, and apps.
+              API3 is dedicated an open-source, democratized web that is
+              accessible to all. We support this vision through a user-friendly
+              and comprehensive ecosystem, empowering developers with the
+              resources they need to create exceptional applications.
             </p>
           </div>
         </text-content>

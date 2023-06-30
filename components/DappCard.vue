@@ -1,4 +1,5 @@
 <script setup>
+import slug from "slug";
 const props = defineProps(["dapp"]);
 const ecosystem = useEcosystemStore();
 const logo = props.dapp.images.logo ?? "@/assets/images/square.jpg";
@@ -38,6 +39,9 @@ function filterBy(event) {
               @click="filterBy"
             >
               {{ productType }}
+              <picture>
+                <img :src="`/images/icons/${slug(productType)}.svg`" alt="" />
+              </picture>
             </li>
           </ul>
 
@@ -48,6 +52,9 @@ function filterBy(event) {
               @click="filterBy"
             >
               {{ category }}
+              <picture>
+                <img :src="`/images/icons/${slug(category)}.svg`" alt="" />
+              </picture>
             </li>
           </ul>
         </div>
@@ -145,9 +152,10 @@ dapp-card {
 }
 header {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 0.5fr 1fr;
   justify-content: end;
   align-items: center;
+  z-index: 6;
 
   h2 {
     white-space: nowrap;
@@ -183,7 +191,15 @@ header > div {
       border-radius: var(--corners);
       padding: 0.1rem 0.5rem;
       border-right: 0.5px solid var(--gray-dark);
-      border-top: 0.5px solid var(--gray-dark);
+      border-bottom: 0.5px solid var(--gray-dark);
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      white-space: nowrap;
+
+      picture {
+        max-width: 16px;
+      }
     }
   }
 }

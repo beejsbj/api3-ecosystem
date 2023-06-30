@@ -73,7 +73,6 @@ const showShareBox = ref(false);
         <p>Socials</p>
         <ul>
           <li v-for="social in dapp.links.socials" :key="social.id">
-            <!--             v-tooltip="social.name" #todo -->
             <a :href="social.url" :target="social.name">
               <SocialIcon :social="social.label" />
             </a>
@@ -93,7 +92,7 @@ const showShareBox = ref(false);
       <!-- Launch dapp -->
       <NuxtLink
         :to="dapp.links.dapp"
-        :target="`${dapp.name}-app`"
+        :target="`${dapp?.name}-app`"
         class="button"
         >Launch</NuxtLink
       >

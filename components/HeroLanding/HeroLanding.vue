@@ -94,7 +94,8 @@ onMounted(() => {
           class="page-title"
           :class="{ 'booming-voice': !ui.isMobile, 'loud-voice': ui.isMobile }"
         >
-          Uniting the First-Party Oracle Ecosystem
+          Connecting the First-Party Oracle Ecosystem
+
           <!-- {{ content.title }} -->
         </h1>
       </ClientOnly>
