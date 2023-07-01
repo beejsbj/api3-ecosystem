@@ -1,11 +1,10 @@
 import mongoose from "mongoose";
-const Schema = mongoose.Schema;
+import { ProjectType } from "../types";
+import { CHAINS } from "@api3/chains";
 
-// Define the nested schema
-const ChainSchema = new mongoose.Schema({
-  name: { type: String, required: true },
-  chainId: { type: Number, required: true },
-});
+const chains = CHAINS.map((chain) => chain.id) as [string, ...string[]];
+
+const Schema = mongoose.Schema;
 
 // Define the nested schema
 const SocialSchema = new mongoose.Schema({
@@ -28,16 +27,7 @@ const ImageSchema = new mongoose.Schema({
   screenshots: { type: [String], required: true },
 });
 
-const proxySchema = new mongoose.Schema({
-  proxyType: { type: String, required: true },
-  feedName: { type: String, required: true },
-  dapiName: { type: String, required: false },
-  proxyAddress: { type: String, required: true },
-  oevBeneficiary: { type: String },
-  chainId: { type: Number, required: true },
-});
-
-const ProjectSchema = new Schema({
+const ProjectSchema = new Schema<ProjectType>({
   name: {
     type: String,
     required: true,
@@ -47,7 +37,7 @@ const ProjectSchema = new Schema({
     required: true,
   },
   description: {
-    type: [String],
+    type: String,
     required: true,
   },
   status: {
@@ -62,32 +52,27 @@ const ProjectSchema = new Schema({
     type: [String],
     required: true,
   },
-  productTypes: {
-    type: [String],
+  productType: {
+    type: String,
+    enum: ["datafeed", "qrng"],
     required: true,
   },
   chains: {
-    type: [ChainSchema],
+    type: [String],
+    enum: chains,
     required: true,
   },
   proxies: {
-    type: [proxySchema],
+    type: Schema.Types.Mixed,
     required: true,
   },
   year: {
-    type: String,
+    type: Number,
     required: true,
-  },
-  releaseDate: {
-    type: String,
-  },
-  created_at: {
-    type: Date,
-    default: Date.now(),
   },
   links: {
     type: ProjectLinkSchema,
   },
 });
 
-export const Project = mongoose.model("projects", ProjectSchema);
+export const Project = mongoose.model<ProjectType>("projects", ProjectSchema);
