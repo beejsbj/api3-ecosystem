@@ -9,9 +9,9 @@
     <NuxtLink class="text" to="/ecosystem">Ecosystem</NuxtLink>
     <NuxtLink class="text" to="/articles">Articles</NuxtLink>
     <!-- <NuxtLink to="/about">About</NuxtLink> -->
-    <div class="actions">
+    <!-- <div class="actions">
       <ConnectButton />
-    </div>
+    </div> -->
   </nav>
 </template>
 <style lang="scss" scoped>
