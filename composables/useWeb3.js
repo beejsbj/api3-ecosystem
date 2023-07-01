@@ -41,7 +41,7 @@ export const useWeb3 = () => {
   const chainId = getNetwork().chain.id;
 
   const isConnected = getAccount().isConnected;
-
+  const acc = getAccount();
   const sign = async (message) => {
     try {
       const result = await signMessage(message);
@@ -52,5 +52,5 @@ export const useWeb3 = () => {
     }
   };
 
-  return { openModal, account, sign, isConnected, chainId };
+  return { openModal, account, sign, isConnected, chainId, acc };
 };

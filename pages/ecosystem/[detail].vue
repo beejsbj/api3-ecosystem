@@ -8,8 +8,16 @@ const { data: dapp, error } = await useFetch(
   { initialCache: true }
 );
 
-definePageMeta({
-  // title: dapp.name,
+useHead({
+  title: () => dapp.name,
+  ogTitle: () => dapp.name,
+  ogType: () => "article",
+  ogUrl: () => `#todo/ecosystem/${dapp.id}`,
+  description: () => dapp.tagline,
+  ogDescription: () => dapp.tagline,
+  image: () => dapp.images?.banner,
+  ogImage: () => dapp.images?.banner,
+  ogArticlePublishedTime: () => dapp.year,
 });
 
 useServerSeoMeta({

@@ -1,6 +1,7 @@
 <script setup>
 import { useEcosystemStore } from "~/stores/ecosystem";
 import { gsap } from "gsap";
+import slug from "slug";
 
 const ecosystem = useEcosystemStore();
 
@@ -39,6 +40,8 @@ const showAll = ref({
   productTypes: false,
   years: false,
 });
+
+const defaultPillCount = 5;
 
 onMounted(() => {
   const pageLoad = gsap.timeline();
@@ -85,8 +88,22 @@ onMounted(() => {
       <h4 class="solid-voice">Chain</h4>
       <ul class="pills" v-auto-animate>
         <template v-for="(chain, index) in chains">
-          <li class="pill" :key="chain.id" v-if="index < 5 || showAll.chains">
-            <label :for="chain"> {{ chain.name }} ({{ chain.count }}) </label>
+          <li
+            class="pill"
+            :key="chain.id"
+            v-if="index < defaultPillCount || showAll.chains"
+          >
+            <label :for="chain">
+              <picture>
+                <ChainIcon
+                  :chain="chain.name"
+                  fill="var(--color)"
+                  stroke="var(--paper)"
+                  strokeWidth="15%"
+                />
+              </picture>
+              {{ chain.name }} ({{ chain.count }})
+            </label>
             <input
               :id="chain"
               type="checkbox"
@@ -99,9 +116,9 @@ onMounted(() => {
       <button
         class="text"
         @click="showAll.chains = !showAll.chains"
-        v-if="chains?.length > 5"
+        v-if="chains?.length > defaultPillCount"
       >
-        Show More
+        {{ !showAll.chains ? "Show More" : "Show Less" }}
       </button>
     </div>
 
@@ -110,7 +127,10 @@ onMounted(() => {
 
       <ul class="pills" v-auto-animate>
         <template v-for="(category, index) in categories" :key="category">
-          <li class="pill" v-if="index < 5 || showAll.categories">
+          <li
+            class="pill"
+            v-if="index < defaultPillCount || showAll.categories"
+          >
             <label :for="category">
               {{ category.name }} ({{ category.count }})
             </label>
@@ -126,9 +146,9 @@ onMounted(() => {
       <button
         class="text"
         @click="showAll.categories = !showAll.categories"
-        v-if="categories?.length > 5"
+        v-if="categories?.length > defaultPillCount"
       >
-        Show More
+        {{ !showAll.categories ? "Show More" : "Show Less" }}
       </button>
     </div>
 
@@ -139,7 +159,10 @@ onMounted(() => {
           v-for="(productType, index) in productTypes"
           :key="productType"
         >
-          <li class="pill" v-if="index < 5 || showAll.productTypes">
+          <li
+            class="pill"
+            v-if="index < defaultPillCount || showAll.productTypes"
+          >
             <label :for="productType">
               {{ productType.name }} ({{ productType.count }})
             </label>
@@ -155,9 +178,9 @@ onMounted(() => {
       <button
         class="text"
         @click="showAll.productTypes = !showAll.productTypes"
-        v-if="productTypes?.length > 5"
+        v-if="productTypes?.length > defaultPillCount"
       >
-        Show More
+        {{ !showAll.productTypes ? "Show More" : "Show Less" }}
       </button>
     </div>
 
@@ -165,7 +188,7 @@ onMounted(() => {
       <h4 class="solid-voice">Year</h4>
       <ul class="pills" v-auto-animate>
         <template v-for="(year, index) in years" :key="year">
-          <li class="pill" v-if="index < 5 || showAll.years">
+          <li class="pill" v-if="index < defaultPillCount || showAll.years">
             <label :for="year"> {{ year.name }} ({{ year.count }}) </label>
             <input
               :id="year"
@@ -180,9 +203,9 @@ onMounted(() => {
       <button
         class="text"
         @click="showAll.years = !showAll.years"
-        v-if="years?.length > 5"
+        v-if="years?.length > defaultPillCount"
       >
-        Show More
+        {{ !showAll.years ? "Show More" : "Show Less" }}
       </button>
     </div>
 
@@ -278,7 +301,7 @@ dapp-filter {
 
     label {
       font-size: 0.875rem;
-      font-weight: 700;
+      font-weight: var(--weight-medium);
       font-family: var(--font);
       padding: 0.5rem;
       --gray-darkest: hsla(167, 22%, 15%, 1);
@@ -304,19 +327,26 @@ dapp-filter {
     }
 
     label {
-      --gray-darkest: hsla(167, 22%, 15%, 1);
-      background-color: var(--gray-darkest);
-
+      display: flex;
+      align-items: center;
+      gap: 1rem;
       font-size: 12px;
-      font-weight: 700;
-      padding: 0.5em 1em;
+      font-weight: var(--weight-medium);
+      padding: 0.2em 1em;
       border-radius: var(--corners);
+      // convert border to box shadow
+      box-shadow: 1px 1px var(--gray-dark);
+
+      white-space: nowrap;
+      transition: 0.1s;
+      picture {
+        max-width: 16px;
+      }
     }
 
     &:has(input:checked) label {
-      background-color: var(--color);
-      color: var(--ink);
-      --ink: black;
+      box-shadow: 2px 2px 1px var(--color);
+      transform: translate(0.1rem, 0.1rem);
     }
   }
 
