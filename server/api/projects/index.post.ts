@@ -3,22 +3,14 @@ import { imageUploadHandler } from "../../utils/imageUpload";
 import { authenticated } from "../../utils/authenticated";
 import { checkBuildStatus } from "~/server/services/build";
 import { createPR } from "~/server/services/github";
+import { ProjectType } from "~/server/types";
 
 export default authenticated(
   imageUploadHandler(
     defineEventHandler(async (event: any) => {
       try {
-        const {
-          name,
-          tagline,
-          categories,
-          productType,
-          description,
-          chains,
-          links,
-          proxies,
-          year,
-        } = await (event.node?.req?.body || readBody(event));
+        const { name, tagline, status, categories, productType, description, chains, links, proxies, year } =
+          await (event.node?.req?.body || readBody(event));
 
         // check if all files are uploaded
         if (
@@ -49,10 +41,11 @@ export default authenticated(
           ],
         };
 
-        const payload = {
+        const payload: ProjectType = {
           name,
           tagline,
           description,
+          status,
           images: uploadedImages,
           categories: JSON.parse(categories),
           productType: productType,
