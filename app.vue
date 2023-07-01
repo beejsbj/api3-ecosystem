@@ -2,14 +2,12 @@
 const route = useRoute();
 
 useHead({
-  title: "API3 Ecosystem",
   bodyAttrs: {
     class: route.name,
   },
 });
 
 useServerSeoMeta({
-  //#todo do the seo for the rest
   title: "API3 Ecosystem",
   ogTitle: "API3 Ecosystem",
 
