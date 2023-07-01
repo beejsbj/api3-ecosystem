@@ -28,11 +28,12 @@ console.log(props.error);
       </button>
     </div>
 
-    <pre>
-		<code>
-			{{ error.stack }}
-		</code>
+    <details v-auto-animate>
+      <summary class="solid-voice">See Error Details</summary>
+      <pre>
+		<code v-html="error.stack"></code>
 	 </pre>
+    </details>
   </SectionColumn>
 </template>
 
@@ -56,5 +57,11 @@ console.log(props.error);
     place-items: center;
     gap: 1rem;
   }
+}
+summary {
+  text-align: center;
+}
+code {
+  //   font-size: 12px;
 }
 </style>
