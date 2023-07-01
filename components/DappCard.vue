@@ -39,7 +39,7 @@ function filterBy(event) {
               @click="filterBy"
             >
               {{ productType }}
-              <picture>
+              <picture v-if="`/images/icons/${slug(productType)}.svg`">
                 <img :src="`/images/icons/${slug(productType)}.svg`" alt="" />
               </picture>
             </li>
@@ -52,7 +52,7 @@ function filterBy(event) {
               @click="filterBy"
             >
               {{ category }}
-              <picture>
+              <picture v-if="`/images/icons/${slug(category)}.svg`">
                 <img :src="`/images/icons/${slug(category)}.svg`" alt="" />
               </picture>
             </li>
@@ -130,7 +130,7 @@ dapp-card {
     content: "";
     position: absolute;
     inset: 0;
-    z-index: 10;
+    z-index: 1;
     cursor: pointer;
   }
 
@@ -155,7 +155,6 @@ header {
   grid-template-columns: 0.5fr 1fr;
   justify-content: end;
   align-items: center;
-  z-index: 6;
 
   h2 {
     white-space: nowrap;
