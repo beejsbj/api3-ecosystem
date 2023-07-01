@@ -2,6 +2,7 @@
 import { useStorage } from "@vueuse/core";
 import { setErrors, FormKitMessages } from "@formkit/vue";
 import { useSiwe } from "~/composables/useSiwe";
+import { useHttpCalls } from "~/composables/useHttpCalls";
 import { getValidationMessages } from "@formkit/validation";
 
 //
@@ -20,6 +21,7 @@ const dappForm = useStorage("dapp-form", {});
 const complete = ref(false);
 const messages = ref([]);
 const { verifyWallet } = useSiwe();
+const { submitProject } = useHttpCalls();
 
 ///
 
@@ -36,8 +38,6 @@ function showErrors(node) {
 const submitHandler = async () => {
   messages.value = [];
 
-  console.log(dappForm.value);
-
   const verificationStatus = await verifyWallet();
 
   console.log("verificationStatus", verificationStatus);
@@ -50,37 +50,9 @@ const submitHandler = async () => {
     return;
   }
 
-  const body = new FormData();
+  const submitResult = await submitProject(dappForm, verificationStatus.token);
 
-  // append dappform to body, dappForm is vue reactive, so needs .value
-  body.append("name", dappForm.value.name);
-  body.append("tagline", dappForm.value.tagline);
-  body.append("description", dappForm.value.description);
-  body.append("chains", JSON.stringify(dappForm.value.chains));
-  body.append("categories", JSON.stringify(dappForm.value.categories));
-  body.append("productType", dappForm.value.productType);
-  body.append("proxies", dappForm.value.proxies);
-  body.append("year", dappForm.value.year);
-  body.append("links", JSON.stringify(dappForm.value.links));
-
-  // images
-  body.append("logo", dappForm.value.images.logo);
-  body.append("banner", dappForm.value.images.banner);
-
-  dappForm.value.images?.screenshots.forEach((fileItem, index) => {
-    console.log(fileItem);
-    body.append(`screenshot-${index + 1}`, fileItem.file);
-  });
-
-  const response = await $fetch("/api/projects", {
-    method: "POST",
-    body: body,
-    headers: {
-      Authorization: verificationStatus.token,
-    },
-  });
-
-  if (response.ok) {
+  if (submitResult.success) {
     console.log("api response", response);
     complete.value = true;
   } else {

@@ -1,7 +1,7 @@
 import { SiweMessage } from "siwe";
 
 export const useSiwe = () => {
-  const { sign, account } = useWeb3();
+  const { sign, account, chainId } = useWeb3();
   async function verifyWallet() {
     try {
       const nonce = await $fetch("/api/auth/nonce", {
@@ -12,6 +12,7 @@ export const useSiwe = () => {
 
       const message = new SiweMessage({
         domain: window.location.host,
+        chainId: chainId,
         address: address,
         statement: "Sign in with Ethereum to the API3 ecosystem",
         uri: window.location.origin,

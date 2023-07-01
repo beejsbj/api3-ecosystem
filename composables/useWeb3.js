@@ -9,6 +9,7 @@ import {
   createConfig,
   getAccount,
   signMessage,
+  getNetwork,
 } from "@wagmi/core";
 import { arbitrum, mainnet, polygon } from "@wagmi/core/chains";
 
@@ -37,6 +38,7 @@ export const useWeb3 = () => {
   };
 
   const account = getAccount().address;
+  const chainId = getNetwork().chain.id;
 
   const isConnected = getAccount().isConnected;
 
@@ -50,5 +52,5 @@ export const useWeb3 = () => {
     }
   };
 
-  return { openModal, account, sign, isConnected };
+  return { openModal, account, sign, isConnected, chainId };
 };
