@@ -190,6 +190,37 @@ button:disabled {
   pointer-events: none;
 }
 
+[data-loading] [data-type="submit"] .button {
+  filter: brightness(1.1);
+  pointer-events: none;
+}
+[data-loading] [data-type="submit"] .button::before {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: transparent;
+  border-left: white 2px solid;
+  border-top: white 2px solid;
+
+  animation: rotate 1s linear infinite reverse;
+
+  transform: unset;
+
+  left: calc(50% - 10px);
+  bottom: -30px;
+
+  transition: width 0.1s, height 0.2s, border 0.25s, bottom 0.25s, left 0.1s;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg) translateX(-50%);
+  }
+  100% {
+    transform: rotate(360deg) translateX(-50%);
+  }
+}
+
 .gradient-text {
   background: linear-gradient(
     var(--gradient-direction),

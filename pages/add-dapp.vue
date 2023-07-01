@@ -109,7 +109,7 @@ onMounted(() => {
         <FormKit
           type="submit"
           label="Add Project"
-          button-class="button filled"
+          input-class="$reset button filled"
         />
         <ul class="validation-errors">
           <FormKitMessages />
