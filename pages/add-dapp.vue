@@ -36,8 +36,6 @@ function showErrors(node) {
 }
 
 const submitHandler = async () => {
-  messages.value = [];
-
   const verificationStatus = await verifyWallet();
 
   console.log("verificationStatus", verificationStatus);
@@ -55,8 +53,11 @@ const submitHandler = async () => {
   if (submitResult.success) {
     console.log("api response", response);
     complete.value = true;
+    delete dappForm.value;
+    // dappForm.value = {};
+    // setErrors("add-form", ["Project added successfully."]); ??
   } else {
-    setErrors("logoForm", ["The server didn’t like our request."]);
+    setErrors("add-form", ["The server didn’t like our request."]);
   }
 };
 
@@ -73,13 +74,11 @@ onMounted(() => {
   <SectionColumn>
     <FormKit
       type="form"
+      id="add-form"
       @submit="submitHandler"
       @submit-invalid="showErrors"
       :actions="false"
       #default="{ state: { valid: isValid } }"
-      :submit-attrs="{
-        inputClass: '$reset button filled',
-      }"
     >
       <div class="step">
         <OwnerStep :dappForm="dappForm" />
@@ -107,7 +106,11 @@ onMounted(() => {
       </div>
 
       <div class="actions">
-        <button type="submit" class="button filled">Submit</button>
+        <FormKit
+          type="submit"
+          label="Add Project"
+          button-class="button filled"
+        />
         <ul class="validation-errors">
           <FormKitMessages />
           <template v-if="!isValid">
