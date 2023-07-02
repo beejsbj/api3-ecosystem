@@ -2,7 +2,10 @@
 
 <template>
   <nav>
-    <NuxtLink to="https://discord.gg/8uWxnRF" class="icon social-icon">
+    <NuxtLink
+      to="https://discord.com/invite/qnRrcfnm5W"
+      class="icon social-icon"
+    >
       <SocialIcon social="Discord" />
     </NuxtLink>
     <NuxtLink class="text" to="/">Home</NuxtLink>
