@@ -1,5 +1,5 @@
 <script setup>
-useHead({
+useServerSeoMeta({
   title: "Login",
 });
 </script>

@@ -31,6 +31,8 @@ export const useEcosystemStore = defineStore("ecosystem", () => {
     list.value.push(dapp);
   }
 
+  const productTypes = ["dAPI", "QRNG", "Airnode", "Custom Solution"];
+
   const categories = [
     "DeFi",
     "Perpetual trading",
@@ -59,17 +61,15 @@ export const useEcosystemStore = defineStore("ecosystem", () => {
     "Polygon",
     "Polygon zkEVM",
     "zkSync Era",
-    "BNB Chain",
-    "Avalanche C-Chain",
+    "BNB",
+    "Avalanche",
     "Fantom",
     "Arbitrum",
     "Optimism",
     "Moonriver",
     "Moonbeam",
-    "Gnosis Chain",
+    "Gnosis",
   ];
-
-  const productTypes = ["dAPI", "API3 QRNG", "Airnode", "Custom Solution"];
 
   const filter = ref({
     search: "",

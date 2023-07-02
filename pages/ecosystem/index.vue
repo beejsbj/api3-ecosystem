@@ -6,7 +6,7 @@ const ui = useInterfaceStore();
 
 const showFilter = ref(false);
 
-useHead({
+useServerSeoMeta({
   title: "Ecosystems",
 });
 
@@ -35,9 +35,9 @@ onMounted(() => {
   <SectionColumn class="ecosystem-header">
     <h1 class="loud-voice gradient-text">Search API3's Ecosystem</h1>
 
-    <NuxtLink to="/add-dapp" class="button filled firm-voice"
-      >Add Your Own</NuxtLink
-    >
+    <NuxtLink to="/add-dapp" class="filled button firm-voice">
+      <span class=""> Add Your Own </span>
+    </NuxtLink>
   </SectionColumn>
 
   <SectionColumn innerClass="main-grid">

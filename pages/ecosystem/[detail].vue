@@ -5,32 +5,30 @@ const route = useRoute();
 
 const { data: dapp, error } = await useFetch(
   `/api/projects/project/${route.params.detail}`,
-  { initialCache: true }
+  {
+    initialCache: true,
+    onResponse({ request, response, options }) {
+      // Process the response data
+
+      const dapp = response._data;
+
+      useServerSeoMeta({
+        title: () => dapp.name,
+        ogTitle: () => dapp.name,
+
+        ogType: () => "article",
+        ogUrl: () => `/ecosystem/${dapp._id}`,
+        ogArticlePublishedTime: () => dapp.year,
+
+        description: () => dapp.tagline,
+        ogDescription: () => dapp.tagline,
+
+        image: () => dapp.images?.banner,
+        ogImage: () => dapp.images?.banner,
+      });
+    },
+  }
 );
-
-useHead({
-  title: () => dapp.name,
-  ogTitle: () => dapp.name,
-  ogType: () => "article",
-  ogUrl: () => `#todo/ecosystem/${dapp.id}`,
-  description: () => dapp.tagline,
-  ogDescription: () => dapp.tagline,
-  image: () => dapp.images?.banner,
-  ogImage: () => dapp.images?.banner,
-  ogArticlePublishedTime: () => dapp.year,
-});
-
-useServerSeoMeta({
-  title: () => dapp.name,
-  ogTitle: () => dapp.name,
-  ogType: () => "article",
-  ogUrl: () => `#todo/ecosystem/${dapp.id}`,
-  description: () => dapp.tagline,
-  ogDescription: () => dapp.tagline,
-  image: () => dapp.images?.banner,
-  ogImage: () => dapp.images?.banner,
-  ogArticlePublishedTime: () => dapp.year,
-});
 
 onMounted(() => {
   const pageLoad = gsap.timeline();
