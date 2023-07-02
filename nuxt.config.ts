@@ -87,9 +87,9 @@ export default defineNuxtConfig({
     AWS_SECRET_ACCESS_KEY: process.env.AWS_SECRET_ACCESS_KEY_ECO,
     ROOT_BUCKET: process.env.ROOT_BUCKET,
     IMAGE_UPLOAD_SIZE_LIMIT: process.env.IMAGE_UPLOAD_SIZE_LIMIT,
+    GIT_ACCESS_TOKEN: process.env.GIT_ACCESS_TOKEN,
     public: {
       WEB3MODAL_PROJECT_ID: process.env.WEB3MODAL_PROJECT_ID,
     },
-    GIT_ACCESS_TOKEN: process.env.GIT_ACCESS_TOKEN,
   },
 });
