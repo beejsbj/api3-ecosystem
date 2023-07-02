@@ -337,6 +337,8 @@ dapp-filter {
       // convert border to box shadow
       box-shadow: 1px 1px var(--gray-dark);
 
+      background: var(--gradient-dark);
+
       white-space: nowrap;
       transition: 0.1s;
       picture {

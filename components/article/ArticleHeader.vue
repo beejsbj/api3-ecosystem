@@ -1,8 +1,6 @@
 <script setup>
 const props = defineProps(["article"]);
 
-console.log(props.article);
-
 const datePublished = computed(() => {
   const date = new Date(props.article.date_published);
   return date.toLocaleDateString("en-US", {

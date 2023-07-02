@@ -7,7 +7,7 @@ const props = defineProps(["dapp"]);
     <h2 class="attention-voice">Proxies</h2>
     <ul>
       <li class="table-row">
-        <div class="solid-voice chain">Chains</div>
+        <div class="solid-voice chain">Chain</div>
         <div class="solid-voice type">Feed Name</div>
         <div class="solid-voice type">Type</div>
         <div class="solid-voice type">Address</div>
