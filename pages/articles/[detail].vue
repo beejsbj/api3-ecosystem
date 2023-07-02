@@ -3,38 +3,34 @@ import { parseMarkdown } from "~/utils/parseMarkdown";
 
 const route = useRoute();
 
+const article = ref(null);
+
 const { data, error } = await useFetch(
   `/api/articles/article/${route.params.detail}`,
-  { initialCache: true }
-);
+  {
+    initialCache: true,
+    async onResponse({ request, response, options }) {
+      // Process the response data
 
-const article = ref(null);
-const loadMarkdown = async () => {
-  if (data.value.content) {
-    console.log(data.value);
+      const data = response._data;
+      console.log(data);
+      article.value = await parseMarkdown(data);
+      console.log(article.value);
 
-    article.value = await parseMarkdown(data.value);
+      useServerSeoMeta({
+        title: () => article.value.title,
+        ogTitle: () => article.value.title,
+        ogType: () => "article",
+        ogUrl: () => `#todo/articles/${article.value._id}`,
+        description: () => article.value.description,
+        ogDescription: () => article.value.description,
+        image: () => article.value.image,
+        ogImage: () => article.value.image,
+        ogArticlePublishedTime: () => article.value.date,
+      });
+    },
   }
-};
-loadMarkdown();
-
-useServerSeoMeta({
-  title: () => article.value?.title,
-  ogTitle: () => article.value?.title,
-  ogType: () => "article",
-  ogUrl: () => `#todo/articles/${data.id}`,
-  description: () => article.value?.description,
-  ogDescription: () => article.value?.description,
-  image: () => article.value?.image,
-  ogImage: () => article.value?.image,
-  ogArticlePublishedTime: () => article.value?.date,
-});
-
-// const article = computed(() => {
-//   return blog.list.find(
-//     (article) => slug(article.title) === route.params.detail
-//   );
-// });[]
+);
 
 // article.value.sections = article.value.sections.map((section, index) => {
 //   return {

@@ -8,9 +8,9 @@ const ecosystem = useEcosystemStore();
 
 //get account info in a ref to keep watchful
 const account = ref({});
-// const unwatch = watchAccount((acc) => {
-//   account.value = { ...acc };
-// });
+const unwatch = watchAccount((acc) => {
+  account.value = { ...acc };
+});
 </script>
 
 <template>

@@ -12,7 +12,7 @@ definePageMeta({
   middleware: "auth",
 });
 
-useHead({
+useServerSeoMeta({
   title: "Add Dapp",
 });
 
