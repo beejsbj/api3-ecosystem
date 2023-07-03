@@ -38,6 +38,7 @@ export const useWeb3 = () => {
   };
 
   const account = getAccount().address;
+
   const chainId = getNetwork()?.chain?.id;
 
   const isConnected = getAccount().isConnected;
