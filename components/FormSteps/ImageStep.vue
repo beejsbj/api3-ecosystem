@@ -7,10 +7,14 @@ function buttonHandle(valid, direction) {
   formStepButtonHandle(valid, direction, buttonClick);
 }
 
-const validateImage = {
-  size: (node) => {
-    console.log(node.value);
-  },
+const fileSize = function (node) {
+  const maxSize = 3 * 1024 * 1024;
+
+  const fileSizes = node.value.map((file) => file.file.size);
+
+  return fileSizes.every((fileSize) => {
+    return fileSize <= maxSize;
+  });
 };
 </script>
 
@@ -24,20 +28,22 @@ const validateImage = {
     <div class="single-images">
       <file-upload>
         <FormKit
+          v-auto-animate
           id="logoForm"
           type="file"
           label="Upload your logo"
           label-class="$reset notice-voice"
           name="logo"
-          help="Please add a logo"
-          accept=".jpg,.png,.jpeg"
-          validation="required|image size:<=2000"
-          :validation-rules="{ size: validateImage.size }"
+          help="This image should be a square and at least 512px wide."
           @change="dappForm.images.logo = $event.target.files[0]"
-          v-auto-animate
+          accept=".jpg,.png,.jpeg"
+          validation="required|fileSize"
+          :validation-rules="{ fileSize }"
+          :validation-messages="{
+            fileSize: 'File size must be below 3MB',
+          }"
         />
       </file-upload>
-      <!-- #todo add resolution helper and size limit -->
       <file-upload>
         <FormKit
           id="bannerForm"
@@ -45,11 +51,36 @@ const validateImage = {
           label="Upload a branded banner"
           label-class="$reset notice-voice"
           name="banner"
-          help="Please add a banner"
+          help="This image should be at least 1024px wide."
           accept=".jpg,.png,.jpeg"
-          validation="required"
           @change="dappForm.images.banner = $event.target.files[0]"
           v-auto-animate
+          validation="required|fileSize"
+          :validation-rules="{ fileSize }"
+          :validation-messages="{
+            fileSize: 'File size must be below 3MB',
+          }"
+        />
+      </file-upload>
+    </div>
+    <div>
+      <file-upload>
+        <FormKit
+          v-auto-animate
+          id="screenShotForm"
+          type="file"
+          multiple="true"
+          label="Upload your Screenshots"
+          label-class="$reset notice-voice"
+          name="screenshots"
+          help="Screenshots of your dApp in action."
+          @change="dappForm.images.screenshots = [...$event.target.files]"
+          accept=".jpg,.png,.jpeg"
+          validation="required|fileSize"
+          :validation-rules="{ fileSize }"
+          :validation-messages="{
+            fileSize: 'Each file must be below 3MB',
+          }"
         />
       </file-upload>
     </div>
