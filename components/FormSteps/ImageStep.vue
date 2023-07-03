@@ -6,6 +6,12 @@ const buttonClick = ref(false);
 function buttonHandle(valid, direction) {
   formStepButtonHandle(valid, direction, buttonClick);
 }
+
+const validateImage = {
+  size: (node) => {
+    console.log(node.value);
+  },
+};
 </script>
 
 <template>
@@ -25,11 +31,9 @@ function buttonHandle(valid, direction) {
           name="logo"
           help="Please add a logo"
           accept=".jpg,.png,.jpeg"
-          validation="required"
-          @change="
-            console.log($event.target.files[0]);
-            dappForm.images.logo = $event.target.files[0];
-          "
+          validation="required|image size:<=2000"
+          :validation-rules="{ size: validateImage.size }"
+          @change="dappForm.images.logo = $event.target.files[0]"
           v-auto-animate
         />
       </file-upload>

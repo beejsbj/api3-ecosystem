@@ -4,10 +4,6 @@ const props = defineProps(["chain", "fill", "stroke", "strokeWidth"]);
 const dynamicComponent = defineAsyncComponent(() =>
   import(`@/components/icons/chains/${props.chain?.toLowerCase()}.vue`)
 );
-
-function handleHover() {
-  console.log("hovered");
-}
 </script>
 
 <template>
@@ -18,7 +14,7 @@ function handleHover() {
       stroke: ${props.stroke ? props.stroke : 'var(--color)'};
       ${props.strokeWidth ? `stroke-width: ${props.strokeWidth};` : ''}
   `"
-    @mousemove="handleHover()"
+    v-tooltip="props.chain"
   />
 </template>
 
