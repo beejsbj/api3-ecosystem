@@ -16,6 +16,7 @@ export const useEcosystemStore = defineStore("ecosystem", () => {
   });
 
   const { data: list, error: listError, refresh } = useFetch(serverURL.value);
+  console.log("list", list);
 
   watch(serverPage, () => {
     console.log("serverPage changed", serverPage.value);
