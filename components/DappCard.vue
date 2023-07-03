@@ -2,7 +2,7 @@
 import slug from "slug";
 const props = defineProps(["dapp"]);
 const ecosystem = useEcosystemStore();
-const logo = props.dapp.images.logo ?? "@/assets/images/square.jpg";
+const logo = props?.dapp?.images?.logo ?? "@/assets/images/square.jpg";
 
 // console.log(props.dapp);
 
@@ -77,12 +77,12 @@ function filterBy(event) {
       <picture
         class="card-background"
         v-if="
-          dapp.chains[0].name &&
-          `/images/chains/${dapp.chains[0].name.toLowerCase()}.svg`
+          dapp?.chains?.[0]?.name &&
+          `/images/chains/${dapp?.chains?.[0]?.name?.toLowerCase()}.svg`
         "
       >
         <ChainIcon
-          :chain="dapp.chains[0].name"
+          :chain="dapp?.chains?.[0]?.name"
           fill="none"
           stroke="var(--color)"
         />

@@ -7,12 +7,12 @@ const chains = CHAINS.map((chain) => chain.id) as [string, ...string[]];
 const Schema = mongoose.Schema;
 
 // Define the nested schema
-const SocialSchema = new mongoose.Schema({
+const SocialSchema = new Schema({
   label: { type: String, required: true },
   url: { type: String, required: true },
 });
 
-const ProjectLinkSchema = new mongoose.Schema({
+const ProjectLinkSchema = new Schema({
   dapp: { type: String, required: true },
   doc: { type: String, required: true },
   website: { type: String, required: true },
@@ -20,7 +20,7 @@ const ProjectLinkSchema = new mongoose.Schema({
   socials: { type: [SocialSchema], required: true },
 });
 
-const ImageSchema = new mongoose.Schema({
+const ImageSchema = new Schema({
   logo: { type: String, required: true },
   cover: { type: String, required: true },
   banner: { type: String, required: true },
@@ -42,7 +42,7 @@ const ProjectSchema = new Schema<ProjectType>({
   },
   status: {
     type: String,
-    enum: ["inactive", "active", "rejected"],
+    enum: ["active", "beta", "inactive", "deprecated"],
     default: "inactive",
   },
   images: {
@@ -50,6 +50,17 @@ const ProjectSchema = new Schema<ProjectType>({
   },
   categories: {
     type: [String],
+    enum: [
+      "defi",
+      "dex",
+      "nft",
+      "gaming",
+      "dao",
+      "oracle",
+      "wallet",
+      "infrastructure",
+      "other",
+    ],
     required: true,
   },
   productType: {

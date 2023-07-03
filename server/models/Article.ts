@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import { ArticleType } from "../types/Article";
 const Schema = mongoose.Schema;
 
 // Define the nested schema
@@ -7,7 +8,7 @@ const AuthorSchema = new mongoose.Schema({
   bio: String,
 });
 
-const ArticleSchema = new Schema({
+const ArticleSchema = new Schema<ArticleType>({
   title: {
     type: String,
     required: true,

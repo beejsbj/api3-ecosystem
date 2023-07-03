@@ -42,6 +42,11 @@ export const useWeb3 = () => {
 
   const isConnected = getAccount().isConnected;
 
+  // const account = ref({});
+  // const unwatch = watchAccount((acc) => {
+  //   account.value = { ...acc };
+  // });
+
   const sign = async (message) => {
     try {
       const result = await signMessage(message);

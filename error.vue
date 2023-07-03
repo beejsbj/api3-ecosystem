@@ -1,5 +1,4 @@
 <script setup>
-console.log("hello world");
 const props = defineProps(["error"]);
 
 useHead({

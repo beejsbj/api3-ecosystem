@@ -2,6 +2,7 @@ import { SiweMessage } from "siwe";
 import { User } from "~/server/models/User";
 import { getToken } from "~/server/services/jwt";
 import { JwtPayload } from "~/server/types";
+import { UserType } from "~/server/types/User";
 
 export default defineEventHandler(async (event: any) => {
   try {
@@ -27,7 +28,7 @@ export default defineEventHandler(async (event: any) => {
         message: "Wrong address!",
       };
     }
-
+    //:todo implement domain and uri check
     // check for request origin and domain
     // if(fields.domain !== event.node.req.headers.host) {
     //   event.res.statusCode = 401;
@@ -48,11 +49,13 @@ export default defineEventHandler(async (event: any) => {
     const existingUser = await User.findOne({ address: fields.address });
 
     if (!existingUser) {
-      const newUser = new User({
+      const userPayload: UserType = {
         address: fields.address,
         chainId: fields.chainId,
         role: "user",
-      });
+        registered_at: new Date(),
+      };
+      const newUser = new User(userPayload);
       await newUser.save();
     }
 
