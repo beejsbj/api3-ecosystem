@@ -49,7 +49,7 @@ onMounted(() => {
     <DappCard
       v-for="(dapp, index) in searchResults"
       :dapp="dapp"
-      :key="dapp.name"
+      :key="dapp?.name"
       :data-index="index"
     />
   </ul>
