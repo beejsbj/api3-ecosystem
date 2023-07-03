@@ -34,7 +34,6 @@
     "@web3modal/ethereum": "^2.4.7",
     "@web3modal/html": "^2.4.7",
     "aws-sdk": "^2.1398.0",
-    "ethers": "^6.6.2",
     "floating-vue": "^2.0.0-beta.22",
     "gsap": "^3.11.5",
     "h3-formidable": "^0.3.4",
