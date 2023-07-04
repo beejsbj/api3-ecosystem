@@ -42,6 +42,30 @@ function buttonHandle(valid, direction) {
           placeholder="https://yourdapp.com"
         />
       </form-field>
+
+      <form-field>
+        <FormKit
+          type="url"
+          validation="url"
+          id="docs"
+          v-model="dappForm.links.docs"
+          label="Docs"
+          label-class="$reset notice-voice"
+          placeholder="https://docs.api3.org/"
+        />
+      </form-field>
+
+      <form-field>
+        <FormKit
+          type="url"
+          validation="url"
+          id="explorer"
+          v-model="dappForm.links.explorer"
+          label="Explorer"
+          label-class="$reset notice-voice"
+          placeholder="https://etherscan.io/"
+        />
+      </form-field>
     </section>
     <div class="actions">
       <button class="button previous" @click.prevent="buttonHandle(valid, -1)">

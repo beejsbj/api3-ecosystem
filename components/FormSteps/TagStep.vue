@@ -46,18 +46,19 @@ function buttonHandle(valid, direction) {
       />
     </form-field>
 
+    <!-- //: todo change this single select value -->
     <form-field>
       <label class="notice-voice" for="productType">
         select the service used
       </label>
       <Multiselect
-        id="productTypes"
+        id="productType"
         v-model="dappForm.productType"
         mode="tags"
         :close-on-select="false"
         :searchable="true"
         :create-option="false"
-        :options="ecosystem.productType"
+        :options="ecosystem.productTypes"
       />
     </form-field>
     <div class="actions">

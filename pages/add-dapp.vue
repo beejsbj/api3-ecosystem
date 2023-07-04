@@ -1,8 +1,6 @@
 <script setup>
 import { useStorage } from "@vueuse/core";
 import { setErrors, FormKitMessages } from "@formkit/vue";
-import { useSiwe } from "~/composables/useSiwe";
-import { useHttpCalls } from "~/composables/useHttpCalls";
 import { getValidationMessages } from "@formkit/validation";
 
 //

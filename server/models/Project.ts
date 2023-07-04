@@ -14,8 +14,8 @@ const SocialSchema = new Schema({
 
 const ProjectLinkSchema = new Schema({
   dapp: { type: String, required: true },
-  doc: { type: String, required: true },
   website: { type: String, required: true },
+  docs: { type: String, required: true },
   explorer: { type: String, required: true },
   socials: { type: [SocialSchema], required: true },
 });
@@ -65,7 +65,7 @@ const ProjectSchema = new Schema<ProjectType>({
   },
   productType: {
     type: String,
-    enum: ["datafeed", "qrng"],
+    enum: ["dapi", "qrng", "datafeed"],
     required: true,
   },
   chains: {
@@ -75,7 +75,7 @@ const ProjectSchema = new Schema<ProjectType>({
   },
   proxies: {
     type: Schema.Types.Mixed,
-    required: true,
+    // required: true,
   },
   year: {
     type: Number,
