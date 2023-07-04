@@ -1,12 +1,14 @@
 import jwt from "jsonwebtoken";
 import { DecodedToken, JwtPayload } from "../types";
 
+const config = useRuntimeConfig();
+
 export const getToken = (
   payload: JwtPayload,
   expiry: string = "10 days"
 ): string | null => {
   try {
-    const token = jwt.sign(payload, "_jwt_secret_here", {
+    const token = jwt.sign(payload, config.JWT_SECRET, {
       expiresIn: expiry,
     });
 
@@ -19,7 +21,7 @@ export const getToken = (
 
 export const verifyToken = (token: string): DecodedToken | null => {
   try {
-    const decoded = jwt.verify(token, "_jwt_secret_here");
+    const decoded = jwt.verify(token, config.JWT_SECRET);
 
     if (!decoded) {
       console.log("token verification failed");

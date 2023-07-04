@@ -38,7 +38,7 @@ function buttonHandle(valid, direction) {
         help="You will see this on your card"
         validation="required|length:0,60"
         id="shortDescription"
-        v-model="dappForm.shortDescription"
+        v-model="dappForm.tagline"
       />
     </form-field>
 
@@ -54,7 +54,7 @@ function buttonHandle(valid, direction) {
         help="This is going to be your 'About', it can be a paragraph or two."
         validation="required"
         id="longDescription"
-        v-model="dappForm.longDescription"
+        v-model="dappForm.description"
       />
     </form-field>
     <div class="actions">

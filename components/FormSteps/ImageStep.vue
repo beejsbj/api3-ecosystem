@@ -36,7 +36,7 @@ const fileSize = function (node) {
           name="logo"
           help="This image should be a square and at least 512px wide."
           @change="dappForm.images.logo = $event.target.files[0]"
-          accept=".jpg,.png,.jpeg"
+          accept="*"
           validation="required|fileSize"
           :validation-rules="{ fileSize }"
           :validation-messages="{
@@ -52,8 +52,27 @@ const fileSize = function (node) {
           label-class="$reset notice-voice"
           name="banner"
           help="This image should be at least 1024px wide."
-          accept=".jpg,.png,.jpeg"
+          accept="*"
           @change="dappForm.images.banner = $event.target.files[0]"
+          v-auto-animate
+          validation="required|fileSize"
+          :validation-rules="{ fileSize }"
+          :validation-messages="{
+            fileSize: 'File size must be below 3MB',
+          }"
+        />
+      </file-upload>
+
+      <file-upload>
+        <FormKit
+          id="coverForm"
+          type="file"
+          label="Upload a cover image"
+          label-class="$reset notice-voice"
+          name="cover"
+          help="This image should be at least 1024px wide."
+          accept="*"
+          @change="dappForm.images.cover = $event.target.files[0]"
           v-auto-animate
           validation="required|fileSize"
           :validation-rules="{ fileSize }"
@@ -75,7 +94,7 @@ const fileSize = function (node) {
           name="screenshots"
           help="Screenshots of your dApp in action."
           @change="dappForm.images.screenshots = [...$event.target.files]"
-          accept=".jpg,.png,.jpeg"
+          accept="*"
           validation="required|fileSize"
           :validation-rules="{ fileSize }"
           :validation-messages="{

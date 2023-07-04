@@ -9,26 +9,105 @@ export const useHttpCalls = () => {
       body.append("description", dappForm.value.description);
       body.append("chains", JSON.stringify(dappForm.value.chains));
       body.append("categories", JSON.stringify(dappForm.value.categories));
-      body.append("productType", dappForm.value.productType);
+      body.append("productType", dappForm.value?.productType?.[0]); //: todo fix after productType form fix
       body.append("proxies", dappForm.value.proxies);
-      body.append("year", dappForm.value.year);
-      body.append("links", JSON.stringify(dappForm.value.links));
+      body.append("year", 2021);
+
+      const links = {
+        website: dappForm.value.links.website,
+        dapp: dappForm.value.links.dapp,
+        docs: dappForm.value.links.docs,
+        explorer: dappForm.value.links.explorer,
+        socials: [],
+      };
+
+      if (dappForm?.value?.links?.socials?.twitter) {
+        links.socials.push({
+          label: "twitter",
+          url: dappForm?.value?.links.socials.twitter,
+        });
+      }
+
+      if (dappForm?.value?.links?.socials?.discord) {
+        links.socials.push({
+          label: "discord",
+          url: dappForm?.value?.links.socials.discord,
+        });
+      }
+
+      if (dappForm?.value?.links?.socials?.reddit) {
+        links.socials.push({
+          label: "reddit",
+          url: dappForm?.value?.links.socials.reddit,
+        });
+      }
+
+      if (dappForm?.value?.links?.socials?.github) {
+        links.socials.push({
+          label: "github",
+          url: dappForm?.value?.links?.socials?.github,
+        });
+      }
+
+      if (dappForm?.value?.links?.socials?.telegram) {
+        links.socials.push({
+          label: "telegram",
+          url: dappForm?.value?.links.socials.telegram,
+        });
+      }
+
+      if (dappForm?.value?.links?.socials?.facebook) {
+        links.socials.push({
+          label: "facebook",
+          url: dappForm?.value?.links.socials.facebook,
+        });
+      }
+
+      if (dappForm?.value?.links?.socials?.instagram) {
+        links.socials.push({
+          label: "instagram",
+          url: dappForm?.value?.links.socials.instagram,
+        });
+      }
+
+      if (dappForm?.value?.links?.socials?.youtube) {
+        links.socials.push({
+          label: "youtube",
+          url: dappForm?.value?.links.socials.youtube,
+        });
+      }
+
+      if (dappForm?.value?.links?.socials?.blog) {
+        links.socials.push({
+          label: "blog",
+          url: dappForm?.value?.links.socials.blog,
+        });
+      }
+
+      body.append("links", JSON.stringify(links));
+
+      // todo: fix proxies selection
+      const testProxies = [
+        {
+          proxyType: "OEV dAPI Proxy",
+          feedName: "BTC/USD",
+          dapiName: "BTC/USD",
+          proxyAddress: "0x",
+          oevBeneficiary: "0x",
+          chainId: 137,
+        },
+      ];
+      body.append("proxies", JSON.stringify(testProxies));
 
       // images
       body.append("logo", dappForm.value.images.logo);
       body.append("banner", dappForm.value.images.banner);
-      body.append("cover", dappForm.value.images.banner);
+      body.append("cover", dappForm.value.images.cover);
 
-      // dappForm.value.images?.screenshots.forEach((fileItem, index) => {
-      //   console.log(fileItem);
-      //   body.append(`screenshot-${index + 1}`, fileItem.file);
-      // });
-
-      // testing screenshot upload
-      body.append(`screenshot1`, dappForm.value.images.logo);
-      body.append(`screenshot2`, dappForm.value.images.logo);
-      body.append(`screenshot3`, dappForm.value.images.logo);
-      body.append(`screenshot4`, dappForm.value.images.logo);
+      dappForm.value.images?.screenshots.forEach((fileItem, index) => {
+        console.log(fileItem);
+        body.append(`screenshot${index + 1}`, fileItem.file);
+      });
 
       const response = await $fetch("/api/projects", {
         method: "POST",
@@ -40,13 +119,16 @@ export const useHttpCalls = () => {
 
       console.log("submit response ", { response });
 
-      if (response.status !== 201) {
+      if (response.status === 201) {
+        console.log("submit response success");
         return { success: true };
       } else {
         return { success: false, message: "Failed at server" };
       }
     } catch (error) {
-      console.log("submit response error ", { error });
+      console.log("submit response error ", {
+        error: error,
+      });
       return { success: false, message: "Something went wrong" };
     }
   };

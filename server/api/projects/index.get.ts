@@ -1,3 +1,4 @@
+import { isNumber } from "../../services/helper";
 import { Project } from "~/server/models/Project";
 
 export default defineEventHandler(async (event) => {
@@ -17,8 +18,6 @@ export default defineEventHandler(async (event) => {
 
     const limit = _page * 10;
     const skips = (_page - 1) * 10;
-
-    console.log("query ", getQuery(event));
 
     // input text key will seach in
     // key string in
@@ -48,43 +47,50 @@ export default defineEventHandler(async (event) => {
 
     // search key query:
     if (searchKey) {
+      const searchFields: Array<any> = [
+        { name: { $regex: searchKey, $options: "i" } },
+        {
+          chains: { $regex: searchKey, $options: "i" },
+        },
+        { categories: { $regex: searchKey, $options: "i" } },
+        { productType: { $regex: searchKey, $options: "i" } },
+      ];
+
+      if (isNumber(searchKey)) {
+        searchFields.push({
+          year: parseInt(searchKey),
+        });
+      }
+
       searchFilters = {
-        $or: [
-          { name: { $regex: searchKey, $options: "i" } },
-          {
-            chains: {
-              $elemMatch: { name: { $regex: searchKey, $options: "i" } },
-            },
-          },
-          { categories: { $regex: searchKey, $options: "i" } },
-          { productTypes: { $regex: searchKey, $options: "i" } },
-          { year: { $regex: searchKey, $options: "i" } },
-        ],
+        $or: searchFields,
       };
     }
+
+    selectionFilters.status = "active";
 
     if (categories?.split(",")?.length > 0) {
       const categoriesArray = categories?.split(",");
       selectionFilters.categories = { $all: categoriesArray };
     }
 
+    // filter all selected product types
     if (productTypes?.split(",")?.length > 0) {
       const productTypesArray = productTypes?.split(",");
-      selectionFilters.productTypes = { $all: productTypesArray };
+      selectionFilters.productType = { $in: productTypesArray };
     }
 
+    // filter all selected years
     if (years?.split(",")?.length > 0) {
-      const yearsArray = years?.split(",");
+      const yearsArray = years?.split(",")?.map((ele: string) => parseInt(ele));
       selectionFilters.year = { $in: yearsArray };
     }
 
     if (chains?.split(",")?.length > 0) {
-      const chainsArray = chains?.split(",")?.map((ele: any) => parseInt(ele));
-      selectionFilters.chains = {
-        $elemMatch: {
-          chainId: { $in: chainsArray },
-        },
-      };
+      const chainsArray = chains
+        ?.split(",")
+        ?.map((ele: string) => parseInt(ele));
+      selectionFilters.chains = { $in: chainsArray };
     }
 
     const finalFilter = { $and: [searchFilters, selectionFilters] };
