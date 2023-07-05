@@ -33,14 +33,13 @@ function filterBy(event) {
         </p> -->
         <div class="lists" v-if="true">
           <ul class="productTypes-list productType">
-            <li
-              class="micro-voice productType"
-              v-for="productType in dapp.productTypes"
-              @click="filterBy"
-            >
-              {{ productType }}
-              <picture v-if="`/images/icons/${slug(productType)}.svg`">
-                <img :src="`/images/icons/${slug(productType)}.svg`" alt="" />
+            <li class="micro-voice productType" @click="filterBy">
+              {{ ecosystem?.productTypeToLabel?.[dapp?.productType] }}
+              <picture v-if="`/images/icons/${slug(dapp?.productType)}.svg`">
+                <img
+                  :src="`/images/icons/${slug(dapp?.productType)}.svg`"
+                  alt=""
+                />
               </picture>
             </li>
           </ul>
@@ -51,7 +50,7 @@ function filterBy(event) {
               v-for="category in dapp.categories"
               @click="filterBy"
             >
-              {{ category }}
+              {{ ecosystem?.categoryToLabel?.[category] }}
               <picture v-if="`/images/icons/${slug(category)}.svg`">
                 <img :src="`/images/icons/${slug(category)}.svg`" alt="" />
               </picture>
