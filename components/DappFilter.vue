@@ -96,18 +96,18 @@ onMounted(() => {
             <label :for="chain">
               <picture>
                 <ChainIcon
-                  :chain="chain.name"
+                  :chain="ecosystem.chainNames(chain?.chainId)"
                   fill="var(--color)"
                   stroke="var(--paper)"
                   strokeWidth="15%"
                 />
               </picture>
-              {{ chain.name }} ({{ chain.count }})
+              {{ ecosystem.chainNames(chain?.chainId) }} ({{ chain.count }})
             </label>
             <input
-              :id="chain"
+              :id="chain?.chainId"
               type="checkbox"
-              :value="chain"
+              :value="chain?.chainId"
               v-model="ecosystem.filter.chains"
             />
           </li>
@@ -132,7 +132,9 @@ onMounted(() => {
             v-if="index < defaultPillCount || showAll.categories"
           >
             <label :for="category">
-              {{ category.name }} ({{ category.count }})
+              {{ ecosystem.categoryToLabel?.[category.name] }} ({{
+                category.count
+              }})
             </label>
             <input
               :id="category"
@@ -164,7 +166,9 @@ onMounted(() => {
             v-if="index < defaultPillCount || showAll.productTypes"
           >
             <label :for="productType">
-              {{ productType.name }} ({{ productType.count }})
+              {{ ecosystem?.productTypeToLabel?.[productType.name] }} ({{
+                productType.count
+              }})
             </label>
             <input
               :id="productType"
