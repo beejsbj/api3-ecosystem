@@ -4,12 +4,17 @@ export default defineEventHandler(async (event) => {
   try {
     const stats = await Project.aggregate([
       {
+        $match: {
+          status: "active",
+        },
+      },
+      {
         $facet: {
           chains: [
             { $unwind: "$chains" },
             {
               $group: {
-                _id: { chainId: "$chains.chainId", name: "$chains.name" },
+                _id: "$chains",
                 count: { $sum: 1 },
               },
             },
@@ -24,10 +29,10 @@ export default defineEventHandler(async (event) => {
             },
           ],
           productTypes: [
-            { $unwind: "$productTypes" },
+            { $unwind: "$productType" },
             {
               $group: {
-                _id: "$productTypes",
+                _id: "$productType",
                 count: { $sum: 1 },
               },
             },
@@ -46,6 +51,7 @@ export default defineEventHandler(async (event) => {
     ]);
 
     const statsObject = stats?.[0];
+    console.log(statsObject);
     if (!statsObject) {
       event.res.statusCode = 400;
       return {
@@ -55,8 +61,7 @@ export default defineEventHandler(async (event) => {
     }
     const chains = statsObject?.chains?.map((el: any) => {
       return {
-        chainId: el?._id?.chainId,
-        name: el?._id?.name,
+        chainId: el?._id,
         count: el?.count,
       };
     });
