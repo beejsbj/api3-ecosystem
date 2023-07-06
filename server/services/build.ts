@@ -1,101 +1,88 @@
-import shell from "shelljs";
+import { ProjectType } from "server/types";
+import shelljs from "shelljs";
 
 interface BuildStatus {
-  status: "success" | "failure";
+  success: boolean;
   message: string;
 }
+const DAPP_REPO_URL = "https://github.com/AamirAlam/dapp-registry.git";
 
-const dappRegistryRepoUrl = "https://github.com/AamirAlam/dapp-registry.git";
-
-async function runBuild(projectData: any, projectId: string): Promise<string> {
+async function verifyBuild(
+  projectData: ProjectType,
+  projectId: string
+): Promise<BuildStatus> {
   // chenge dir to dapp-registry
   return new Promise((resolve, reject) => {
-    if (shell.cd("..").code !== 0) {
-      reject(new Error("No parent dir found!"));
-      return;
-    }
+    const isProjectDirExists =
+      shelljs.exec(`cd .. && cd dapp-registry`).code === 0;
 
-    if (shell.cd("dapp-registry").code !== 0) {
-      // clone dapp registry repo of not found
-      if (shell.exec(`git clone ${dappRegistryRepoUrl}`).code !== 0) {
-        reject(new Error("Git clone failed"));
-        return;
-      }
+    if (!isProjectDirExists) {
+      const isCloned =
+        shelljs.exec(`cd .. && git clone ${DAPP_REPO_URL}`).code === 0;
 
-      if (shell.cd("dapp-registry").code !== 0) {
-        reject(new Error("No dapp-registry dir found!"));
+      if (!isCloned) {
+        reject({ success: false, message: "Git clone failed" });
         return;
       }
     }
+    // append new project and run build
 
-    // pull latest changes
-    if (shell.exec(`git pull`).code !== 0) {
-      reject(new Error("Git pull failed"));
+    const isBuildChecked =
+      shelljs.exec(`cd .. && cd dapp-registry && git pull && yarn`).code === 0;
+
+    if (!isBuildChecked) {
+      reject({ success: false, message: "Git pull failed" });
       return;
     }
 
-    // Install dependencies
-    if (shell.exec("yarn").code !== 0) {
-      reject(new Error("NPM install failed"));
-      return;
-    }
-
-    // add project to dapp registry
-    // resolve build status with new project data
-
-    // Add project data to repo
     const prTitle = projectData.name?.split(" ")?.join("-");
     const branch = `${prTitle}-${projectId}`;
     const path = `projects/${branch}.json`;
 
-    if (
-      shell.exec(`echo '${JSON.stringify(projectData, null, 2)}' > ${path}`)
-        .code !== 0
-    ) {
-      reject(new Error("Failed to add project data to repo"));
+    const isProjectAdded =
+      shelljs.exec(
+        `cd .. && cd dapp-registry && echo '${JSON.stringify(
+          projectData,
+          null,
+          2
+        )}' > ${path}`
+      ).code === 0;
+
+    if (!isProjectAdded) {
+      reject({ success: false, message: "Failed to add project data to repo" });
       return;
     }
 
-    // Run the build script
-    if (shell.exec("yarn build").code !== 0) {
-      // disard changes when build fails
-      if (shell.exec(`git reset --hard && git clean -fd`).code !== 0) {
-        reject(new Error("Git clean failed"));
-        return;
-      } else {
-        console.log("Git clean success");
-      }
+    const isBuildSuccess =
+      shelljs.exec(`cd .. && cd dapp-registry && yarn build`).code === 0;
 
-      reject(new Error("Build failed"));
+    // clean git repo after build check
+    const isCleaned =
+      shelljs.exec(
+        `cd .. && cd dapp-registry && git reset --hard && git clean -fd`
+      ).code === 0;
+
+    console.log("Repo cleaned after test ", isCleaned);
+    if (!isBuildSuccess) {
+      reject({ success: false, message: "Build failed with new project" });
       return;
     }
 
-    // clean repo after build success
-    if (shell.exec(`git reset --hard && git clean -fd`).code !== 0) {
-      reject(new Error("Git clean failed"));
-      return;
-    } else {
-      console.log("Git clean success");
-    }
-
-    // commit changes
-
-    resolve("Build verified and pull request created successfully");
+    resolve({ success: true, message: "Build success with new project data" });
   });
 }
 
 export async function checkBuildStatus(
-  projectData: any,
+  projectData: ProjectType,
   projectId: string
 ): Promise<BuildStatus> {
   try {
-    const buildStatus = await runBuild(projectData, projectId);
+    const buildStatus = await verifyBuild(projectData, projectId);
 
-    return { status: "success", message: buildStatus };
-  } catch (error) {
-    return {
-      status: "failure",
-      message: "Build failed",
-    };
+    console.log("buildStatus", buildStatus);
+    return buildStatus;
+  } catch (error: any) {
+    console.log("build failed", error);
+    return error;
   }
 }
