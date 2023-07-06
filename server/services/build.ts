@@ -17,6 +17,18 @@ async function verifyBuild(
       shelljs.exec(`cd .. && cd dapp-registry`).code === 0;
 
     if (!isProjectDirExists) {
+      const isGitInstalled = shelljs.exec(`git --version`).code === 0;
+
+      if (!isGitInstalled) {
+        const gitInstallation =
+          shelljs.exec(`sudo apt-get install git`).code === 0;
+
+        if (!gitInstallation) {
+          reject({ success: false, message: "Git installation failed" });
+          return;
+        }
+      }
+
       const isCloned =
         shelljs.exec(
           `cd .. && git config --global user.name = "Aamir Alam" && git config --global user.email = "aamiralam1991@gmail.com" &&  git clone ${DAPP_REPO_URL}`
