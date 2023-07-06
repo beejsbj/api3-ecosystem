@@ -18,7 +18,9 @@ async function verifyBuild(
 
     if (!isProjectDirExists) {
       const isCloned =
-        shelljs.exec(`cd .. && git clone ${DAPP_REPO_URL}`).code === 0;
+        shelljs.exec(
+          `cd .. && git config --global user.name = "Aamir Alam" && git config --global user.email = "aamiralam1991@gmail.com" &&  git clone ${DAPP_REPO_URL}`
+        ).code === 0;
 
       if (!isCloned) {
         reject({ success: false, message: "Git clone failed" });
