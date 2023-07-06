@@ -112,7 +112,9 @@ export default authenticated(
         const createdProject = await new Project(payload).save();
 
         // // verify build with new project
-        // const buildResult = await checkBuildStatus(payload, createdProject.id);
+        const buildResult = await checkBuildStatus(payload, createdProject.id);
+
+        console.log("build result ", buildResult);
 
         // console.log("build result ", buildResult);
 
@@ -147,7 +149,7 @@ export default authenticated(
 
         const project = await Project.findById(createdProject.id);
 
-        return project;
+        return buildResult;
       } catch (err: any) {
         console.log("create project error ", err);
         event.res.statusCode = 500;
