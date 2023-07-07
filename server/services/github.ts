@@ -1,7 +1,7 @@
 import { Octokit } from "@octokit/rest";
 
 interface PrStatus {
-  status: "success" | "failure";
+  success: boolean;
   message: string;
 }
 
@@ -98,7 +98,7 @@ export async function createPR(
       head: branch,
       base,
     });
-    return { status: "success", message: "Pull request created for review" };
+    return { success: true, message: "Pull request created for review" };
   } catch (err) {
     // delete created branch if something went wrong
 
@@ -117,6 +117,6 @@ export async function createPR(
       }
     }
 
-    return { status: "failure", message: "Failed to create pull request" };
+    return { success: false, message: "Failed to create pull request" };
   }
 }

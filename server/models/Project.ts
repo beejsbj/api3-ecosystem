@@ -22,7 +22,6 @@ const ProjectLinkSchema = new Schema({
 
 const ImageSchema = new Schema({
   logo: { type: String, required: true },
-  cover: { type: String, required: true },
   banner: { type: String, required: true },
   screenshots: { type: [String], required: true },
 });
