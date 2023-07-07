@@ -29,7 +29,7 @@ function buttonHandle(valid, direction) {
         :close-on-select="false"
         :searchable="true"
         :create-option="false"
-        :options="ecosystem.categoryOptions.map((item) => item.value)"
+        :options="ecosystem.categoryOptions"
       />
     </form-field>
 
@@ -42,7 +42,7 @@ function buttonHandle(valid, direction) {
         :close-on-select="false"
         :searchable="true"
         :create-option="false"
-        :options="ecosystem.chainOptions.map((item) => item.value)"
+        :options="ecosystem.chainOptions"
       />
     </form-field>
 
@@ -54,11 +54,11 @@ function buttonHandle(valid, direction) {
       <Multiselect
         id="productType"
         v-model="dappForm.productType"
-        mode="tags"
-        :close-on-select="false"
+        mode="single"
+        :close-on-select="true"
         :searchable="true"
         :create-option="false"
-        :options="ecosystem.productTypeOptions.map((item) => item.value)"
+        :options="ecosystem.productTypeOptions"
       />
     </form-field>
     <div class="actions">
