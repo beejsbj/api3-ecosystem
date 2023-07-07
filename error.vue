@@ -1,6 +1,8 @@
 <script setup>
 const props = defineProps(["error"]);
 
+const router = useRouter();
+
 useHead({
   title: error.statusCode,
 });
@@ -18,13 +20,11 @@ console.log(props.error);
     </h2>
 
     <div class="actions">
-      <button class="loud-button firm-voice" @click="$router.go(-1)">
+      <button class="loud-button firm-voice" @click.prevent="router.back()">
         Go Back
       </button>
       <!-- button to go home -->
-      <button class="loud-button firm-voice" @click="$router.push('/')">
-        Go Home
-      </button>
+      <a class="loud-button firm-voice" href="/"> Go Home </a>
     </div>
 
     <details v-auto-animate>
