@@ -9,8 +9,8 @@ const router = useRouter();
 watch(isConnected, (newVal) => {
   console.log("isConnected", newVal);
   if (newVal) {
-    console.log("passing If", newVal);
     router.push("/add-dapp");
+    console.log("passing If", newVal);
   }
 });
 </script>
