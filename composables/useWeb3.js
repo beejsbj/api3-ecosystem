@@ -7,48 +7,51 @@ import { Web3Modal } from "@web3modal/html";
 import {
   configureChains,
   createConfig,
-  getAccount,
+  watchAccount,
   signMessage,
   getNetwork,
 } from "@wagmi/core";
 import { arbitrum, mainnet, polygon } from "@wagmi/core/chains";
 
-//get env variable for project id
-const config = useRuntimeConfig();
-const projectId = config.public.WEB3MODAL_PROJECT_ID;
-
-//configure chains
-const chains = [arbitrum, mainnet, polygon];
-const { publicClient } = configureChains(chains, [w3mProvider({ projectId })]);
-const wagmiConfig = createConfig({
-  autoConnect: true,
-  connectors: w3mConnectors({ projectId, chains }),
-  publicClient,
-});
-
-// //create ethereum client and web3modal
-const ethereumClient = new EthereumClient(wagmiConfig, chains);
-const web3modal = new Web3Modal({ projectId }, ethereumClient);
-
 export const useWeb3 = () => {
+  //get env variable for project id
+  const config = useRuntimeConfig();
+  const projectId = config.public.WEB3MODAL_PROJECT_ID;
+
+  //configure chains
+  const chains = [arbitrum, mainnet, polygon];
+  const { publicClient } = configureChains(chains, [
+    w3mProvider({ projectId }),
+  ]);
+
+  //create wagmi config
+  const wagmiConfig = createConfig({
+    autoConnect: true,
+    connectors: w3mConnectors({ projectId, version: 1, chains }),
+    publicClient,
+  });
+
+  // //create ethereum client and web3modal
+  const ethereumClient = new EthereumClient(wagmiConfig, chains);
+  const web3modal = computed(
+    () => new Web3Modal({ projectId }, ethereumClient)
+  );
+
+  ////////////////////////////////////
+
+  const wallet = ref({});
+  const unwatch = watchAccount((acc) => {
+    wallet.value = { ...acc };
+  });
+
+  const chainId = computed(() => getNetwork()?.chain?.id);
+
+  const account = computed(() => wallet.value.address);
+  const isConnected = computed(() => wallet.value.isConnected);
+
   const openModal = async () => {
-    try {
-      await web3modal.openModal();
-    } catch (error) {
-      console.log("error connecting to ethereum client", error);
-    }
+    await web3modal.value.openModal();
   };
-
-  const account = getAccount().address;
-
-  const chainId = getNetwork()?.chain?.id;
-
-  const isConnected = getAccount().isConnected;
-
-  // const account = ref({});
-  // const unwatch = watchAccount((acc) => {
-  //   account.value = { ...acc };
-  // });
 
   const sign = async (message) => {
     try {
@@ -60,5 +63,5 @@ export const useWeb3 = () => {
     }
   };
 
-  return { openModal, account, sign, isConnected, chainId };
+  return { wallet, openModal, account, sign, isConnected, chainId };
 };

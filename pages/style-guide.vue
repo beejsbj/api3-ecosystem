@@ -1,10 +1,10 @@
 <script setup>
-const { account } = useWeb3();
+console.log(wallet);
 </script>
 
 <template>
   <PageHeader heading="Style Guide" />
   <SectionColumn>
-    {{ account }}
+    <pre></pre>
   </SectionColumn>
 </template>
