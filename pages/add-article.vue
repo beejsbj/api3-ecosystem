@@ -6,14 +6,10 @@ async function submitHandler(event) {
   const reader = new FileReader();
 
   reader.onload = async function (e) {
-    console.log("reader.onload", e);
-
     const content = e.target.result;
-    console.log("content\n", content);
-
-    const parsed = await parseMarkdown(content);
+    const parsed = await parseMarkdown({ content });
     console.log("parsed", parsed);
-    // Here you can handle the content of the file
+    // #todo POST parsed to db
   };
 
   reader.readAsText(file);
