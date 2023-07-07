@@ -20,11 +20,9 @@ const projectId = config.public.WEB3MODAL_PROJECT_ID;
 //configure chains
 const chains = [arbitrum, mainnet, polygon];
 const { publicClient } = configureChains(chains, [w3mProvider({ projectId })]);
-
-//create wagmi config
 const wagmiConfig = createConfig({
   autoConnect: true,
-  connectors: w3mConnectors({ projectId, version: 1, chains }),
+  connectors: w3mConnectors({ projectId, chains }),
   publicClient,
 });
 
@@ -34,7 +32,11 @@ const web3modal = new Web3Modal({ projectId }, ethereumClient);
 
 export const useWeb3 = () => {
   const openModal = async () => {
-    await web3modal.openModal();
+    try {
+      await web3modal.openModal();
+    } catch (error) {
+      console.log("error connecting to ethereum client", error);
+    }
   };
 
   const account = getAccount().address;

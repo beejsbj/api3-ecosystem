@@ -7,7 +7,7 @@ import { getValidationMessages } from "@formkit/validation";
 definePageMeta({
   title: "Add Dapp",
   layout: "home",
-  //   middleware: "auth",
+  middleware: "auth",
 });
 
 useServerSeoMeta({
