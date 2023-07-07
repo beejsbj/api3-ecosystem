@@ -2,6 +2,17 @@
 useServerSeoMeta({
   title: "Login",
 });
+
+const { isConnected } = useWeb3();
+const router = useRouter();
+
+watch(isConnected, (newVal) => {
+  console.log("isConnected", newVal);
+  if (newVal) {
+    console.log("passing If", newVal);
+    router.push("/add-dapp");
+  }
+});
 </script>
 
 <template>
