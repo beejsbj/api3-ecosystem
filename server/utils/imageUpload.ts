@@ -47,7 +47,6 @@ export const imageUploadHandler = (handler: EventHandler) =>
         upload.fields([
           { name: "logo", maxCount: 1 },
           { name: "banner", maxCount: 1 },
-          { name: "cover", maxCount: 1 },
           { name: "screenshot1", maxCount: 1 },
           { name: "screenshot2", maxCount: 1 },
           { name: "screenshot3", maxCount: 1 },

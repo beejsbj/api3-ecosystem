@@ -51,27 +51,6 @@ export default authenticated(
           };
         }
 
-        if (!event.node.req?.files?.cover?.[0]?.location) {
-          event.res.statusCode = 400;
-          return {
-            code: "REQ_FAILED",
-            message: "Failed to upload cover image",
-          };
-        }
-
-        // if (
-        //   !event.node.req?.files?.screenshot1?.[0]?.location ||
-        //   !event.node.req?.files?.screenshot2?.[0]?.location ||
-        //   !event.node.req?.files?.screenshot3?.[0]?.location ||
-        //   !event.node.req?.files?.screenshot4?.[0]?.location
-        // ) {
-        //   event.res.statusCode = 400;
-        //   return {
-        //     code: "REQ_FAILED",
-        //     message: "Failed to upload all 4 screenshots",
-        //   };
-        // }
-
         const screenshots = [];
         if (event.node.req?.files?.screenshot1?.[0]?.location) {
           screenshots.push(event.node.req?.files?.screenshot1?.[0]?.location);
@@ -86,10 +65,17 @@ export default authenticated(
           screenshots.push(event.node.req?.files?.screenshot4?.[0]?.location);
         }
 
+        if (screenshots.length < 4) {
+          event.res.statusCode = 400;
+          return {
+            code: "REQ_FAILED",
+            message: "Failed to upload all screenshots! Please try again",
+          };
+        }
+
         const uploadedImages = {
           logo: event.node.req?.files?.logo?.[0]?.location,
           banner: event.node.req?.files?.banner?.[0]?.location,
-          cover: event.node.req?.files?.cover?.[0]?.location,
           screenshots: screenshots,
         };
 
@@ -116,40 +102,33 @@ export default authenticated(
 
         console.log("build result ", buildResult);
 
-        // console.log("build result ", buildResult);
+        if (!buildResult.success) {
+          // remove project data from db when build failed
+          await Project.findByIdAndDelete(createdProject.id);
 
-        // if (buildResult.status === "failure") {
-        //   event.res.statusCode = 400;
-        //   return {
-        //     code: "BUILD_FAILED",
-        //     message: "Failed to build project!",
-        //   };
-        // }
-        // // create a pr for listing review if build success
+          event.res.statusCode = 400;
+          return {
+            code: "BUILD_FAILED",
+            message: "Failed to build project!",
+          };
+        }
 
-        // const prResult = await createPR(payload, createdProject.id);
+        // create a pr for listing review if build success
 
-        // console.log("pr result ", prResult);
+        const prResult = await createPR(payload, createdProject.id);
 
-        // if (prResult.status === "failure") {
-        //   event.res.statusCode = 400;
-        //   return {
-        //     code: "PR_FAILED",
-        //     message: "Failed to create PR!",
-        //   };
-        // }
+        if (!prResult.success) {
+          // remove project data from db when pr failed
+          await Project.findByIdAndDelete(createdProject.id);
 
-        // if (!createdProject.id) {
-        //   event.res.statusCode = 400;
-        //   return {
-        //     code: "CREATE_FAILED",
-        //     message: "Failed to create project listing!",
-        //   };
-        // }
+          event.res.statusCode = 400;
+          return {
+            code: "PR_FAILED",
+            message: "Failed to create PR!",
+          };
+        }
 
-        const project = await Project.findById(createdProject.id);
-
-        return buildResult;
+        return { buildResult, prResult };
       } catch (err: any) {
         console.log("create project error ", err);
         event.res.statusCode = 500;

@@ -52,6 +52,25 @@ export const useEcosystemStore = defineStore("ecosystem", () => {
     other: "Other",
   };
 
+  const categoryOptions = Object.keys(categoryToLabel).map((key) => {
+    return {
+      label: categoryToLabel[key],
+      value: key,
+    };
+  });
+  const productTypeOptions = Object.keys(productTypeToLabel).map((key) => {
+    return {
+      label: productTypeToLabel[key],
+      value: key,
+    };
+  });
+  const chainOptions = CHAINS.map((chain) => {
+    return {
+      label: chain.name,
+      value: chain.id,
+    };
+  });
+
   // chain id to chain name mapping
   const chainNames = (chainId) => {
     const chain = CHAINS.find((chain) => chain.id === chainId);
@@ -70,6 +89,9 @@ export const useEcosystemStore = defineStore("ecosystem", () => {
   return {
     list,
     stats,
+    categoryOptions,
+    productTypeOptions,
+    chainOptions,
     categoryToLabel,
     productTypeToLabel,
     filter,

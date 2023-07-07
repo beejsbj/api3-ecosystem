@@ -29,7 +29,7 @@ function buttonHandle(valid, direction) {
         :close-on-select="false"
         :searchable="true"
         :create-option="false"
-        :options="ecosystem.categories"
+        :options="ecosystem.categoryOptions.map((item) => item.value)"
       />
     </form-field>
 
@@ -42,7 +42,7 @@ function buttonHandle(valid, direction) {
         :close-on-select="false"
         :searchable="true"
         :create-option="false"
-        :options="ecosystem.chains"
+        :options="ecosystem.chainOptions.map((item) => item.value)"
       />
     </form-field>
 
@@ -58,7 +58,7 @@ function buttonHandle(valid, direction) {
         :close-on-select="false"
         :searchable="true"
         :create-option="false"
-        :options="ecosystem.productTypes"
+        :options="ecosystem.productTypeOptions.map((item) => item.value)"
       />
     </form-field>
     <div class="actions">

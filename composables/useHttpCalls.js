@@ -104,7 +104,6 @@ export const useHttpCalls = () => {
       // images
       body.append("logo", dappForm.value.images.logo);
       body.append("banner", dappForm.value.images.banner);
-      body.append("cover", dappForm.value.images.cover);
 
       dappForm.value.images?.screenshots.forEach((fileItem, index) => {
         console.log(fileItem);
