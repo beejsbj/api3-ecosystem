@@ -1,5 +1,19 @@
 <script setup>
-function submitHandler() {}
+import { parseMarkdown } from "@/utils/parseMarkdown";
+
+async function submitHandler(event) {
+  const file = event.article[0].file;
+  const reader = new FileReader();
+
+  reader.onload = async function (e) {
+    const content = e.target.result;
+    const parsed = await parseMarkdown({ content });
+    console.log("parsed", parsed);
+    // #todo POST parsed to db
+  };
+
+  reader.readAsText(file);
+}
 </script>
 
 <template>
@@ -13,8 +27,8 @@ function submitHandler() {}
           type="file"
           label="upload article"
           label-class="$reset notice-voice"
-          name="logo"
-          help="This image should be a square and at least 512px wide."
+          name="article"
+          help="Upload a markdown formatted file"
           accept=".md"
           validation="required"
         />
@@ -22,3 +36,28 @@ function submitHandler() {}
     </file-upload>
   </SectionColumn>
 </template>
+
+<style scoped lang="scss">
+file-upload {
+  display: grid;
+  background: var(--gradient-dark);
+  --ink: hsla(180, 0%, 95%, 1);
+  border-radius: var(--corners);
+  gap: 10px;
+  padding: 1rem;
+  align-items: start;
+
+  :deep([data-type="file"]) {
+    input.formkit-input {
+      color: var(--white) !important;
+      font-size: var(--step--1) !important;
+
+      ul li.formkit-file-item {
+        display: grid !important;
+        grid-template-columns: 0.25fr 1fr 0.25fr !important;
+        align-content: center !important;
+      }
+    }
+  }
+}
+</style>

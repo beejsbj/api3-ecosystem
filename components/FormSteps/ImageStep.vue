@@ -62,25 +62,6 @@ const fileSize = function (node) {
           }"
         />
       </file-upload>
-
-      <file-upload>
-        <FormKit
-          id="coverForm"
-          type="file"
-          label="Upload a cover image"
-          label-class="$reset notice-voice"
-          name="cover"
-          help="This image should be at least 1024px wide."
-          accept="*"
-          @change="dappForm.images.cover = $event.target.files[0]"
-          v-auto-animate
-          validation="required|fileSize"
-          :validation-rules="{ fileSize }"
-          :validation-messages="{
-            fileSize: 'File size must be below 3MB',
-          }"
-        />
-      </file-upload>
     </div>
     <div>
       <file-upload>

@@ -29,11 +29,11 @@
     "@pinia/nuxt": "^0.4.9",
     "@vueform/multiselect": "^2.6.1",
     "@vueuse/core": "^9.13.0",
-    "@wagmi/core": "^1.2.0",
-    "@web3modal/auth-html": "^2.4.7",
-    "@web3modal/ethereum": "^2.4.7",
-    "@web3modal/html": "^2.4.7",
+    "@wagmi/core": "^1.3.7",
+    "@web3modal/ethereum": "^2.6.2",
+    "@web3modal/html": "^2.6.2",
     "aws-sdk": "^2.1398.0",
+    "ethers": "^6.6.2",
     "floating-vue": "^2.0.0-beta.22",
     "gsap": "^3.11.5",
     "h3-formidable": "^0.3.4",
@@ -48,7 +48,8 @@
     "shelljs": "^0.8.5",
     "siwe": "^2.1.4",
     "slug": "^8.2.2",
-    "viem": "^1.0.7",
+    "uuid": "^9.0.0",
+    "viem": "^1.2.10",
     "zod": "^3.21.4"
   }
 }

@@ -3,6 +3,8 @@ export const useHttpCalls = () => {
     try {
       const body = new FormData();
 
+      console.log("project test  dapp form ", dappForm);
+
       // append dappform to body, dappForm is vue reactive, so needs .value
       body.append("name", dappForm.value.name);
       body.append("tagline", dappForm.value.tagline);
@@ -102,11 +104,10 @@ export const useHttpCalls = () => {
       // images
       body.append("logo", dappForm.value.images.logo);
       body.append("banner", dappForm.value.images.banner);
-      body.append("cover", dappForm.value.images.cover);
 
       dappForm.value.images?.screenshots.forEach((fileItem, index) => {
         console.log(fileItem);
-        body.append(`screenshot${index + 1}`, fileItem.file);
+        body.append(`screenshot${index + 1}`, fileItem);
       });
 
       const response = await $fetch("/api/projects", {

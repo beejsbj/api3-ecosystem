@@ -2,6 +2,7 @@ import { defineStore } from "pinia";
 import data from "./ecosystem-data.json";
 import slug from "slug";
 import { useFetch } from "nuxt/app";
+import { CHAINS } from "@api3/chains";
 
 export const useEcosystemStore = defineStore("ecosystem", () => {
   const route = useRoute();
@@ -32,54 +33,56 @@ export const useEcosystemStore = defineStore("ecosystem", () => {
     list.value.push(dapp);
   }
 
-  const productTypes = ["dapi", "qrng", "datafeed"]; //["dAPI", "QRNG", "Airnode", "Custom Solution"];
+  const productTypeToLabel = {
+    dapi: "dAPI",
+    qrng: "QRNG",
+    datafeed: "Data Feed",
+    airnode: "Airnode",
+  };
 
-  const categories = [
-    // "DeFi",
-    // "Perpetual trading",
-    // "Lending",
-    // "Synthetics",
-    // "Yield",
-    // "Derivatives",
-    // "RWA",
-    // "Options",
-    // "Farm",
-    // "Predicition Market",
-    // "Payments",
-    // "Algo-stables",
-    // "Liquid staking",
-    // "NFT",
-    // "Gaming",
-    // "Data Provider",
-    // "DEX",
-    // "Play to Earn",
-    // "Infrastructure",
-    // "DAO",
+  const categoryToLabel = {
+    defi: "DeFi",
+    dex: "Dex",
+    nft: "NFT",
+    gaming: "Gaming",
+    dao: "Dao",
+    oracle: "Oracle",
+    wallet: "Wallet",
+    infrastructure: "Infrastructure",
+    other: "Other",
+  };
 
-    "defi",
-    "dex",
-    "nft",
-    "gaming",
-    "dao",
-  ];
+  const categoryOptions = Object.keys(categoryToLabel).map((key) => {
+    return {
+      label: categoryToLabel[key],
+      value: key,
+    };
+  });
+  const productTypeOptions = Object.keys(productTypeToLabel).map((key) => {
+    return {
+      label: productTypeToLabel[key],
+      value: key,
+    };
+  });
 
-  const chains = [
-    // "Ethereum",
-    // "Polygon",
-    // "Polygon zkEVM",
-    // "zkSync Era",
-    // "BNB",
-    // "Avalanche",
-    // "Fantom",
-    // "Arbitrum",
-    // "Optimism",
-    // "Moonriver",
-    // "Moonbeam",
-    // "Gnosis",
-    "1",
-    "137",
-    "56",
-  ];
+  const mainnetChains = CHAINS.filter((chain) => {
+    if (!chain?.name?.toLocaleLowerCase().includes("testnet")) {
+      return chain;
+    }
+  });
+
+  const chainOptions = mainnetChains?.map((chain) => {
+    return {
+      label: chain.name,
+      value: chain.id,
+    };
+  });
+
+  // chain id to chain name mapping
+  const chainNames = (chainId) => {
+    const chain = CHAINS.find((chain) => chain.id === chainId);
+    return chain ? chain.name : chainId;
+  };
 
   const filter = ref({
     search: "",
@@ -93,12 +96,14 @@ export const useEcosystemStore = defineStore("ecosystem", () => {
   return {
     list,
     stats,
-    categories,
-    chains,
-    productTypes,
+    categoryOptions,
+    productTypeOptions,
+    chainOptions,
+    categoryToLabel,
+    productTypeToLabel,
     filter,
     serverPage,
-
+    chainNames,
     addDapp,
   };
 });

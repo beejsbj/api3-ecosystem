@@ -129,7 +129,7 @@ mission-section {
     //  max-width: 60vw;
     position: absolute;
     top: 50px;
-    width: 500px;
+    width: 320px;
     z-index: -1;
     opacity: 0.5;
   }
@@ -140,12 +140,16 @@ mission-section {
     }
   }
   .mission-card {
-    background: var(--gradient-dark);
     padding: 1rem;
+    box-shadow: 0px 0px 2px 0px var(--color), 0px 0px 10px 0px var(--highlight);
     border-radius: var(--corners);
     h4 {
       margin-bottom: 1.5rem;
     }
+    transition: 0.2s;
+  }
+  .mission-card:hover {
+    box-shadow: 0px 0px 2px 0px var(--color), 0px 0px 30px 0px var(--highlight);
   }
 }
 article {
