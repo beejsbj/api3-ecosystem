@@ -1,6 +1,22 @@
 <script setup>
-function submitHandler(event) {
-  console.log("submitHandler", event.value);
+import { parseMarkdown } from "@/utils/parseMarkdown";
+
+async function submitHandler(event) {
+  const file = event.article[0].file;
+  const reader = new FileReader();
+
+  reader.onload = async function (e) {
+    console.log("reader.onload", e);
+
+    const content = e.target.result;
+    console.log("content\n", content);
+
+    const parsed = await parseMarkdown(content);
+    console.log("parsed", parsed);
+    // Here you can handle the content of the file
+  };
+
+  reader.readAsText(file);
 }
 </script>
 
@@ -15,7 +31,7 @@ function submitHandler(event) {
           type="file"
           label="upload article"
           label-class="$reset notice-voice"
-          name="logo"
+          name="article"
           help="Upload a markdown formatted file"
           accept=".md"
           validation="required"
