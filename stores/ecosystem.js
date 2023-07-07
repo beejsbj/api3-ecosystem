@@ -64,7 +64,14 @@ export const useEcosystemStore = defineStore("ecosystem", () => {
       value: key,
     };
   });
-  const chainOptions = CHAINS.map((chain) => {
+
+  const mainnetChains = CHAINS.filter((chain) => {
+    if (!chain?.name?.toLocaleLowerCase().includes("testnet")) {
+      return chain;
+    }
+  });
+
+  const chainOptions = mainnetChains?.map((chain) => {
     return {
       label: chain.name,
       value: chain.id,
