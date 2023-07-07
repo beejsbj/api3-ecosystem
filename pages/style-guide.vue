@@ -1,24 +1,10 @@
 <script setup>
-import { useBlogStore } from "~/stores/blog";
-import { useEcosystemStore } from "~/stores/ecosystem";
-import { watchAccount } from "@wagmi/core";
-
-const blog = useBlogStore();
-const ecosystem = useEcosystemStore();
-
-//get account info in a ref to keep watchful
-const account = ref({});
-const unwatch = watchAccount((acc) => {
-  account.value = { ...acc };
-});
+const { account } = useWeb3();
 </script>
 
 <template>
   <PageHeader heading="Style Guide" />
   <SectionColumn>
-    <pre>
-		{{ account }}
-	 </pre
-    >
+    {{ account }}
   </SectionColumn>
 </template>
