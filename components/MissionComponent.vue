@@ -23,7 +23,6 @@ const content = ref({
     },
     {
       title: "Developer Experience",
-
       description:
         "API3 is committed to an open-source, democratized web that empowers individuals from all walks of life. We foster this through a comprehensive ecosystem, designed to equip developers with the tools, resources, and support they need to build exceptional dApps.",
       image: "circle",
@@ -33,8 +32,6 @@ const content = ref({
 const cardIndex = ref(false);
 
 function animateBackground() {
-  console.log("animate");
-
   gsap.fromTo(
     "mission-section .background-graphic path",
     {
@@ -46,6 +43,19 @@ function animateBackground() {
       strokeDashoffset: 0,
       ease: "power2.in",
       stagger: 0.05,
+    }
+  );
+  gsap.fromTo(
+    "mission-section .decorations path",
+    {
+      strokeDashoffset: "888",
+      strokeDasharray: "888",
+    },
+    {
+      duration: 3,
+      strokeDashoffset: 0,
+      ease: "power2.in",
+      // stagger: 0.05,
     }
   );
 }
@@ -67,7 +77,6 @@ function animateParagraph() {
 }
 
 function onMouseEnter(index) {
-  console.log("enter");
   cardIndex.value = index;
   const cards = document.querySelectorAll("mission-section .mission-card");
 
@@ -154,10 +163,7 @@ onMounted(() => {
         </picture> -->
       </article>
       <picture class="shape-graphic">
-        <img
-          :src="`/images/${content.cards[cardIndex]?.image ?? 'square'}.svg`"
-          alt=""
-        />
+        <img :src="`/images/circle.svg`" alt="" />
       </picture>
       <picture class="background-graphic">
         <Transition @enter="animateBackground">
@@ -166,6 +172,11 @@ onMounted(() => {
           <AirnodeIcon v-else-if="cardIndex == 2" />
         </Transition>
       </picture>
+      <div class="decorations">
+        <picture v-for="i in 10" :class="'decoration-' + i">
+          <DecorationTriangle />
+        </picture>
+      </div>
     </mission-section>
   </SectionColumn>
 </template>
@@ -180,6 +191,31 @@ mission-section {
   gap: 100px;
   height: 100%;
   position: relative;
+
+  div.decorations {
+    position: absolute;
+    inset: 0;
+
+    z-index: -1;
+    picture {
+      position: absolute;
+      top: 0;
+      left: 0;
+      // opacity: 0.2;
+      stroke-width: 0.1;
+    }
+
+    $sizes: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10;
+
+    @each $size in $sizes {
+      picture.decoration-#{$size} {
+        width: random($limit: 100px) + 30px;
+        top: random($limit: 100px) + 20vh;
+        left: random($limit: 100px) + 20vw;
+        transform: rotate(random(360deg));
+      }
+    }
+  }
 
   heading-text {
     h2 {
