@@ -186,7 +186,7 @@ a.router-link-exact-active::after {
 }
 
 button:disabled {
-  filter: saturate(0);
+  filter: saturate(0) brightness(0.4);
   cursor: not-allowed;
   pointer-events: none;
 }

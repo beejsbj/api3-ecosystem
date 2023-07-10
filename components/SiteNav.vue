@@ -13,7 +13,7 @@
     <NuxtLink class="text" to="/articles">Articles</NuxtLink>
     <!-- <NuxtLink to="/about">About</NuxtLink> -->
     <div class="actions">
-      <ConnectButton />
+      <!-- <ConnectButton /> -->
     </div>
   </nav>
 </template>

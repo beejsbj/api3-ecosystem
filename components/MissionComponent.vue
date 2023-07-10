@@ -35,8 +35,8 @@ function animateBackground() {
   gsap.fromTo(
     "mission-section .background-graphic path",
     {
-      strokeDashoffset: "1000",
-      strokeDasharray: "1000",
+      strokeDashoffset: "900",
+      strokeDasharray: "900",
     },
     {
       duration: 3,
@@ -48,8 +48,8 @@ function animateBackground() {
   gsap.fromTo(
     "mission-section .decorations path",
     {
-      strokeDashoffset: "888",
-      strokeDasharray: "888",
+      strokeDashoffset: "900",
+      strokeDasharray: "900",
     },
     {
       duration: 3,

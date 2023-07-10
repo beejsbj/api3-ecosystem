@@ -7,6 +7,7 @@ import { Web3Modal } from "@web3modal/html";
 import {
   configureChains,
   createConfig,
+  getAccount,
   watchAccount,
   signMessage,
   getNetwork,
@@ -63,5 +64,13 @@ export const useWeb3 = () => {
     }
   };
 
-  return { wallet, openModal, account, sign, isConnected, chainId };
+  return {
+    wallet,
+    openModal,
+    account,
+    sign,
+    isConnected,
+    chainId,
+    wagmiConfig,
+  };
 };
