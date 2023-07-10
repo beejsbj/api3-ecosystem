@@ -8,6 +8,8 @@ function buttonHandle(valid, direction) {
 }
 
 const fileSize = function (node) {
+  if (!node.value) return true;
+
   const maxSize = 3 * 1024 * 1024;
 
   const fileSizes = node.value.map((file) => file.file.size);
@@ -76,7 +78,7 @@ const fileSize = function (node) {
           help="Screenshots of your dApp in action."
           @change="dappForm.images.screenshots = [...$event.target.files]"
           accept="*"
-          validation="required|fileSize"
+          validation="fileSize"
           :validation-rules="{ fileSize }"
           :validation-messages="{
             fileSize: 'Each file must be below 3MB',

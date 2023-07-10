@@ -157,6 +157,8 @@ hero-landing {
   .page-title {
     grid-column: 1 / -1;
 
+    text-wrap: balance;
+
     @media (min-width: 1194px) {
       grid-column: 2 / -5;
     }

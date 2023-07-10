@@ -8,6 +8,7 @@ const showFilter = ref(false);
 
 useServerSeoMeta({
   title: "Ecosystems",
+  description: "Search API3's Ecosystem",
 });
 
 onMounted(() => {
@@ -35,7 +36,7 @@ onMounted(() => {
   <SectionColumn class="ecosystem-header">
     <h1 class="loud-voice gradient-text">Search API3's Ecosystem</h1>
 
-    <NuxtLink to="/add-dapp" class="filled button firm-voice">
+    <NuxtLink to="/add-dapp" class="loud-button firm-voice">
       <span class=""> Add Your Own </span>
     </NuxtLink>
   </SectionColumn>

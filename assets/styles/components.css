@@ -112,6 +112,7 @@ picture.logo {
 :is(button, a).text,
 .hover-underline,
 .router-link-exact-active {
+  --underline-width: 0;
   position: relative;
 }
 :is(button, a).text::after,
@@ -121,7 +122,7 @@ picture.logo {
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 0%;
+  width: var(--underline-width);
   height: 1px;
   background: var(--gradient-color);
   transition: 0.2s;
@@ -131,7 +132,7 @@ picture.logo {
 :is(button, a).text:is(:hover, :focus)::after,
 .hover-underline:is(:hover, :focus)::after,
 a.router-link-exact-active::after {
-  width: 100%;
+  --underline-width: 100%;
 }
 
 /* tooltip.css */
