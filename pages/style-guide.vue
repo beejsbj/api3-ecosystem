@@ -1,10 +1,14 @@
 <script setup>
-console.log(wallet);
+const ecosystem = useEcosystemStore();
 </script>
 
 <template>
   <PageHeader heading="Style Guide" />
   <SectionColumn>
-    <pre></pre>
+    <pre>
+
+		{{ ecosystem.chainOptions }}
+	 </pre
+    >
   </SectionColumn>
 </template>

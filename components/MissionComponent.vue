@@ -203,17 +203,19 @@ mission-section {
       left: 0;
       // opacity: 0.2;
       stroke-width: 0.4;
-      --color: var(--highlight);
     }
+    display: none;
 
-    $sizes: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10;
-
-    @each $size in $sizes {
-      picture.decoration-#{$size} {
-        width: random($limit: 100px) + 30px;
-        top: random($limit: 100px) + 20vh;
-        left: random($limit: 100px) + 20vw;
-        transform: rotate(random(360deg));
+    @media (min-width: 1000px) {
+      display: block;
+      $sizes: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10;
+      @each $size in $sizes {
+        picture.decoration-#{$size} {
+          width: random($limit: 100px) + 30px;
+          top: random($limit: 100px) + 25vh;
+          left: random($limit: 50px) + 20vw;
+          transform: rotate(random(360deg));
+        }
       }
     }
   }
