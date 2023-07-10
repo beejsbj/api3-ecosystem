@@ -249,13 +249,19 @@ mission-section {
 
   picture.background-graphic {
     position: absolute;
-    top: 10%;
+
+    bottom: -10%;
     right: 0%;
     width: 80vmin;
     z-index: -1;
-    opacity: 0.2;
+    opacity: 0.25;
     stroke-width: 0.1 !important;
     //  transform: rotate(20deg);
+
+    @media (min-width: 768px) {
+      top: 10%;
+      bottom: unset;
+    }
   }
 
   .mission-card {

@@ -5,29 +5,34 @@ useServerSeoMeta({
 
 const { isConnected } = useWeb3();
 const router = useRouter();
+const route = useRoute();
+const toPath = route.query.to;
 
-watch(isConnected, (newVal) => {
-  console.log("isConnected", newVal);
+watch(isConnected, async (newVal) => {
   if (newVal) {
-    router.push("/add-dapp");
-    console.log("passing If", newVal);
+    router.push(toPath ?? "/");
   }
 });
+
+///
 </script>
 
 <template>
-  <div>
-    <h1 class="booming-voice">Please Connect your wallet</h1>
+  <SectionColumn>
+    <h1 class="loud-voice">Please Connect your wallet</h1>
     <ConnectButton />
-  </div>
+  </SectionColumn>
 </template>
 
-<style scoped>
-div {
+<style lang="scss" scoped>
+:deep(inner-column) {
   display: grid;
-  place-items: center;
   gap: 1rem;
   height: 100vh;
+
   align-content: center;
+  @media (min-width: 768px) {
+    place-items: center;
+  }
 }
 </style>

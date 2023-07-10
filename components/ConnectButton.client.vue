@@ -1,5 +1,6 @@
 <script setup>
 const { openModal, isConnected } = useWeb3();
+
 /////
 
 /////
