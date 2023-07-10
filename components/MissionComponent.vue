@@ -201,7 +201,7 @@ mission-section {
       position: absolute;
       top: 0;
       left: 0;
-      // opacity: 0.2;
+      opacity: 0.5;
       stroke-width: 0.4;
     }
     display: none;
@@ -257,7 +257,7 @@ mission-section {
     width: 80vmin;
     z-index: -1;
     opacity: 0.25;
-    stroke-width: 0.1 !important;
+    stroke-width: 0.2 !important;
     //  transform: rotate(20deg);
 
     @media (min-width: 768px) {

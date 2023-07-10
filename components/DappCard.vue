@@ -35,6 +35,7 @@ function filterBy(event) {
           <ul class="productTypes-list productType">
             <li class="micro-voice productType" @click="filterBy">
               {{ ecosystem?.productTypeToLabel?.[dapp?.productType] }}
+
               <picture v-if="`/images/icons/${slug(dapp?.productType)}.svg`">
                 <img
                   :src="`/images/icons/${slug(dapp?.productType)}.svg`"

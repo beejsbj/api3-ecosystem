@@ -17,6 +17,7 @@ const props = defineProps(["dapp"]);
         <div class="chain">
           <picture>
             <ChainIcon
+              v-if="false"
               :chain="
                 dapp.chains.find((chain) => chain.chainId == proxy.chainId).name
               "

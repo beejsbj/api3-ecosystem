@@ -15,6 +15,7 @@ const dynamicComponent = defineAsyncComponent(() =>
       ${props.strokeWidth ? `stroke-width: ${props.strokeWidth};` : ''}
   `"
     v-tooltip="props.chain"
+    v-if="props.chain"
   />
 </template>
 
