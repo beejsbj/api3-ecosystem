@@ -34,22 +34,30 @@ function showErrors(node) {
 }
 
 const submitHandler = async () => {
-  const verificationStatus = await verifyWallet();
+  const {
+    success: verificationSuccess,
+    data: verificationData,
+    message: verificationError,
+  } = await verifyWallet();
 
-  console.log("verificationStatus", verificationStatus);
+  console.log("verificationStatus", {
+    verificationSuccess,
+    verificationData,
+    verificationError,
+  });
 
-  if (!verificationStatus || !verificationStatus.verified) {
+  if (!verificationSuccess) {
     console.log(
       "verificationStatus signature verification failed",
-      verificationStatus
+      verificationSuccess
     );
     return;
   }
 
-  const submitResult = await submitProject(dappForm, verificationStatus.token);
+  const submitResult = await submitProject(dappForm, verificationData?.token);
 
   if (submitResult.success) {
-    console.log("api response", response);
+    console.log("api response", submitResult);
     complete.value = true;
     delete dappForm.value;
     // dappForm.value = {};

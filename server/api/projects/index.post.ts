@@ -128,7 +128,8 @@ export default authenticated(
           };
         }
 
-        return { buildResult, prResult };
+        event.res.statusCode = 201;
+        return { code: "OK", message: "Project submitted successfully!" };
       } catch (err: any) {
         console.log("create project error ", err);
         event.res.statusCode = 500;

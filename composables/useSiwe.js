@@ -8,11 +8,29 @@ export const useSiwe = () => {
         method: "GET",
       });
 
-      const address = account;
+      if (!nonce)
+        return {
+          success: false,
+          message: "Failed to get nonce from service!",
+        };
+
+      if (!account.value)
+        return {
+          success: false,
+          message: "Invalid account!",
+        };
+
+      if (!chainId.value)
+        return {
+          success: false,
+          message: "Invalid chainId!",
+        };
+
+      const address = account.value;
 
       const message = new SiweMessage({
         domain: window.location.host,
-        chainId: chainId,
+        chainId: chainId.value,
         address: address,
         statement: "Sign in with Ethereum to the API3 ecosystem",
         uri: window.location.origin,
@@ -20,14 +38,15 @@ export const useSiwe = () => {
         nonce: nonce,
       });
 
-      console.log("verificationStatus:  message", message);
-
       const messageToSign = message.prepareMessage();
       const signature = await sign({ message: messageToSign });
 
       if (!signature) {
         console.log("verificationStatus: signature error");
-        return null;
+        return {
+          success: false,
+          message: "Failed to sign message!",
+        };
       }
 
       const signatureVerification = await $fetch("/api/auth", {
@@ -40,12 +59,17 @@ export const useSiwe = () => {
         },
       });
 
-      console.log("verificationStatus result", signatureVerification);
-
-      return signatureVerification;
+      return { success: true, data: signatureVerification };
     } catch (error) {
-      console.log("verificationStatus: signature error", error);
-      return null;
+      console.log("verificationStatus test: signature error", {
+        error,
+        account: account.value,
+        chainId: chainId.value,
+      });
+      return {
+        success: false,
+        message: "Failed to sign message!",
+      };
     }
   }
 

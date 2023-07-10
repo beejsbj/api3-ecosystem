@@ -1,9 +1,9 @@
+import axios from "axios";
+
 export const useHttpCalls = () => {
   const submitProject = async (dappForm, token) => {
     try {
       const body = new FormData();
-
-      console.log("project test  dapp form ", dappForm);
 
       // append dappform to body, dappForm is vue reactive, so needs .value
       body.append("name", dappForm.value.name);
@@ -11,9 +11,9 @@ export const useHttpCalls = () => {
       body.append("description", dappForm.value.description);
       body.append("chains", JSON.stringify(dappForm.value.chains));
       body.append("categories", JSON.stringify(dappForm.value.categories));
-      body.append("productType", dappForm.value?.productType?.[0]); //: todo fix after productType form fix
+      body.append("productType", dappForm.value?.productType);
       body.append("proxies", dappForm.value.proxies);
-      body.append("year", 2021);
+      body.append("year", 2021); //: todo fix year  productType form fix
 
       const links = {
         website: dappForm.value.links.website,
@@ -110,19 +110,14 @@ export const useHttpCalls = () => {
         body.append(`screenshot${index + 1}`, fileItem);
       });
 
-      const response = await $fetch("/api/projects", {
-        method: "POST",
-        body: body,
+      const response = await axios.post("/api/projects", body, {
         headers: {
           Authorization: token,
         },
       });
 
-      console.log("submit response ", { response });
-
       if (response.status === 201) {
-        console.log("submit response success");
-        return { success: true };
+        return { success: true, message: "Project submitted" };
       } else {
         return { success: false, message: "Failed at server" };
       }
