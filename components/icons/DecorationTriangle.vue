@@ -1,3 +1,5 @@
+<script scoped></script>
+
 <template>
   <svg
     width="100%"

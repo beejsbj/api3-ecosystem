@@ -35,8 +35,8 @@ function animateBackground() {
   gsap.fromTo(
     "mission-section .background-graphic path",
     {
-      strokeDashoffset: "888",
-      strokeDasharray: "888",
+      strokeDashoffset: "1000",
+      strokeDasharray: "1000",
     },
     {
       duration: 3,
@@ -168,8 +168,8 @@ onMounted(() => {
       <picture class="background-graphic">
         <Transition @enter="animateBackground">
           <DatafeedIcon v-if="cardIndex == 0" />
-          <DeveloperToolIcon v-else-if="cardIndex == 1" />
-          <AirnodeIcon v-else-if="cardIndex == 2" />
+          <DaoIcon v-else-if="cardIndex == 1" />
+          <DeveloperToolIcon v-else-if="cardIndex == 2" />
         </Transition>
       </picture>
       <div class="decorations">
@@ -202,7 +202,8 @@ mission-section {
       top: 0;
       left: 0;
       // opacity: 0.2;
-      stroke-width: 0.1;
+      stroke-width: 0.4;
+      --color: var(--highlight);
     }
 
     $sizes: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10;
@@ -253,7 +254,7 @@ mission-section {
     width: 80vmin;
     z-index: -1;
     opacity: 0.2;
-    stroke-width: 0.1;
+    stroke-width: 0.1 !important;
     //  transform: rotate(20deg);
   }
 
