@@ -5,26 +5,27 @@ const content = ref({
   heading:
     "API3 DAO serves data on-chain with first-party oracles that provide a decentralized API layer for Web 3.0 applications.",
   paragraph:
-    "Through our robust network of trusted first-party oracles, API3 serves verified data directly onto the blockchain, employing a secure, dependable, and foolproof solution that ensures end-to-end transparency throughout the entire process.",
+    "Through our expansive and robust network of trusted first-party oracles, API3 serves verified data directly onto the blockchain, employing a secure, dependable, and foolproof solution that guarantees end-to-end transparency throughout the entire process.",
 
   cards: [
     {
       title: "First-Party Oracle Services",
       description:
-        "API3 provides secure first-party data feeds that establish seamless connections between API providers and oracle smart contracts, thereby eliminating the need for third-party intermediaries and bolstering the overall integrity of the data.",
+        "API3 provides secure and reliable first-party data feeds that establish seamless connections between API providers and oracle smart contracts, thereby eliminating the need for third-party intermediaries and bolstering the overall integrity of the data.",
 
       image: "square",
     },
     {
       title: "DAO Governed",
       description:
-        "API3 prioritizes decentralization, a core value in the Web3 ecosystem. It's governance is based on a decentralized autonomous organization (DAO), empowers token holders in decision-making.",
+        "API3 strongly values decentralization, a foundational principle in the Web3 ecosystem. Its governance relies on a decentralized autonomous organization (DAO), which gives token holders the authority to make decisions and actively shape the platform's future.",
       image: "triangle",
     },
     {
       title: "Developer Experience",
+
       description:
-        "API3 is committed to an open-source, democratized web for all. We foster this through a comprehensive ecosystem, equipping developers to build exceptional applications.",
+        "API3 is committed to an open-source, democratized web that empowers individuals from all walks of life. We foster this through a comprehensive ecosystem, designed to equip developers with the tools, resources, and support they need to build exceptional dApps.",
       image: "circle",
     },
   ],
