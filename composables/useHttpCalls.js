@@ -129,5 +129,26 @@ export const useHttpCalls = () => {
     }
   };
 
-  return { submitProject };
+  const submitArticle = async (parsedArticle, token) => {
+    try {
+      const res = await axios.post("/api/articles", parsedArticle, {
+        headers: {
+          Authorization: token,
+        },
+      });
+
+      if (res.status === 201) {
+        return { success: true, message: "Article submitted" };
+      }
+
+      return { success: false, message: "Failed to uplaod article" };
+    } catch (error) {
+      console.log("submit response error ", {
+        error: error,
+      });
+      return { success: false, message: error?.response?.statusText };
+    }
+  };
+
+  return { submitProject, submitArticle };
 };
