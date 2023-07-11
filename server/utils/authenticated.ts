@@ -1,8 +1,12 @@
 import type { EventHandler } from "h3";
 import { verifyToken } from "../services/jwt";
-import { DecodedToken } from "../types";
+import { DecodedToken, ROLE } from "../types";
+import { User } from "~/server/models/User";
 
-export const authenticated = (handler: EventHandler) =>
+export const authenticated = (
+  handler: EventHandler,
+  role: string = ROLE.USER
+) =>
   defineEventHandler(async (event) => {
     try {
       const authToken = event.node.req.headers.authorization;
@@ -10,7 +14,7 @@ export const authenticated = (handler: EventHandler) =>
       if (!authToken) {
         event.res.statusCode = 401;
         return {
-          error: "Unauthorized",
+          error: "Unauthorized access",
         };
       }
 
@@ -20,6 +24,25 @@ export const authenticated = (handler: EventHandler) =>
         event.res.statusCode = 401;
         return {
           error: "Unauthorized",
+        };
+      }
+
+      // check if user exists in db
+      const user = await User.findOne({ address: decodedToken.address });
+
+      // if user is not present in db, return unauthorized
+      if (!user) {
+        event.res.statusCode = 401;
+        return {
+          error: "Unauthorized access",
+        };
+      }
+
+      // if role is not same as user role, return unauthorized
+      if (user?.role !== role) {
+        event.res.statusCode = 401;
+        return {
+          error: "Unauthorized access",
         };
       }
 

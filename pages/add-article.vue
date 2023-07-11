@@ -1,6 +1,9 @@
 <script setup>
 import { parseMarkdown } from "@/utils/parseMarkdown";
 
+const { verifyWallet } = useSiwe();
+const { submitArticle } = useHttpCalls();
+
 async function submitHandler(event) {
   const file = event.article[0].file;
   const reader = new FileReader();
@@ -9,6 +12,36 @@ async function submitHandler(event) {
     const content = e.target.result;
     const parsed = await parseMarkdown({ content });
     console.log("parsed", parsed);
+
+    const {
+      success: verificationSuccess,
+      data: verificationData,
+      message: verificationError,
+    } = await verifyWallet();
+
+    console.log("verificationStatus", {
+      verificationSuccess,
+      verificationData,
+      verificationError,
+    });
+
+    if (!verificationSuccess) {
+      console.log(
+        "verificationStatus signature verification failed",
+        verificationSuccess
+      );
+      return;
+    }
+
+    const submitResult = await submitArticle(parsed, verificationData?.token);
+
+    if (submitResult.success) {
+      console.log("Article submitted successfully.", submitResult);
+    } else {
+      //:todo handle error
+      console.log("The server didn’t like our request.", submitResult);
+    }
+
     // #todo POST parsed to db
   };
 

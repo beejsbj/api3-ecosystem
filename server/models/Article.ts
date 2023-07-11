@@ -5,11 +5,14 @@ const Schema = mongoose.Schema;
 // Define the nested schema
 const AuthorSchema = new mongoose.Schema({
   name: String,
-  bio: String,
 });
 
 const ArticleSchema = new Schema<ArticleType>({
   title: {
+    type: String,
+    required: true,
+  },
+  subtitle: {
     type: String,
     required: true,
   },
@@ -22,7 +25,7 @@ const ArticleSchema = new Schema<ArticleType>({
     required: true,
   },
   content: {
-    type: String,
+    type: Schema.Types.Mixed,
     required: true,
   },
   category: {

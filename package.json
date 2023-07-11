@@ -15,6 +15,7 @@
     "@types/multer": "^1.4.7",
     "@types/multer-s3": "^3.0.0",
     "@types/shelljs": "^0.8.12",
+    "@types/uuid": "^9.0.2",
     "nuxt": "^3.5.3"
   },
   "dependencies": {

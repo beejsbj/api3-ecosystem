@@ -7,6 +7,7 @@ const AuthorSchema = z.object({
 
 const ArticleSchema = z.object({
   title: z.string().nonempty("Title is required"),
+  subtitle: z.string().nonempty("Subtitle is required"),
   description: z.string().nonempty("Description is required"),
   author: AuthorSchema,
   content: z.string().nonempty("Content is required"),
