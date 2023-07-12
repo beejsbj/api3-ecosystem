@@ -12,7 +12,7 @@ export default defineEventHandler(async (event: any) => {
     const siweMessage = new SiweMessage(JSON.parse(message));
     const verificationResult = await siweMessage.verify({ signature });
     const fields = verificationResult.data;
-    console.log("fields ", fields);
+
     if (fields.nonce !== nonce) {
       event.res.statusCode = 401;
       return {
@@ -28,7 +28,7 @@ export default defineEventHandler(async (event: any) => {
         message: "Wrong address!",
       };
     }
-    //:todo implement domain and uri check
+    //:todo test domain and uri check
     // check for request origin and domain
     // if(fields.domain !== event.node.req.headers.host) {
     //   event.res.statusCode = 401;
