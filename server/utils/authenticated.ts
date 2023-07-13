@@ -38,8 +38,11 @@ export const authenticated = (
         };
       }
 
-      // if role is not same as user role, return unauthorized
-      if (user?.role !== role) {
+      //check token has correct role to access the resource for moderators and admins
+      if (
+        (role === ROLE.MODERATOR || role === ROLE.ADMIN) &&
+        user?.role !== role
+      ) {
         event.res.statusCode = 401;
         return {
           error: "Unauthorized access",

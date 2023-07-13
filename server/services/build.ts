@@ -13,8 +13,7 @@ async function verifyBuild(
 ): Promise<BuildStatus> {
   // chenge dir to dapp-registry
   return new Promise((resolve, reject) => {
-    const isProjectDirExists =
-      shelljs.exec(`cd .. && cd dapp-registry`).code === 0;
+    const isProjectDirExists = shelljs.exec(`cd dapp-registry`).code === 0;
 
     if (!isProjectDirExists) {
       const isGitInstalled = shelljs.exec(`git --version`).code === 0;
@@ -24,8 +23,7 @@ async function verifyBuild(
         return;
       }
 
-      const isCloned =
-        shelljs.exec(`cd .. &&  git clone ${DAPP_REPO_URL}`).code === 0;
+      const isCloned = shelljs.exec(` git clone ${DAPP_REPO_URL}`).code === 0;
 
       if (!isCloned) {
         reject({ success: false, message: "Git clone failed" });
@@ -35,7 +33,7 @@ async function verifyBuild(
     // append new project and run build
 
     const isBuildChecked =
-      shelljs.exec(`cd .. && cd dapp-registry && git pull && yarn`).code === 0;
+      shelljs.exec(`cd dapp-registry && git pull && yarn`).code === 0;
 
     if (!isBuildChecked) {
       reject({ success: false, message: "Git pull failed" });
@@ -48,7 +46,7 @@ async function verifyBuild(
 
     const isProjectAdded =
       shelljs.exec(
-        `cd .. && cd dapp-registry && echo '${JSON.stringify(
+        `cd dapp-registry && echo '${JSON.stringify(
           projectData,
           null,
           2
@@ -61,13 +59,12 @@ async function verifyBuild(
     }
 
     const isBuildSuccess =
-      shelljs.exec(`cd .. && cd dapp-registry && yarn build`).code === 0;
+      shelljs.exec(`cd dapp-registry && yarn build`).code === 0;
 
     // clean git repo after build check
     const isCleaned =
-      shelljs.exec(
-        `cd .. && cd dapp-registry && git reset --hard && git clean -fd`
-      ).code === 0;
+      shelljs.exec(`cd dapp-registry && git reset --hard && git clean -fd`)
+        .code === 0;
 
     console.log("Repo cleaned after test ", isCleaned);
     if (!isBuildSuccess) {
