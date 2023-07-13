@@ -99,7 +99,7 @@ onMounted(() => {
                   :chain="ecosystem.chainNames(chain?.chainId)"
                   fill="var(--color)"
                   stroke="var(--paper)"
-                  strokeWidth="15%"
+                  strokeWidth="5%"
                 />
               </picture>
               {{ ecosystem.chainNames(chain?.chainId) }} ({{ chain.count }})
@@ -259,6 +259,8 @@ dapp-filter {
   top: 2rem;
 
   border-radius: var(--corners);
+  background: var(--gradient-dark);
+
   padding-bottom: 2rem;
 
   max-height: 100vh;
@@ -340,8 +342,6 @@ dapp-filter {
       border-radius: var(--corners);
       // convert border to box shadow
       box-shadow: 1px 1px var(--gray-dark);
-
-      background: var(--gradient-dark);
 
       white-space: nowrap;
       transition: 0.1s;

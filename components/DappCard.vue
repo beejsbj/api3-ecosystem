@@ -76,7 +76,7 @@ function filterBy(event) {
     <div class="background-wrapper">
       <picture class="card-background">
         <ChainIcon
-          :chain="dapp?.chains?.[0]?.name"
+          :chain="ecosystem.chainNames(dapp.chains[0])"
           fill="none"
           stroke="var(--color)"
         />
