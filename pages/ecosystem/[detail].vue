@@ -74,8 +74,8 @@ onMounted(() => {
         <detail-content>
           <section class="about">
             <h2 class="attention-voice">About</h2>
-            <p v-for="paragraph in dapp?.description" :key="paragraph">
-              {{ paragraph }}
+            <p>
+              {{ dapp?.description }}
             </p>
           </section>
 

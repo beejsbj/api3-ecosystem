@@ -59,8 +59,8 @@ const showShareBox = ref(false);
       <div class="row product-list">
         <p>productTypes</p>
         <ul>
-          <li v-for="productType in dapp.productTypes" :key="productType">
-            {{ productType }}
+          <li>
+            {{ dapp.productType }}
           </li>
         </ul>
       </div>
