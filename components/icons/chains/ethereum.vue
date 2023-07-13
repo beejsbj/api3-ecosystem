@@ -54,7 +54,7 @@
                 y="15229.1"
                 width="400"
                 height="400"
-                style="fill: none; stroke: none; stroke-width: 0"
+                style="stroke: none; stroke-width: 0; fill: none"
               />
             </g>
           </g>

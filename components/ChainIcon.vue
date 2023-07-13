@@ -5,7 +5,7 @@ slug.extend({ "/": "-" });
 const props = defineProps(["chain", "fill", "stroke", "strokeWidth"]);
 
 const dynamicComponent = defineAsyncComponent(() =>
-  import(`@/components/icons/chains/${props.chain?.toLowerCase()}.vue`)
+  import(`@/components/icons/chains/${slug(props.chain)}.vue`)
 );
 </script>
 

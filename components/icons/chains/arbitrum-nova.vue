@@ -13,6 +13,7 @@
       clip-rule: evenodd;
       stroke-linejoin: round;
       stroke-miterlimit: 2;
+      stroke-width: 6px;
     "
   >
     <g transform="matrix(1,0,0,1,-2203.63,-13280.2)">

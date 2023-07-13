@@ -61,7 +61,7 @@
             y="0"
             width="2500"
             height="2500"
-            style="fill: none; stroke: none"
+            style="stroke: none; fill: none"
           />
         </g>
       </g>

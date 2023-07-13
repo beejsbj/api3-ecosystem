@@ -24,7 +24,6 @@
               <path
                 d="M245.62,118.96C242.47,118.96 239.81,116.71 239.28,113.6L221.35,8.18C221.06,6.48 221.45,4.78 222.45,3.38C223.45,1.98 224.93,1.05 226.62,0.76C230.12,0.17 233.45,2.53 234.05,6.03L251.98,111.45C252.27,113.15 251.88,114.85 250.88,116.25C249.88,117.65 248.4,118.58 246.71,118.87C246.36,118.92 245.99,118.96 245.62,118.96Z"
                 style="
-                  fill: none;
                   fill-rule: nonzero;
 
                   stroke-width: 0.43px;
@@ -33,7 +32,6 @@
               <path
                 d="M275.67,70.33C265.42,70.33 255.89,73.4 247.92,78.67L250.09,91.43C256.94,85.46 265.89,81.83 275.67,81.83C297.18,81.83 314.68,99.33 314.68,120.84C314.68,142.35 297.18,159.85 275.67,159.85C254.16,159.85 236.66,142.35 236.66,120.84C236.66,117.97 236.98,115.18 237.57,112.49L234.11,92.18C228.47,100.33 225.16,110.21 225.16,120.85C225.16,148.7 247.82,171.36 275.67,171.36C303.52,171.36 326.18,148.7 326.18,120.85C326.18,93 303.53,70.33 275.67,70.33Z"
                 style="
-                  fill: none;
                   fill-rule: nonzero;
 
                   stroke-width: 0.43px;
@@ -43,7 +41,6 @@
                 <path
                   d="M1723,2214C1753,2214 1779,2231 1779,2253C1779,2275 1753,2292 1723,2292L903,2292C873,2292 847,2275 847,2253C847,2231 873,2214 903,2214L1723,2214Z"
                   style="
-                    fill: none;
                     fill-rule: nonzero;
 
                     stroke-width: 35.71px;
@@ -53,26 +50,17 @@
                   cx="725"
                   cy="2235"
                   r="56"
-                  style="
-                    fill: none;
-
-                    stroke-width: 35.71px;
-                  "
+                  style="stroke-width: 35.71px"
                 />
                 <circle
                   cx="1218"
                   cy="2028"
                   r="56"
-                  style="
-                    fill: none;
-
-                    stroke-width: 35.71px;
-                  "
+                  style="stroke-width: 35.71px"
                 />
                 <path
                   d="M2180,1972C2210,1972 2236,1998 2236,2028C2236,2058 2210,2084 2180,2084L1377,2084C1347,2084 1321,2058 1321,2028C1321,1998 1347,1972 1377,1972L2180,1972Z"
                   style="
-                    fill: none;
                     fill-rule: nonzero;
 
                     stroke-width: 35.71px;
@@ -82,16 +70,11 @@
                   cx="164"
                   cy="1821"
                   r="56"
-                  style="
-                    fill: none;
-
-                    stroke-width: 35.71px;
-                  "
+                  style="stroke-width: 35.71px"
                 />
                 <path
                   d="M963,1765C993,1765 1019,1791 1019,1821C1019,1851 993,1877 963,1877L302,1877C272,1877 246,1851 246,1821C246,1791 272,1765 302,1765L963,1765Z"
                   style="
-                    fill: none;
                     fill-rule: nonzero;
 
                     stroke-width: 35.71px;
@@ -100,7 +83,6 @@
                 <path
                   d="M2444,1765C2474,1765 2500,1791 2500,1821C2500,1851 2474,1877 2444,1877L1131,1877C1101,1877 1075,1851 1075,1821C1075,1791 1101,1765 1131,1765L2444,1765Z"
                   style="
-                    fill: none;
                     fill-rule: nonzero;
 
                     stroke-width: 35.71px;
@@ -109,7 +91,6 @@
                 <path
                   d="M2198,1557C2228,1557 2254,1583 2254,1613C2254,1643 2228,1669 2198,1669L587,1669C557,1669 531,1643 531,1613C531,1583 557,1557 587,1557L2198,1557Z"
                   style="
-                    fill: none;
                     fill-rule: nonzero;
 
                     stroke-width: 35.71px;
@@ -119,16 +100,11 @@
                   cx="410"
                   cy="1613"
                   r="56"
-                  style="
-                    fill: none;
-
-                    stroke-width: 35.71px;
-                  "
+                  style="stroke-width: 35.71px"
                 />
                 <path
                   d="M1861,1354C1891,1354 1917,1380 1917,1410C1917,1440 1891,1466 1861,1466L250,1466C220,1466 194,1440 194,1410C194,1380 220,1354 250,1354L1861,1354Z"
                   style="
-                    fill: none;
                     fill-rule: nonzero;
 
                     stroke-width: 35.71px;
@@ -138,26 +114,17 @@
                   cx="56"
                   cy="1411"
                   r="56"
-                  style="
-                    fill: none;
-
-                    stroke-width: 35.71px;
-                  "
+                  style="stroke-width: 35.71px"
                 />
                 <circle
                   cx="410"
                   cy="1203"
                   r="56"
-                  style="
-                    fill: none;
-
-                    stroke-width: 35.71px;
-                  "
+                  style="stroke-width: 35.71px"
                 />
                 <path
                   d="M2353,1147C2383,1147 2409,1173 2409,1203C2409,1233 2383,1259 2353,1259L600,1259C570,1259 544,1233 544,1203C544,1173 570,1147 600,1147L2353,1147Z"
                   style="
-                    fill: none;
                     fill-rule: nonzero;
 
                     stroke-width: 35.71px;
@@ -166,25 +133,16 @@
                 <path
                   d="M1744,271C2029,392 2219,690 2197,992C1687,992 1178,996 668,988C668,785 737,578 884,435C1100,215 1458,146 1743,271L1744,271Z"
                   style="
-                    fill: none;
                     fill-rule: nonzero;
 
                     stroke-width: 35.71px;
                   "
-                />
-                <rect
-                  x="0"
-                  y="0"
-                  width="2500"
-                  height="2500"
-                  style="fill: none; stroke: black; stroke-width: 35.71px"
                 />
               </g>
               <g transform="matrix(0.00597416,0,0,0.00597416,289.86,103.679)">
                 <path
                   d="M1723,2214C1753,2214 1779,2231 1779,2253C1779,2275 1753,2292 1723,2292L903,2292C873,2292 847,2275 847,2253C847,2231 873,2214 903,2214L1723,2214Z"
                   style="
-                    fill: none;
                     fill-rule: nonzero;
 
                     stroke-width: 35.71px;
@@ -194,26 +152,17 @@
                   cx="725"
                   cy="2235"
                   r="56"
-                  style="
-                    fill: none;
-
-                    stroke-width: 35.71px;
-                  "
+                  style="stroke-width: 35.71px"
                 />
                 <circle
                   cx="1218"
                   cy="2028"
                   r="56"
-                  style="
-                    fill: none;
-
-                    stroke-width: 35.71px;
-                  "
+                  style="stroke-width: 35.71px"
                 />
                 <path
                   d="M2180,1972C2210,1972 2236,1998 2236,2028C2236,2058 2210,2084 2180,2084L1377,2084C1347,2084 1321,2058 1321,2028C1321,1998 1347,1972 1377,1972L2180,1972Z"
                   style="
-                    fill: none;
                     fill-rule: nonzero;
 
                     stroke-width: 35.71px;
@@ -223,16 +172,11 @@
                   cx="164"
                   cy="1821"
                   r="56"
-                  style="
-                    fill: none;
-
-                    stroke-width: 35.71px;
-                  "
+                  style="stroke-width: 35.71px"
                 />
                 <path
                   d="M963,1765C993,1765 1019,1791 1019,1821C1019,1851 993,1877 963,1877L302,1877C272,1877 246,1851 246,1821C246,1791 272,1765 302,1765L963,1765Z"
                   style="
-                    fill: none;
                     fill-rule: nonzero;
 
                     stroke-width: 35.71px;
@@ -241,7 +185,6 @@
                 <path
                   d="M2444,1765C2474,1765 2500,1791 2500,1821C2500,1851 2474,1877 2444,1877L1131,1877C1101,1877 1075,1851 1075,1821C1075,1791 1101,1765 1131,1765L2444,1765Z"
                   style="
-                    fill: none;
                     fill-rule: nonzero;
 
                     stroke-width: 35.71px;
@@ -250,7 +193,6 @@
                 <path
                   d="M2198,1557C2228,1557 2254,1583 2254,1613C2254,1643 2228,1669 2198,1669L587,1669C557,1669 531,1643 531,1613C531,1583 557,1557 587,1557L2198,1557Z"
                   style="
-                    fill: none;
                     fill-rule: nonzero;
 
                     stroke-width: 35.71px;
@@ -260,16 +202,11 @@
                   cx="410"
                   cy="1613"
                   r="56"
-                  style="
-                    fill: none;
-
-                    stroke-width: 35.71px;
-                  "
+                  style="stroke-width: 35.71px"
                 />
                 <path
                   d="M1861,1354C1891,1354 1917,1380 1917,1410C1917,1440 1891,1466 1861,1466L250,1466C220,1466 194,1440 194,1410C194,1380 220,1354 250,1354L1861,1354Z"
                   style="
-                    fill: none;
                     fill-rule: nonzero;
 
                     stroke-width: 35.71px;
@@ -279,26 +216,17 @@
                   cx="56"
                   cy="1411"
                   r="56"
-                  style="
-                    fill: none;
-
-                    stroke-width: 35.71px;
-                  "
+                  style="stroke-width: 35.71px"
                 />
                 <circle
                   cx="410"
                   cy="1203"
                   r="56"
-                  style="
-                    fill: none;
-
-                    stroke-width: 35.71px;
-                  "
+                  style="stroke-width: 35.71px"
                 />
                 <path
                   d="M2353,1147C2383,1147 2409,1173 2409,1203C2409,1233 2383,1259 2353,1259L600,1259C570,1259 544,1233 544,1203C544,1173 570,1147 600,1147L2353,1147Z"
                   style="
-                    fill: none;
                     fill-rule: nonzero;
 
                     stroke-width: 35.71px;
@@ -307,25 +235,16 @@
                 <path
                   d="M1744,271C2029,392 2219,690 2197,992C1687,992 1178,996 668,988C668,785 737,578 884,435C1100,215 1458,146 1743,271L1744,271Z"
                   style="
-                    fill: none;
                     fill-rule: nonzero;
 
                     stroke-width: 35.71px;
                   "
-                />
-                <rect
-                  x="0"
-                  y="0"
-                  width="2500"
-                  height="2500"
-                  style="fill: none; stroke: black; stroke-width: 35.71px"
                 />
               </g>
               <g transform="matrix(0.00597416,0,0,0.00597416,253.238,100.906)">
                 <path
                   d="M1723,2214C1753,2214 1779,2231 1779,2253C1779,2275 1753,2292 1723,2292L903,2292C873,2292 847,2275 847,2253C847,2231 873,2214 903,2214L1723,2214Z"
                   style="
-                    fill: none;
                     fill-rule: nonzero;
 
                     stroke-width: 35.71px;
@@ -335,26 +254,17 @@
                   cx="725"
                   cy="2235"
                   r="56"
-                  style="
-                    fill: none;
-
-                    stroke-width: 35.71px;
-                  "
+                  style="stroke-width: 35.71px"
                 />
                 <circle
                   cx="1218"
                   cy="2028"
                   r="56"
-                  style="
-                    fill: none;
-
-                    stroke-width: 35.71px;
-                  "
+                  style="stroke-width: 35.71px"
                 />
                 <path
                   d="M2180,1972C2210,1972 2236,1998 2236,2028C2236,2058 2210,2084 2180,2084L1377,2084C1347,2084 1321,2058 1321,2028C1321,1998 1347,1972 1377,1972L2180,1972Z"
                   style="
-                    fill: none;
                     fill-rule: nonzero;
 
                     stroke-width: 35.71px;
@@ -364,16 +274,11 @@
                   cx="164"
                   cy="1821"
                   r="56"
-                  style="
-                    fill: none;
-
-                    stroke-width: 35.71px;
-                  "
+                  style="stroke-width: 35.71px"
                 />
                 <path
                   d="M963,1765C993,1765 1019,1791 1019,1821C1019,1851 993,1877 963,1877L302,1877C272,1877 246,1851 246,1821C246,1791 272,1765 302,1765L963,1765Z"
                   style="
-                    fill: none;
                     fill-rule: nonzero;
 
                     stroke-width: 35.71px;
@@ -382,7 +287,6 @@
                 <path
                   d="M2444,1765C2474,1765 2500,1791 2500,1821C2500,1851 2474,1877 2444,1877L1131,1877C1101,1877 1075,1851 1075,1821C1075,1791 1101,1765 1131,1765L2444,1765Z"
                   style="
-                    fill: none;
                     fill-rule: nonzero;
 
                     stroke-width: 35.71px;
@@ -391,7 +295,6 @@
                 <path
                   d="M2198,1557C2228,1557 2254,1583 2254,1613C2254,1643 2228,1669 2198,1669L587,1669C557,1669 531,1643 531,1613C531,1583 557,1557 587,1557L2198,1557Z"
                   style="
-                    fill: none;
                     fill-rule: nonzero;
 
                     stroke-width: 35.71px;
@@ -401,16 +304,11 @@
                   cx="410"
                   cy="1613"
                   r="56"
-                  style="
-                    fill: none;
-
-                    stroke-width: 35.71px;
-                  "
+                  style="stroke-width: 35.71px"
                 />
                 <path
                   d="M1861,1354C1891,1354 1917,1380 1917,1410C1917,1440 1891,1466 1861,1466L250,1466C220,1466 194,1440 194,1410C194,1380 220,1354 250,1354L1861,1354Z"
                   style="
-                    fill: none;
                     fill-rule: nonzero;
 
                     stroke-width: 35.71px;
@@ -420,26 +318,17 @@
                   cx="56"
                   cy="1411"
                   r="56"
-                  style="
-                    fill: none;
-
-                    stroke-width: 35.71px;
-                  "
+                  style="stroke-width: 35.71px"
                 />
                 <circle
                   cx="410"
                   cy="1203"
                   r="56"
-                  style="
-                    fill: none;
-
-                    stroke-width: 35.71px;
-                  "
+                  style="stroke-width: 35.71px"
                 />
                 <path
                   d="M2353,1147C2383,1147 2409,1173 2409,1203C2409,1233 2383,1259 2353,1259L600,1259C570,1259 544,1233 544,1203C544,1173 570,1147 600,1147L2353,1147Z"
                   style="
-                    fill: none;
                     fill-rule: nonzero;
 
                     stroke-width: 35.71px;
@@ -448,25 +337,16 @@
                 <path
                   d="M1744,271C2029,392 2219,690 2197,992C1687,992 1178,996 668,988C668,785 737,578 884,435C1100,215 1458,146 1743,271L1744,271Z"
                   style="
-                    fill: none;
                     fill-rule: nonzero;
 
                     stroke-width: 35.71px;
                   "
-                />
-                <rect
-                  x="0"
-                  y="0"
-                  width="2500"
-                  height="2500"
-                  style="fill: none; stroke: black; stroke-width: 35.71px"
                 />
               </g>
               <g transform="matrix(0.00597416,0,0,0.00597416,270.746,113.281)">
                 <path
                   d="M1723,2214C1753,2214 1779,2231 1779,2253C1779,2275 1753,2292 1723,2292L903,2292C873,2292 847,2275 847,2253C847,2231 873,2214 903,2214L1723,2214Z"
                   style="
-                    fill: none;
                     fill-rule: nonzero;
 
                     stroke-width: 35.71px;
@@ -476,26 +356,17 @@
                   cx="725"
                   cy="2235"
                   r="56"
-                  style="
-                    fill: none;
-
-                    stroke-width: 35.71px;
-                  "
+                  style="stroke-width: 35.71px"
                 />
                 <circle
                   cx="1218"
                   cy="2028"
                   r="56"
-                  style="
-                    fill: none;
-
-                    stroke-width: 35.71px;
-                  "
+                  style="stroke-width: 35.71px"
                 />
                 <path
                   d="M2180,1972C2210,1972 2236,1998 2236,2028C2236,2058 2210,2084 2180,2084L1377,2084C1347,2084 1321,2058 1321,2028C1321,1998 1347,1972 1377,1972L2180,1972Z"
                   style="
-                    fill: none;
                     fill-rule: nonzero;
 
                     stroke-width: 35.71px;
@@ -505,16 +376,11 @@
                   cx="164"
                   cy="1821"
                   r="56"
-                  style="
-                    fill: none;
-
-                    stroke-width: 35.71px;
-                  "
+                  style="stroke-width: 35.71px"
                 />
                 <path
                   d="M963,1765C993,1765 1019,1791 1019,1821C1019,1851 993,1877 963,1877L302,1877C272,1877 246,1851 246,1821C246,1791 272,1765 302,1765L963,1765Z"
                   style="
-                    fill: none;
                     fill-rule: nonzero;
 
                     stroke-width: 35.71px;
@@ -523,7 +389,6 @@
                 <path
                   d="M2444,1765C2474,1765 2500,1791 2500,1821C2500,1851 2474,1877 2444,1877L1131,1877C1101,1877 1075,1851 1075,1821C1075,1791 1101,1765 1131,1765L2444,1765Z"
                   style="
-                    fill: none;
                     fill-rule: nonzero;
 
                     stroke-width: 35.71px;
@@ -532,7 +397,6 @@
                 <path
                   d="M2198,1557C2228,1557 2254,1583 2254,1613C2254,1643 2228,1669 2198,1669L587,1669C557,1669 531,1643 531,1613C531,1583 557,1557 587,1557L2198,1557Z"
                   style="
-                    fill: none;
                     fill-rule: nonzero;
 
                     stroke-width: 35.71px;
@@ -542,16 +406,11 @@
                   cx="410"
                   cy="1613"
                   r="56"
-                  style="
-                    fill: none;
-
-                    stroke-width: 35.71px;
-                  "
+                  style="stroke-width: 35.71px"
                 />
                 <path
                   d="M1861,1354C1891,1354 1917,1380 1917,1410C1917,1440 1891,1466 1861,1466L250,1466C220,1466 194,1440 194,1410C194,1380 220,1354 250,1354L1861,1354Z"
                   style="
-                    fill: none;
                     fill-rule: nonzero;
 
                     stroke-width: 35.71px;
@@ -561,26 +420,17 @@
                   cx="56"
                   cy="1411"
                   r="56"
-                  style="
-                    fill: none;
-
-                    stroke-width: 35.71px;
-                  "
+                  style="stroke-width: 35.71px"
                 />
                 <circle
                   cx="410"
                   cy="1203"
                   r="56"
-                  style="
-                    fill: none;
-
-                    stroke-width: 35.71px;
-                  "
+                  style="stroke-width: 35.71px"
                 />
                 <path
                   d="M2353,1147C2383,1147 2409,1173 2409,1203C2409,1233 2383,1259 2353,1259L600,1259C570,1259 544,1233 544,1203C544,1173 570,1147 600,1147L2353,1147Z"
                   style="
-                    fill: none;
                     fill-rule: nonzero;
 
                     stroke-width: 35.71px;
@@ -589,25 +439,16 @@
                 <path
                   d="M1744,271C2029,392 2219,690 2197,992C1687,992 1178,996 668,988C668,785 737,578 884,435C1100,215 1458,146 1743,271L1744,271Z"
                   style="
-                    fill: none;
                     fill-rule: nonzero;
 
                     stroke-width: 35.71px;
                   "
-                />
-                <rect
-                  x="0"
-                  y="0"
-                  width="2500"
-                  height="2500"
-                  style="fill: none; stroke: black; stroke-width: 35.71px"
                 />
               </g>
               <g transform="matrix(0.00597416,0,0,0.00597416,289.86,124.74)">
                 <path
                   d="M1723,2214C1753,2214 1779,2231 1779,2253C1779,2275 1753,2292 1723,2292L903,2292C873,2292 847,2275 847,2253C847,2231 873,2214 903,2214L1723,2214Z"
                   style="
-                    fill: none;
                     fill-rule: nonzero;
 
                     stroke-width: 35.71px;
@@ -617,26 +458,17 @@
                   cx="725"
                   cy="2235"
                   r="56"
-                  style="
-                    fill: none;
-
-                    stroke-width: 35.71px;
-                  "
+                  style="stroke-width: 35.71px"
                 />
                 <circle
                   cx="1218"
                   cy="2028"
                   r="56"
-                  style="
-                    fill: none;
-
-                    stroke-width: 35.71px;
-                  "
+                  style="stroke-width: 35.71px"
                 />
                 <path
                   d="M2180,1972C2210,1972 2236,1998 2236,2028C2236,2058 2210,2084 2180,2084L1377,2084C1347,2084 1321,2058 1321,2028C1321,1998 1347,1972 1377,1972L2180,1972Z"
                   style="
-                    fill: none;
                     fill-rule: nonzero;
 
                     stroke-width: 35.71px;
@@ -646,16 +478,11 @@
                   cx="164"
                   cy="1821"
                   r="56"
-                  style="
-                    fill: none;
-
-                    stroke-width: 35.71px;
-                  "
+                  style="stroke-width: 35.71px"
                 />
                 <path
                   d="M963,1765C993,1765 1019,1791 1019,1821C1019,1851 993,1877 963,1877L302,1877C272,1877 246,1851 246,1821C246,1791 272,1765 302,1765L963,1765Z"
                   style="
-                    fill: none;
                     fill-rule: nonzero;
 
                     stroke-width: 35.71px;
@@ -664,7 +491,6 @@
                 <path
                   d="M2444,1765C2474,1765 2500,1791 2500,1821C2500,1851 2474,1877 2444,1877L1131,1877C1101,1877 1075,1851 1075,1821C1075,1791 1101,1765 1131,1765L2444,1765Z"
                   style="
-                    fill: none;
                     fill-rule: nonzero;
 
                     stroke-width: 35.71px;
@@ -673,7 +499,6 @@
                 <path
                   d="M2198,1557C2228,1557 2254,1583 2254,1613C2254,1643 2228,1669 2198,1669L587,1669C557,1669 531,1643 531,1613C531,1583 557,1557 587,1557L2198,1557Z"
                   style="
-                    fill: none;
                     fill-rule: nonzero;
 
                     stroke-width: 35.71px;
@@ -683,16 +508,11 @@
                   cx="410"
                   cy="1613"
                   r="56"
-                  style="
-                    fill: none;
-
-                    stroke-width: 35.71px;
-                  "
+                  style="stroke-width: 35.71px"
                 />
                 <path
                   d="M1861,1354C1891,1354 1917,1380 1917,1410C1917,1440 1891,1466 1861,1466L250,1466C220,1466 194,1440 194,1410C194,1380 220,1354 250,1354L1861,1354Z"
                   style="
-                    fill: none;
                     fill-rule: nonzero;
 
                     stroke-width: 35.71px;
@@ -702,26 +522,17 @@
                   cx="56"
                   cy="1411"
                   r="56"
-                  style="
-                    fill: none;
-
-                    stroke-width: 35.71px;
-                  "
+                  style="stroke-width: 35.71px"
                 />
                 <circle
                   cx="410"
                   cy="1203"
                   r="56"
-                  style="
-                    fill: none;
-
-                    stroke-width: 35.71px;
-                  "
+                  style="stroke-width: 35.71px"
                 />
                 <path
                   d="M2353,1147C2383,1147 2409,1173 2409,1203C2409,1233 2383,1259 2353,1259L600,1259C570,1259 544,1233 544,1203C544,1173 570,1147 600,1147L2353,1147Z"
                   style="
-                    fill: none;
                     fill-rule: nonzero;
 
                     stroke-width: 35.71px;
@@ -730,25 +541,16 @@
                 <path
                   d="M1744,271C2029,392 2219,690 2197,992C1687,992 1178,996 668,988C668,785 737,578 884,435C1100,215 1458,146 1743,271L1744,271Z"
                   style="
-                    fill: none;
                     fill-rule: nonzero;
 
                     stroke-width: 35.71px;
                   "
-                />
-                <rect
-                  x="0"
-                  y="0"
-                  width="2500"
-                  height="2500"
-                  style="fill: none; stroke: black; stroke-width: 35.71px"
                 />
               </g>
               <g transform="matrix(0.00597416,0,0,0.00597416,251.744,122.669)">
                 <path
                   d="M1723,2214C1753,2214 1779,2231 1779,2253C1779,2275 1753,2292 1723,2292L903,2292C873,2292 847,2275 847,2253C847,2231 873,2214 903,2214L1723,2214Z"
                   style="
-                    fill: none;
                     fill-rule: nonzero;
 
                     stroke-width: 35.71px;
@@ -758,26 +560,17 @@
                   cx="725"
                   cy="2235"
                   r="56"
-                  style="
-                    fill: none;
-
-                    stroke-width: 35.71px;
-                  "
+                  style="stroke-width: 35.71px"
                 />
                 <circle
                   cx="1218"
                   cy="2028"
                   r="56"
-                  style="
-                    fill: none;
-
-                    stroke-width: 35.71px;
-                  "
+                  style="stroke-width: 35.71px"
                 />
                 <path
                   d="M2180,1972C2210,1972 2236,1998 2236,2028C2236,2058 2210,2084 2180,2084L1377,2084C1347,2084 1321,2058 1321,2028C1321,1998 1347,1972 1377,1972L2180,1972Z"
                   style="
-                    fill: none;
                     fill-rule: nonzero;
 
                     stroke-width: 35.71px;
@@ -787,16 +580,11 @@
                   cx="164"
                   cy="1821"
                   r="56"
-                  style="
-                    fill: none;
-
-                    stroke-width: 35.71px;
-                  "
+                  style="stroke-width: 35.71px"
                 />
                 <path
                   d="M963,1765C993,1765 1019,1791 1019,1821C1019,1851 993,1877 963,1877L302,1877C272,1877 246,1851 246,1821C246,1791 272,1765 302,1765L963,1765Z"
                   style="
-                    fill: none;
                     fill-rule: nonzero;
 
                     stroke-width: 35.71px;
@@ -805,7 +593,6 @@
                 <path
                   d="M2444,1765C2474,1765 2500,1791 2500,1821C2500,1851 2474,1877 2444,1877L1131,1877C1101,1877 1075,1851 1075,1821C1075,1791 1101,1765 1131,1765L2444,1765Z"
                   style="
-                    fill: none;
                     fill-rule: nonzero;
 
                     stroke-width: 35.71px;
@@ -814,7 +601,6 @@
                 <path
                   d="M2198,1557C2228,1557 2254,1583 2254,1613C2254,1643 2228,1669 2198,1669L587,1669C557,1669 531,1643 531,1613C531,1583 557,1557 587,1557L2198,1557Z"
                   style="
-                    fill: none;
                     fill-rule: nonzero;
 
                     stroke-width: 35.71px;
@@ -824,16 +610,11 @@
                   cx="410"
                   cy="1613"
                   r="56"
-                  style="
-                    fill: none;
-
-                    stroke-width: 35.71px;
-                  "
+                  style="stroke-width: 35.71px"
                 />
                 <path
                   d="M1861,1354C1891,1354 1917,1380 1917,1410C1917,1440 1891,1466 1861,1466L250,1466C220,1466 194,1440 194,1410C194,1380 220,1354 250,1354L1861,1354Z"
                   style="
-                    fill: none;
                     fill-rule: nonzero;
 
                     stroke-width: 35.71px;
@@ -843,26 +624,17 @@
                   cx="56"
                   cy="1411"
                   r="56"
-                  style="
-                    fill: none;
-
-                    stroke-width: 35.71px;
-                  "
+                  style="stroke-width: 35.71px"
                 />
                 <circle
                   cx="410"
                   cy="1203"
                   r="56"
-                  style="
-                    fill: none;
-
-                    stroke-width: 35.71px;
-                  "
+                  style="stroke-width: 35.71px"
                 />
                 <path
                   d="M2353,1147C2383,1147 2409,1173 2409,1203C2409,1233 2383,1259 2353,1259L600,1259C570,1259 544,1233 544,1203C544,1173 570,1147 600,1147L2353,1147Z"
                   style="
-                    fill: none;
                     fill-rule: nonzero;
 
                     stroke-width: 35.71px;
@@ -871,25 +643,16 @@
                 <path
                   d="M1744,271C2029,392 2219,690 2197,992C1687,992 1178,996 668,988C668,785 737,578 884,435C1100,215 1458,146 1743,271L1744,271Z"
                   style="
-                    fill: none;
                     fill-rule: nonzero;
 
                     stroke-width: 35.71px;
                   "
-                />
-                <rect
-                  x="0"
-                  y="0"
-                  width="2500"
-                  height="2500"
-                  style="fill: none; stroke: black; stroke-width: 35.71px"
                 />
               </g>
               <g transform="matrix(0.00597416,0,0,0.00597416,270.746,135.129)">
                 <path
                   d="M1723,2214C1753,2214 1779,2231 1779,2253C1779,2275 1753,2292 1723,2292L903,2292C873,2292 847,2275 847,2253C847,2231 873,2214 903,2214L1723,2214Z"
                   style="
-                    fill: none;
                     fill-rule: nonzero;
 
                     stroke-width: 35.71px;
@@ -899,26 +662,17 @@
                   cx="725"
                   cy="2235"
                   r="56"
-                  style="
-                    fill: none;
-
-                    stroke-width: 35.71px;
-                  "
+                  style="stroke-width: 35.71px"
                 />
                 <circle
                   cx="1218"
                   cy="2028"
                   r="56"
-                  style="
-                    fill: none;
-
-                    stroke-width: 35.71px;
-                  "
+                  style="stroke-width: 35.71px"
                 />
                 <path
                   d="M2180,1972C2210,1972 2236,1998 2236,2028C2236,2058 2210,2084 2180,2084L1377,2084C1347,2084 1321,2058 1321,2028C1321,1998 1347,1972 1377,1972L2180,1972Z"
                   style="
-                    fill: none;
                     fill-rule: nonzero;
 
                     stroke-width: 35.71px;
@@ -928,16 +682,11 @@
                   cx="164"
                   cy="1821"
                   r="56"
-                  style="
-                    fill: none;
-
-                    stroke-width: 35.71px;
-                  "
+                  style="stroke-width: 35.71px"
                 />
                 <path
                   d="M963,1765C993,1765 1019,1791 1019,1821C1019,1851 993,1877 963,1877L302,1877C272,1877 246,1851 246,1821C246,1791 272,1765 302,1765L963,1765Z"
                   style="
-                    fill: none;
                     fill-rule: nonzero;
 
                     stroke-width: 35.71px;
@@ -946,7 +695,6 @@
                 <path
                   d="M2444,1765C2474,1765 2500,1791 2500,1821C2500,1851 2474,1877 2444,1877L1131,1877C1101,1877 1075,1851 1075,1821C1075,1791 1101,1765 1131,1765L2444,1765Z"
                   style="
-                    fill: none;
                     fill-rule: nonzero;
 
                     stroke-width: 35.71px;
@@ -955,7 +703,6 @@
                 <path
                   d="M2198,1557C2228,1557 2254,1583 2254,1613C2254,1643 2228,1669 2198,1669L587,1669C557,1669 531,1643 531,1613C531,1583 557,1557 587,1557L2198,1557Z"
                   style="
-                    fill: none;
                     fill-rule: nonzero;
 
                     stroke-width: 35.71px;
@@ -965,16 +712,11 @@
                   cx="410"
                   cy="1613"
                   r="56"
-                  style="
-                    fill: none;
-
-                    stroke-width: 35.71px;
-                  "
+                  style="stroke-width: 35.71px"
                 />
                 <path
                   d="M1861,1354C1891,1354 1917,1380 1917,1410C1917,1440 1891,1466 1861,1466L250,1466C220,1466 194,1440 194,1410C194,1380 220,1354 250,1354L1861,1354Z"
                   style="
-                    fill: none;
                     fill-rule: nonzero;
 
                     stroke-width: 35.71px;
@@ -984,26 +726,17 @@
                   cx="56"
                   cy="1411"
                   r="56"
-                  style="
-                    fill: none;
-
-                    stroke-width: 35.71px;
-                  "
+                  style="stroke-width: 35.71px"
                 />
                 <circle
                   cx="410"
                   cy="1203"
                   r="56"
-                  style="
-                    fill: none;
-
-                    stroke-width: 35.71px;
-                  "
+                  style="stroke-width: 35.71px"
                 />
                 <path
                   d="M2353,1147C2383,1147 2409,1173 2409,1203C2409,1233 2383,1259 2353,1259L600,1259C570,1259 544,1233 544,1203C544,1173 570,1147 600,1147L2353,1147Z"
                   style="
-                    fill: none;
                     fill-rule: nonzero;
 
                     stroke-width: 35.71px;
@@ -1012,18 +745,10 @@
                 <path
                   d="M1744,271C2029,392 2219,690 2197,992C1687,992 1178,996 668,988C668,785 737,578 884,435C1100,215 1458,146 1743,271L1744,271Z"
                   style="
-                    fill: none;
                     fill-rule: nonzero;
 
                     stroke-width: 35.71px;
                   "
-                />
-                <rect
-                  x="0"
-                  y="0"
-                  width="2500"
-                  height="2500"
-                  style="fill: none; stroke: black; stroke-width: 35.71px"
                 />
               </g>
             </g>
@@ -1033,7 +758,7 @@
                 y="17176.8"
                 width="650.724"
                 height="650.724"
-                style="fill: none"
+                style="stroke: none;fill:none;"
               />
             </g>
           </g>

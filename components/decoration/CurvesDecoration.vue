@@ -7,7 +7,7 @@
     xmlns:xlink="http://www.w3.org/1999/xlink"
     xml:space="preserve"
     xmlns:serif="http://www.serif.com/"
-    style="fill-rule: evenodd; clip-rule: evenodd"
+    style="fill-rule: evenodd; clip-rule: evenodd; stroke-width: 1"
   >
     <g transform="matrix(1,0,0,1,-36000.9,-15888.6)">
       <g
@@ -23,7 +23,6 @@
                 fill-rule: nonzero;
                 stroke: rgb(124, 227, 203);
                 stroke-opacity: 0.03;
-                stroke-width: 0.06px;
               "
             />
           </g>
@@ -35,7 +34,6 @@
                 fill-rule: nonzero;
                 stroke: rgb(124, 227, 203);
                 stroke-opacity: 0.06;
-                stroke-width: 0.12px;
               "
             />
           </g>
@@ -47,7 +45,6 @@
                 fill-rule: nonzero;
                 stroke: rgb(124, 227, 203);
                 stroke-opacity: 0.09;
-                stroke-width: 0.18px;
               "
             />
           </g>
@@ -59,7 +56,6 @@
                 fill-rule: nonzero;
                 stroke: rgb(124, 227, 203);
                 stroke-opacity: 0.12;
-                stroke-width: 0.24px;
               "
             />
           </g>
@@ -71,7 +67,6 @@
                 fill-rule: nonzero;
                 stroke: rgb(124, 227, 203);
                 stroke-opacity: 0.15;
-                stroke-width: 0.29px;
               "
             />
           </g>
@@ -83,7 +78,6 @@
                 fill-rule: nonzero;
                 stroke: rgb(124, 227, 203);
                 stroke-opacity: 0.18;
-                stroke-width: 0.35px;
               "
             />
           </g>
@@ -95,7 +89,6 @@
                 fill-rule: nonzero;
                 stroke: rgb(124, 227, 203);
                 stroke-opacity: 0.21;
-                stroke-width: 0.41px;
               "
             />
           </g>
@@ -107,7 +100,6 @@
                 fill-rule: nonzero;
                 stroke: rgb(124, 227, 203);
                 stroke-opacity: 0.24;
-                stroke-width: 0.47px;
               "
             />
           </g>
@@ -119,7 +111,6 @@
                 fill-rule: nonzero;
                 stroke: rgb(124, 227, 203);
                 stroke-opacity: 0.26;
-                stroke-width: 0.53px;
               "
             />
           </g>
@@ -131,7 +122,6 @@
                 fill-rule: nonzero;
                 stroke: rgb(124, 227, 203);
                 stroke-opacity: 0.29;
-                stroke-width: 0.59px;
               "
             />
           </g>
@@ -143,7 +133,6 @@
                 fill-rule: nonzero;
                 stroke: rgb(124, 227, 203);
                 stroke-opacity: 0.32;
-                stroke-width: 0.65px;
               "
             />
           </g>
@@ -155,7 +144,6 @@
                 fill-rule: nonzero;
                 stroke: rgb(124, 227, 203);
                 stroke-opacity: 0.35;
-                stroke-width: 0.71px;
               "
             />
           </g>
@@ -167,7 +155,6 @@
                 fill-rule: nonzero;
                 stroke: rgb(124, 227, 203);
                 stroke-opacity: 0.38;
-                stroke-width: 0.76px;
               "
             />
           </g>
@@ -179,7 +166,6 @@
                 fill-rule: nonzero;
                 stroke: rgb(124, 227, 203);
                 stroke-opacity: 0.41;
-                stroke-width: 0.82px;
               "
             />
           </g>
@@ -191,7 +177,6 @@
                 fill-rule: nonzero;
                 stroke: rgb(124, 227, 203);
                 stroke-opacity: 0.44;
-                stroke-width: 0.88px;
               "
             />
           </g>
@@ -203,7 +188,6 @@
                 fill-rule: nonzero;
                 stroke: rgb(124, 227, 203);
                 stroke-opacity: 0.47;
-                stroke-width: 0.94px;
               "
             />
           </g>
@@ -215,7 +199,6 @@
                 fill-rule: nonzero;
                 stroke: rgb(124, 227, 203);
                 stroke-opacity: 0.5;
-                stroke-width: 1px;
               "
             />
           </g>
@@ -227,7 +210,6 @@
                 fill-rule: nonzero;
                 stroke: rgb(124, 227, 203);
                 stroke-opacity: 0.53;
-                stroke-width: 1.06px;
               "
             />
           </g>
@@ -239,7 +221,6 @@
                 fill-rule: nonzero;
                 stroke: rgb(124, 227, 203);
                 stroke-opacity: 0.56;
-                stroke-width: 1.12px;
               "
             />
           </g>
@@ -251,7 +232,6 @@
                 fill-rule: nonzero;
                 stroke: rgb(124, 227, 203);
                 stroke-opacity: 0.59;
-                stroke-width: 1.18px;
               "
             />
           </g>
@@ -263,7 +243,6 @@
                 fill-rule: nonzero;
                 stroke: rgb(124, 227, 203);
                 stroke-opacity: 0.62;
-                stroke-width: 1.24px;
               "
             />
           </g>
@@ -275,7 +254,6 @@
                 fill-rule: nonzero;
                 stroke: rgb(124, 227, 203);
                 stroke-opacity: 0.65;
-                stroke-width: 1.29px;
               "
             />
           </g>
@@ -287,7 +265,6 @@
                 fill-rule: nonzero;
                 stroke: rgb(124, 227, 203);
                 stroke-opacity: 0.68;
-                stroke-width: 1.35px;
               "
             />
           </g>
@@ -299,7 +276,6 @@
                 fill-rule: nonzero;
                 stroke: rgb(124, 227, 203);
                 stroke-opacity: 0.71;
-                stroke-width: 1.41px;
               "
             />
           </g>
@@ -311,7 +287,6 @@
                 fill-rule: nonzero;
                 stroke: rgb(124, 227, 203);
                 stroke-opacity: 0.74;
-                stroke-width: 1.47px;
               "
             />
           </g>
@@ -323,7 +298,6 @@
                 fill-rule: nonzero;
                 stroke: rgb(124, 227, 203);
                 stroke-opacity: 0.76;
-                stroke-width: 1.53px;
               "
             />
           </g>
@@ -335,7 +309,6 @@
                 fill-rule: nonzero;
                 stroke: rgb(124, 227, 203);
                 stroke-opacity: 0.79;
-                stroke-width: 1.59px;
               "
             />
           </g>
@@ -347,7 +320,6 @@
                 fill-rule: nonzero;
                 stroke: rgb(124, 227, 203);
                 stroke-opacity: 0.82;
-                stroke-width: 1.65px;
               "
             />
           </g>
@@ -359,7 +331,6 @@
                 fill-rule: nonzero;
                 stroke: rgb(124, 227, 203);
                 stroke-opacity: 0.85;
-                stroke-width: 1.71px;
               "
             />
           </g>
@@ -371,7 +342,6 @@
                 fill-rule: nonzero;
                 stroke: rgb(124, 227, 203);
                 stroke-opacity: 0.88;
-                stroke-width: 1.76px;
               "
             />
           </g>
@@ -383,7 +353,6 @@
                 fill-rule: nonzero;
                 stroke: rgb(124, 227, 203);
                 stroke-opacity: 0.91;
-                stroke-width: 1.82px;
               "
             />
           </g>
@@ -395,7 +364,6 @@
                 fill-rule: nonzero;
                 stroke: rgb(124, 227, 203);
                 stroke-opacity: 0.94;
-                stroke-width: 1.88px;
               "
             />
           </g>
@@ -407,19 +375,13 @@
                 fill-rule: nonzero;
                 stroke: rgb(124, 227, 203);
                 stroke-opacity: 0.97;
-                stroke-width: 1.94px;
               "
             />
           </g>
           <g transform="matrix(0.587949,0,0,0.587949,36275.5,16036.8)">
             <path
               d="M2854.27,436.45C2830.24,625.683 2759.82,871.359 2233.29,799.167C1719.77,728.761 1938.23,452.955 1535.43,377.162C1010.94,278.473 1123.41,755.928 796.818,780.212C470.228,804.496 311.034,628.014 137.897,467.86C-0.614,339.737 -51.427,187.748 -59.52,127.769"
-              style="
-                fill: none;
-                fill-rule: nonzero;
-                stroke: rgb(124, 227, 203);
-                stroke-width: 2px;
-              "
+              style="fill: none; fill-rule: nonzero; stroke: rgb(124, 227, 203)"
             />
           </g>
         </g>

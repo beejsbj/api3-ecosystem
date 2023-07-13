@@ -50,7 +50,7 @@
               y="13175"
               width="400"
               height="400"
-              style="stroke: none;fill:none;"
+              style="stroke: none; fill: none"
             />
           </g>
         </g>

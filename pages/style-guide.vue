@@ -1,13 +1,20 @@
 <script setup>
+import slug from "slug";
+slug.extend({ "/": "-" });
+
 const ecosystem = useEcosystemStore();
 </script>
 
 <template>
   <PageHeader heading="Style Guide" />
   <SectionColumn>
-    <div v-for="chain in ecosystem.chainOptions">
-      <p>{{ chain.label }}</p>
-      <!-- <ChainIcon :chain="chain.label" /> -->
+    <div>
+      <ChainIcon
+        v-for="chain in ecosystem.chainOptions"
+        :chain="chain.label"
+        fill="none"
+        stroke="var(--color)"
+      />
     </div>
   </SectionColumn>
 </template>
@@ -15,7 +22,7 @@ const ecosystem = useEcosystemStore();
 <style scoped>
 div {
   display: grid;
-  grid-template-columns: 1fr 0.1fr;
-  gap: 1rem;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  gap: 15rem;
 }
 </style>

@@ -46,7 +46,7 @@
               y="14915.6"
               width="495.077"
               height="495.077"
-              style="fill: none; stroke: none"
+              style="stroke: none; fill: none"
             />
           </g>
         </g>

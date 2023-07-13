@@ -74,13 +74,7 @@ function filterBy(event) {
     </footer>
 
     <div class="background-wrapper">
-      <picture
-        class="card-background"
-        v-if="
-          dapp?.chains?.[0]?.name &&
-          `/images/chains/${dapp?.chains?.[0]?.name?.toLowerCase()}.svg`
-        "
-      >
+      <picture class="card-background">
         <ChainIcon
           :chain="dapp?.chains?.[0]?.name"
           fill="none"
