@@ -1,4 +1,7 @@
 <script setup>
+import slug from "slug";
+slug.extend({ "/": "-" });
+
 const props = defineProps(["chain", "fill", "stroke", "strokeWidth"]);
 
 const dynamicComponent = defineAsyncComponent(() =>
